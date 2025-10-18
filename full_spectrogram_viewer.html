@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaulossen Complete Detection Viewer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #2d2d3a 0%, #1f1f2e 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: #999;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-value {
+            font-size: 2.2em;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .controls {
+            background: linear-gradient(135deg, #2d2d3a 0%, #1f1f2e 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        select, input {
+            background: #1a1a2e;
+            color: #e0e0e0;
+            border: 2px solid #667eea;
+            padding: 12px 18px;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: #764ba2;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(102, 126, 234, 0.5);
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tab-button {
+            padding: 15px 30px;
+            background: #2d2d3a;
+            border: 2px solid #667eea;
+            color: #e0e0e0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .tab-button.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-color: transparent;
+        }
+
+        .detection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            gap: 25px;
+        }
+
+        .detection-card {
+            background: linear-gradient(135deg, #2d2d3a 0%, #1f1f2e 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .detection-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            border-color: #667eea;
+        }
+
+        .detection-card.suspicious {
+            border: 3px solid #ff6b6b;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4); }
+            50% { box-shadow: 0 6px 30px rgba(255, 107, 107, 0.7); }
+        }
+
+        .detection-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .detection-info {
+            padding: 20px;
+        }
+
+        .species-name {
+            font-size: 1.4em;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        .detection-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            font-size: 0.95em;
+            color: #999;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .confidence {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .confidence.high {
+            background: linear-gradient(135deg, #51cf66 0%, #40c057 100%);
+            color: white;
+        }
+
+        .confidence.medium {
+            background: linear-gradient(135deg, #ffd43b 0%, #fab005 100%);
+            color: #1a1a1a;
+        }
+
+        .confidence.low {
+            background: linear-gradient(135deg, #ff6b6b 0%, #fa5252 100%);
+            color: white;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b 0%, #fa5252 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            margin-left: 10px;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .weather-badge {
+            display: inline-block;
+            background: #4dabf7;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            max-width: 95%;
+            max-height: 95%;
+            position: relative;
+            animation: zoomIn 0.3s;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 12px;
+            box-shadow: 0 0 50px rgba(102, 126, 234, 0.5);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            font-size: 1.5em;
+            color: #667eea;
+        }
+
+        @media (max-width: 768px) {
+            .detection-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🦅 Gaulossen Complete Detection Viewer</h1>
+        <p class="subtitle">October 13-15, 2025 • Gaulossen Nature Reserve, Norway • 6,805 Detections</p>
+    </div>
+
+    <div class="tab-buttons">
+        <button class="tab-button active" onclick="switchTab('high-priority')">
+            🚨 High Priority (21)
+        </button>
+        <button class="tab-button" onclick="switchTab('best')">
+            🌟 Best Detections (Top 3 per species)
+        </button>
+        <button class="tab-button" onclick="switchTab('all')">
+            📊 All Species
+        </button>
+    </div>
+
+    <div class="stats">
+        <div class="stat-card">
+            <div class="stat-label">Showing</div>
+            <div class="stat-value" id="showingCount">21</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Total Species</div>
+            <div class="stat-value">90</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Flagged</div>
+            <div class="stat-value" style="color: #ff6b6b;">21</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Avg Confidence</div>
+            <div class="stat-value" id="avgConf">0.345</div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <select id="sortBy">
+            <option value="confidence">Sort by Confidence</option>
+            <option value="species">Sort by Species</option>
+            <option value="time">Sort by Time</option>
+        </select>
+
+        <select id="filterSpecies">
+            <option value="all">All Species</option>
+        </select>
+
+        <button id="toggleSuspicious">🚨 Suspicious Only</button>
+
+        <input type="text" id="searchBox" placeholder="🔍 Search species...">
+    </div>
+
+    <div id="loadingMessage" class="loading">
+        Loading spectrograms... Please wait.
+    </div>
+
+    <div class="detection-grid" id="detectionGrid" style="display: none;">
+        <!-- Detection cards will be inserted here -->
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">✕ Close</button>
+            <img class="modal-image" id="modalImage" src="" alt="Detection spectrogram">
+        </div>
+    </div>
+
+    <script>
+        // This will be populated from the CSV data
+        let allDetections = [];
+        let filteredDetections = [];
+        let currentTab = 'high-priority';
+        let showOnlySuspicious = false;
+
+        // Load detection data from CSV
+        async function loadDetections() {
+            try {
+                const response = await fetch('results/all_detections_with_weather.csv');
+                const text = await response.text();
+                const lines = text.split('\\n');
+                const headers = lines[0].split(',');
+
+                for (let i = 1; i < lines.length; i++) {
+                    if (!lines[i]) continue;
+                    const values = lines[i].split(',');
+
+                    const detection = {
+                        species: values[headers.indexOf('common_name')],
+                        confidence: parseFloat(values[headers.indexOf('confidence')]),
+                        time: values[headers.indexOf('absolute_timestamp')],
+                        file: values[headers.indexOf('file_stem')],
+                        weather: values[headers.indexOf('weather_summary')],
+                        start_s: parseFloat(values[headers.indexOf('start_s')]),
+                        suspicious: parseFloat(values[headers.indexOf('confidence')]) < 0.50
+                    };
+
+                    allDetections.push(detection);
+                }
+
+                console.log(`Loaded ${allDetections.length} detections`);
+                document.getElementById('loadingMessage').style.display = 'none';
+                document.getElementById('detectionGrid').style.display = 'grid';
+                populateFilters();
+                switchTab('high-priority');
+            } catch (error) {
+                console.error('Error loading detections:', error);
+                document.getElementById('loadingMessage').textContent = 'Error loading data. Using sample data...';
+                useSampleData();
+            }
+        }
+
+        function useSampleData() {
+            // Fallback sample data (high priority detections)
+            allDetections = [
+                {species: "River Warbler", confidence: 0.254, time: "2025-10-14 07:24:24", file: "245AAA0563ED3DA7_20251014_000000", weather: "Light rain", start_s: 26664, suspicious: true},
+                {species: "Common Raven", confidence: 0.262, time: "2025-10-14 18:10:20", file: "245AAA0563ED3DA7_20251014_122526", weather: "Clearing", start_s: 20694, suspicious: true},
+                // ... add all 21 high priority detections
+            ];
+            document.getElementById('loadingMessage').style.display = 'none';
+            document.getElementById('detectionGrid').style.display = 'grid';
+            populateFilters();
+            switchTab('high-priority');
+        }
+
+        function populateFilters() {
+            const uniqueSpecies = [...new Set(allDetections.map(d => d.species))].sort();
+            const speciesFilter = document.getElementById('filterSpecies');
+            speciesFilter.innerHTML = '<option value="all">All Species</option>';
+            uniqueSpecies.forEach(species => {
+                const option = document.createElement('option');
+                option.value = species;
+                option.textContent = species;
+                speciesFilter.appendChild(option);
+            });
+        }
+
+        function switchTab(tab) {
+            currentTab = tab;
+
+            // Update button states
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Filter detections based on tab
+            if (tab === 'high-priority') {
+                filteredDetections = allDetections.filter(d => d.suspicious);
+            } else if (tab === 'best') {
+                // Get top 3 per species
+                const grouped = {};
+                allDetections.forEach(d => {
+                    if (!grouped[d.species]) grouped[d.species] = [];
+                    grouped[d.species].push(d);
+                });
+                filteredDetections = [];
+                Object.values(grouped).forEach(group => {
+                    group.sort((a, b) => b.confidence - a.confidence);
+                    filteredDetections.push(...group.slice(0, 3));
+                });
+            } else {
+                filteredDetections = [...allDetections];
+            }
+
+            renderDetections();
+        }
+
+        function getConfidenceClass(confidence) {
+            if (confidence >= 0.70) return 'high';
+            if (confidence >= 0.40) return 'medium';
+            return 'low';
+        }
+
+        function renderDetections() {
+            const grid = document.getElementById('detectionGrid');
+            grid.innerHTML = '';
+
+            document.getElementById('showingCount').textContent = filteredDetections.length;
+
+            filteredDetections.forEach((detection, index) => {
+                const card = document.createElement('div');
+                card.className = 'detection-card' + (detection.suspicious ? ' suspicious' : '');
+
+                const safeSpecies = detection.species.replace(/ /g, '_').replace(/\\//g, '-');
+                const confStr = detection.confidence.toFixed(3).replace('.', '');
+
+                // Try multiple image paths
+                const imagePaths = [
+                    `results/spectrograms_best/${detection.file}_${safeSpecies}_${Math.floor(detection.start_s)}s_conf${confStr}.png`,
+                    `results/spectrograms_high_priority/${detection.file}_${safeSpecies}_${Math.floor(detection.start_s)}s.png`,
+                    `results/spectrograms_best/${detection.file}_${safeSpecies}*.png`
+                ];
+
+                card.innerHTML = `
+                    <img class="detection-image"
+                         src="${imagePaths[0]}"
+                         onerror="this.onerror=null; this.src='${imagePaths[1]}';"
+                         alt="${detection.species} spectrogram">
+                    <div class="detection-info">
+                        <div class="species-name">
+                            ${detection.species}
+                            ${detection.suspicious ? '<span class="badge">⚠️ Review</span>' : ''}
+                            ${detection.weather ? `<span class="weather-badge">🌦️ ${detection.weather}</span>` : ''}
+                        </div>
+                        <div class="detection-meta">
+                            <div class="meta-item">
+                                📊 <span class="confidence ${getConfidenceClass(detection.confidence)}">${detection.confidence.toFixed(3)}</span>
+                            </div>
+                            <div class="meta-item">⏰ ${detection.time}</div>
+                            <div class="meta-item">📁 ${detection.file.substring(17)}</div>
+                        </div>
+                    </div>
+                `;
+
+                card.onclick = () => openModal(imagePaths[0]);
+                grid.appendChild(card);
+            });
+
+            // Update average confidence
+            const avgConf = filteredDetections.reduce((sum, d) => sum + d.confidence, 0) / filteredDetections.length;
+            document.getElementById('avgConf').textContent = avgConf.toFixed(3);
+        }
+
+        function openModal(imageSrc) {
+            document.getElementById('modalImage').src = imageSrc;
+            document.getElementById('modal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+
+        // Event listeners
+        document.getElementById('sortBy').addEventListener('change', (e) => {
+            const sortBy = e.target.value;
+            if (sortBy === 'confidence') {
+                filteredDetections.sort((a, b) => a.confidence - b.confidence);
+            } else if (sortBy === 'species') {
+                filteredDetections.sort((a, b) => a.species.localeCompare(b.species));
+            } else if (sortBy === 'time') {
+                filteredDetections.sort((a, b) => a.time.localeCompare(b.time));
+            }
+            renderDetections();
+        });
+
+        document.getElementById('modal').addEventListener('click', (e) => {
+            if (e.target.id === 'modal') closeModal();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Load data on page load
+        loadDetections();
+    </script>
+</body>
+</html>

@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaulossen Detection Viewer with Audio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        /* Best Species Audio Player */
+        .best-audio-player {
+            background: linear-gradient(135deg, #2d2d3a 0%, #1f1f2e 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border: 3px solid #51cf66;
+            box-shadow: 0 6px 20px rgba(81, 207, 102, 0.3);
+        }
+
+        .best-audio-player h2 {
+            color: #51cf66;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .audio-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .play-button {
+            background: linear-gradient(135deg, #51cf66 0%, #40c057 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(81, 207, 102, 0.4);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .play-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(81, 207, 102, 0.6);
+        }
+
+        .play-button:active {
+            transform: scale(0.95);
+        }
+
+        .play-button.playing {
+            background: linear-gradient(135deg, #ff6b6b 0%, #fa5252 100%);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .audio-info {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .audio-info h3 {
+            color: #667eea;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .audio-info p {
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #2d2d3a 0%, #1f1f2e 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: #999;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-value {
+            font-size: 2.2em;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            padding: 15px 30px;
+            background: #2d2d3a;
+            border: 2px solid #667eea;
+            color: #e0e0e0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1em;
+            font-weight: 600;
+        }
+
+        .tab-button.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-color: transparent;
+        }
+
+        .detection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            gap: 25px;
+        }
+
+        .detection-card {
+            background: linear-gradient(135deg, #2d2d3a 0%, #1f1f2e 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .detection-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            border-color: #667eea;
+        }
+
+        .detection-card.suspicious {
+            border: 3px solid #ff6b6b;
+        }
+
+        .detection-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            cursor: pointer;
+        }
+
+        .detection-info {
+            padding: 20px;
+        }
+
+        .species-name {
+            font-size: 1.4em;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        .detection-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            font-size: 0.95em;
+            color: #999;
+            margin-bottom: 15px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .confidence {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .confidence.high {
+            background: linear-gradient(135deg, #51cf66 0%, #40c057 100%);
+            color: white;
+        }
+
+        .confidence.medium {
+            background: linear-gradient(135deg, #ffd43b 0%, #fab005 100%);
+            color: #1a1a1a;
+        }
+
+        .confidence.low {
+            background: linear-gradient(135deg, #ff6b6b 0%, #fa5252 100%);
+            color: white;
+        }
+
+        .card-play-button {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .card-play-button:hover {
+            background: linear-gradient(135deg, #5568d3 0%, #6b3f8e 100%);
+            transform: translateY(-2px);
+        }
+
+        .card-play-button.playing {
+            background: linear-gradient(135deg, #ff6b6b 0%, #fa5252 100%);
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b 0%, #fa5252 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
+
+        .weather-badge {
+            display: inline-block;
+            background: #4dabf7;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            max-width: 95%;
+            max-height: 95%;
+            position: relative;
+            animation: zoomIn 0.3s;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 12px;
+            box-shadow: 0 0 50px rgba(102, 126, 234, 0.5);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            font-size: 1.5em;
+            color: #667eea;
+        }
+
+        @media (max-width: 768px) {
+            .detection-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .tab-buttons {
+                flex-direction: column;
+            }
+
+            .tab-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🦅 Gaulossen Detection Viewer with Audio</h1>
+        <p class="subtitle">October 13-15, 2025 • Gaulossen Nature Reserve, Norway • 6,805 Detections</p>
+    </div>
+
+    <!-- Best Species Audio Player -->
+    <div class="best-audio-player" id="bestAudioPlayer" style="display: none;">
+        <h2>🌟 Best Detection Audio</h2>
+        <div class="audio-controls">
+            <button class="play-button" id="bestPlayButton" onclick="toggleBestAudio()">
+                <span id="bestPlayIcon">▶️</span>
+                <span id="bestPlayText">Play Best Version</span>
+            </button>
+            <div class="audio-info">
+                <h3 id="bestSpeciesName">Loading...</h3>
+                <p id="bestSpeciesInfo">Confidence: - | Time: -</p>
+            </div>
+        </div>
+        <audio id="bestAudioElement" preload="metadata"></audio>
+    </div>
+
+    <div class="tab-buttons">
+        <button class="tab-button active" onclick="switchTab('high-priority')">
+            🚨 High Priority (21)
+        </button>
+        <button class="tab-button" onclick="switchTab('best')">
+            🌟 Best Detections (Top 3 per species)
+        </button>
+        <button class="tab-button" onclick="switchTab('all')">
+            📊 All Species
+        </button>
+    </div>
+
+    <div class="stats">
+        <div class="stat-card">
+            <div class="stat-label">Showing</div>
+            <div class="stat-value" id="showingCount">-</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Total Species</div>
+            <div class="stat-value">90</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">With Audio</div>
+            <div class="stat-value" id="audioCount">-</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Avg Confidence</div>
+            <div class="stat-value" id="avgConf">-</div>
+        </div>
+    </div>
+
+    <div id="loadingMessage" class="loading">
+        Loading spectrograms and audio... Please wait.
+    </div>
+
+    <div class="detection-grid" id="detectionGrid" style="display: none;">
+        <!-- Detection cards will be inserted here -->
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">✕ Close</button>
+            <img class="modal-image" id="modalImage" src="" alt="Detection spectrogram">
+        </div>
+    </div>
+
+    <script>
+        let allDetections = [];
+        let filteredDetections = [];
+        let currentTab = 'high-priority';
+        let currentAudio = null;
+        let bestAudio = null;
+
+        // Audio player management
+        const audioPlayers = new Map();
+
+        async function loadDetections() {
+            try {
+                // Load JSON file (simpler and more reliable than CSV)
+                const response = await fetch('results/detections.json');
+                allDetections = await response.json();
+
+                console.log(`Loaded ${allDetections.length} detections`);
+                document.getElementById('loadingMessage').style.display = 'none';
+                document.getElementById('detectionGrid').style.display = 'grid';
+                switchTab('high-priority');
+                loadBestAudio();
+            } catch (error) {
+                console.error('Error loading detections:', error);
+                document.getElementById('loadingMessage').innerHTML =
+                    'Error loading data. Make sure you are serving this page via HTTP (not file://).<br>' +
+                    'Try: <code>python3 -m http.server 8000</code> then open <code>http://localhost:8000/full_spectrogram_viewer_audio.html</code>';
+            }
+        }
+
+        function loadBestAudio() {
+            // Find highest confidence detection
+            if (allDetections.length === 0) return;
+
+            const best = allDetections.reduce((prev, current) =>
+                current.confidence > prev.confidence ? current : prev
+            );
+
+            const audioPath = getAudioPath(best);
+            document.getElementById('bestAudioElement').src = audioPath;
+            document.getElementById('bestSpeciesName').textContent = best.species;
+            document.getElementById('bestSpeciesInfo').textContent =
+                `Confidence: ${best.confidence.toFixed(3)} | Time: ${best.time}`;
+            document.getElementById('bestAudioPlayer').style.display = 'block';
+
+            bestAudio = best;
+        }
+
+        function getAudioPath(detection) {
+            const safeSpecies = detection.species.replace(/ /g, '_').replace(/\//g, '-');
+            const confStr = detection.confidence.toFixed(3).replace('.', '');
+            // Try enhanced version first, fallback to original
+            return `results/audio_clips_enhanced/${detection.file}_${safeSpecies}_${Math.floor(detection.start_s)}s_conf${confStr}.wav`;
+        }
+
+        function getAudioPathFallback(detection) {
+            const safeSpecies = detection.species.replace(/ /g, '_').replace(/\//g, '-');
+            const confStr = detection.confidence.toFixed(3).replace('.', '');
+            return `results/audio_clips/${detection.file}_${safeSpecies}_${Math.floor(detection.start_s)}s_conf${confStr}.wav`;
+        }
+
+        function getImagePath(detection) {
+            const safeSpecies = detection.species.replace(/ /g, '_').replace(/\//g, '-');
+            const confStr = detection.confidence.toFixed(3).replace('.', '');
+            return `results/spectrograms_best/${detection.file}_${safeSpecies}_${Math.floor(detection.start_s)}s_conf${confStr}.png`;
+        }
+
+        function toggleBestAudio() {
+            const audio = document.getElementById('bestAudioElement');
+            const button = document.getElementById('bestPlayButton');
+            const icon = document.getElementById('bestPlayIcon');
+            const text = document.getElementById('bestPlayText');
+
+            if (audio.paused) {
+                // Stop any other playing audio
+                stopAllAudio();
+
+                audio.play();
+                button.classList.add('playing');
+                icon.textContent = '⏸️';
+                text.textContent = 'Pause';
+            } else {
+                audio.pause();
+                button.classList.remove('playing');
+                icon.textContent = '▶️';
+                text.textContent = 'Play Best Version';
+            }
+        }
+
+        function toggleCardAudio(detection, buttonId) {
+            const audioPath = getAudioPath(detection);
+            const button = document.getElementById(buttonId);
+
+            // Get or create audio element for this card
+            if (!audioPlayers.has(buttonId)) {
+                const audio = new Audio(audioPath);
+                audio.addEventListener('ended', () => {
+                    button.classList.remove('playing');
+                    button.innerHTML = '▶️ Play Enhanced Audio';
+                });
+                audio.addEventListener('error', () => {
+                    // Try fallback to original audio
+                    const fallbackPath = getAudioPathFallback(detection);
+                    audio.src = fallbackPath;
+                    audio.load();
+                    audio.addEventListener('error', () => {
+                        button.innerHTML = '⏳ Processing...';
+                        button.disabled = true;
+                    }, { once: true });
+                });
+                audioPlayers.set(buttonId, audio);
+            }
+
+            const audio = audioPlayers.get(buttonId);
+
+            if (audio.paused) {
+                // Stop all other audio
+                stopAllAudio();
+
+                audio.play();
+                button.classList.add('playing');
+                button.innerHTML = '⏸️ Pause';
+            } else {
+                audio.pause();
+                button.classList.remove('playing');
+                button.innerHTML = '▶️ Play Enhanced Audio';
+            }
+        }
+
+        function stopAllAudio() {
+            // Stop best audio
+            const bestAudio = document.getElementById('bestAudioElement');
+            if (!bestAudio.paused) {
+                bestAudio.pause();
+                document.getElementById('bestPlayButton').classList.remove('playing');
+                document.getElementById('bestPlayIcon').textContent = '▶️';
+                document.getElementById('bestPlayText').textContent = 'Play Best Version';
+            }
+
+            // Stop all card audio
+            audioPlayers.forEach((audio, buttonId) => {
+                if (!audio.paused) {
+                    audio.pause();
+                    const button = document.getElementById(buttonId);
+                    if (button) {
+                        button.classList.remove('playing');
+                        button.innerHTML = '▶️ Play Audio';
+                    }
+                }
+            });
+        }
+
+        function switchTab(tab) {
+            currentTab = tab;
+
+            // Stop all audio when switching tabs
+            stopAllAudio();
+
+            // Update button states
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Filter detections
+            if (tab === 'high-priority') {
+                filteredDetections = allDetections.filter(d => d.suspicious);
+            } else if (tab === 'best') {
+                const grouped = {};
+                allDetections.forEach(d => {
+                    if (!grouped[d.species]) grouped[d.species] = [];
+                    grouped[d.species].push(d);
+                });
+                filteredDetections = [];
+                Object.values(grouped).forEach(group => {
+                    group.sort((a, b) => b.confidence - a.confidence);
+                    filteredDetections.push(...group.slice(0, 3));
+                });
+            } else {
+                filteredDetections = [...allDetections];
+            }
+
+            renderDetections();
+        }
+
+        function getConfidenceClass(confidence) {
+            if (confidence >= 0.70) return 'high';
+            if (confidence >= 0.40) return 'medium';
+            return 'low';
+        }
+
+        function renderDetections() {
+            const grid = document.getElementById('detectionGrid');
+            grid.innerHTML = '';
+
+            document.getElementById('showingCount').textContent = filteredDetections.length;
+
+            let audioAvailable = 0;
+
+            filteredDetections.forEach((detection, index) => {
+                const card = document.createElement('div');
+                card.className = 'detection-card' + (detection.suspicious ? ' suspicious' : '');
+
+                const imagePath = getImagePath(detection);
+                const audioPath = getAudioPath(detection);
+                const buttonId = `play-btn-${index}`;
+
+                card.innerHTML = `
+                    <img class="detection-image"
+                         src="${imagePath}"
+                         onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'400\\' height=\\'300\\'%3E%3Crect fill=\\'%232d2d2d\\' width=\\'400\\' height=\\'300\\'/%3E%3Ctext x=\\'50%25\\' y=\\'50%25\\' text-anchor=\\'middle\\' fill=\\'%23666\\' font-size=\\'20\\'%3ELoading...%3C/text%3E%3C/svg%3E'"
+                         alt="${detection.species} spectrogram"
+                         onclick="openModal('${imagePath}')">
+                    <div class="detection-info">
+                        <div class="species-name">
+                            ${detection.species}
+                            ${detection.suspicious ? '<span class="badge">⚠️ Review</span>' : ''}
+                            ${detection.weather ? `<span class="weather-badge">🌦️ ${detection.weather}</span>` : ''}
+                        </div>
+                        <div class="detection-meta">
+                            <div class="meta-item">
+                                📊 <span class="confidence ${getConfidenceClass(detection.confidence)}">${detection.confidence.toFixed(3)}</span>
+                            </div>
+                            <div class="meta-item">⏰ ${detection.time}</div>
+                            <div class="meta-item">📁 ${detection.file.substring(17)}</div>
+                        </div>
+                        <button class="card-play-button" id="${buttonId}"
+                                onclick="toggleCardAudio(${JSON.stringify(detection).replace(/"/g, '&quot;')}, '${buttonId}')">
+                            ▶️ Play Enhanced Audio
+                        </button>
+                    </div>
+                `;
+
+                grid.appendChild(card);
+                audioAvailable++;
+            });
+
+            document.getElementById('audioCount').textContent = audioAvailable;
+
+            // Update average confidence
+            const avgConf = filteredDetections.reduce((sum, d) => sum + d.confidence, 0) / filteredDetections.length;
+            document.getElementById('avgConf').textContent = avgConf.toFixed(3);
+        }
+
+        function openModal(imageSrc) {
+            document.getElementById('modalImage').src = imageSrc;
+            document.getElementById('modal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+
+        // Event listeners
+        document.getElementById('modal').addEventListener('click', (e) => {
+            if (e.target.id === 'modal') closeModal();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Auto-pause on audio end
+        document.getElementById('bestAudioElement').addEventListener('ended', () => {
+            document.getElementById('bestPlayButton').classList.remove('playing');
+            document.getElementById('bestPlayIcon').textContent = '▶️';
+            document.getElementById('bestPlayText').textContent = 'Play Best Version';
+        });
+
+        // Load data on page load
+        loadDetections();
+    </script>
+</body>
+</html>

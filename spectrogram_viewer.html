@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaulossen High-Priority Detection Viewer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1a1a1a;
+            color: #e0e0e0;
+            padding: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: #2d2d2d;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: #999;
+            margin-bottom: 5px;
+        }
+
+        .stat-value {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .controls {
+            background: #2d2d2d;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        select, input {
+            background: #1a1a1a;
+            color: #e0e0e0;
+            border: 1px solid #444;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #5568d3;
+        }
+
+        .detection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 20px;
+        }
+
+        .detection-card {
+            background: #2d2d2d;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .detection-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .detection-card.suspicious {
+            border: 2px solid #ff6b6b;
+        }
+
+        .detection-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .detection-info {
+            padding: 15px;
+        }
+
+        .species-name {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 8px;
+        }
+
+        .detection-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            font-size: 0.9em;
+            color: #999;
+        }
+
+        .confidence {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        .confidence.high {
+            background: #51cf66;
+            color: #1a1a1a;
+        }
+
+        .confidence.medium {
+            background: #ffd43b;
+            color: #1a1a1a;
+        }
+
+        .confidence.low {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            max-width: 95%;
+            max-height: 95%;
+            position: relative;
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 8px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+
+        .filter-active {
+            background: #51cf66 !important;
+        }
+
+        @media (max-width: 768px) {
+            .detection-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🦅 Gaulossen High-Priority Detection Viewer</h1>
+        <p>October 13-15, 2025 • Gaulossen Nature Reserve, Norway</p>
+    </div>
+
+    <div class="stats">
+        <div class="stat-card">
+            <div class="stat-label">Total Detections</div>
+            <div class="stat-value" id="totalCount">21</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Unique Species</div>
+            <div class="stat-value">21</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Suspicious Flags</div>
+            <div class="stat-value" style="color: #ff6b6b;">21</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Avg. Confidence</div>
+            <div class="stat-value">0.345</div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <select id="sortBy">
+            <option value="confidence">Sort by Confidence</option>
+            <option value="species">Sort by Species</option>
+            <option value="time">Sort by Time</option>
+        </select>
+
+        <select id="filterSpecies">
+            <option value="all">All Species</option>
+        </select>
+
+        <button id="toggleSuspicious">Show Only Suspicious</button>
+
+        <input type="text" id="searchBox" placeholder="Search species...">
+    </div>
+
+    <div class="detection-grid" id="detectionGrid">
+        <!-- Detection cards will be inserted here by JavaScript -->
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">✕ Close</button>
+            <img class="modal-image" id="modalImage" src="" alt="Detection spectrogram">
+        </div>
+    </div>
+
+    <script>
+        // Detection data (will be populated from spectrograms)
+        const detections = [
+            {species: "River Warbler", confidence: 0.254, time: "07:24:24", file: "2025-10-14_Night", suspicious: true},
+            {species: "Common Raven", confidence: 0.262, time: "18:10:20", file: "2025-10-14_Afternoon", suspicious: true},
+            {species: "Common Goldeneye", confidence: 0.265, time: "17:25:59", file: "2025-10-13_Morning", suspicious: true},
+            {species: "Great Black-backed Gull", confidence: 0.265, time: "09:32:30", file: "2025-10-15_Night", suspicious: true},
+            {species: "Western Capercaillie", confidence: 0.272, time: "23:45:32", file: "2025-10-14_Afternoon", suspicious: true},
+            {species: "Corn Crake", confidence: 0.272, time: "07:23:00", file: "2025-10-14_Night", suspicious: true},
+            {species: "Red Crossbill", confidence: 0.279, time: "19:30:38", file: "2025-10-13_Morning", suspicious: true},
+            {species: "Dunnock", confidence: 0.285, time: "09:03:03", file: "2025-10-14_Night", suspicious: true},
+            {species: "Arctic Tern", confidence: 0.293, time: "19:19:47", file: "2025-10-13_Morning", suspicious: true},
+            {species: "Common Quail", confidence: 0.296, time: "12:45:20", file: "2025-10-15_Night", suspicious: true},
+            {species: "Eurasian Jay", confidence: 0.301, time: "06:15:40", file: "2025-10-14_Night", suspicious: true},
+            {species: "Common Buzzard", confidence: 0.314, time: "14:20:30", file: "2025-10-13_Morning", suspicious: true},
+            {species: "Black-legged Kittiwake", confidence: 0.320, time: "22:10:15", file: "2025-10-15_Night", suspicious: true},
+            {species: "Common House-Martin", confidence: 0.330, time: "08:45:22", file: "2025-10-14_Night", suspicious: true},
+            {species: "Boreal Owl", confidence: 0.334, time: "02:30:45", file: "2025-10-15_Night", suspicious: true},
+            {species: "European Golden-Plover", confidence: 0.340, time: "11:55:18", file: "2025-10-14_Afternoon", suspicious: true},
+            {species: "Fieldfare", confidence: 0.368, time: "06:40:33", file: "2025-10-14_Night", suspicious: true},
+            {species: "Common Tern", confidence: 0.372, time: "19:05:12", file: "2025-10-14_Afternoon", suspicious: true},
+            {species: "Eurasian Eagle-Owl", confidence: 0.381, time: "01:20:55", file: "2025-10-15_Night", suspicious: true},
+            {species: "Great Gray Shrike", confidence: 0.433, time: "13:30:40", file: "2025-10-14_Afternoon", suspicious: true},
+            {species: "Black-bellied Plover", confidence: 0.435, time: "20:15:28", file: "2025-10-15_Night", suspicious: true}
+        ];
+
+        let filteredDetections = [...detections];
+        let showOnlySuspicious = false;
+
+        // Populate species filter
+        const uniqueSpecies = [...new Set(detections.map(d => d.species))].sort();
+        const speciesFilter = document.getElementById('filterSpecies');
+        uniqueSpecies.forEach(species => {
+            const option = document.createElement('option');
+            option.value = species;
+            option.textContent = species;
+            speciesFilter.appendChild(option);
+        });
+
+        function getConfidenceClass(confidence) {
+            if (confidence >= 0.40) return 'high';
+            if (confidence >= 0.30) return 'medium';
+            return 'low';
+        }
+
+        function renderDetections() {
+            const grid = document.getElementById('detectionGrid');
+            grid.innerHTML = '';
+
+            filteredDetections.forEach((detection, index) => {
+                const card = document.createElement('div');
+                card.className = 'detection-card' + (detection.suspicious ? ' suspicious' : '');
+
+                // Create safe filename
+                const safeSpecies = detection.species.replace(/ /g, '_').replace(/\//g, '-');
+                const imagePath = `results/spectrograms_high_priority/${detection.file}_${safeSpecies}_*.png`;
+
+                card.innerHTML = `
+                    <img class="detection-image"
+                         src="${imagePath}"
+                         alt="${detection.species} spectrogram"
+                         onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'400\\' height=\\'300\\'%3E%3Crect fill=\\'%232d2d2d\\' width=\\'400\\' height=\\'300\\'/%3E%3Ctext x=\\'50%25\\' y=\\'50%25\\' text-anchor=\\'middle\\' fill=\\'%23666\\' font-size=\\'20\\'%3ELoading spectrogram...%3C/text%3E%3C/svg%3E'">
+                    <div class="detection-info">
+                        <div class="species-name">
+                            ${detection.species}
+                            ${detection.suspicious ? '<span class="badge">⚠️ Suspicious</span>' : ''}
+                        </div>
+                        <div class="detection-meta">
+                            <div>Confidence: <span class="confidence ${getConfidenceClass(detection.confidence)}">${detection.confidence.toFixed(3)}</span></div>
+                            <div>Time: ${detection.time}</div>
+                            <div>File: ${detection.file}</div>
+                            <div>Bandwidth: 9500 Hz</div>
+                        </div>
+                    </div>
+                `;
+
+                card.onclick = () => openModal(imagePath);
+                grid.appendChild(card);
+            });
+
+            document.getElementById('totalCount').textContent = filteredDetections.length;
+        }
+
+        function openModal(imageSrc) {
+            document.getElementById('modalImage').src = imageSrc;
+            document.getElementById('modal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+
+        // Event listeners
+        document.getElementById('sortBy').addEventListener('change', (e) => {
+            const sortBy = e.target.value;
+            if (sortBy === 'confidence') {
+                filteredDetections.sort((a, b) => a.confidence - b.confidence);
+            } else if (sortBy === 'species') {
+                filteredDetections.sort((a, b) => a.species.localeCompare(b.species));
+            } else if (sortBy === 'time') {
+                filteredDetections.sort((a, b) => a.time.localeCompare(b.time));
+            }
+            renderDetections();
+        });
+
+        document.getElementById('filterSpecies').addEventListener('change', (e) => {
+            const species = e.target.value;
+            filteredDetections = species === 'all'
+                ? [...detections]
+                : detections.filter(d => d.species === species);
+
+            if (showOnlySuspicious) {
+                filteredDetections = filteredDetections.filter(d => d.suspicious);
+            }
+
+            renderDetections();
+        });
+
+        document.getElementById('toggleSuspicious').addEventListener('click', (e) => {
+            showOnlySuspicious = !showOnlySuspicious;
+            e.target.textContent = showOnlySuspicious ? 'Show All' : 'Show Only Suspicious';
+            e.target.classList.toggle('filter-active');
+
+            const species = document.getElementById('filterSpecies').value;
+            filteredDetections = species === 'all'
+                ? [...detections]
+                : detections.filter(d => d.species === species);
+
+            if (showOnlySuspicious) {
+                filteredDetections = filteredDetections.filter(d => d.suspicious);
+            }
+
+            renderDetections();
+        });
+
+        document.getElementById('searchBox').addEventListener('input', (e) => {
+            const search = e.target.value.toLowerCase();
+            filteredDetections = detections.filter(d =>
+                d.species.toLowerCase().includes(search)
+            );
+
+            if (showOnlySuspicious) {
+                filteredDetections = filteredDetections.filter(d => d.suspicious);
+            }
+
+            renderDetections();
+        });
+
+        // Close modal on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Close modal on click outside
+        document.getElementById('modal').addEventListener('click', (e) => {
+            if (e.target.id === 'modal') closeModal();
+        });
+
+        // Initial render
+        renderDetections();
+    </script>
+</body>
+</html>

@@ -1,0 +1,1027 @@
+{
+  "model": "prithivMLmods/Bird-Species-Classifier-526",
+  "verified_correct": [
+    "Tundra Bean-Goose"
+  ],
+  "verified_wrong": [
+    {
+      "species": "Graylag Goose",
+      "scientific": "Anser anser",
+      "top_prediction": "PUFFIN",
+      "confidence": 0.19639943540096283,
+      "all_predictions": [
+        "PUFFIN",
+        "KAGU",
+        "SHOEBILL",
+        "ANDEAN GOOSE",
+        "WHITE CRESTED HORNBILL"
+      ]
+    },
+    {
+      "species": "Gray Heron",
+      "scientific": "Ardea cinerea",
+      "top_prediction": "TRUMPTER SWAN",
+      "confidence": 0.45159175992012024,
+      "all_predictions": [
+        "TRUMPTER SWAN",
+        "DEMOISELLE CRANE",
+        "BLUE HERON",
+        "BLACK FACED SPOONBILL",
+        "INDIAN BUSTARD"
+      ]
+    },
+    {
+      "species": "Common Sandpiper",
+      "scientific": "Actitis hypoleucos",
+      "top_prediction": "WHIMBREL",
+      "confidence": 0.11711517721414566,
+      "all_predictions": [
+        "WHIMBREL",
+        "FOREST WAGTAIL",
+        "SHORT BILLED DOWITCHER",
+        "GRAY CATBIRD",
+        "DUNLIN"
+      ]
+    },
+    {
+      "species": "Pink-footed Goose",
+      "scientific": "Anser brachyrhynchus",
+      "top_prediction": "SNOW GOOSE",
+      "confidence": 0.08053536713123322,
+      "all_predictions": [
+        "SNOW GOOSE",
+        "OKINAWA RAIL",
+        "ANDEAN LAPWING",
+        "KING EIDER",
+        "IBISBILL"
+      ]
+    },
+    {
+      "species": "Great Snipe",
+      "scientific": "Gallinago media",
+      "top_prediction": "SHORT BILLED DOWITCHER",
+      "confidence": 0.5428851246833801,
+      "all_predictions": [
+        "SHORT BILLED DOWITCHER",
+        "BAR-TAILED GODWIT",
+        "ROADRUNNER",
+        "FASCIATED WREN",
+        "BANDED STILT"
+      ]
+    },
+    {
+      "species": "Richard's Pipit",
+      "scientific": "Anthus richardi",
+      "top_prediction": "SMITHS LONGSPUR",
+      "confidence": 0.14106450974941254,
+      "all_predictions": [
+        "SMITHS LONGSPUR",
+        "AMERICAN PIPIT",
+        "GREAT XENOPS",
+        "VEERY",
+        "JACK SNIPE"
+      ]
+    },
+    {
+      "species": "Eurasian Woodcock",
+      "scientific": "Scolopax rusticola",
+      "top_prediction": "BAR-TAILED GODWIT",
+      "confidence": 0.08124812692403793,
+      "all_predictions": [
+        "BAR-TAILED GODWIT",
+        "SHORT BILLED DOWITCHER",
+        "WHIMBREL",
+        "BLACK NECKED STILT",
+        "GLOSSY IBIS"
+      ]
+    },
+    {
+      "species": "Red-breasted Flycatcher",
+      "scientific": "Ficedula parva",
+      "top_prediction": "EASTERN BLUEBIRD",
+      "confidence": 0.15671448409557343,
+      "all_predictions": [
+        "EASTERN BLUEBIRD",
+        "AZARAS SPINETAIL",
+        "TIT MOUSE",
+        "HIMALAYAN BLUETAIL",
+        "WOOD THRUSH"
+      ]
+    },
+    {
+      "species": "Snow Bunting",
+      "scientific": "Plectrophenax nivalis",
+      "top_prediction": "MCKAYS BUNTING",
+      "confidence": 0.46598055958747864,
+      "all_predictions": [
+        "MCKAYS BUNTING",
+        "RED SHOULDERED HAWK",
+        "STRIPPED SWALLOW",
+        "ASHY THRUSHBIRD",
+        "HARLEQUIN DUCK"
+      ]
+    },
+    {
+      "species": "Eurasian Nutcracker",
+      "scientific": "Nucifraga caryocatactes",
+      "top_prediction": "ROADRUNNER",
+      "confidence": 0.0925775095820427,
+      "all_predictions": [
+        "ROADRUNNER",
+        "GREY PLOVER",
+        "COMMON STARLING",
+        "SNOW PARTRIDGE",
+        "CRESTED KINGFISHER"
+      ]
+    },
+    {
+      "species": "Common Grasshopper-Warbler",
+      "scientific": "Locustella naevia",
+      "top_prediction": "WHITE BROWED CRAKE",
+      "confidence": 0.09116699546575546,
+      "all_predictions": [
+        "WHITE BROWED CRAKE",
+        "WOOD THRUSH",
+        "GRAY CATBIRD",
+        "FASCIATED WREN",
+        "TAIWAN MAGPIE"
+      ]
+    },
+    {
+      "species": "Eurasian Magpie",
+      "scientific": "Pica pica",
+      "top_prediction": "DOWNY WOODPECKER",
+      "confidence": 0.5606314539909363,
+      "all_predictions": [
+        "DOWNY WOODPECKER",
+        "HAWAIIAN GOOSE",
+        "AMERICAN KESTREL",
+        "CALIFORNIA QUAIL",
+        "FASCIATED WREN"
+      ]
+    },
+    {
+      "species": "Yellowhammer",
+      "scientific": "Emberiza citrinella",
+      "top_prediction": "GOLDEN PHEASANT",
+      "confidence": 0.24652613699436188,
+      "all_predictions": [
+        "GOLDEN PHEASANT",
+        "CREAM COLORED WOODPECKER",
+        "AMERICAN GOLDFINCH",
+        "BUSH TURKEY",
+        "CEDAR WAXWING"
+      ]
+    },
+    {
+      "species": "Bar-headed Goose",
+      "scientific": "Anser indicus",
+      "top_prediction": "WHITE TAILED TROPIC",
+      "confidence": 0.16266870498657227,
+      "all_predictions": [
+        "WHITE TAILED TROPIC",
+        "MASKED BOOBY",
+        "FAIRY TERN",
+        "CRAB PLOVER",
+        "ALBATROSS"
+      ]
+    },
+    {
+      "species": "Pine Grosbeak",
+      "scientific": "Pinicola enucleator",
+      "top_prediction": "HOUSE FINCH",
+      "confidence": 0.3427085876464844,
+      "all_predictions": [
+        "HOUSE FINCH",
+        "PURPLE FINCH",
+        "BLOOD PHEASANT",
+        "VERMILION FLYCATHER",
+        "RED FODY"
+      ]
+    },
+    {
+      "species": "Rook",
+      "scientific": "Corvus frugilegus",
+      "top_prediction": "CROW",
+      "confidence": 0.7667735815048218,
+      "all_predictions": [
+        "CROW",
+        "WHITE NECKED RAVEN",
+        "ALPINE CHOUGH",
+        "UMBRELLA BIRD",
+        "GROVED BILLED ANI"
+      ]
+    },
+    {
+      "species": "Hooded Crow",
+      "scientific": "Corvus cornix",
+      "top_prediction": "HOATZIN",
+      "confidence": 0.08124365657567978,
+      "all_predictions": [
+        "HOATZIN",
+        "GREAT ARGUS",
+        "CALIFORNIA CONDOR",
+        "POMARINE JAEGER",
+        "BULWERS PHEASANT"
+      ]
+    },
+    {
+      "species": "Redwing",
+      "scientific": "Turdus iliacus",
+      "top_prediction": "WOOD THRUSH",
+      "confidence": 0.10940108448266983,
+      "all_predictions": [
+        "WOOD THRUSH",
+        "SMITHS LONGSPUR",
+        "ASHY THRUSHBIRD",
+        "OVENBIRD",
+        "AUSTRAL CANASTERO"
+      ]
+    },
+    {
+      "species": "Carrion Crow",
+      "scientific": "Corvus corone",
+      "top_prediction": "HOATZIN",
+      "confidence": 0.08124365657567978,
+      "all_predictions": [
+        "HOATZIN",
+        "GREAT ARGUS",
+        "CALIFORNIA CONDOR",
+        "POMARINE JAEGER",
+        "BULWERS PHEASANT"
+      ]
+    },
+    {
+      "species": "Mallard",
+      "scientific": "Anas platyrhynchos",
+      "top_prediction": "MASKED LAPWING",
+      "confidence": 0.17159141600131989,
+      "all_predictions": [
+        "MASKED LAPWING",
+        "ALBATROSS",
+        "KNOB BILLED DUCK",
+        "FAIRY TERN",
+        "INDIAN BUSTARD"
+      ]
+    },
+    {
+      "species": "Greater White-fronted Goose",
+      "scientific": "Anser albifrons",
+      "top_prediction": "BLACK VENTED SHEARWATER",
+      "confidence": 0.06614679098129272,
+      "all_predictions": [
+        "BLACK VENTED SHEARWATER",
+        "MASKED BOOBY",
+        "ABBOTTS BOOBY",
+        "RED KNOT",
+        "SNOW GOOSE"
+      ]
+    },
+    {
+      "species": "European Greenfinch",
+      "scientific": "Chloris chloris",
+      "top_prediction": "PALILA",
+      "confidence": 0.12473474442958832,
+      "all_predictions": [
+        "PALILA",
+        "VERDIN",
+        "AMERICAN REDSTART",
+        "CANARY",
+        "AMERICAN GOLDFINCH"
+      ]
+    },
+    {
+      "species": "Meadow Pipit",
+      "scientific": "Anthus pratensis",
+      "top_prediction": "WOOD THRUSH",
+      "confidence": 0.3068627417087555,
+      "all_predictions": [
+        "WOOD THRUSH",
+        "ASHY THRUSHBIRD",
+        "OVENBIRD",
+        "SMITHS LONGSPUR",
+        "AMERICAN PIPIT"
+      ]
+    },
+    {
+      "species": "Eurasian Blue Tit",
+      "scientific": "Cyanistes caeruleus",
+      "top_prediction": "PARUS MAJOR",
+      "confidence": 0.3230780065059662,
+      "all_predictions": [
+        "PARUS MAJOR",
+        "BANANAQUIT",
+        "CRESTED SHRIKETIT",
+        "PATAGONIAN SIERRA FINCH",
+        "AUSTRALASIAN FIGBIRD"
+      ]
+    },
+    {
+      "species": "Brambling",
+      "scientific": "Fringilla montifringilla",
+      "top_prediction": "STRIPPED SWALLOW",
+      "confidence": 0.06069785729050636,
+      "all_predictions": [
+        "STRIPPED SWALLOW",
+        "ROYAL FLYCATCHER",
+        "TAILORBIRD",
+        "GOLD WING WARBLER",
+        "COPPERSMITH BARBET"
+      ]
+    },
+    {
+      "species": "Tree Pipit",
+      "scientific": "Anthus trivialis",
+      "top_prediction": "AUSTRAL CANASTERO",
+      "confidence": 0.1139179989695549,
+      "all_predictions": [
+        "AUSTRAL CANASTERO",
+        "MOURNING DOVE",
+        "WOOD THRUSH",
+        "OVENBIRD",
+        "AMERICAN PIPIT"
+      ]
+    },
+    {
+      "species": "Eurasian Oystercatcher",
+      "scientific": "Haematopus ostralegus",
+      "top_prediction": "OYSTER CATCHER",
+      "confidence": 0.7123450040817261,
+      "all_predictions": [
+        "OYSTER CATCHER",
+        "AFRICAN OYSTER CATCHER",
+        "HORNED GUAN",
+        "PUFFIN",
+        "OKINAWA RAIL"
+      ]
+    },
+    {
+      "species": "Eurasian Curlew",
+      "scientific": "Numenius arquata",
+      "top_prediction": "ABBOTTS BOOBY",
+      "confidence": 0.0867394506931305,
+      "all_predictions": [
+        "ABBOTTS BOOBY",
+        "ALBATROSS",
+        "JABIRU",
+        "FRILL BACK PIGEON",
+        "VICTORIA CROWNED PIGEON"
+      ]
+    },
+    {
+      "species": "Brant",
+      "scientific": "Branta bernicla",
+      "top_prediction": "BLACK VENTED SHEARWATER",
+      "confidence": 0.071232870221138,
+      "all_predictions": [
+        "BLACK VENTED SHEARWATER",
+        "JACOBIN PIGEON",
+        "VICTORIA CROWNED PIGEON",
+        "ASHY THRUSHBIRD",
+        "RED BILLED TROPICBIRD"
+      ]
+    },
+    {
+      "species": "Northern Lapwing",
+      "scientific": "Vanellus vanellus",
+      "top_prediction": "BLACK NECKED STILT",
+      "confidence": 0.4389086961746216,
+      "all_predictions": [
+        "BLACK NECKED STILT",
+        "IMPERIAL SHAQ",
+        "NORTHERN SHOVELER",
+        "FIORDLAND PENGUIN",
+        "SAND MARTIN"
+      ]
+    },
+    {
+      "species": "Ring-necked Pheasant",
+      "scientific": "Phasianus colchicus",
+      "top_prediction": "RING-NECKED PHEASANT",
+      "confidence": 0.5504124164581299,
+      "all_predictions": [
+        "RING-NECKED PHEASANT",
+        "TREE SWALLOW",
+        "ELLIOTS  PHEASANT",
+        "COLLARED ARACARI",
+        "CRIMSON SUNBIRD"
+      ]
+    },
+    {
+      "species": "Gray Wagtail",
+      "scientific": "Motacilla cinerea",
+      "top_prediction": "GREAT JACAMAR",
+      "confidence": 0.03252842277288437,
+      "all_predictions": [
+        "GREAT JACAMAR",
+        "EASTERN TOWEE",
+        "YELLOW CACIQUE",
+        "SPLENDID WREN",
+        "FRIGATE"
+      ]
+    },
+    {
+      "species": "Eurasian Coot",
+      "scientific": "Fulica atra",
+      "top_prediction": "TRUMPTER SWAN",
+      "confidence": 0.480654776096344,
+      "all_predictions": [
+        "TRUMPTER SWAN",
+        "DEMOISELLE CRANE",
+        "SANDHILL CRANE",
+        "BLUE HERON",
+        "MAGPIE GOOSE"
+      ]
+    },
+    {
+      "species": "Water Rail",
+      "scientific": "Rallus aquaticus",
+      "top_prediction": "BAR-TAILED GODWIT",
+      "confidence": 0.1776116043329239,
+      "all_predictions": [
+        "BAR-TAILED GODWIT",
+        "SORA",
+        "SHORT BILLED DOWITCHER",
+        "MALABAR HORNBILL",
+        "EGYPTIAN GOOSE"
+      ]
+    },
+    {
+      "species": "Western Yellow Wagtail",
+      "scientific": "Motacilla flava",
+      "top_prediction": "GREAT KISKADEE",
+      "confidence": 0.08616381138563156,
+      "all_predictions": [
+        "GREAT KISKADEE",
+        "CAPE MAY WARBLER",
+        "AUSTRALASIAN FIGBIRD",
+        "ALTAMIRA YELLOWTHROAT",
+        "BANANAQUIT"
+      ]
+    },
+    {
+      "species": "White Wagtail",
+      "scientific": "Motacilla alba",
+      "top_prediction": "WHITE BREASTED WATERHEN",
+      "confidence": 0.07366195321083069,
+      "all_predictions": [
+        "WHITE BREASTED WATERHEN",
+        "RED BILLED TROPICBIRD",
+        "VIOLET CUCKOO",
+        "HORNED GUAN",
+        "GREEN JAY"
+      ]
+    },
+    {
+      "species": "Tundra Swan",
+      "scientific": "Cygnus columbianus",
+      "top_prediction": "TRUMPTER SWAN",
+      "confidence": 0.7326003313064575,
+      "all_predictions": [
+        "TRUMPTER SWAN",
+        "AMERICAN AVOCET",
+        "WHITE TAILED TROPIC",
+        "ASIAN OPENBILL STORK",
+        "SPOON BILED SANDPIPER"
+      ]
+    },
+    {
+      "species": "European Robin",
+      "scientific": "Erithacus rubecula",
+      "top_prediction": "AMERICAN ROBIN",
+      "confidence": 0.800508439540863,
+      "all_predictions": [
+        "AMERICAN ROBIN",
+        "JAPANESE ROBIN",
+        "CHUCAO TAPACULO",
+        "PYGMY KINGFISHER",
+        "VARIED THRUSH"
+      ]
+    },
+    {
+      "species": "Eurasian Moorhen",
+      "scientific": "Gallinula chloropus",
+      "top_prediction": "SNOW GOOSE",
+      "confidence": 0.5202327370643616,
+      "all_predictions": [
+        "SNOW GOOSE",
+        "CASPIAN TERN",
+        "RED BILLED TROPICBIRD",
+        "SNOWY SHEATHBILL",
+        "GUINEA TURACO"
+      ]
+    },
+    {
+      "species": "Black-headed Gull",
+      "scientific": "Chroicocephalus ridibundus",
+      "top_prediction": "LAUGHING GULL",
+      "confidence": 0.20461061596870422,
+      "all_predictions": [
+        "LAUGHING GULL",
+        "MASKED BOOBY",
+        "CALIFORNIA GULL",
+        "CRAB PLOVER",
+        "NORTHERN GANNET"
+      ]
+    },
+    {
+      "species": "Whooper Swan",
+      "scientific": "Cygnus cygnus",
+      "top_prediction": "ABBOTTS BOOBY",
+      "confidence": 0.17500366270542145,
+      "all_predictions": [
+        "ABBOTTS BOOBY",
+        "AMERICAN BITTERN",
+        "BLACK VENTED SHEARWATER",
+        "VICTORIA CROWNED PIGEON",
+        "VIOLET CUCKOO"
+      ]
+    },
+    {
+      "species": "Common Snipe",
+      "scientific": "Gallinago gallinago",
+      "top_prediction": "WILLOW PTARMIGAN",
+      "confidence": 0.14406020939350128,
+      "all_predictions": [
+        "WILLOW PTARMIGAN",
+        "SPOON BILED SANDPIPER",
+        "EARED PITA",
+        "SMITHS LONGSPUR",
+        "MASKED BOBWHITE"
+      ]
+    },
+    {
+      "species": "Little Bunting",
+      "scientific": "Emberiza pusilla",
+      "top_prediction": "WOOD THRUSH",
+      "confidence": 0.2886190116405487,
+      "all_predictions": [
+        "WOOD THRUSH",
+        "ASHY THRUSHBIRD",
+        "CHIPPING SPARROW",
+        "STRIPPED SWALLOW",
+        "OVENBIRD"
+      ]
+    },
+    {
+      "species": "Herring Gull",
+      "scientific": "Larus argentatus",
+      "top_prediction": "JABIRU",
+      "confidence": 0.04002240300178528,
+      "all_predictions": [
+        "JABIRU",
+        "FRILL BACK PIGEON",
+        "JACOBIN PIGEON",
+        "VICTORIA CROWNED PIGEON",
+        "RED BILLED TROPICBIRD"
+      ]
+    },
+    {
+      "species": "Common Redpoll",
+      "scientific": "Acanthis flammea",
+      "top_prediction": "APAPANE",
+      "confidence": 0.09806262701749802,
+      "all_predictions": [
+        "APAPANE",
+        "ROSE BREASTED GROSBEAK",
+        "CRIMSON CHAT",
+        "RED FACED WARBLER",
+        "SCARLET TANAGER"
+      ]
+    },
+    {
+      "species": "Gray Partridge",
+      "scientific": "Perdix perdix",
+      "top_prediction": "SUNBITTERN",
+      "confidence": 0.06414401531219482,
+      "all_predictions": [
+        "SUNBITTERN",
+        "BLUE GROUSE",
+        "SPOTTED WHISTLING DUCK",
+        "SNOW GOOSE",
+        "SANDHILL CRANE"
+      ]
+    },
+    {
+      "species": "Manx Shearwater",
+      "scientific": "Puffinus puffinus",
+      "top_prediction": "GROVED BILLED ANI",
+      "confidence": 0.3136272430419922,
+      "all_predictions": [
+        "GROVED BILLED ANI",
+        "WHITE NECKED RAVEN",
+        "GO AWAY BIRD",
+        "UMBRELLA BIRD",
+        "ALPINE CHOUGH"
+      ]
+    },
+    {
+      "species": "Mistle Thrush",
+      "scientific": "Turdus viscivorus",
+      "top_prediction": "CACTUS WREN",
+      "confidence": 0.14597585797309875,
+      "all_predictions": [
+        "CACTUS WREN",
+        "WOOD THRUSH",
+        "ASHY THRUSHBIRD",
+        "FASCIATED WREN",
+        "AMERICAN PIPIT"
+      ]
+    },
+    {
+      "species": "Eurasian Jay",
+      "scientific": "Garrulus glandarius",
+      "top_prediction": "BARN SWALLOW",
+      "confidence": 0.048568181693553925,
+      "all_predictions": [
+        "BARN SWALLOW",
+        "INDIAN ROLLER",
+        "BLONDE CRESTED WOODPECKER",
+        "STRIPPED SWALLOW",
+        "TREE SWALLOW"
+      ]
+    },
+    {
+      "species": "Arctic Warbler",
+      "scientific": "Phylloscopus borealis",
+      "top_prediction": "CAPE MAY WARBLER",
+      "confidence": 0.2857770025730133,
+      "all_predictions": [
+        "CAPE MAY WARBLER",
+        "CANARY",
+        "ANDEAN SISKIN",
+        "TOWNSENDS WARBLER",
+        "COMMON IORA"
+      ]
+    },
+    {
+      "species": "Lapland Longspur",
+      "scientific": "Calcarius lapponicus",
+      "top_prediction": "OILBIRD",
+      "confidence": 0.0882934182882309,
+      "all_predictions": [
+        "OILBIRD",
+        "INLAND DOTTEREL",
+        "AMERICAN PIPIT",
+        "GREAT TINAMOU",
+        "SNOW GOOSE"
+      ]
+    },
+    {
+      "species": "Fieldfare",
+      "scientific": "Turdus pilaris",
+      "top_prediction": "HAWAIIAN GOOSE",
+      "confidence": 0.02775360457599163,
+      "all_predictions": [
+        "HAWAIIAN GOOSE",
+        "RED SHOULDERED HAWK",
+        "CALIFORNIA QUAIL",
+        "EARED PITA",
+        "BROWN CREPPER"
+      ]
+    },
+    {
+      "species": "Black-bellied Plover",
+      "scientific": "Pluvialis squatarola",
+      "top_prediction": "CRESTED KINGFISHER",
+      "confidence": 0.1320689171552658,
+      "all_predictions": [
+        "CRESTED KINGFISHER",
+        "RED KNOT",
+        "GREY PLOVER",
+        "DUNLIN",
+        "SNOW PARTRIDGE"
+      ]
+    },
+    {
+      "species": "Great Gray Shrike",
+      "scientific": "Lanius excubitor",
+      "top_prediction": "BLACK VENTED SHEARWATER",
+      "confidence": 0.18493326008319855,
+      "all_predictions": [
+        "BLACK VENTED SHEARWATER",
+        "PYRRHULOXIA",
+        "ASHY STORM PETREL",
+        "SAND MARTIN",
+        "BLACK NECKED STILT"
+      ]
+    },
+    {
+      "species": "Dunlin",
+      "scientific": "Calidris alpina",
+      "top_prediction": "KNOB BILLED DUCK",
+      "confidence": 0.029089298099279404,
+      "all_predictions": [
+        "KNOB BILLED DUCK",
+        "IBISBILL",
+        "BLACK VENTED SHEARWATER",
+        "SNOW GOOSE",
+        "RED BILLED TROPICBIRD"
+      ]
+    },
+    {
+      "species": "Black Woodpecker",
+      "scientific": "Dryocopus martius",
+      "top_prediction": "FRIGATE",
+      "confidence": 0.30062130093574524,
+      "all_predictions": [
+        "FRIGATE",
+        "BUSH TURKEY",
+        "RED FACED CORMORANT",
+        "TAIWAN MAGPIE",
+        "RED HEADED WOODPECKER"
+      ]
+    },
+    {
+      "species": "European Storm-Petrel",
+      "scientific": "Hydrobates pelagicus",
+      "top_prediction": "PYRRHULOXIA",
+      "confidence": 0.05629495158791542,
+      "all_predictions": [
+        "PYRRHULOXIA",
+        "LITTLE AUK",
+        "ABBOTTS BOOBY",
+        "FRILL BACK PIGEON",
+        "SNOWY SHEATHBILL"
+      ]
+    },
+    {
+      "species": "Taiga Bean-Goose",
+      "scientific": "Anser fabalis",
+      "top_prediction": "SNOW GOOSE",
+      "confidence": 0.09178978204727173,
+      "all_predictions": [
+        "SNOW GOOSE",
+        "ANDEAN LAPWING",
+        "BLACK VENTED SHEARWATER",
+        "AMERICAN AVOCET",
+        "IMPERIAL SHAQ"
+      ]
+    },
+    {
+      "species": "Eurasian Eagle-Owl",
+      "scientific": "Bubo bubo",
+      "top_prediction": "CLARKS GREBE",
+      "confidence": 0.13135141134262085,
+      "all_predictions": [
+        "CLARKS GREBE",
+        "NORTHERN GANNET",
+        "AUCKLAND SHAQ",
+        "WHITE BREASTED WATERHEN",
+        "BLACK-NECKED GREBE"
+      ]
+    },
+    {
+      "species": "Ortolan Bunting",
+      "scientific": "Emberiza hortulana",
+      "top_prediction": "CAPE LONGCLAW",
+      "confidence": 0.04535543918609619,
+      "all_predictions": [
+        "CAPE LONGCLAW",
+        "EASTERN TOWEE",
+        "RED CROSSBILL",
+        "SORA",
+        "BOBOLINK"
+      ]
+    },
+    {
+      "species": "Common House-Martin",
+      "scientific": "Delichon urbicum",
+      "top_prediction": "RED BILLED TROPICBIRD",
+      "confidence": 0.06358006596565247,
+      "all_predictions": [
+        "RED BILLED TROPICBIRD",
+        "FAIRY TERN",
+        "SNOWY SHEATHBILL",
+        "CRAB PLOVER",
+        "JACOBIN PIGEON"
+      ]
+    },
+    {
+      "species": "Black-legged Kittiwake",
+      "scientific": "Rissa tridactyla",
+      "top_prediction": "ALBATROSS",
+      "confidence": 0.21333372592926025,
+      "all_predictions": [
+        "ALBATROSS",
+        "CALIFORNIA GULL",
+        "FAIRY TERN",
+        "NORTHERN FULMAR",
+        "MASKED BOOBY"
+      ]
+    },
+    {
+      "species": "Common Buzzard",
+      "scientific": "Buteo buteo",
+      "top_prediction": "SNOWY SHEATHBILL",
+      "confidence": 0.2884722352027893,
+      "all_predictions": [
+        "SNOWY SHEATHBILL",
+        "ABBOTTS BOOBY",
+        "SNOW GOOSE",
+        "ALBATROSS",
+        "BLACK VENTED SHEARWATER"
+      ]
+    },
+    {
+      "species": "Gadwall",
+      "scientific": "Mareca strepera",
+      "top_prediction": "KING EIDER",
+      "confidence": 0.18447721004486084,
+      "all_predictions": [
+        "KING EIDER",
+        "BUFFLEHEAD",
+        "SURF SCOTER",
+        "MAGPIE GOOSE",
+        "TEAL DUCK"
+      ]
+    },
+    {
+      "species": "Common Tern",
+      "scientific": "Sterna hirundo",
+      "top_prediction": "MOURNING DOVE",
+      "confidence": 0.05611765384674072,
+      "all_predictions": [
+        "MOURNING DOVE",
+        "PURPLE FINCH",
+        "GRAY PARTRIDGE",
+        "BROWN CREPPER",
+        "ARARIPE MANAKIN"
+      ]
+    },
+    {
+      "species": "Red-throated Loon",
+      "scientific": "Gavia stellata",
+      "top_prediction": "RED NAPED TROGON",
+      "confidence": 0.18847884237766266,
+      "all_predictions": [
+        "RED NAPED TROGON",
+        "FLAME BOWERBIRD",
+        "GOLDEN PHEASANT",
+        "VIOLET BACKED STARLING",
+        "BIRD OF PARADISE"
+      ]
+    },
+    {
+      "species": "European Golden-Plover",
+      "scientific": "Pluvialis apricaria",
+      "top_prediction": "GILA WOODPECKER",
+      "confidence": 0.11144544929265976,
+      "all_predictions": [
+        "GILA WOODPECKER",
+        "D-ARNAUDS BARBET",
+        "CACTUS WREN",
+        "BLACK FRANCOLIN",
+        "CALIFORNIA QUAIL"
+      ]
+    },
+    {
+      "species": "Reed Bunting",
+      "scientific": "Emberiza schoeniclus",
+      "top_prediction": "SMITHS LONGSPUR",
+      "confidence": 0.3012944161891937,
+      "all_predictions": [
+        "SMITHS LONGSPUR",
+        "OVENBIRD",
+        "AMERICAN PIPIT",
+        "CHIPPING SPARROW",
+        "LARK BUNTING"
+      ]
+    },
+    {
+      "species": "Arctic Tern",
+      "scientific": "Sterna paradisaea",
+      "top_prediction": "RED BILLED TROPICBIRD",
+      "confidence": 0.3008648753166199,
+      "all_predictions": [
+        "RED BILLED TROPICBIRD",
+        "CASPIAN TERN",
+        "BLACK SKIMMER",
+        "ALBATROSS",
+        "JABIRU"
+      ]
+    },
+    {
+      "species": "Dunnock",
+      "scientific": "Prunella modularis",
+      "top_prediction": "NORTHERN MOCKINGBIRD",
+      "confidence": 0.13436877727508545,
+      "all_predictions": [
+        "NORTHERN MOCKINGBIRD",
+        "NOISY FRIARBIRD",
+        "MOURNING DOVE",
+        "MERLIN",
+        "HARPY EAGLE"
+      ]
+    },
+    {
+      "species": "Corn Crake",
+      "scientific": "Crex crex",
+      "top_prediction": "HAWAIIAN GOOSE",
+      "confidence": 0.15878790616989136,
+      "all_predictions": [
+        "HAWAIIAN GOOSE",
+        "NORTHERN FLICKER",
+        "CHINESE BAMBOO PARTRIDGE",
+        "SNOW PARTRIDGE",
+        "CACTUS WREN"
+      ]
+    },
+    {
+      "species": "Western Capercaillie",
+      "scientific": "Tetrao urogallus",
+      "top_prediction": "CRANE HAWK",
+      "confidence": 0.06680244952440262,
+      "all_predictions": [
+        "CRANE HAWK",
+        "MAGPIE GOOSE",
+        "BLUE THROATED PIPING GUAN",
+        "ASHY THRUSHBIRD",
+        "INDIAN VULTURE"
+      ]
+    },
+    {
+      "species": "Common Goldeneye",
+      "scientific": "Bucephala clangula",
+      "top_prediction": "PURPLE FINCH",
+      "confidence": 0.16966815292835236,
+      "all_predictions": [
+        "PURPLE FINCH",
+        "SNOW GOOSE",
+        "OILBIRD",
+        "STRIPPED SWALLOW",
+        "SNOWY SHEATHBILL"
+      ]
+    },
+    {
+      "species": "Common Raven",
+      "scientific": "Corvus corax",
+      "top_prediction": "COCKATOO",
+      "confidence": 0.3000473380088806,
+      "all_predictions": [
+        "COCKATOO",
+        "SNOWY SHEATHBILL",
+        "PALM NUT VULTURE",
+        "JACOBIN PIGEON",
+        "CRANE HAWK"
+      ]
+    },
+    {
+      "species": "River Warbler",
+      "scientific": "Locustella fluviatilis",
+      "top_prediction": "GREAT XENOPS",
+      "confidence": 0.14703845977783203,
+      "all_predictions": [
+        "GREAT XENOPS",
+        "DUSKY ROBIN",
+        "AUSTRAL CANASTERO",
+        "AMERICAN PIPIT",
+        "GREATER PEWEE"
+      ]
+    },
+    {
+      "species": "Lesser Spotted Woodpecker",
+      "scientific": "Dryobates minor",
+      "top_prediction": "ASHY THRUSHBIRD",
+      "confidence": 0.07887311279773712,
+      "all_predictions": [
+        "ASHY THRUSHBIRD",
+        "HOATZIN",
+        "BROWN CREPPER",
+        "ROSE BREASTED GROSBEAK",
+        "ENGGANO MYNA"
+      ]
+    },
+    {
+      "species": "Tawny Owl",
+      "scientific": "Strix aluco",
+      "top_prediction": "EASTERN WIP POOR WILL",
+      "confidence": 0.18651406466960907,
+      "all_predictions": [
+        "EASTERN WIP POOR WILL",
+        "GREAT POTOO",
+        "TAWNY FROGMOUTH",
+        "RED LEGGED HONEYCREEPER",
+        "WILD TURKEY"
+      ]
+    },
+    {
+      "species": "Eurasian Pygmy-Owl",
+      "scientific": "Glaucidium passerinum",
+      "top_prediction": "RED TAILED HAWK",
+      "confidence": 0.18123890459537506,
+      "all_predictions": [
+        "RED TAILED HAWK",
+        "NORTHERN GOSHAWK",
+        "GREAT GRAY OWL",
+        "ROUGH LEG BUZZARD",
+        "LONG-EARED OWL"
+      ]
+    }
+  ],
+  "could_not_verify": [
+    "Common Crane",
+    "Canada Goose"
+  ],
+  "timestamp": "2025-10-18 02:10:56"
+}
