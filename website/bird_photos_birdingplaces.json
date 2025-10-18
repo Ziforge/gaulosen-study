@@ -1,0 +1,26 @@
+{
+  "Greater White-fronted Goose": {
+    "image_url": "https://www.birdingplaces.eu/storage/files/large/Kolgans.jpg",
+    "source": "BirdingPlaces.eu",
+    "source_url": "https://www.birdingplaces.eu/en/birdingplaces/norway/gaulosen-naturreservat",
+    "license": "Various (see source)",
+    "species_name": "Greater White-fronted Goose",
+    "scientific_name": "Anser albifrons"
+  },
+  "Common Goldeneye": {
+    "image_url": "https://www.birdingplaces.eu/storage/files/large/brilduiker-male-7.jpg",
+    "source": "BirdingPlaces.eu",
+    "source_url": "https://www.birdingplaces.eu/en/birdingplaces/norway/gaulosen-naturreservat",
+    "license": "Various (see source)",
+    "species_name": "Common Goldeneye",
+    "scientific_name": "Bucephala clangula"
+  },
+  "Eurasian Oystercatcher": {
+    "image_url": "https://www.birdingplaces.eu/storage/files/large/2023/02/scholekster_2.jpg",
+    "source": "BirdingPlaces.eu",
+    "source_url": "https://www.birdingplaces.eu/en/birdingplaces/norway/gaulosen-naturreservat",
+    "license": "Various (see source)",
+    "species_name": "Eurasian Oystercatcher",
+    "scientific_name": "Haematopus ostralegus"
+  }
+}

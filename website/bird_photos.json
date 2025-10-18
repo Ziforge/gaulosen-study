@@ -1,0 +1,812 @@
+{
+  "Graylag Goose": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/205093233/large.jpg",
+    "photographer": "Amaya M.",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/121212685",
+    "scientific_name": "Anser anser",
+    "observation_date": "2022-06-11",
+    "citation": "Amaya M. (2022-06-11). Anser anser. iNaturalist research-grade observation 121212685. CC BY-NC 4.0. https://www.inaturalist.org/observations/121212685"
+  },
+  "Gray Heron": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/94208532/large.jpeg",
+    "photographer": "Skyler Kardell",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/58985088",
+    "scientific_name": "Ardea cinerea",
+    "observation_date": "2020-09-06",
+    "citation": "Skyler Kardell (2020-09-06). Ardea cinerea. iNaturalist research-grade observation 58985088. CC BY-NC 4.0. https://www.inaturalist.org/observations/58985088"
+  },
+  "Common Sandpiper": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/462410350/large.jpeg",
+    "photographer": "Saryu Mae 前 朝琉",
+    "license": "CC BY 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/257745919",
+    "scientific_name": "Actitis hypoleucos",
+    "observation_date": "2025-01-08",
+    "citation": "Saryu Mae 前 朝琉 (2025-01-08). Actitis hypoleucos. iNaturalist research-grade observation 257745919. CC BY 4.0. https://www.inaturalist.org/observations/257745919"
+  },
+  "Pink-footed Goose": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/111608178/large.jpeg",
+    "photographer": "Steve Lawson",
+    "license": "CC BY 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/68862607",
+    "scientific_name": "Anser brachyrhynchus",
+    "observation_date": "2021-01-31",
+    "citation": "Steve Lawson (2021-01-31). Anser brachyrhynchus. iNaturalist research-grade observation 68862607. CC BY 4.0. https://www.inaturalist.org/observations/68862607"
+  },
+  "Great Snipe": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/471535110/large.jpg",
+    "photographer": "Илья Уколов",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/262488932",
+    "scientific_name": "Gallinago media",
+    "observation_date": "2013-05-12",
+    "citation": "Илья Уколов (2013-05-12). Gallinago media. iNaturalist research-grade observation 262488932. CC BY-NC 4.0. https://www.inaturalist.org/observations/262488932"
+  },
+  "Richard's Pipit": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/319436700/large.jpg",
+    "photographer": "Вячеслав Юсупов",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/183128672",
+    "scientific_name": "Anthus richardi",
+    "observation_date": "2023-09-13",
+    "citation": "Вячеслав Юсупов (2023-09-13). Anthus richardi. iNaturalist research-grade observation 183128672. CC BY-NC 4.0. https://www.inaturalist.org/observations/183128672"
+  },
+  "Eurasian Woodcock": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/249696030/large.jpeg",
+    "photographer": "bird scope",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/145377883",
+    "scientific_name": "Scolopax rusticola",
+    "observation_date": "2022-12-02",
+    "citation": "bird scope (2022-12-02). Scolopax rusticola. iNaturalist research-grade observation 145377883. CC BY-NC 4.0. https://www.inaturalist.org/observations/145377883"
+  },
+  "Red-breasted Flycatcher": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/92104631/large.jpg",
+    "photographer": "Christoph Moning",
+    "license": "CC BY 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/57725794",
+    "scientific_name": "Ficedula parva",
+    "observation_date": "2010-05-09",
+    "citation": "Christoph Moning (2010-05-09). Ficedula parva. iNaturalist research-grade observation 57725794. CC BY 4.0. https://www.inaturalist.org/observations/57725794"
+  },
+  "Snow Bunting": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/63006562/large.jpeg",
+    "photographer": "Denis Doucet",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/39697565",
+    "scientific_name": "Plectrophenax nivalis",
+    "observation_date": "2011-01-10",
+    "citation": "Denis Doucet (2011-01-10). Plectrophenax nivalis. iNaturalist research-grade observation 39697565. CC BY-NC 4.0. https://www.inaturalist.org/observations/39697565"
+  },
+  "Eurasian Nutcracker": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/357250659/large.jpg",
+    "photographer": "Ирина Бортникова",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/202296576",
+    "scientific_name": "Nucifraga caryocatactes",
+    "observation_date": "2024-03-13",
+    "citation": "Ирина Бортникова (2024-03-13). Nucifraga caryocatactes. iNaturalist research-grade observation 202296576. CC BY-NC 4.0. https://www.inaturalist.org/observations/202296576"
+  },
+  "Common Grasshopper-Warbler": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/296677837/large.jpeg",
+    "photographer": "Erik Eckstein",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/171000916",
+    "scientific_name": "Locustella naevia",
+    "observation_date": "2023-07-03",
+    "citation": "Erik Eckstein (2023-07-03). Locustella naevia. iNaturalist research-grade observation 171000916. CC BY-NC 4.0. https://www.inaturalist.org/observations/171000916"
+  },
+  "Eurasian Magpie": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/177108982/large.jpeg",
+    "photographer": "Alexis Williams",
+    "license": "CC BY 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/105542582",
+    "scientific_name": "Pica pica",
+    "observation_date": "2022-01-24",
+    "citation": "Alexis Williams (2022-01-24). Pica pica. iNaturalist research-grade observation 105542582. CC BY 4.0. https://www.inaturalist.org/observations/105542582"
+  },
+  "Yellowhammer": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/294128790/large.jpeg",
+    "photographer": "Croftylock",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/169639123",
+    "scientific_name": "Emberiza citrinella",
+    "observation_date": "2023-06-24",
+    "citation": "Croftylock (2023-06-24). Emberiza citrinella. iNaturalist research-grade observation 169639123. CC BY-NC 4.0. https://www.inaturalist.org/observations/169639123"
+  },
+  "Bar-headed Goose": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/10917184/large.jpeg",
+    "photographer": "Antonio Xeira",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/8233078",
+    "scientific_name": "Anser indicus",
+    "observation_date": "2017-09-28",
+    "citation": "Antonio Xeira (2017-09-28). Anser indicus. iNaturalist research-grade observation 8233078. CC BY-NC 4.0. https://www.inaturalist.org/observations/8233078"
+  },
+  "Pine Grosbeak": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/30135617/large.jpeg",
+    "photographer": "Jenn Megyesi",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/19576672",
+    "scientific_name": "Pinicola enucleator",
+    "observation_date": "2019-01-11",
+    "citation": "Jenn Megyesi (2019-01-11). Pinicola enucleator. iNaturalist research-grade observation 19576672. CC BY-NC 4.0. https://www.inaturalist.org/observations/19576672"
+  },
+  "Rook": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/88091210/large.jpg",
+    "photographer": "Christian Ryan",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/55326797",
+    "scientific_name": "Corvus frugilegus",
+    "observation_date": "2020-08-03",
+    "citation": "Christian Ryan (2020-08-03). Corvus frugilegus. iNaturalist research-grade observation 55326797. CC BY-NC 4.0. https://www.inaturalist.org/observations/55326797"
+  },
+  "Hooded Crow": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/73417374/large.jpg",
+    "photographer": "Valia Pavlou",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/46290825",
+    "scientific_name": "Corvus cornix",
+    "observation_date": "2020-05-17",
+    "citation": "Valia Pavlou (2020-05-17). Corvus cornix. iNaturalist research-grade observation 46290825. CC BY-NC 4.0. https://www.inaturalist.org/observations/46290825"
+  },
+  "Redwing": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/247003812/large.jpg",
+    "photographer": "Patrick Felker",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/143973410",
+    "scientific_name": "Turdus iliacus",
+    "observation_date": "2021-02-21",
+    "citation": "Patrick Felker (2021-02-21). Turdus iliacus. iNaturalist research-grade observation 143973410. CC BY-NC 4.0. https://www.inaturalist.org/observations/143973410"
+  },
+  "Common Crane": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/153611231/large.gif",
+    "photographer": "Matt Muir",
+    "license": "CC BY 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/92744148",
+    "scientific_name": "Grus grus",
+    "observation_date": "2021-08-10",
+    "citation": "Matt Muir (2021-08-10). Grus grus. iNaturalist research-grade observation 92744148. CC BY 4.0. https://www.inaturalist.org/observations/92744148"
+  },
+  "Carrion Crow": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/73417374/large.jpg",
+    "photographer": "Valia Pavlou",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/46290825",
+    "scientific_name": "Corvus corone",
+    "observation_date": "2020-05-17",
+    "citation": "Valia Pavlou (2020-05-17). Corvus corone. iNaturalist research-grade observation 46290825. CC BY-NC 4.0. https://www.inaturalist.org/observations/46290825"
+  },
+  "Mallard": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/10826265/large.jpg",
+    "photographer": "Greg Lasley",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/8174772",
+    "scientific_name": "Anas platyrhynchos",
+    "observation_date": "2017-09-26",
+    "citation": "Greg Lasley (2017-09-26). Anas platyrhynchos. iNaturalist research-grade observation 8174772. CC BY-NC 4.0. https://www.inaturalist.org/observations/8174772"
+  },
+  "Greater White-fronted Goose": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/178685068/large.jpg",
+    "photographer": "Jim",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/106376002",
+    "scientific_name": "Anser albifrons",
+    "observation_date": "2022-02-02",
+    "citation": "Jim (2022-02-02). Anser albifrons. iNaturalist research-grade observation 106376002. CC BY-NC 4.0. https://www.inaturalist.org/observations/106376002"
+  },
+  "European Greenfinch": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/43705228/large.jpg",
+    "photographer": "Геннадий",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/28053164",
+    "scientific_name": "Chloris chloris",
+    "observation_date": "2019-03-24",
+    "citation": "Геннадий (2019-03-24). Chloris chloris. iNaturalist research-grade observation 28053164. CC BY-NC 4.0. https://www.inaturalist.org/observations/28053164"
+  },
+  "Meadow Pipit": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/146788859/large.jpeg",
+    "photographer": "Lorenzo Vinciguerra",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/88925461",
+    "scientific_name": "Anthus pratensis",
+    "observation_date": "2021-07-25",
+    "citation": "Lorenzo Vinciguerra (2021-07-25). Anthus pratensis. iNaturalist research-grade observation 88925461. CC BY-NC 4.0. https://www.inaturalist.org/observations/88925461"
+  },
+  "Eurasian Blue Tit": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/32558473/large.jpg",
+    "photographer": "Марина Горбунова-Ëлкина",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/21071780",
+    "scientific_name": "Cyanistes caeruleus",
+    "observation_date": "2013-03-24",
+    "citation": "Марина Горбунова-Ëлкина (2013-03-24). Cyanistes caeruleus. iNaturalist research-grade observation 21071780. CC BY-NC 4.0. https://www.inaturalist.org/observations/21071780"
+  },
+  "Brambling": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/244664202/large.jpg",
+    "photographer": "Александр Коробейников",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/142682696",
+    "scientific_name": "Fringilla montifringilla",
+    "observation_date": "2022-08-09",
+    "citation": "Александр Коробейников (2022-08-09). Fringilla montifringilla. iNaturalist research-grade observation 142682696. CC BY-NC 4.0. https://www.inaturalist.org/observations/142682696"
+  },
+  "Tree Pipit": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/510326542/large.jpg",
+    "photographer": "Gianmaria Marchese",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/283986906",
+    "scientific_name": "Anthus trivialis",
+    "observation_date": "2025-05-25",
+    "citation": "Gianmaria Marchese (2025-05-25). Anthus trivialis. iNaturalist research-grade observation 283986906. CC BY-NC 4.0. https://www.inaturalist.org/observations/283986906"
+  },
+  "Eurasian Oystercatcher": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/28810499/large.jpg",
+    "photographer": "Aleksey Levashkin",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/18810626",
+    "scientific_name": "Haematopus ostralegus",
+    "observation_date": "2008-05-05",
+    "citation": "Aleksey Levashkin (2008-05-05). Haematopus ostralegus. iNaturalist research-grade observation 18810626. CC BY-NC 4.0. https://www.inaturalist.org/observations/18810626"
+  },
+  "Eurasian Curlew": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/251126595/large.jpg",
+    "photographer": "Jamie O'Neill",
+    "license": "CC BY 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/146110053",
+    "scientific_name": "Numenius arquata",
+    "observation_date": "2023-01-07",
+    "citation": "Jamie O'Neill (2023-01-07). Numenius arquata. iNaturalist research-grade observation 146110053. CC BY 4.0. https://www.inaturalist.org/observations/146110053"
+  },
+  "Brant": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3284993/large.jpg",
+    "photographer": "Justin",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/2877268",
+    "scientific_name": "Branta bernicla",
+    "observation_date": "2015-07-03",
+    "citation": "Justin (2015-07-03). Branta bernicla. iNaturalist research-grade observation 2877268. CC BY-NC 4.0. https://www.inaturalist.org/observations/2877268"
+  },
+  "Northern Lapwing": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/280624188/large.jpg",
+    "photographer": "Nikita Gerasin",
+    "license": "CC0 (Public Domain)",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/162303213",
+    "scientific_name": "Vanellus vanellus",
+    "observation_date": "1895-05-01",
+    "citation": "Nikita Gerasin (1895-05-01). Vanellus vanellus. iNaturalist research-grade observation 162303213. CC0 (Public Domain). https://www.inaturalist.org/observations/162303213"
+  },
+  "Ring-necked Pheasant": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/127255695/large.jpeg",
+    "photographer": "John Krampl",
+    "license": "CC BY 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/77794790",
+    "scientific_name": "Phasianus colchicus",
+    "observation_date": "2021-05-06",
+    "citation": "John Krampl (2021-05-06). Phasianus colchicus. iNaturalist research-grade observation 77794790. CC BY 4.0. https://www.inaturalist.org/observations/77794790"
+  },
+  "Gray Wagtail": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/44900669/large.jpg",
+    "photographer": "Ryan Shaw",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/28788741",
+    "scientific_name": "Motacilla cinerea",
+    "observation_date": "2016-09-24",
+    "citation": "Ryan Shaw (2016-09-24). Motacilla cinerea. iNaturalist research-grade observation 28788741. CC BY-NC 4.0. https://www.inaturalist.org/observations/28788741"
+  },
+  "Canada Goose": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3239787/large.png",
+    "photographer": "NHMLA Community Science Program",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/2842153",
+    "scientific_name": "Branta canadensis",
+    "observation_date": "2016-03-13",
+    "citation": "NHMLA Community Science Program (2016-03-13). Branta canadensis. iNaturalist research-grade observation 2842153. CC BY-NC 4.0. https://www.inaturalist.org/observations/2842153"
+  },
+  "Eurasian Coot": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/346060976/large.jpg",
+    "photographer": "Сергей Кукуев",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/196585623",
+    "scientific_name": "Fulica atra",
+    "observation_date": "2024-01-13",
+    "citation": "Сергей Кукуев (2024-01-13). Fulica atra. iNaturalist research-grade observation 196585623. CC BY-NC 4.0. https://www.inaturalist.org/observations/196585623"
+  },
+  "Water Rail": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/344079700/large.jpg",
+    "photographer": "Светлана Медведева",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/195562373",
+    "scientific_name": "Rallus aquaticus",
+    "observation_date": "2024-01-02",
+    "citation": "Светлана Медведева (2024-01-02). Rallus aquaticus. iNaturalist research-grade observation 195562373. CC BY-NC 4.0. https://www.inaturalist.org/observations/195562373"
+  },
+  "Western Yellow Wagtail": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/511004369/large.jpg",
+    "photographer": "Valia Pavlou",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/284346420",
+    "scientific_name": "Motacilla flava",
+    "observation_date": "2025-04-03",
+    "citation": "Valia Pavlou (2025-04-03). Motacilla flava. iNaturalist research-grade observation 284346420. CC BY-NC 4.0. https://www.inaturalist.org/observations/284346420"
+  },
+  "White Wagtail": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/57751012/large.jpg",
+    "photographer": "Peter",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/36526661",
+    "scientific_name": "Motacilla alba",
+    "observation_date": "2013-07-18",
+    "citation": "Peter (2013-07-18). Motacilla alba. iNaturalist research-grade observation 36526661. CC BY-NC 4.0. https://www.inaturalist.org/observations/36526661"
+  },
+  "Tundra Swan": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/255978712/large.jpg",
+    "photographer": "brian stahls",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/148625683",
+    "scientific_name": "Cygnus columbianus",
+    "observation_date": "2023-02-12",
+    "citation": "brian stahls (2023-02-12). Cygnus columbianus. iNaturalist research-grade observation 148625683. CC BY-NC 4.0. https://www.inaturalist.org/observations/148625683"
+  },
+  "European Robin": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/30475942/large.jpeg",
+    "photographer": "Alexis Tinker-Tsavalas",
+    "license": "CC BY 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/19776411",
+    "scientific_name": "Erithacus rubecula",
+    "observation_date": "2019-01-20",
+    "citation": "Alexis Tinker-Tsavalas (2019-01-20). Erithacus rubecula. iNaturalist research-grade observation 19776411. CC BY 4.0. https://www.inaturalist.org/observations/19776411"
+  },
+  "Eurasian Moorhen": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/57899241/large.jpg",
+    "photographer": "Katy",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/36614001",
+    "scientific_name": "Gallinula chloropus",
+    "observation_date": "2019-12-04",
+    "citation": "Katy (2019-12-04). Gallinula chloropus. iNaturalist research-grade observation 36614001. CC BY-NC 4.0. https://www.inaturalist.org/observations/36614001"
+  },
+  "Black-headed Gull": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/499705053/large.jpeg",
+    "photographer": "Owen Strickland",
+    "license": "CC BY 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/278297590",
+    "scientific_name": "Chroicocephalus ridibundus",
+    "observation_date": "2025-05-03",
+    "citation": "Owen Strickland (2025-05-03). Chroicocephalus ridibundus. iNaturalist research-grade observation 278297590. CC BY 4.0. https://www.inaturalist.org/observations/278297590"
+  },
+  "Whooper Swan": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/173178419/large.jpeg",
+    "photographer": "Jakob Fahr",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/103469182",
+    "scientific_name": "Cygnus cygnus",
+    "observation_date": "2021-02-14",
+    "citation": "Jakob Fahr (2021-02-14). Cygnus cygnus. iNaturalist research-grade observation 103469182. CC BY-NC 4.0. https://www.inaturalist.org/observations/103469182"
+  },
+  "Common Snipe": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/102020340/large.jpg",
+    "photographer": "Nigel Voaden",
+    "license": "CC BY 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/63556762",
+    "scientific_name": "Gallinago gallinago",
+    "observation_date": "2020-07-18",
+    "citation": "Nigel Voaden (2020-07-18). Gallinago gallinago. iNaturalist research-grade observation 63556762. CC BY 4.0. https://www.inaturalist.org/observations/63556762"
+  },
+  "Little Bunting": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/394120193/large.jpg",
+    "photographer": "Mikhail Ezdakov",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/222491195",
+    "scientific_name": "Emberiza pusilla",
+    "observation_date": "2024-05-25",
+    "citation": "Mikhail Ezdakov (2024-05-25). Emberiza pusilla. iNaturalist research-grade observation 222491195. CC BY-NC 4.0. https://www.inaturalist.org/observations/222491195"
+  },
+  "Herring Gull": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/84076875/large.jpg",
+    "photographer": "Robert Levy",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/52876402",
+    "scientific_name": "Larus argentatus",
+    "observation_date": "2020-07-12",
+    "citation": "Robert Levy (2020-07-12). Larus argentatus. iNaturalist research-grade observation 52876402. CC BY-NC 4.0. https://www.inaturalist.org/observations/52876402"
+  },
+  "Common Redpoll": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/112107662/large.jpg",
+    "photographer": "Vladimir Kharuk",
+    "license": "CC BY 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/69131230",
+    "scientific_name": "Acanthis flammea",
+    "observation_date": "2021-01-31",
+    "citation": "Vladimir Kharuk (2021-01-31). Acanthis flammea. iNaturalist research-grade observation 69131230. CC BY 4.0. https://www.inaturalist.org/observations/69131230"
+  },
+  "Gray Partridge": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/337416063/large.jpeg",
+    "photographer": "Julia Moning",
+    "license": "CC BY 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/192232902",
+    "scientific_name": "Perdix perdix",
+    "observation_date": "2023-11-25",
+    "citation": "Julia Moning (2023-11-25). Perdix perdix. iNaturalist research-grade observation 192232902. CC BY 4.0. https://www.inaturalist.org/observations/192232902"
+  },
+  "Manx Shearwater": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/453525443/large.jpeg",
+    "photographer": "Ingvild Riska",
+    "license": "CC BY 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/253303961",
+    "scientific_name": "Puffinus puffinus",
+    "observation_date": "2023-12-12",
+    "citation": "Ingvild Riska (2023-12-12). Puffinus puffinus. iNaturalist research-grade observation 253303961. CC BY 4.0. https://www.inaturalist.org/observations/253303961"
+  },
+  "Mistle Thrush": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/68454633/large.jpg",
+    "photographer": "Rino Di Noto",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/43121557",
+    "scientific_name": "Turdus viscivorus",
+    "observation_date": "2016-11-26",
+    "citation": "Rino Di Noto (2016-11-26). Turdus viscivorus. iNaturalist research-grade observation 43121557. CC BY-NC 4.0. https://www.inaturalist.org/observations/43121557"
+  },
+  "Eurasian Jay": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/12331444/large.jpg",
+    "photographer": "Ausra Zilinskiene",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/9125296",
+    "scientific_name": "Garrulus glandarius",
+    "observation_date": "2016-10-01",
+    "citation": "Ausra Zilinskiene (2016-10-01). Garrulus glandarius. iNaturalist research-grade observation 9125296. CC BY-NC 4.0. https://www.inaturalist.org/observations/9125296"
+  },
+  "Arctic Warbler": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/165049613/large.jpg",
+    "photographer": "Денис Кочан",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/99054925",
+    "scientific_name": "Phylloscopus borealis",
+    "observation_date": "2021-08-27",
+    "citation": "Денис Кочан (2021-08-27). Phylloscopus borealis. iNaturalist research-grade observation 99054925. CC BY-NC 4.0. https://www.inaturalist.org/observations/99054925"
+  },
+  "Lapland Longspur": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/246227170/large.jpg",
+    "photographer": "Мария Ушакова",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/143562316",
+    "scientific_name": "Calcarius lapponicus",
+    "observation_date": "2022-12-03",
+    "citation": "Мария Ушакова (2022-12-03). Calcarius lapponicus. iNaturalist research-grade observation 143562316. CC BY-NC 4.0. https://www.inaturalist.org/observations/143562316"
+  },
+  "Fieldfare": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/167407291/large.jpeg",
+    "photographer": "Ekaterina Dolgushina",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/100314593",
+    "scientific_name": "Turdus pilaris",
+    "observation_date": "2021-11-05",
+    "citation": "Ekaterina Dolgushina (2021-11-05). Turdus pilaris. iNaturalist research-grade observation 100314593. CC BY-NC 4.0. https://www.inaturalist.org/observations/100314593"
+  },
+  "Black-bellied Plover": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/19442682/large.jpg",
+    "photographer": "Amber Hart",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/13280973",
+    "scientific_name": "Pluvialis squatarola",
+    "observation_date": "2015-02-21",
+    "citation": "Amber Hart (2015-02-21). Pluvialis squatarola. iNaturalist research-grade observation 13280973. CC BY-NC 4.0. https://www.inaturalist.org/observations/13280973"
+  },
+  "Great Gray Shrike": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/28515514/large.jpg",
+    "photographer": "Вячеслав Юсупов",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/18630045",
+    "scientific_name": "Lanius excubitor",
+    "observation_date": "2016-12-05",
+    "citation": "Вячеслав Юсупов (2016-12-05). Lanius excubitor. iNaturalist research-grade observation 18630045. CC BY-NC 4.0. https://www.inaturalist.org/observations/18630045"
+  },
+  "Dunlin": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/178605105/large.jpg",
+    "photographer": "DT",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/106181024",
+    "scientific_name": "Calidris alpina",
+    "observation_date": "2022-02-05",
+    "citation": "DT (2022-02-05). Calidris alpina. iNaturalist research-grade observation 106181024. CC BY-NC 4.0. https://www.inaturalist.org/observations/106181024"
+  },
+  "Black Woodpecker": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/31574109/large.jpg",
+    "photographer": "Александр",
+    "license": "CC BY-NC-SA 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/20448998",
+    "scientific_name": "Dryocopus martius",
+    "observation_date": "2019-02-11",
+    "citation": "Александр (2019-02-11). Dryocopus martius. iNaturalist research-grade observation 20448998. CC BY-NC-SA 4.0. https://www.inaturalist.org/observations/20448998"
+  },
+  "European Storm-Petrel": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/33030726/large.jpeg",
+    "photographer": "Albert Fernandez Chacon",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/21355931",
+    "scientific_name": "Hydrobates pelagicus",
+    "observation_date": "2008-06-10",
+    "citation": "Albert Fernandez Chacon (2008-06-10). Hydrobates pelagicus. iNaturalist research-grade observation 21355931. CC BY-NC 4.0. https://www.inaturalist.org/observations/21355931"
+  },
+  "Taiga Bean-Goose": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/481049665/large.jpg",
+    "photographer": "Dmitrii",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/267668457",
+    "scientific_name": "Anser fabalis",
+    "observation_date": "2025-03-29",
+    "citation": "Dmitrii (2025-03-29). Anser fabalis. iNaturalist research-grade observation 267668457. CC BY-NC 4.0. https://www.inaturalist.org/observations/267668457"
+  },
+  "Eurasian Eagle-Owl": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/189292191/large.jpg",
+    "photographer": "Mikhail Ezdakov",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/112083082",
+    "scientific_name": "Bubo bubo",
+    "observation_date": "2022-04-18",
+    "citation": "Mikhail Ezdakov (2022-04-18). Bubo bubo. iNaturalist research-grade observation 112083082. CC BY-NC 4.0. https://www.inaturalist.org/observations/112083082"
+  },
+  "Tundra Bean-Goose": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/292196527/large.jpg",
+    "photographer": "Justyn Stahl",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/168595794",
+    "scientific_name": "Anser serrirostris",
+    "observation_date": "2023-06-18",
+    "citation": "Justyn Stahl (2023-06-18). Anser serrirostris. iNaturalist research-grade observation 168595794. CC BY-NC 4.0. https://www.inaturalist.org/observations/168595794"
+  },
+  "Ortolan Bunting": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/289251504/large.jpeg",
+    "photographer": "Matthieu Gauvain",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/167005690",
+    "scientific_name": "Emberiza hortulana",
+    "observation_date": "2023-06-01",
+    "citation": "Matthieu Gauvain (2023-06-01). Emberiza hortulana. iNaturalist research-grade observation 167005690. CC BY-NC 4.0. https://www.inaturalist.org/observations/167005690"
+  },
+  "Common House-Martin": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/496974511/large.jpg",
+    "photographer": "Luke Foster",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/276758737",
+    "scientific_name": "Delichon urbicum",
+    "observation_date": "2025-04-25",
+    "citation": "Luke Foster (2025-04-25). Delichon urbicum. iNaturalist research-grade observation 276758737. CC BY-NC 4.0. https://www.inaturalist.org/observations/276758737"
+  },
+  "Black-legged Kittiwake": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/27941060/large.jpg",
+    "photographer": "Gonzalo Mucientes Sandoval",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/18289367",
+    "scientific_name": "Rissa tridactyla",
+    "observation_date": "2004-05-17",
+    "citation": "Gonzalo Mucientes Sandoval (2004-05-17). Rissa tridactyla. iNaturalist research-grade observation 18289367. CC BY-NC 4.0. https://www.inaturalist.org/observations/18289367"
+  },
+  "Common Buzzard": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/256001927/large.jpg",
+    "photographer": "tiller",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/148637530",
+    "scientific_name": "Buteo buteo",
+    "observation_date": "2023-02-12",
+    "citation": "tiller (2023-02-12). Buteo buteo. iNaturalist research-grade observation 148637530. CC BY-NC 4.0. https://www.inaturalist.org/observations/148637530"
+  },
+  "Gadwall": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/452828625/large.jpg",
+    "photographer": "Roberto Corvino",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/252936255",
+    "scientific_name": "Mareca strepera",
+    "observation_date": "2024-11-24",
+    "citation": "Roberto Corvino (2024-11-24). Mareca strepera. iNaturalist research-grade observation 252936255. CC BY-NC 4.0. https://www.inaturalist.org/observations/252936255"
+  },
+  "Common Tern": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/22243644/large.jpeg",
+    "photographer": "Jonathan Layman",
+    "license": "CC BY 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/14902467",
+    "scientific_name": "Sterna hirundo",
+    "observation_date": "2018-07-22",
+    "citation": "Jonathan Layman (2018-07-22). Sterna hirundo. iNaturalist research-grade observation 14902467. CC BY 4.0. https://www.inaturalist.org/observations/14902467"
+  },
+  "Red-throated Loon": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/122719354/large.jpeg",
+    "photographer": "Calista McRae",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/75040513",
+    "scientific_name": "Gavia stellata",
+    "observation_date": "2021-04-24",
+    "citation": "Calista McRae (2021-04-24). Gavia stellata. iNaturalist research-grade observation 75040513. CC BY-NC 4.0. https://www.inaturalist.org/observations/75040513"
+  },
+  "European Golden-Plover": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/179487458/large.jpg",
+    "photographer": "Steve Holmes",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/106796599",
+    "scientific_name": "Pluvialis apricaria",
+    "observation_date": "2021-08-19",
+    "citation": "Steve Holmes (2021-08-19). Pluvialis apricaria. iNaturalist research-grade observation 106796599. CC BY-NC 4.0. https://www.inaturalist.org/observations/106796599"
+  },
+  "Reed Bunting": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/450088532/large.jpeg",
+    "photographer": "Valia Pavlou",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/251533974",
+    "scientific_name": "Emberiza schoeniclus",
+    "observation_date": "2024-10-17",
+    "citation": "Valia Pavlou (2024-10-17). Emberiza schoeniclus. iNaturalist research-grade observation 251533974. CC BY-NC 4.0. https://www.inaturalist.org/observations/251533974"
+  },
+  "Arctic Tern": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/5992136/large.jpg",
+    "photographer": "Greg Lasley",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/4920022",
+    "scientific_name": "Sterna paradisaea",
+    "observation_date": "1988-06-20",
+    "citation": "Greg Lasley (1988-06-20). Sterna paradisaea. iNaturalist research-grade observation 4920022. CC BY-NC 4.0. https://www.inaturalist.org/observations/4920022"
+  },
+  "Dunnock": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/46480923/large.jpg",
+    "photographer": "Alejandro Ocampo",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/29771329",
+    "scientific_name": "Prunella modularis",
+    "observation_date": "2014-05-03",
+    "citation": "Alejandro Ocampo (2014-05-03). Prunella modularis. iNaturalist research-grade observation 29771329. CC BY-NC 4.0. https://www.inaturalist.org/observations/29771329"
+  },
+  "Corn Crake": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1834886/large.jpg",
+    "photographer": "Paul Cools",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/1480063",
+    "scientific_name": "Crex crex",
+    "observation_date": "2014-05-16",
+    "citation": "Paul Cools (2014-05-16). Crex crex. iNaturalist research-grade observation 1480063. CC BY-NC 4.0. https://www.inaturalist.org/observations/1480063"
+  },
+  "Western Capercaillie": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/123631549/large.jpeg",
+    "photographer": "Christoph Moning",
+    "license": "CC BY 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/75559133",
+    "scientific_name": "Tetrao urogallus",
+    "observation_date": "2021-04-25",
+    "citation": "Christoph Moning (2021-04-25). Tetrao urogallus. iNaturalist research-grade observation 75559133. CC BY 4.0. https://www.inaturalist.org/observations/75559133"
+  },
+  "Common Goldeneye": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/148182201/large.jpg",
+    "photographer": "WildGrace",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/89715702",
+    "scientific_name": "Bucephala clangula",
+    "observation_date": "2021-08-02",
+    "citation": "WildGrace (2021-08-02). Bucephala clangula. iNaturalist research-grade observation 89715702. CC BY-NC 4.0. https://www.inaturalist.org/observations/89715702"
+  },
+  "Common Raven": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/344773724/large.jpeg",
+    "photographer": "Cos van Wermeskerken",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/195905936",
+    "scientific_name": "Corvus corax",
+    "observation_date": "2018-07-05",
+    "citation": "Cos van Wermeskerken (2018-07-05). Corvus corax. iNaturalist research-grade observation 195905936. CC BY-NC 4.0. https://www.inaturalist.org/observations/195905936"
+  },
+  "River Warbler": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/208442775/large.jpeg",
+    "photographer": "Татьяна Косых",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/123065804",
+    "scientific_name": "Locustella fluviatilis",
+    "observation_date": "2022-06-05",
+    "citation": "Татьяна Косых (2022-06-05). Locustella fluviatilis. iNaturalist research-grade observation 123065804. CC BY-NC 4.0. https://www.inaturalist.org/observations/123065804"
+  },
+  "Lesser Spotted Woodpecker": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/179243150/large.jpeg",
+    "photographer": "Julian",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/106670521",
+    "scientific_name": "Dryobates minor",
+    "observation_date": "2022-02-13",
+    "citation": "Julian (2022-02-13). Dryobates minor. iNaturalist research-grade observation 106670521. CC BY-NC 4.0. https://www.inaturalist.org/observations/106670521"
+  },
+  "Tawny Owl": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/35636269/large.jpeg",
+    "photographer": "Alexis Tinker-Tsavalas",
+    "license": "CC BY 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/22988157",
+    "scientific_name": "Strix aluco",
+    "observation_date": "2019-04-17",
+    "citation": "Alexis Tinker-Tsavalas (2019-04-17). Strix aluco. iNaturalist research-grade observation 22988157. CC BY 4.0. https://www.inaturalist.org/observations/22988157"
+  },
+  "Eurasian Pygmy-Owl": {
+    "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/174477818/large.jpg",
+    "photographer": "François-Xavier Taxil",
+    "license": "CC BY-NC 4.0",
+    "source": "iNaturalist",
+    "observation_url": "https://www.inaturalist.org/observations/104146932",
+    "scientific_name": "Glaucidium passerinum",
+    "observation_date": "2021-04-24",
+    "citation": "François-Xavier Taxil (2021-04-24). Glaucidium passerinum. iNaturalist research-grade observation 104146932. CC BY-NC 4.0. https://www.inaturalist.org/observations/104146932"
+  }
+}

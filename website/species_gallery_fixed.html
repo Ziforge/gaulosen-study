@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaulossen Species Gallery - 82 Verified Species</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6; color: #e0e0e0;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            min-height: 100vh; padding: 20px;
+        }
+        
+        .container { max-width: 1600px; margin: 0 auto; }
+        
+        header {
+            text-align: center; margin-bottom: 40px; padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.05); border-radius: 20px;
+            backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        h1 {
+            font-size: 3em; margin-bottom: 15px;
+            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        
+        .subtitle { font-size: 1.3em; color: #a0a0a0; }
+        
+        .nav-links { text-align: center; margin: 30px 0; }
+        
+        .nav-link {
+            display: inline-block; padding: 12px 30px; margin: 0 10px;
+            background: rgba(0, 212, 255, 0.1); color: #00d4ff; text-decoration: none;
+            border-radius: 25px; border: 1px solid #00d4ff; transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover { background: rgba(0, 212, 255, 0.2); transform: translateY(-2px); }
+        
+        .species-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 30px; margin-top: 40px;
+        }
+        
+        .species-card {
+            background: rgba(255, 255, 255, 0.05); border-radius: 15px; overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease;
+        }
+        
+        .species-card:hover {
+            transform: translateY(-5px); border-color: #00d4ff;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+        }
+        
+        .species-content { padding: 25px; }
+        
+        .species-name { font-size: 1.5em; color: #00d4ff; margin-bottom: 5px; font-weight: bold; }
+        
+        .species-scientific { font-size: 1.1em; color: #7b2ff7; font-style: italic; margin-bottom: 20px; }
+        
+        .species-description { color: #d0d0d0; margin-bottom: 15px; font-size: 0.95em; line-height: 1.5; }
+        
+        .species-call {
+            background: rgba(0, 0, 0, 0.3); padding: 15px; border-radius: 8px;
+            margin-bottom: 20px; border-left: 3px solid #00ff88;
+        }
+        
+        .species-call-label {
+            color: #00ff88; font-weight: bold; font-size: 0.9em; margin-bottom: 8px;
+        }
+        
+        .species-call-text { color: #c0c0c0; font-size: 0.9em; line-height: 1.4; }
+        
+        .spectrogram-section { margin: 20px 0; }
+        
+        .spectrogram-label {
+            color: #00d4ff; font-weight: bold; font-size: 0.9em; margin-bottom: 10px;
+        }
+        
+        .spectrogram {
+            width: 100%; border-radius: 8px; cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .spectrogram:hover { transform: scale(1.02); }
+        
+        .audio-section { margin: 20px 0; }
+        
+        .audio-label {
+            color: #7b2ff7; font-weight: bold; font-size: 0.9em; margin-bottom: 10px;
+        }
+        
+        audio { width: 100%; height: 40px; }
+        
+        .species-meta {
+            margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85em; color: #888;
+        }
+        
+        .loading { text-align: center; padding: 40px; color: #888; font-size: 1.2em; }
+        
+        footer {
+            text-align: center; margin-top: 60px; padding: 30px;
+            color: #666; font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Species Gallery</h1>
+            <div class="subtitle">82 Verified Bird Species from Gaulossen Nature Reserve</div>
+            <div class="subtitle" style="margin-top: 10px; font-size: 1em;">With Spectrograms & Audio Samples</div>
+        </header>
+
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="behavioral_findings.html" class="nav-link">Behavioral Findings</a>
+            <a href="species_gallery_fixed.html" class="nav-link">Species Gallery</a>
+        </div>
+
+        <div class="loading" id="loading">Loading species data...</div>
+        <div class="species-grid" id="speciesGrid"></div>
+
+        <footer>
+            <p>Gaulossen Nature Reserve Acoustic Monitoring Study</p>
+            <p>October 2025 - Stjørdal, Norway</p>
+            <p>82 Verified Species | 4,108 Verified Detections</p>
+        </footer>
+    </div>
+
+    <script>
+        Promise.all([
+            fetch('species_data.json').then(r => r.json()),
+            fetch('species_files.json').then(r => r.json())
+        ]).then(([speciesData, speciesFiles]) => {
+            const grid = document.getElementById('speciesGrid');
+            grid.innerHTML = '';
+            
+            speciesData.forEach(sp => {
+                const files = speciesFiles[sp.common_name] || {};
+                
+                const card = document.createElement('div');
+                card.className = 'species-card';
+                
+                let spectrogramHTML = '';
+                if (files.spectrogram) {
+                    spectrogramHTML = `
+                        <div class="spectrogram-section">
+                            <div class="spectrogram-label">📊 SPECTROGRAM</div>
+                            <img src="${files.spectrogram}" alt="${sp.common_name} spectrogram" class="spectrogram"
+                                 onerror="this.parentElement.style.display='none'">
+                        </div>
+                    `;
+                }
+                
+                let audioHTML = '';
+                if (files.audio) {
+                    audioHTML = `
+                        <div class="audio-section">
+                            <div class="audio-label">🔊 AUDIO SAMPLE</div>
+                            <audio controls>
+                                <source src="${files.audio}" type="audio/wav">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    `;
+                }
+                
+                card.innerHTML = `
+                    <div class="species-content">
+                        <div class="species-name">${sp.common_name}</div>
+                        <div class="species-scientific">${sp.scientific_name}</div>
+                        <div class="species-description">${sp.description}</div>
+                        <div class="species-call">
+                            <div class="species-call-label">🎵 CALL DESCRIPTION</div>
+                            <div class="species-call-text">${sp.call_description}</div>
+                        </div>
+                        ${spectrogramHTML}
+                        ${audioHTML}
+                        <div class="species-meta">
+                            BirdNET Confidence: ${sp.confidence} | Verified: ${sp.verification_date}
+                        </div>
+                    </div>
+                `;
+                
+                grid.appendChild(card);
+            });
+            
+            document.getElementById('loading').style.display = 'none';
+        }).catch(error => {
+            console.error('Error loading species data:', error);
+            document.getElementById('loading').innerHTML = 'Error loading species data. Please refresh the page.';
+        });
+    </script>
+</body>
+</html>

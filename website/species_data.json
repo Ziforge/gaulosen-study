@@ -1,0 +1,658 @@
+[
+  {
+    "common_name": "Graylag Goose",
+    "scientific_name": "Anser anser",
+    "description": "Large gray-brown goose with orange bill and pink legs. Ancestor of domestic geese.",
+    "call_description": "Loud honking \"aahng-ung-ung\" in flocks, harsh alarm calls",
+    "confidence": "99.1%",
+    "verification_date": "2025-10-13"
+  },
+  {
+    "common_name": "Gray Heron",
+    "scientific_name": "Ardea cinerea",
+    "description": "Large wading bird with gray plumage, white head, black crest stripe.",
+    "call_description": "Harsh, loud \"frank\" or \"kraak\" call, usually in flight",
+    "confidence": "98.9%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Common Sandpiper",
+    "scientific_name": "Actitis hypoleucos",
+    "description": "Small wader with brown upperparts, white underparts, constantly bobbing tail.",
+    "call_description": "High-pitched \"weet-weet-weet\" in flight, rhythmic and piping",
+    "confidence": "97.8%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Pink-footed Goose",
+    "scientific_name": "Anser brachyrhynchus",
+    "description": "Medium goose with pink legs and bill, dark head, pale breast.",
+    "call_description": "High-pitched \"wink-wink\" or \"ung-unk\", softer than Graylag",
+    "confidence": "97.4%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Great Snipe",
+    "scientific_name": "Gallinago media",
+    "description": "Bulky wader with heavily barred flanks, bold wingbars in flight.",
+    "call_description": "Lek display: bubbling, ticking, and wheezing sounds at dusk",
+    "confidence": "95.7%",
+    "verification_date": "2025-10-13"
+  },
+  {
+    "common_name": "Richard's Pipit",
+    "scientific_name": "Anthus richardi",
+    "description": "Large, long-legged pipit with upright stance, streaked upperparts.",
+    "call_description": "Loud, harsh \"shreep\" or \"chreep\" in flight",
+    "confidence": "94.0%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Eurasian Woodcock",
+    "scientific_name": "Scolopax rusticola",
+    "description": "Chunky wader with cryptic brown plumage, long bill, large eyes.",
+    "call_description": "Roding display: low croaking \"orr-orr-orr\" followed by high \"tswick\"",
+    "confidence": "92.6%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Red-breasted Flycatcher",
+    "scientific_name": "Ficedula parva",
+    "description": "Small flycatcher with orange-red throat (males), white tail patches.",
+    "call_description": "Thin \"tzeet-tzeet\", rattling trill song",
+    "confidence": "90.1%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Snow Bunting",
+    "scientific_name": "Plectrophenax nivalis",
+    "description": "Arctic bunting, breeding males white with black back, females brownish.",
+    "call_description": "Rippling \"tirr-it-it-it\" in flocks, sweet whistled song",
+    "confidence": "89.7%",
+    "verification_date": "2025-10-15"
+  },
+  {
+    "common_name": "Eurasian Nutcracker",
+    "scientific_name": "Nucifraga caryocatactes",
+    "description": "Brown crow with white spots, specialist on pine seeds.",
+    "call_description": "Harsh, rattling \"krrraa-krrraa\", rasping chatter",
+    "confidence": "89.0%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Common Grasshopper-Warbler",
+    "scientific_name": "Locustella naevia",
+    "description": "Small secretive warbler with streaked brown plumage.",
+    "call_description": "Continuous mechanical reeling trill, like fishing reel, for minutes",
+    "confidence": "88.7%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Eurasian Magpie",
+    "scientific_name": "Pica pica",
+    "description": "Black and white corvid with long tail, iridescent blue-green wings.",
+    "call_description": "Harsh chattering \"chak-chak-chak-chak\", rattling calls",
+    "confidence": "88.3%",
+    "verification_date": "2025-10-13"
+  },
+  {
+    "common_name": "Yellowhammer",
+    "scientific_name": "Emberiza citrinella",
+    "description": "Bright yellow bunting (males) with chestnut rump, streaked back.",
+    "call_description": "Classic song: \"a-little-bit-of-bread-and-no-cheese\" (accelerating notes)",
+    "confidence": "83.2%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Bar-headed Goose",
+    "scientific_name": "Anser indicus",
+    "description": "Pale gray goose with distinctive black bars on white head.",
+    "call_description": "Nasal, musical honking \"aa-hoo\" or \"ang-ang\"",
+    "confidence": "82.6%",
+    "verification_date": "2025-10-13"
+  },
+  {
+    "common_name": "Pine Grosbeak",
+    "scientific_name": "Pinicola enucleator",
+    "description": "Large finch, males rosy-red, females yellow-olive, thick bill.",
+    "call_description": "Musical whistled \"tee-tee-tew\", soft warbling song",
+    "confidence": "82.5%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Rook",
+    "scientific_name": "Corvus frugilegus",
+    "description": "Black crow with bare grayish face patch at bill base, shaggy thighs.",
+    "call_description": "Harsh \"kaah\" or \"krah\", less varied than Carrion Crow",
+    "confidence": "82.0%",
+    "verification_date": "2025-10-15"
+  },
+  {
+    "common_name": "Hooded Crow",
+    "scientific_name": "Corvus cornix",
+    "description": "Gray body with black head, wings, and tail - distinctive two-tone crow.",
+    "call_description": "Harsh \"kraaa-kraaa\", similar to Carrion Crow",
+    "confidence": "80.2%",
+    "verification_date": "2025-10-13"
+  },
+  {
+    "common_name": "Redwing",
+    "scientific_name": "Turdus iliacus",
+    "description": "Small thrush with red flanks, prominent white eyebrow stripe.",
+    "call_description": "Thin, high \"tseeep\" in flight, especially at night during migration",
+    "confidence": "78.3%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Common Crane",
+    "scientific_name": "Grus grus",
+    "description": "Very large gray crane with black-and-white neck, red crown patch.",
+    "call_description": "Loud, trumpeting \"kroooh\" calls, bugling in flight",
+    "confidence": "76.3%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Carrion Crow",
+    "scientific_name": "Corvus corone",
+    "description": "All-black crow with heavy bill, less sociable than Rook.",
+    "call_description": "Deep, harsh \"kraa-kraa-kraa\", varied cawing",
+    "confidence": "75.7%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Mallard",
+    "scientific_name": "Anas platyrhynchos",
+    "description": "Common dabbling duck, males with green head, females mottled brown.",
+    "call_description": "Females: loud quacking, Males: soft nasal \"breep\"",
+    "confidence": "75.3%",
+    "verification_date": "2025-10-13"
+  },
+  {
+    "common_name": "Greater White-fronted Goose",
+    "scientific_name": "Anser albifrons",
+    "description": "Gray-brown goose with white face patch, black belly bars (adults).",
+    "call_description": "High, laughing \"kow-lyow\" or \"lyo-lyok\"",
+    "confidence": "73.6%",
+    "verification_date": "2025-10-13"
+  },
+  {
+    "common_name": "European Greenfinch",
+    "scientific_name": "Chloris chloris",
+    "description": "Chunky finch, males bright yellow-green with yellow wing edges.",
+    "call_description": "Nasal, wheezing \"dzweee\", twittering songs with trills",
+    "confidence": "72.8%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Meadow Pipit",
+    "scientific_name": "Anthus pratensis",
+    "description": "Small brown streaky pipit of open country, pale legs.",
+    "call_description": "Thin \"tseep-tseep-tseep\" in flight, parachuting song flight",
+    "confidence": "71.7%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Eurasian Blue Tit",
+    "scientific_name": "Cyanistes caeruleus",
+    "description": "Tiny bird with blue crown, yellow breast, white cheeks.",
+    "call_description": "Churring \"tsee-tsee-tsee\", varied trills and scolding notes",
+    "confidence": "71.0%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Brambling",
+    "scientific_name": "Fringilla montifringilla",
+    "description": "Finch with orange breast and shoulders, white rump (in flight).",
+    "call_description": "Nasal \"tweek\" in flight, buzzing \"tsweee\"",
+    "confidence": "68.3%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Tree Pipit",
+    "scientific_name": "Anthus trivialis",
+    "description": "Streaked pipit of woodland edges, pink legs, bold face pattern.",
+    "call_description": "Song flight ending in \"seee-seee-seee\" descending parachute",
+    "confidence": "67.5%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Eurasian Oystercatcher",
+    "scientific_name": "Haematopus ostralegus",
+    "description": "Large black-and-white wader with long orange-red bill, pink legs.",
+    "call_description": "Loud piping \"kleep-kleep-kleep\", excited trilling",
+    "confidence": "67.4%",
+    "verification_date": "2025-10-13"
+  },
+  {
+    "common_name": "Eurasian Curlew",
+    "scientific_name": "Numenius arquata",
+    "description": "Very large wader with extremely long down-curved bill, mottled brown.",
+    "call_description": "Mournful \"cur-lee\" call, bubbling song in display flights",
+    "confidence": "66.6%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Brant",
+    "scientific_name": "Branta bernicla",
+    "description": "Small dark goose with black head and neck, white neck patch.",
+    "call_description": "Soft rolling \"rronk\" or \"rrot\", croaking in flocks",
+    "confidence": "66.4%",
+    "verification_date": "2025-10-15"
+  },
+  {
+    "common_name": "Northern Lapwing",
+    "scientific_name": "Vanellus vanellus",
+    "description": "Plover with crest, iridescent green upperparts, white underparts.",
+    "call_description": "Wheezy \"pee-wit\" call, tumbling display flight",
+    "confidence": "66.2%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Ring-necked Pheasant",
+    "scientific_name": "Phasianus colchicus",
+    "description": "Large gamebird, males colorful with long tail, white neck ring.",
+    "call_description": "Loud crowing \"kok-kok\" followed by whirring wing beats",
+    "confidence": "66.2%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Gray Wagtail",
+    "scientific_name": "Motacilla cinerea",
+    "description": "Wagtail with gray upperparts, yellow underparts, very long tail.",
+    "call_description": "Sharp metallic \"chis-sik\", higher than Pied Wagtail",
+    "confidence": "64.1%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Canada Goose",
+    "scientific_name": "Branta canadensis",
+    "description": "Large goose with black neck, white chinstrap, brown body.",
+    "call_description": "Deep honking \"ah-honk\", trumpeting calls in flocks",
+    "confidence": "63.7%",
+    "verification_date": "2025-10-15"
+  },
+  {
+    "common_name": "Eurasian Coot",
+    "scientific_name": "Fulica atra",
+    "description": "Plump black waterbird with white bill and frontal shield.",
+    "call_description": "Explosive \"kowk\", metallic \"kik-kik-kik\"",
+    "confidence": "62.8%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Water Rail",
+    "scientific_name": "Rallus aquaticus",
+    "description": "Secretive rail with long red bill, barred flanks, lives in reeds.",
+    "call_description": "Pig-like squealing, explosive \"kipp-kipp\", groaning calls",
+    "confidence": "61.9%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Western Yellow Wagtail",
+    "scientific_name": "Motacilla flava",
+    "description": "Slim wagtail with yellow underparts, greenish back, constantly pumping tail.",
+    "call_description": "High \"tsweep\" in flight, softer than other wagtails",
+    "confidence": "59.3%",
+    "verification_date": "2025-10-15"
+  },
+  {
+    "common_name": "White Wagtail",
+    "scientific_name": "Motacilla alba",
+    "description": "Black-and-white wagtail with long tail, constantly wagging.",
+    "call_description": "Sharp \"chis-sick\" or \"tschizik\", twittering song",
+    "confidence": "57.9%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Tundra Swan",
+    "scientific_name": "Cygnus columbianus",
+    "description": "Large white swan with straight neck, small yellow bill spot.",
+    "call_description": "Softer than Whooper, melodious \"wow-wow-wow\" honking",
+    "confidence": "56.6%",
+    "verification_date": "2025-10-13"
+  },
+  {
+    "common_name": "European Robin",
+    "scientific_name": "Erithacus rubecula",
+    "description": "Small bird with orange-red face and breast, olive-brown upperparts.",
+    "call_description": "Thin \"tic-tic-tic\", liquid warbling song year-round",
+    "confidence": "55.3%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Eurasian Moorhen",
+    "scientific_name": "Gallinula chloropus",
+    "description": "Dark waterbird with red bill shield, white side stripes, green legs.",
+    "call_description": "Sharp \"krrrrk\", metallic croaking, explosive calls",
+    "confidence": "54.2%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Black-headed Gull",
+    "scientific_name": "Chroicocephalus ridibundus",
+    "description": "Medium gull, breeding: chocolate-brown head, red bill and legs.",
+    "call_description": "Harsh screaming \"kree-ar\", laughing calls in colonies",
+    "confidence": "51.3%",
+    "verification_date": "2025-10-13"
+  },
+  {
+    "common_name": "Whooper Swan",
+    "scientific_name": "Cygnus cygnus",
+    "description": "Large white swan with straight neck, yellow bill with black tip.",
+    "call_description": "Loud bugling \"whoop-whoop\", trumpeting honks in flight",
+    "confidence": "51.2%",
+    "verification_date": "2025-10-15"
+  },
+  {
+    "common_name": "Common Snipe",
+    "scientific_name": "Gallinago gallinago",
+    "description": "Small wader with very long bill, cryptic striped plumage.",
+    "call_description": "\"Chip-per\" on take-off, drumming wing sound in display",
+    "confidence": "50.8%",
+    "verification_date": "2025-10-13"
+  },
+  {
+    "common_name": "Little Bunting",
+    "scientific_name": "Emberiza pusilla",
+    "description": "Small bunting with rusty face, white eye-ring, streaked crown.",
+    "call_description": "Short, sharp \"tsik\" or \"twick\" in flight",
+    "confidence": "50.6%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Herring Gull",
+    "scientific_name": "Larus argentatus",
+    "description": "Large gray-and-white gull with yellow bill, red spot on lower mandible.",
+    "call_description": "Loud \"kyow-kyow-kyow\", long call with head thrown back",
+    "confidence": "50.4%",
+    "verification_date": "2025-10-15"
+  },
+  {
+    "common_name": "Common Redpoll",
+    "scientific_name": "Acanthis flammea",
+    "description": "Small finch with red forehead, black chin, streaked flanks.",
+    "call_description": "Dry rattling \"chuch-uch-uch-uch\" in flight, twitter",
+    "confidence": "49.9%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Gray Partridge",
+    "scientific_name": "Perdix perdix",
+    "description": "Plump gamebird with orange face, gray breast, dark belly patch.",
+    "call_description": "Rusty, creaking \"kieerr-ik\" at dawn and dusk",
+    "confidence": "49.8%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Manx Shearwater",
+    "scientific_name": "Puffinus puffinus",
+    "description": "Black-and-white seabird with stiff-winged gliding flight.",
+    "call_description": "Eerie wailing and crowing at breeding colonies at night",
+    "confidence": "48.6%",
+    "verification_date": "2025-10-15"
+  },
+  {
+    "common_name": "Mistle Thrush",
+    "scientific_name": "Turdus viscivorus",
+    "description": "Large thrush with spotted breast, white tail corners, upright stance.",
+    "call_description": "Harsh rattling \"churr-churr\", loud fluty song in storms",
+    "confidence": "48.2%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Bank Swallow",
+    "scientific_name": "Riparia riparia",
+    "description": "Smallest swallow with brown upperparts, white underparts, brown breast band.",
+    "call_description": "Dry twittering \"tchirrup\", buzzing in colonies",
+    "confidence": "47.2%",
+    "verification_date": "2025-10-13"
+  },
+  {
+    "common_name": "Eurasian Jay",
+    "scientific_name": "Garrulus glandarius",
+    "description": "Pink-brown crow with blue wing patch, white rump, black tail.",
+    "call_description": "Harsh screaming \"skaak-skaak\", varied vocal mimic",
+    "confidence": "46.8%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Arctic Warbler",
+    "scientific_name": "Phylloscopus borealis",
+    "description": "Small greenish warbler with long pale eyebrow, wing bar.",
+    "call_description": "Short, hard \"tzik\", fast trill song",
+    "confidence": "46.2%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Lapland Longspur",
+    "scientific_name": "Calcarius lapponicus",
+    "description": "Arctic bunting, breeding males with black face, chestnut nape.",
+    "call_description": "Dry rattle \"tickatickaticka\", sweet whistled song",
+    "confidence": "45.2%",
+    "verification_date": "2025-10-15"
+  },
+  {
+    "common_name": "Fieldfare",
+    "scientific_name": "Turdus pilaris",
+    "description": "Large thrush with gray head, chestnut back, heavily spotted breast.",
+    "call_description": "Chattering \"chak-chak-chak\", especially in flocks",
+    "confidence": "43.9%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Black-bellied Plover",
+    "scientific_name": "Pluvialis squatarola",
+    "description": "Stocky plover, breeding: black underparts, winter: gray-brown.",
+    "call_description": "Mournful three-note whistle \"tlee-oo-ee\"",
+    "confidence": "43.5%",
+    "verification_date": "2025-10-15"
+  },
+  {
+    "common_name": "Great Gray Shrike",
+    "scientific_name": "Lanius excubitor",
+    "description": "Large shrike with gray upperparts, black mask, white wing patches.",
+    "call_description": "Harsh \"shek-shek\", varied warbling with harsh notes",
+    "confidence": "43.3%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Dunlin",
+    "scientific_name": "Calidris alpina",
+    "description": "Small wader, breeding: black belly patch, rufous back.",
+    "call_description": "Nasal \"treee\" or \"kreep\", purring trill in display",
+    "confidence": "40.4%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Black Woodpecker",
+    "scientific_name": "Dryocopus martius",
+    "description": "Crow-sized woodpecker, entirely black with red crown.",
+    "call_description": "Loud, ringing \"kri-kri-kri\", drumming resonant and slow",
+    "confidence": "39.4%",
+    "verification_date": "2025-10-15"
+  },
+  {
+    "common_name": "European Storm-Petrel",
+    "scientific_name": "Hydrobates pelagicus",
+    "description": "Tiny black seabird with white rump, fluttering bat-like flight.",
+    "call_description": "Purring and hiccupping at burrows at night",
+    "confidence": "39.1%",
+    "verification_date": "2025-10-15"
+  },
+  {
+    "common_name": "Taiga Bean-Goose",
+    "scientific_name": "Anser fabalis",
+    "description": "Large dark goose with orange bill band, orange legs.",
+    "call_description": "Deep, nasal \"ung-ank\" or \"kay-yak\"",
+    "confidence": "38.5%",
+    "verification_date": "2025-10-15"
+  },
+  {
+    "common_name": "Eurasian Eagle-Owl",
+    "scientific_name": "Bubo bubo",
+    "description": "Europe's largest owl with prominent ear tufts, orange eyes.",
+    "call_description": "Deep, resonant \"ooh-hu\" hooting, carries for kilometers",
+    "confidence": "38.1%",
+    "verification_date": "2025-10-15"
+  },
+  {
+    "common_name": "Tundra Bean-Goose",
+    "scientific_name": "Anser serrirostris",
+    "description": "Smaller than Taiga Bean-Goose, shorter neck, stubbier bill.",
+    "call_description": "Higher-pitched than Taiga, \"kiuk-yuk\" or \"kow-yak\"",
+    "confidence": "35.8%",
+    "verification_date": "2025-10-15"
+  },
+  {
+    "common_name": "Ortolan Bunting",
+    "scientific_name": "Emberiza hortulana",
+    "description": "Bunting with olive-gray head, yellow throat, pink bill.",
+    "call_description": "Simple slow song \"tseu-tseu-tseu\", metallic \"tseep\" call",
+    "confidence": "33.6%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Common House-Martin",
+    "scientific_name": "Delichon urbicum",
+    "description": "Small swallow with white rump, deeply forked tail, blue-black upperparts.",
+    "call_description": "Soft twittering \"prrit\", dry rattling at nest",
+    "confidence": "33.0%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Black-legged Kittiwake",
+    "scientific_name": "Rissa tridactyla",
+    "description": "Small oceanic gull with black wingtips, yellow bill, black legs.",
+    "call_description": "Loud \"kit-ee-wake\" at colonies, nasal mewing",
+    "confidence": "32.0%",
+    "verification_date": "2025-10-15"
+  },
+  {
+    "common_name": "Common Buzzard",
+    "scientific_name": "Buteo buteo",
+    "description": "Medium raptor with broad rounded wings, variable brown plumage.",
+    "call_description": "Mewing \"pee-eee-oo\", often soaring and calling",
+    "confidence": "31.4%",
+    "verification_date": "2025-10-15"
+  },
+  {
+    "common_name": "Gadwall",
+    "scientific_name": "Mareca strepera",
+    "description": "Gray dabbling duck, males with black stern, white speculum.",
+    "call_description": "Females: harsh quacking, Males: nasal \"meep\" or whistle",
+    "confidence": "30.7%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Common Tern",
+    "scientific_name": "Sterna hirundo",
+    "description": "Graceful tern with black cap, red-orange bill with black tip.",
+    "call_description": "Sharp \"kree-err\", harsh \"kik-kik-kik\" at colonies",
+    "confidence": "30.6%",
+    "verification_date": "2025-10-15"
+  },
+  {
+    "common_name": "Red-throated Loon",
+    "scientific_name": "Gavia stellata",
+    "description": "Smallest loon, breeding: red throat patch, upturned bill.",
+    "call_description": "Wailing, goose-like calls in flight, eerie on breeding grounds",
+    "confidence": "30.4%",
+    "verification_date": "2025-10-15"
+  },
+  {
+    "common_name": "European Golden-Plover",
+    "scientific_name": "Pluvialis apricaria",
+    "description": "Plover with golden-spangled upperparts, breeding: black underparts.",
+    "call_description": "Mournful whistle \"tuu-ee\", liquid song in display flight",
+    "confidence": "30.3%",
+    "verification_date": "2025-10-15"
+  },
+  {
+    "common_name": "Reed Bunting",
+    "scientific_name": "Emberiza schoeniclus",
+    "description": "Bunting of wetlands, breeding males with black head, white collar.",
+    "call_description": "Short jangling song \"tsreek-tsreek-tritick\", metallic \"tsew\"",
+    "confidence": "29.3%",
+    "verification_date": "2025-10-15"
+  },
+  {
+    "common_name": "Arctic Tern",
+    "scientific_name": "Sterna paradisaea",
+    "description": "Like Common Tern but shorter legs, all-red bill, longer tail.",
+    "call_description": "Higher, sharper \"kee-kee\" than Common Tern",
+    "confidence": "29.3%",
+    "verification_date": "2025-10-13"
+  },
+  {
+    "common_name": "Dunnock",
+    "scientific_name": "Prunella modularis",
+    "description": "Small brown bird with gray head and breast, thin bill.",
+    "call_description": "High piping \"tseeh\", fast warbling song",
+    "confidence": "28.5%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Corn Crake",
+    "scientific_name": "Crex crex",
+    "description": "Secretive rail of meadows, buff plumage, chestnut wings.",
+    "call_description": "Loud rasping \"crex-crex\" repeated endlessly at night",
+    "confidence": "27.2%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Western Capercaillie",
+    "scientific_name": "Tetrao urogallus",
+    "description": "Huge grouse, males dark with red eyebrow, fan tail.",
+    "call_description": "Cork-popping and gurgling lek display, wing clapping",
+    "confidence": "27.2%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Common Goldeneye",
+    "scientific_name": "Bucephala clangula",
+    "description": "Diving duck, males with round white face spot, golden eye.",
+    "call_description": "Nasal \"beeer\", wings whistle loudly in flight",
+    "confidence": "26.5%",
+    "verification_date": "2025-10-13"
+  },
+  {
+    "common_name": "Common Raven",
+    "scientific_name": "Corvus corax",
+    "description": "Massive all-black crow with wedge-shaped tail, shaggy throat.",
+    "call_description": "Deep cronking \"pruk-pruk\", varied including knocking sounds",
+    "confidence": "26.2%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "River Warbler",
+    "scientific_name": "Locustella fluviatilis",
+    "description": "Secretive warbler like Grasshopper-Warbler but less streaked.",
+    "call_description": "Rhythmic churring \"zhrr-zhrr-zhrr\", slower than Grasshopper-Warbler",
+    "confidence": "25.4%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Lesser Spotted Woodpecker",
+    "scientific_name": "Dryobates minor",
+    "description": "Tiny woodpecker, barred black-and-white, males with red crown.",
+    "call_description": "High \"pee-pee-pee-pee\", drumming fast and quiet",
+    "confidence": "36.6%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Tawny Owl",
+    "scientific_name": "Strix aluco",
+    "description": "Medium owl, mottled brown, large dark eyes, rounded head.",
+    "call_description": "Classic \"hoo-hoooo-hoo\", female \"ke-wick\" response",
+    "confidence": "74.1%",
+    "verification_date": "2025-10-14"
+  },
+  {
+    "common_name": "Eurasian Pygmy-Owl",
+    "scientific_name": "Glaucidium passerinum",
+    "description": "Europe's smallest owl, brown with white spots, yellow eyes.",
+    "call_description": "Rising whistled \"tuu-tuu-tuu\", repeated monotonously",
+    "confidence": "33.3%",
+    "verification_date": "2025-10-14"
+  }
+]

@@ -1,0 +1,3627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaulossen Detection Review</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .header h1 {
+            margin-bottom: 10px;
+        }
+
+        .progress {
+            background: #34495e;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .progress-bar {
+            background: #ecf0f1;
+            height: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: #27ae60;
+            height: 100%;
+            transition: width 0.3s;
+        }
+
+        .stats {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            background: #34495e;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        .stat-value {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .detection-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-left: 5px solid #3498db;
+        }
+
+        .detection-card.passed {
+            border-left-color: #27ae60;
+            background: #f0fff4;
+        }
+
+        .detection-card.failed {
+            border-left-color: #e74c3c;
+            background: #fff5f5;
+        }
+
+        .detection-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .species-name {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .confidence {
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 5px 15px;
+            background: #3498db;
+            color: white;
+            border-radius: 20px;
+        }
+
+        .metadata {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .spectrogram {
+            max-width: 100%;
+            border-radius: 5px;
+            margin: 15px 0;
+            border: 2px solid #ddd;
+        }
+
+        .audio-player {
+            margin: 15px 0;
+        }
+
+        .audio-player audio {
+            width: 100%;
+        }
+
+        .review-controls {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid #eee;
+        }
+
+        .review-btn {
+            flex: 1;
+            padding: 15px;
+            font-size: 1.1em;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .pass-btn {
+            background: #27ae60;
+            color: white;
+        }
+
+        .pass-btn:hover {
+            background: #229954;
+        }
+
+        .fail-btn {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .fail-btn:hover {
+            background: #c0392b;
+        }
+
+        .skip-btn {
+            background: #95a5a6;
+            color: white;
+        }
+
+        .skip-btn:hover {
+            background: #7f8c8d;
+        }
+
+        .export-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .export-btn {
+            background: #3498db;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .export-btn:hover {
+            background: #2980b9;
+        }
+
+        .detection-id {
+            font-family: monospace;
+            color: #7f8c8d;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Detection Review: Gaulossen Nature Reserve</h1>
+        <p>Review each detection and mark as PASS (valid bird call) or FAIL (noise/artifact)</p>
+        <div class="progress">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+            </div>
+            <div class="stats">
+                <div class="stat">
+                    <div>Total</div>
+                    <div class="stat-value" id="total-count">0</div>
+                </div>
+                <div class="stat">
+                    <div>Reviewed</div>
+                    <div class="stat-value" id="reviewed-count">0</div>
+                </div>
+                <div class="stat" style="background: #27ae60;">
+                    <div>Passed</div>
+                    <div class="stat-value" id="pass-count">0</div>
+                </div>
+                <div class="stat" style="background: #e74c3c;">
+                    <div>Failed</div>
+                    <div class="stat-value" id="fail-count">0</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="detections-container">
+
+    <div class="detection-card" id="det_0" data-idx="0">
+        <div class="detection-header">
+            <div class="species-name">Spotted Crake</div>
+            <div class="confidence">99.3%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 12:25:26</div>
+            <div><strong>Offset:</strong> 2727s</div>
+            <div class="detection-id">#1 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_122526_Spotted_Crake_2727s_conf0993.png"
+             alt="Spotted Crake spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_12h25m_Spotted_Crake_2727s_conf0993.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_0', 0, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_0', 0, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_0', 0, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_1" data-idx="1">
+        <div class="detection-header">
+            <div class="species-name">Graylag Goose</div>
+            <div class="confidence">99.1%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-13</div>
+            <div><strong>Time:</strong> 11:37:53</div>
+            <div><strong>Offset:</strong> 17643s</div>
+            <div class="detection-id">#2 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251013_113753_Graylag_Goose_17643s_conf0991.png"
+             alt="Graylag Goose spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-13_11h37m_Graylag_Goose_17643s_conf0991.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_1', 1, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_1', 1, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_1', 1, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_2" data-idx="2">
+        <div class="detection-header">
+            <div class="species-name">Gray Heron</div>
+            <div class="confidence">98.9%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 12:25:26</div>
+            <div><strong>Offset:</strong> 28485s</div>
+            <div class="detection-id">#3 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_122526_Gray_Heron_28485s_conf0989.png"
+             alt="Gray Heron spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_12h25m_Gray_Heron_28485s_conf0989.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_2', 2, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_2', 2, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_2', 2, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_3" data-idx="3">
+        <div class="detection-header">
+            <div class="species-name">Common Sandpiper</div>
+            <div class="confidence">97.8%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 12:25:26</div>
+            <div><strong>Offset:</strong> 15243s</div>
+            <div class="detection-id">#4 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_122526_Common_Sandpiper_15243s_conf0978.png"
+             alt="Common Sandpiper spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_12h25m_Common_Sandpiper_15243s_conf0978.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_3', 3, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_3', 3, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_3', 3, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_4" data-idx="4">
+        <div class="detection-header">
+            <div class="species-name">Pink-footed Goose</div>
+            <div class="confidence">97.4%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 43503s</div>
+            <div class="detection-id">#5 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Pink-footed_Goose_43503s_conf0974.png"
+             alt="Pink-footed Goose spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_Pink-footed_Goose_43503s_conf0974.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_4', 4, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_4', 4, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_4', 4, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_5" data-idx="5">
+        <div class="detection-header">
+            <div class="species-name">Great Snipe</div>
+            <div class="confidence">95.7%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-13</div>
+            <div><strong>Time:</strong> 11:37:53</div>
+            <div><strong>Offset:</strong> 31848s</div>
+            <div class="detection-id">#6 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251013_113753_Great_Snipe_31848s_conf0957.png"
+             alt="Great Snipe spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-13_11h37m_Great_Snipe_31848s_conf0957.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_5', 5, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_5', 5, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_5', 5, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_6" data-idx="6">
+        <div class="detection-header">
+            <div class="species-name">Richard's Pipit</div>
+            <div class="confidence">94.0%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 30885s</div>
+            <div class="detection-id">#7 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Richard's_Pipit_30885s_conf0940.png"
+             alt="Richard's Pipit spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_Richard's_Pipit_30885s_conf0940.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_6', 6, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_6', 6, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_6', 6, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_7" data-idx="7">
+        <div class="detection-header">
+            <div class="species-name">Eurasian Woodcock</div>
+            <div class="confidence">92.6%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 31257s</div>
+            <div class="detection-id">#8 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Eurasian_Woodcock_31257s_conf0926.png"
+             alt="Eurasian Woodcock spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_Eurasian_Woodcock_31257s_conf0926.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_7', 7, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_7', 7, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_7', 7, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_8" data-idx="8">
+        <div class="detection-header">
+            <div class="species-name">Great Bittern</div>
+            <div class="confidence">91.3%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 41910s</div>
+            <div class="detection-id">#9 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Great_Bittern_41910s_conf0913.png"
+             alt="Great Bittern spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_Great_Bittern_41910s_conf0913.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_8', 8, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_8', 8, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_8', 8, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_9" data-idx="9">
+        <div class="detection-header">
+            <div class="species-name">Red-breasted Flycatcher</div>
+            <div class="confidence">90.1%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 28923s</div>
+            <div class="detection-id">#10 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Red-breasted_Flycatcher_28923s_conf0901.png"
+             alt="Red-breasted Flycatcher spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_Red-breasted_Flycatcher_28923s_conf0901.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_9', 9, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_9', 9, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_9', 9, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_10" data-idx="10">
+        <div class="detection-header">
+            <div class="species-name">Snow Bunting</div>
+            <div class="confidence">89.7%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-15</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 42909s</div>
+            <div class="detection-id">#11 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Snow_Bunting_42909s_conf0897.png"
+             alt="Snow Bunting spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-15_00h00m_Snow_Bunting_42909s_conf0897.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_10', 10, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_10', 10, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_10', 10, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_11" data-idx="11">
+        <div class="detection-header">
+            <div class="species-name">Eurasian Nutcracker</div>
+            <div class="confidence">89.0%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 22068s</div>
+            <div class="detection-id">#12 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Eurasian_Nutcracker_22068s_conf0890.png"
+             alt="Eurasian Nutcracker spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_Eurasian_Nutcracker_22068s_conf0890.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_11', 11, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_11', 11, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_11', 11, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_12" data-idx="12">
+        <div class="detection-header">
+            <div class="species-name">Common Grasshopper-Warbler</div>
+            <div class="confidence">88.7%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 28815s</div>
+            <div class="detection-id">#13 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Common_Grasshopper-Warbler_28815s_conf0887.png"
+             alt="Common Grasshopper-Warbler spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_Common_Grasshopper-Warbler_28815s_conf0887.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_12', 12, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_12', 12, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_12', 12, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_13" data-idx="13">
+        <div class="detection-header">
+            <div class="species-name">Eurasian Magpie</div>
+            <div class="confidence">88.3%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-13</div>
+            <div><strong>Time:</strong> 11:37:53</div>
+            <div><strong>Offset:</strong> 5073s</div>
+            <div class="detection-id">#14 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251013_113753_Eurasian_Magpie_5073s_conf0883.png"
+             alt="Eurasian Magpie spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-13_11h37m_Eurasian_Magpie_5073s_conf0883.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_13', 13, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_13', 13, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_13', 13, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_14" data-idx="14">
+        <div class="detection-header">
+            <div class="species-name">Lesser Spotted Woodpecker</div>
+            <div class="confidence">85.0%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-15</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 14625s</div>
+            <div class="detection-id">#15 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Lesser_Spotted_Woodpecker_14625s_conf0850.png"
+             alt="Lesser Spotted Woodpecker spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-15_00h00m_Lesser_Spotted_Woodpecker_14625s_conf0850.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_14', 14, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_14', 14, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_14', 14, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_15" data-idx="15">
+        <div class="detection-header">
+            <div class="species-name">Yellowhammer</div>
+            <div class="confidence">83.2%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 31626s</div>
+            <div class="detection-id">#16 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Yellowhammer_31626s_conf0832.png"
+             alt="Yellowhammer spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_Yellowhammer_31626s_conf0832.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_15', 15, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_15', 15, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_15', 15, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_16" data-idx="16">
+        <div class="detection-header">
+            <div class="species-name">Bar-headed Goose</div>
+            <div class="confidence">82.6%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-13</div>
+            <div><strong>Time:</strong> 11:37:53</div>
+            <div><strong>Offset:</strong> 10605s</div>
+            <div class="detection-id">#17 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251013_113753_Bar-headed_Goose_10605s_conf0826.png"
+             alt="Bar-headed Goose spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-13_11h37m_Bar-headed_Goose_10605s_conf0826.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_16', 16, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_16', 16, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_16', 16, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_17" data-idx="17">
+        <div class="detection-header">
+            <div class="species-name">Pine Grosbeak</div>
+            <div class="confidence">82.5%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 43296s</div>
+            <div class="detection-id">#18 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Pine_Grosbeak_43296s_conf0825.png"
+             alt="Pine Grosbeak spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_Pine_Grosbeak_43296s_conf0825.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_17', 17, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_17', 17, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_17', 17, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_18" data-idx="18">
+        <div class="detection-header">
+            <div class="species-name">Rook</div>
+            <div class="confidence">82.0%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-15</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 33294s</div>
+            <div class="detection-id">#19 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Rook_33294s_conf0820.png"
+             alt="Rook spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-15_00h00m_Rook_33294s_conf0820.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_18', 18, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_18', 18, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_18', 18, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_19" data-idx="19">
+        <div class="detection-header">
+            <div class="species-name">Tawny Owl</div>
+            <div class="confidence">81.5%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 12:25:26</div>
+            <div><strong>Offset:</strong> 31671s</div>
+            <div class="detection-id">#20 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_122526_Tawny_Owl_31671s_conf0815.png"
+             alt="Tawny Owl spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_12h25m_Tawny_Owl_31671s_conf0815.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_19', 19, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_19', 19, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_19', 19, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_20" data-idx="20">
+        <div class="detection-header">
+            <div class="species-name">Hooded Crow</div>
+            <div class="confidence">80.2%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-13</div>
+            <div><strong>Time:</strong> 11:37:53</div>
+            <div><strong>Offset:</strong> 8568s</div>
+            <div class="detection-id">#21 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251013_113753_Hooded_Crow_8568s_conf0802.png"
+             alt="Hooded Crow spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-13_11h37m_Hooded_Crow_8568s_conf0802.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_20', 20, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_20', 20, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_20', 20, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_21" data-idx="21">
+        <div class="detection-header">
+            <div class="species-name">Redwing</div>
+            <div class="confidence">78.3%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 25530s</div>
+            <div class="detection-id">#22 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Redwing_25530s_conf0783.png"
+             alt="Redwing spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_Redwing_25530s_conf0783.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_21', 21, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_21', 21, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_21', 21, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_22" data-idx="22">
+        <div class="detection-header">
+            <div class="species-name">Common Crane</div>
+            <div class="confidence">76.3%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 12:25:26</div>
+            <div><strong>Offset:</strong> 20082s</div>
+            <div class="detection-id">#23 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_122526_Common_Crane_20082s_conf0763.png"
+             alt="Common Crane spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_12h25m_Common_Crane_20082s_conf0763.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_22', 22, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_22', 22, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_22', 22, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_23" data-idx="23">
+        <div class="detection-header">
+            <div class="species-name">Carrion Crow</div>
+            <div class="confidence">75.7%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 27471s</div>
+            <div class="detection-id">#24 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Carrion_Crow_27471s_conf0757.png"
+             alt="Carrion Crow spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_Carrion_Crow_27471s_conf0757.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_23', 23, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_23', 23, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_23', 23, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_24" data-idx="24">
+        <div class="detection-header">
+            <div class="species-name">Mallard</div>
+            <div class="confidence">75.3%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-13</div>
+            <div><strong>Time:</strong> 11:37:53</div>
+            <div><strong>Offset:</strong> 6456s</div>
+            <div class="detection-id">#25 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251013_113753_Mallard_6456s_conf0753.png"
+             alt="Mallard spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-13_11h37m_Mallard_6456s_conf0753.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_24', 24, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_24', 24, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_24', 24, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_25" data-idx="25">
+        <div class="detection-header">
+            <div class="species-name">Greater White-fronted Goose</div>
+            <div class="confidence">73.6%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-13</div>
+            <div><strong>Time:</strong> 11:37:53</div>
+            <div><strong>Offset:</strong> 13698s</div>
+            <div class="detection-id">#26 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251013_113753_Greater_White-fronted_Goose_13698s_conf0736.png"
+             alt="Greater White-fronted Goose spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-13_11h37m_Greater_White-fronted_Goose_13698s_conf0736.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_25', 25, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_25', 25, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_25', 25, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_26" data-idx="26">
+        <div class="detection-header">
+            <div class="species-name">European Greenfinch</div>
+            <div class="confidence">72.8%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 31359s</div>
+            <div class="detection-id">#27 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_European_Greenfinch_31359s_conf0728.png"
+             alt="European Greenfinch spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_European_Greenfinch_31359s_conf0728.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_26', 26, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_26', 26, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_26', 26, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_27" data-idx="27">
+        <div class="detection-header">
+            <div class="species-name">Meadow Pipit</div>
+            <div class="confidence">71.7%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 40425s</div>
+            <div class="detection-id">#28 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Meadow_Pipit_40425s_conf0717.png"
+             alt="Meadow Pipit spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_Meadow_Pipit_40425s_conf0717.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_27', 27, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_27', 27, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_27', 27, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_28" data-idx="28">
+        <div class="detection-header">
+            <div class="species-name">Eurasian Blue Tit</div>
+            <div class="confidence">71.0%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 28992s</div>
+            <div class="detection-id">#29 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Eurasian_Blue_Tit_28992s_conf0710.png"
+             alt="Eurasian Blue Tit spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_Eurasian_Blue_Tit_28992s_conf0710.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_28', 28, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_28', 28, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_28', 28, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_29" data-idx="29">
+        <div class="detection-header">
+            <div class="species-name">Brambling</div>
+            <div class="confidence">68.3%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 32277s</div>
+            <div class="detection-id">#30 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Brambling_32277s_conf0683.png"
+             alt="Brambling spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_Brambling_32277s_conf0683.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_29', 29, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_29', 29, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_29', 29, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_30" data-idx="30">
+        <div class="detection-header">
+            <div class="species-name">Tree Pipit</div>
+            <div class="confidence">67.5%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 26316s</div>
+            <div class="detection-id">#31 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Tree_Pipit_26316s_conf0675.png"
+             alt="Tree Pipit spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_Tree_Pipit_26316s_conf0675.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_30', 30, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_30', 30, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_30', 30, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_31" data-idx="31">
+        <div class="detection-header">
+            <div class="species-name">Eurasian Oystercatcher</div>
+            <div class="confidence">67.4%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-13</div>
+            <div><strong>Time:</strong> 11:37:53</div>
+            <div><strong>Offset:</strong> 12087s</div>
+            <div class="detection-id">#32 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251013_113753_Eurasian_Oystercatcher_12087s_conf0674.png"
+             alt="Eurasian Oystercatcher spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-13_11h37m_Eurasian_Oystercatcher_12087s_conf0674.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_31', 31, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_31', 31, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_31', 31, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_32" data-idx="32">
+        <div class="detection-header">
+            <div class="species-name">Eurasian Curlew</div>
+            <div class="confidence">66.6%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 12:25:26</div>
+            <div><strong>Offset:</strong> 15798s</div>
+            <div class="detection-id">#33 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_122526_Eurasian_Curlew_15798s_conf0666.png"
+             alt="Eurasian Curlew spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_12h25m_Eurasian_Curlew_15798s_conf0666.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_32', 32, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_32', 32, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_32', 32, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_33" data-idx="33">
+        <div class="detection-header">
+            <div class="species-name">Brant</div>
+            <div class="confidence">66.4%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-15</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 18618s</div>
+            <div class="detection-id">#34 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Brant_18618s_conf0664.png"
+             alt="Brant spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-15_00h00m_Brant_18618s_conf0664.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_33', 33, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_33', 33, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_33', 33, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_35" data-idx="35">
+        <div class="detection-header">
+            <div class="species-name">Ring-necked Pheasant</div>
+            <div class="confidence">66.2%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 43569s</div>
+            <div class="detection-id">#36 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Ring-necked_Pheasant_43569s_conf0662.png"
+             alt="Ring-necked Pheasant spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_Ring-necked_Pheasant_43569s_conf0662.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_35', 35, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_35', 35, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_35', 35, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_34" data-idx="34">
+        <div class="detection-header">
+            <div class="species-name">Northern Lapwing</div>
+            <div class="confidence">66.2%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 12:25:26</div>
+            <div><strong>Offset:</strong> 5760s</div>
+            <div class="detection-id">#35 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_122526_Northern_Lapwing_5760s_conf0662.png"
+             alt="Northern Lapwing spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_12h25m_Northern_Lapwing_5760s_conf0662.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_34', 34, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_34', 34, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_34', 34, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_36" data-idx="36">
+        <div class="detection-header">
+            <div class="species-name">Eurasian Pygmy-Owl</div>
+            <div class="confidence">64.6%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 10815s</div>
+            <div class="detection-id">#37 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Eurasian_Pygmy-Owl_10815s_conf0646.png"
+             alt="Eurasian Pygmy-Owl spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_Eurasian_Pygmy-Owl_10815s_conf0646.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_36', 36, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_36', 36, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_36', 36, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_37" data-idx="37">
+        <div class="detection-header">
+            <div class="species-name">Gray Wagtail</div>
+            <div class="confidence">64.1%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 27846s</div>
+            <div class="detection-id">#38 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Gray_Wagtail_27846s_conf0641.png"
+             alt="Gray Wagtail spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_Gray_Wagtail_27846s_conf0641.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_37', 37, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_37', 37, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_37', 37, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_38" data-idx="38">
+        <div class="detection-header">
+            <div class="species-name">Canada Goose</div>
+            <div class="confidence">63.7%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-15</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 44319s</div>
+            <div class="detection-id">#39 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Canada_Goose_44319s_conf0637.png"
+             alt="Canada Goose spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-15_00h00m_Canada_Goose_44319s_conf0637.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_38', 38, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_38', 38, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_38', 38, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_39" data-idx="39">
+        <div class="detection-header">
+            <div class="species-name">Eurasian Coot</div>
+            <div class="confidence">62.8%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 43830s</div>
+            <div class="detection-id">#40 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Eurasian_Coot_43830s_conf0628.png"
+             alt="Eurasian Coot spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_Eurasian_Coot_43830s_conf0628.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_39', 39, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_39', 39, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_39', 39, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_40" data-idx="40">
+        <div class="detection-header">
+            <div class="species-name">Water Rail</div>
+            <div class="confidence">61.9%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 10614s</div>
+            <div class="detection-id">#41 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Water_Rail_10614s_conf0619.png"
+             alt="Water Rail spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_Water_Rail_10614s_conf0619.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_40', 40, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_40', 40, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_40', 40, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_41" data-idx="41">
+        <div class="detection-header">
+            <div class="species-name">Common Loon</div>
+            <div class="confidence">59.9%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 12:25:26</div>
+            <div><strong>Offset:</strong> 28869s</div>
+            <div class="detection-id">#42 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_122526_Common_Loon_28869s_conf0599.png"
+             alt="Common Loon spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_12h25m_Common_Loon_28869s_conf0599.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_41', 41, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_41', 41, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_41', 41, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_42" data-idx="42">
+        <div class="detection-header">
+            <div class="species-name">Western Yellow Wagtail</div>
+            <div class="confidence">59.3%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-15</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 35949s</div>
+            <div class="detection-id">#43 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Western_Yellow_Wagtail_35949s_conf0593.png"
+             alt="Western Yellow Wagtail spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-15_00h00m_Western_Yellow_Wagtail_35949s_conf0593.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_42', 42, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_42', 42, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_42', 42, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_43" data-idx="43">
+        <div class="detection-header">
+            <div class="species-name">White Wagtail</div>
+            <div class="confidence">57.9%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 30420s</div>
+            <div class="detection-id">#44 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_White_Wagtail_30420s_conf0579.png"
+             alt="White Wagtail spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_White_Wagtail_30420s_conf0579.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_43', 43, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_43', 43, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_43', 43, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_44" data-idx="44">
+        <div class="detection-header">
+            <div class="species-name">Tundra Swan</div>
+            <div class="confidence">56.6%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-13</div>
+            <div><strong>Time:</strong> 11:37:53</div>
+            <div><strong>Offset:</strong> 13476s</div>
+            <div class="detection-id">#45 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251013_113753_Tundra_Swan_13476s_conf0566.png"
+             alt="Tundra Swan spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-13_11h37m_Tundra_Swan_13476s_conf0566.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_44', 44, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_44', 44, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_44', 44, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_45" data-idx="45">
+        <div class="detection-header">
+            <div class="species-name">European Robin</div>
+            <div class="confidence">55.3%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 32253s</div>
+            <div class="detection-id">#46 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_European_Robin_32253s_conf0553.png"
+             alt="European Robin spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_European_Robin_32253s_conf0553.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_45', 45, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_45', 45, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_45', 45, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_46" data-idx="46">
+        <div class="detection-header">
+            <div class="species-name">Eurasian Moorhen</div>
+            <div class="confidence">54.2%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 12:25:26</div>
+            <div><strong>Offset:</strong> 2496s</div>
+            <div class="detection-id">#47 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_122526_Eurasian_Moorhen_2496s_conf0542.png"
+             alt="Eurasian Moorhen spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_12h25m_Eurasian_Moorhen_2496s_conf0542.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_46', 46, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_46', 46, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_46', 46, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_47" data-idx="47">
+        <div class="detection-header">
+            <div class="species-name">Black-headed Gull</div>
+            <div class="confidence">51.3%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-13</div>
+            <div><strong>Time:</strong> 11:37:53</div>
+            <div><strong>Offset:</strong> 5088s</div>
+            <div class="detection-id">#48 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251013_113753_Black-headed_Gull_5088s_conf0513.png"
+             alt="Black-headed Gull spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-13_11h37m_Black-headed_Gull_5088s_conf0513.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_47', 47, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_47', 47, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_47', 47, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_48" data-idx="48">
+        <div class="detection-header">
+            <div class="species-name">Whooper Swan</div>
+            <div class="confidence">51.2%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-15</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 39717s</div>
+            <div class="detection-id">#49 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Whooper_Swan_39717s_conf0512.png"
+             alt="Whooper Swan spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-15_00h00m_Whooper_Swan_39717s_conf0512.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_48', 48, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_48', 48, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_48', 48, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_49" data-idx="49">
+        <div class="detection-header">
+            <div class="species-name">Common Snipe</div>
+            <div class="confidence">50.8%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-13</div>
+            <div><strong>Time:</strong> 11:37:53</div>
+            <div><strong>Offset:</strong> 18816s</div>
+            <div class="detection-id">#50 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251013_113753_Common_Snipe_18816s_conf0508.png"
+             alt="Common Snipe spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-13_11h37m_Common_Snipe_18816s_conf0508.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_49', 49, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_49', 49, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_49', 49, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_50" data-idx="50">
+        <div class="detection-header">
+            <div class="species-name">Little Bunting</div>
+            <div class="confidence">50.6%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 28917s</div>
+            <div class="detection-id">#51 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Little_Bunting_28917s_conf0506.png"
+             alt="Little Bunting spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_Little_Bunting_28917s_conf0506.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_50', 50, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_50', 50, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_50', 50, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_51" data-idx="51">
+        <div class="detection-header">
+            <div class="species-name">Herring Gull</div>
+            <div class="confidence">50.4%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-15</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 40422s</div>
+            <div class="detection-id">#52 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Herring_Gull_40422s_conf0504.png"
+             alt="Herring Gull spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-15_00h00m_Herring_Gull_40422s_conf0504.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_51', 51, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_51', 51, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_51', 51, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_52" data-idx="52">
+        <div class="detection-header">
+            <div class="species-name">Common Redpoll</div>
+            <div class="confidence">49.9%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 42162s</div>
+            <div class="detection-id">#53 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Common_Redpoll_42162s_conf0499.png"
+             alt="Common Redpoll spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_Common_Redpoll_42162s_conf0499.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_52', 52, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_52', 52, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_52', 52, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_53" data-idx="53">
+        <div class="detection-header">
+            <div class="species-name">Gray Partridge</div>
+            <div class="confidence">49.8%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 12:25:26</div>
+            <div><strong>Offset:</strong> 2532s</div>
+            <div class="detection-id">#54 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_122526_Gray_Partridge_2532s_conf0498.png"
+             alt="Gray Partridge spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_12h25m_Gray_Partridge_2532s_conf0498.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_53', 53, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_53', 53, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_53', 53, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_54" data-idx="54">
+        <div class="detection-header">
+            <div class="species-name">Manx Shearwater</div>
+            <div class="confidence">48.6%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-15</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 12099s</div>
+            <div class="detection-id">#55 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Manx_Shearwater_12099s_conf0486.png"
+             alt="Manx Shearwater spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-15_00h00m_Manx_Shearwater_12099s_conf0486.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_54', 54, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_54', 54, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_54', 54, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_55" data-idx="55">
+        <div class="detection-header">
+            <div class="species-name">Common Scoter</div>
+            <div class="confidence">48.2%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-15</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 39888s</div>
+            <div class="detection-id">#56 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Common_Scoter_39888s_conf0482.png"
+             alt="Common Scoter spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-15_00h00m_Common_Scoter_39888s_conf0482.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_55', 55, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_55', 55, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_55', 55, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_56" data-idx="56">
+        <div class="detection-header">
+            <div class="species-name">Mistle Thrush</div>
+            <div class="confidence">48.2%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 24924s</div>
+            <div class="detection-id">#57 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Mistle_Thrush_24924s_conf0482.png"
+             alt="Mistle Thrush spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_Mistle_Thrush_24924s_conf0482.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_56', 56, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_56', 56, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_56', 56, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_57" data-idx="57">
+        <div class="detection-header">
+            <div class="species-name">Bank Swallow</div>
+            <div class="confidence">47.2%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-13</div>
+            <div><strong>Time:</strong> 11:37:53</div>
+            <div><strong>Offset:</strong> 7077s</div>
+            <div class="detection-id">#58 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251013_113753_Bank_Swallow_7077s_conf0472.png"
+             alt="Bank Swallow spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-13_11h37m_Bank_Swallow_7077s_conf0472.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_57', 57, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_57', 57, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_57', 57, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_58" data-idx="58">
+        <div class="detection-header">
+            <div class="species-name">Eurasian Jay</div>
+            <div class="confidence">46.8%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 44007s</div>
+            <div class="detection-id">#59 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Eurasian_Jay_44007s_conf0468.png"
+             alt="Eurasian Jay spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_Eurasian_Jay_44007s_conf0468.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_58', 58, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_58', 58, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_58', 58, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_59" data-idx="59">
+        <div class="detection-header">
+            <div class="species-name">Arctic Warbler</div>
+            <div class="confidence">46.2%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 29232s</div>
+            <div class="detection-id">#60 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Arctic_Warbler_29232s_conf0462.png"
+             alt="Arctic Warbler spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_Arctic_Warbler_29232s_conf0462.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_59', 59, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_59', 59, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_59', 59, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_60" data-idx="60">
+        <div class="detection-header">
+            <div class="species-name">Common Quail</div>
+            <div class="confidence">45.6%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 9606s</div>
+            <div class="detection-id">#61 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Common_Quail_9606s_conf0456.png"
+             alt="Common Quail spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_Common_Quail_9606s_conf0456.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_60', 60, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_60', 60, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_60', 60, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_61" data-idx="61">
+        <div class="detection-header">
+            <div class="species-name">Lapland Longspur</div>
+            <div class="confidence">45.2%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-15</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 42906s</div>
+            <div class="detection-id">#62 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Lapland_Longspur_42906s_conf0452.png"
+             alt="Lapland Longspur spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-15_00h00m_Lapland_Longspur_42906s_conf0452.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_61', 61, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_61', 61, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_61', 61, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_62" data-idx="62">
+        <div class="detection-header">
+            <div class="species-name">Fieldfare</div>
+            <div class="confidence">43.9%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 24174s</div>
+            <div class="detection-id">#63 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Fieldfare_24174s_conf0439.png"
+             alt="Fieldfare spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_Fieldfare_24174s_conf0439.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_62', 62, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_62', 62, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_62', 62, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_63" data-idx="63">
+        <div class="detection-header">
+            <div class="species-name">Black-bellied Plover</div>
+            <div class="confidence">43.5%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-15</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 41268s</div>
+            <div class="detection-id">#64 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Black-bellied_Plover_41268s_conf0435.png"
+             alt="Black-bellied Plover spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-15_00h00m_Black-bellied_Plover_41268s_conf0435.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_63', 63, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_63', 63, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_63', 63, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_64" data-idx="64">
+        <div class="detection-header">
+            <div class="species-name">Great Gray Shrike</div>
+            <div class="confidence">43.3%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 23088s</div>
+            <div class="detection-id">#65 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Great_Gray_Shrike_23088s_conf0433.png"
+             alt="Great Gray Shrike spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_Great_Gray_Shrike_23088s_conf0433.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_64', 64, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_64', 64, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_64', 64, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_65" data-idx="65">
+        <div class="detection-header">
+            <div class="species-name">Dunlin</div>
+            <div class="confidence">40.4%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 12:25:26</div>
+            <div><strong>Offset:</strong> 17913s</div>
+            <div class="detection-id">#66 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_122526_Dunlin_17913s_conf0404.png"
+             alt="Dunlin spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_12h25m_Dunlin_17913s_conf0404.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_65', 65, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_65', 65, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_65', 65, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_66" data-idx="66">
+        <div class="detection-header">
+            <div class="species-name">Black Woodpecker</div>
+            <div class="confidence">39.4%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-15</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 8823s</div>
+            <div class="detection-id">#67 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Black_Woodpecker_8823s_conf0394.png"
+             alt="Black Woodpecker spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-15_00h00m_Black_Woodpecker_8823s_conf0394.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_66', 66, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_66', 66, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_66', 66, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_67" data-idx="67">
+        <div class="detection-header">
+            <div class="species-name">European Storm-Petrel</div>
+            <div class="confidence">39.1%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-15</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 17667s</div>
+            <div class="detection-id">#68 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_European_Storm-Petrel_17667s_conf0391.png"
+             alt="European Storm-Petrel spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-15_00h00m_European_Storm-Petrel_17667s_conf0391.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_67', 67, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_67', 67, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_67', 67, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_68" data-idx="68">
+        <div class="detection-header">
+            <div class="species-name">Taiga Bean-Goose</div>
+            <div class="confidence">38.5%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-15</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 44631s</div>
+            <div class="detection-id">#69 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Taiga_Bean-Goose_44631s_conf0385.png"
+             alt="Taiga Bean-Goose spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-15_00h00m_Taiga_Bean-Goose_44631s_conf0385.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_68', 68, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_68', 68, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_68', 68, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_69" data-idx="69">
+        <div class="detection-header">
+            <div class="species-name">Eurasian Eagle-Owl</div>
+            <div class="confidence">38.1%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-15</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 43653s</div>
+            <div class="detection-id">#70 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Eurasian_Eagle-Owl_43653s_conf0381.png"
+             alt="Eurasian Eagle-Owl spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-15_00h00m_Eurasian_Eagle-Owl_43653s_conf0381.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_69', 69, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_69', 69, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_69', 69, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_70" data-idx="70">
+        <div class="detection-header">
+            <div class="species-name">Tundra Bean-Goose</div>
+            <div class="confidence">35.8%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-15</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 44631s</div>
+            <div class="detection-id">#71 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Tundra_Bean-Goose_44631s_conf0358.png"
+             alt="Tundra Bean-Goose spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-15_00h00m_Tundra_Bean-Goose_44631s_conf0358.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_70', 70, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_70', 70, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_70', 70, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_71" data-idx="71">
+        <div class="detection-header">
+            <div class="species-name">Ortolan Bunting</div>
+            <div class="confidence">33.6%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 12:25:26</div>
+            <div><strong>Offset:</strong> 4389s</div>
+            <div class="detection-id">#72 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_122526_Ortolan_Bunting_4389s_conf0336.png"
+             alt="Ortolan Bunting spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_12h25m_Ortolan_Bunting_4389s_conf0336.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_71', 71, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_71', 71, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_71', 71, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_72" data-idx="72">
+        <div class="detection-header">
+            <div class="species-name">Boreal Owl</div>
+            <div class="confidence">33.4%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 12:25:26</div>
+            <div><strong>Offset:</strong> 28866s</div>
+            <div class="detection-id">#73 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_122526_Boreal_Owl_28866s_conf0334.png"
+             alt="Boreal Owl spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_12h25m_Boreal_Owl_28866s_conf0334.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_72', 72, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_72', 72, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_72', 72, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_73" data-idx="73">
+        <div class="detection-header">
+            <div class="species-name">Common House-Martin</div>
+            <div class="confidence">33.0%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 12:25:26</div>
+            <div><strong>Offset:</strong> 5589s</div>
+            <div class="detection-id">#74 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_122526_Common_House-Martin_5589s_conf0330.png"
+             alt="Common House-Martin spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_12h25m_Common_House-Martin_5589s_conf0330.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_73', 73, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_73', 73, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_73', 73, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_74" data-idx="74">
+        <div class="detection-header">
+            <div class="species-name">Black-legged Kittiwake</div>
+            <div class="confidence">32.0%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-15</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 25818s</div>
+            <div class="detection-id">#75 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Black-legged_Kittiwake_25818s_conf0320.png"
+             alt="Black-legged Kittiwake spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-15_00h00m_Black-legged_Kittiwake_25818s_conf0320.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_74', 74, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_74', 74, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_74', 74, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_75" data-idx="75">
+        <div class="detection-header">
+            <div class="species-name">Common Buzzard</div>
+            <div class="confidence">31.4%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-15</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 40560s</div>
+            <div class="detection-id">#76 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Common_Buzzard_40560s_conf0314.png"
+             alt="Common Buzzard spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-15_00h00m_Common_Buzzard_40560s_conf0314.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_75', 75, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_75', 75, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_75', 75, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_76" data-idx="76">
+        <div class="detection-header">
+            <div class="species-name">Gadwall</div>
+            <div class="confidence">30.7%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 12:25:26</div>
+            <div><strong>Offset:</strong> 4725s</div>
+            <div class="detection-id">#77 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_122526_Gadwall_4725s_conf0307.png"
+             alt="Gadwall spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_12h25m_Gadwall_4725s_conf0307.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_76', 76, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_76', 76, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_76', 76, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_77" data-idx="77">
+        <div class="detection-header">
+            <div class="species-name">Common Tern</div>
+            <div class="confidence">30.6%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-15</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 41292s</div>
+            <div class="detection-id">#78 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Common_Tern_41292s_conf0306.png"
+             alt="Common Tern spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-15_00h00m_Common_Tern_41292s_conf0306.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_77', 77, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_77', 77, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_77', 77, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_78" data-idx="78">
+        <div class="detection-header">
+            <div class="species-name">Red-throated Loon</div>
+            <div class="confidence">30.4%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-15</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 27099s</div>
+            <div class="detection-id">#79 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Red-throated_Loon_27099s_conf0304.png"
+             alt="Red-throated Loon spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-15_00h00m_Red-throated_Loon_27099s_conf0304.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_78', 78, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_78', 78, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_78', 78, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_79" data-idx="79">
+        <div class="detection-header">
+            <div class="species-name">European Golden-Plover</div>
+            <div class="confidence">30.3%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-15</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 40905s</div>
+            <div class="detection-id">#80 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_European_Golden-Plover_40905s_conf0303.png"
+             alt="European Golden-Plover spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-15_00h00m_European_Golden-Plover_40905s_conf0303.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_79', 79, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_79', 79, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_79', 79, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_80" data-idx="80">
+        <div class="detection-header">
+            <div class="species-name">Reed Bunting</div>
+            <div class="confidence">29.3%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-15</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 35949s</div>
+            <div class="detection-id">#81 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Reed_Bunting_35949s_conf0293.png"
+             alt="Reed Bunting spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-15_00h00m_Reed_Bunting_35949s_conf0293.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_80', 80, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_80', 80, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_80', 80, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_81" data-idx="81">
+        <div class="detection-header">
+            <div class="species-name">Arctic Tern</div>
+            <div class="confidence">29.3%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-13</div>
+            <div><strong>Time:</strong> 11:37:53</div>
+            <div><strong>Offset:</strong> 27714s</div>
+            <div class="detection-id">#82 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251013_113753_Arctic_Tern_27714s_conf0293.png"
+             alt="Arctic Tern spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-13_11h37m_Arctic_Tern_27714s_conf0293.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_81', 81, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_81', 81, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_81', 81, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_82" data-idx="82">
+        <div class="detection-header">
+            <div class="species-name">Dunnock</div>
+            <div class="confidence">28.5%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 32583s</div>
+            <div class="detection-id">#83 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Dunnock_32583s_conf0285.png"
+             alt="Dunnock spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_Dunnock_32583s_conf0285.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_82', 82, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_82', 82, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_82', 82, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_83" data-idx="83">
+        <div class="detection-header">
+            <div class="species-name">Red Crossbill</div>
+            <div class="confidence">27.9%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-13</div>
+            <div><strong>Time:</strong> 11:37:53</div>
+            <div><strong>Offset:</strong> 28365s</div>
+            <div class="detection-id">#84 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251013_113753_Red_Crossbill_28365s_conf0279.png"
+             alt="Red Crossbill spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-13_11h37m_Red_Crossbill_28365s_conf0279.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_83', 83, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_83', 83, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_83', 83, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_84" data-idx="84">
+        <div class="detection-header">
+            <div class="species-name">Corn Crake</div>
+            <div class="confidence">27.2%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 26580s</div>
+            <div class="detection-id">#85 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Corn_Crake_26580s_conf0272.png"
+             alt="Corn Crake spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_Corn_Crake_26580s_conf0272.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_84', 84, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_84', 84, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_84', 84, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_85" data-idx="85">
+        <div class="detection-header">
+            <div class="species-name">Western Capercaillie</div>
+            <div class="confidence">27.2%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 12:25:26</div>
+            <div><strong>Offset:</strong> 40806s</div>
+            <div class="detection-id">#86 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_122526_Western_Capercaillie_40806s_conf0272.png"
+             alt="Western Capercaillie spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_12h25m_Western_Capercaillie_40806s_conf0272.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_85', 85, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_85', 85, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_85', 85, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_86" data-idx="86">
+        <div class="detection-header">
+            <div class="species-name">Great Black-backed Gull</div>
+            <div class="confidence">26.5%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-15</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 34350s</div>
+            <div class="detection-id">#87 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Great_Black-backed_Gull_34350s_conf0265.png"
+             alt="Great Black-backed Gull spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-15_00h00m_Great_Black-backed_Gull_34350s_conf0265.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_86', 86, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_86', 86, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_86', 86, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_87" data-idx="87">
+        <div class="detection-header">
+            <div class="species-name">Common Goldeneye</div>
+            <div class="confidence">26.5%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-13</div>
+            <div><strong>Time:</strong> 11:37:53</div>
+            <div><strong>Offset:</strong> 20886s</div>
+            <div class="detection-id">#88 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251013_113753_Common_Goldeneye_20886s_conf0265.png"
+             alt="Common Goldeneye spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-13_11h37m_Common_Goldeneye_20886s_conf0265.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_87', 87, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_87', 87, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_87', 87, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_88" data-idx="88">
+        <div class="detection-header">
+            <div class="species-name">Common Raven</div>
+            <div class="confidence">26.2%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 12:25:26</div>
+            <div><strong>Offset:</strong> 20694s</div>
+            <div class="detection-id">#89 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_122526_Common_Raven_20694s_conf0262.png"
+             alt="Common Raven spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_12h25m_Common_Raven_20694s_conf0262.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_88', 88, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_88', 88, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_88', 88, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+
+    <div class="detection-card" id="det_89" data-idx="89">
+        <div class="detection-header">
+            <div class="species-name">River Warbler</div>
+            <div class="confidence">25.4%</div>
+        </div>
+        <div class="metadata">
+            <div><strong>Date:</strong> 2025-10-14</div>
+            <div><strong>Time:</strong> 00:00:00</div>
+            <div><strong>Offset:</strong> 26664s</div>
+            <div class="detection-id">#90 of 90</div>
+        </div>
+
+        <img src="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_River_Warbler_26664s_conf0254.png"
+             alt="River Warbler spectrogram"
+             class="spectrogram">
+
+        <div class="audio-player">
+            <audio controls>
+                <source src="results/audio_clips_enhanced/2025-10-14_00h00m_River_Warbler_26664s_conf0254.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="review-controls">
+            <button class="review-btn pass-btn" onclick="markDetection('det_89', 89, 'pass')">
+                ✓ PASS - Valid Bird Call
+            </button>
+            <button class="review-btn fail-btn" onclick="markDetection('det_89', 89, 'fail')">
+                ✗ FAIL - Noise/Artifact
+            </button>
+            <button class="review-btn skip-btn" onclick="markDetection('det_89', 89, 'skip')">
+                ⊘ SKIP - Unsure
+            </button>
+        </div>
+    </div>
+    </div>
+
+    <div class="export-section">
+        <h2>Export Results</h2>
+        <p>When you're done reviewing, export your results:</p>
+        <button class="export-btn" onclick="exportResults()">Download CSV</button>
+        <button class="export-btn" onclick="copyResults()">Copy to Clipboard</button>
+        <p style="margin-top: 10px; color: #666;">Results are automatically saved to your browser's local storage.</p>
+    </div>
+
+    <script>
+        const totalDetections = 90;
+        const reviews = {};
+
+        // Load saved reviews from localStorage
+        function loadReviews() {
+            const saved = localStorage.getItem('gaulossen_reviews');
+            if (saved) {
+                const savedReviews = JSON.parse(saved);
+                Object.assign(reviews, savedReviews);
+
+                // Apply saved states to cards
+                for (const [idx, result] of Object.entries(savedReviews)) {
+                    const card = document.getElementById('det_' + idx);
+                    if (card) {
+                        card.classList.remove('passed', 'failed');
+                        if (result === 'pass') card.classList.add('passed');
+                        if (result === 'fail') card.classList.add('failed');
+                    }
+                }
+                updateStats();
+            }
+        }
+
+        function markDetection(detectionId, idx, result) {
+            const card = document.getElementById(detectionId);
+            card.classList.remove('passed', 'failed');
+
+            if (result === 'pass') {
+                card.classList.add('passed');
+                reviews[idx] = 'pass';
+            } else if (result === 'fail') {
+                card.classList.add('failed');
+                reviews[idx] = 'fail';
+            } else {
+                delete reviews[idx];
+            }
+
+            // Save to localStorage
+            localStorage.setItem('gaulossen_reviews', JSON.stringify(reviews));
+
+            updateStats();
+
+            // Scroll to next unreviewed detection
+            scrollToNext(idx);
+        }
+
+        function scrollToNext(currentIdx) {
+            for (let i = currentIdx + 1; i < totalDetections; i++) {
+                if (!reviews.hasOwnProperty(i)) {
+                    const nextCard = document.getElementById('det_' + i);
+                    if (nextCard) {
+                        nextCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        return;
+                    }
+                }
+            }
+            // If no more unreviewed, scroll to export section
+            document.querySelector('.export-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function updateStats() {
+            const reviewed = Object.keys(reviews).length;
+            const passed = Object.values(reviews).filter(r => r === 'pass').length;
+            const failed = Object.values(reviews).filter(r => r === 'fail').length;
+
+            document.getElementById('total-count').textContent = totalDetections;
+            document.getElementById('reviewed-count').textContent = reviewed;
+            document.getElementById('pass-count').textContent = passed;
+            document.getElementById('fail-count').textContent = failed;
+
+            const progress = (reviewed / totalDetections) * 100;
+            document.getElementById('progress-fill').style.width = progress + '%';
+        }
+
+        function exportResults() {
+            // Create CSV content
+            let csv = 'detection_index,species,confidence,date,time,result\n';
+
+            const reviewList = [];
+            for (let i = 0; i < totalDetections; i++) {
+                const result = reviews[i] || 'unreviewed';
+                reviewList.push({ idx: i, result: result });
+            }
+
+            // Get detection data from page
+            reviewList.forEach(item => {
+                const card = document.getElementById('det_' + item.idx);
+                if (card) {
+                    const species = card.querySelector('.species-name').textContent;
+                    const confidence = card.querySelector('.confidence').textContent;
+                    const date = card.querySelector('.metadata').textContent.match(/Date: ([\d-]+)/)[1];
+                    const time = card.querySelector('.metadata').textContent.match(/Time: ([\d:]+)/)[1];
+                    csv += `${item.idx},"${species}","${confidence}","${date}","${time}","${item.result}"\n`;
+                }
+            });
+
+            // Download CSV
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'gaulossen_review_results.csv';
+            a.click();
+        }
+
+        function copyResults() {
+            const passed = Object.values(reviews).filter(r => r === 'pass').length;
+            const failed = Object.values(reviews).filter(r => r === 'fail').length;
+            const total = Object.keys(reviews).length;
+
+            const text = `Gaulossen Detection Review Results:\n` +
+                        `Total reviewed: ${total} / ${totalDetections}\n` +
+                        `Passed: ${passed}\n` +
+                        `Failed: ${failed}\n` +
+                        `Pass rate: ${(passed/total*100).toFixed(1)}%`;
+
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Results copied to clipboard!');
+            });
+        }
+
+        // Initialize
+        document.getElementById('total-count').textContent = totalDetections;
+        loadReviews();
+    </script>
+</body>
+</html>

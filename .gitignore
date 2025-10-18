@@ -1,0 +1,35 @@
+# Python
+*.pyc
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Audio files (too large for GitHub)
+*.wav
+*.mp3
+*.flac
+
+# Results directory (too large)
+results/
+
+# Logs
+*.log
+*.txt
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*~
+
+# R
+.Rhistory
+.RData
+.Rproj.user

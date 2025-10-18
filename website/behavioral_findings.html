@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaulossen Behavioral Findings - Acoustic Monitoring Study</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: #a0a0a0;
+            margin-bottom: 10px;
+        }
+
+        .location {
+            font-size: 1.1em;
+            color: #888;
+            font-style: italic;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 212, 255, 0.5);
+        }
+
+        .stat-number {
+            font-size: 3em;
+            font-weight: bold;
+            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1em;
+            color: #a0a0a0;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h2 {
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            color: #00d4ff;
+            border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+            padding-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 1.6em;
+            margin: 30px 0 20px 0;
+            color: #7b2ff7;
+        }
+
+        .finding {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border-left: 4px solid #00d4ff;
+        }
+
+        .finding h4 {
+            font-size: 1.3em;
+            color: #00d4ff;
+            margin-bottom: 12px;
+        }
+
+        .finding p {
+            color: #d0d0d0;
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        .species-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .species-card {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .species-card:hover {
+            border-color: #00d4ff;
+            transform: translateY(-3px);
+        }
+
+        .species-name {
+            font-size: 1.2em;
+            color: #00d4ff;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .species-stat {
+            color: #a0a0a0;
+            font-size: 0.95em;
+            margin: 5px 0;
+        }
+
+        .evidence-links {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .evidence-link {
+            display: inline-block;
+            margin-right: 15px;
+            color: #7b2ff7;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: color 0.3s ease;
+        }
+
+        .evidence-link:hover {
+            color: #00d4ff;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin: 5px 5px 0 0;
+            font-weight: 500;
+        }
+
+        .badge-flock {
+            background: rgba(0, 212, 255, 0.2);
+            color: #00d4ff;
+            border: 1px solid #00d4ff;
+        }
+
+        .badge-nocturnal {
+            background: rgba(123, 47, 247, 0.2);
+            color: #7b2ff7;
+            border: 1px solid #7b2ff7;
+        }
+
+        .badge-crepuscular {
+            background: rgba(255, 140, 0, 0.2);
+            color: #ff8c00;
+            border: 1px solid #ff8c00;
+        }
+
+        .badge-migrant {
+            background: rgba(0, 255, 136, 0.2);
+            color: #00ff88;
+            border: 1px solid #00ff88;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            margin-top: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #00d4ff, #7b2ff7);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -34px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #00d4ff;
+            border: 3px solid #0a0e27;
+        }
+
+        .timeline-time {
+            color: #00d4ff;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .timeline-content {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .references {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 25px;
+        }
+
+        .references h4 {
+            color: #00ff88;
+            margin-bottom: 15px;
+        }
+
+        .reference {
+            color: #a0a0a0;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+            padding-left: 15px;
+        }
+
+        .quality-notice {
+            background: rgba(255, 140, 0, 0.1);
+            border: 1px solid #ff8c00;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+
+        .quality-notice h4 {
+            color: #ff8c00;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .nav-links {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .nav-link {
+            display: inline-block;
+            padding: 12px 30px;
+            margin: 0 10px;
+            background: rgba(0, 212, 255, 0.1);
+            color: #00d4ff;
+            text-decoration: none;
+            border-radius: 25px;
+            border: 1px solid #00d4ff;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: rgba(0, 212, 255, 0.2);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gaulossen Behavioral Findings</h1>
+            <div class="subtitle">Acoustic Monitoring Study - October 2025</div>
+            <div class="location">Gaulossen Nature Reserve, Stjørdal, Norway</div>
+        </header>
+
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Species List</a>
+            <a href="behavioral_findings.html" class="nav-link">Behavioral Findings</a>
+            <a href="review_verified.html" class="nav-link">Verification Review</a>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">82</div>
+                <div class="stat-label">Verified Species</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4,108</div>
+                <div class="stat-label">Verified Detections</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">87.8%</div>
+                <div class="stat-label">Verification Pass Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">86%</div>
+                <div class="stat-label">Social Species</div>
+            </div>
+        </div>
+
+        <!-- Executive Summary -->
+        <section class="section">
+            <h2>Executive Summary</h2>
+            <div class="finding">
+                <h4>Key Behavioral Discoveries</h4>
+                <p><span class="highlight">86% of all detections</span> came from social/flock species, revealing a highly social avian community.</p>
+                <p><span class="highlight">8,778 geese-crow co-occurrences</span> suggest sentinel mutualism where crows act as early warning sentinels for feeding geese.</p>
+                <p><span class="highlight">Extreme flock behavior</span> documented in Graylag Goose: largest event contained 620 calls over 91 minutes.</p>
+                <p><span class="highlight">37 migratory species</span> detected, including active nocturnal migration with 47 flight calls peaking at 03:00-04:00.</p>
+                <p><span class="highlight">Great Snipe lek activity</span> shows classic dusk timing (20:00-21:00 peak) matching published Norwegian studies.</p>
+            </div>
+        </section>
+
+        <!-- Flock Dynamics -->
+        <section class="section">
+            <h2>1. Flock Dynamics & Social Behavior</h2>
+
+            <h3>Extreme Flock Species</h3>
+            <div class="species-grid">
+                <div class="species-card">
+                    <div class="species-name">Graylag Goose</div>
+                    <div class="species-stat">📊 2,871 detections</div>
+                    <div class="species-stat">🦆 59 flock events detected</div>
+                    <div class="species-stat">📈 <span class="highlight">98.7%</span> of calls in flocks</div>
+                    <div class="species-stat">🔊 59.2 calls/hour (extreme vocal activity)</div>
+                    <div class="species-stat">🏆 Largest flock: 620 calls over 91 minutes</div>
+                    <span class="badge badge-flock">Flock Species</span>
+                    <div class="evidence-links">
+                        <a href="../results/spectrograms_best/" class="evidence-link">📸 View Spectrograms</a>
+                        <a href="../results/audio_clips_enhanced/" class="evidence-link">🔊 Listen Audio</a>
+                    </div>
+                </div>
+
+                <div class="species-card">
+                    <div class="species-name">Pink-footed Goose</div>
+                    <div class="species-stat">📊 189 detections</div>
+                    <div class="species-stat">🦆 18 flock events detected</div>
+                    <div class="species-stat">📈 <span class="highlight">71%</span> of calls in flocks</div>
+                    <div class="species-stat">🌍 Arctic migrant</div>
+                    <span class="badge badge-flock">Flock Species</span>
+                    <span class="badge badge-migrant">Arctic Migrant</span>
+                </div>
+
+                <div class="species-card">
+                    <div class="species-name">Snow Bunting</div>
+                    <div class="species-stat">📊 4 detections</div>
+                    <div class="species-stat">📈 <span class="highlight">100%</span> flock calling</div>
+                    <div class="species-stat">🌍 Arctic migrant</div>
+                    <span class="badge badge-flock">Flock Species</span>
+                    <span class="badge badge-migrant">Arctic Migrant</span>
+                </div>
+            </div>
+
+            <h3>Corvid Flocks</h3>
+            <div class="species-grid">
+                <div class="species-card">
+                    <div class="species-name">Hooded Crow</div>
+                    <div class="species-stat">📊 87 detections</div>
+                    <div class="species-stat">🦅 10 flock events detected</div>
+                    <div class="species-stat">📈 <span class="highlight">69%</span> in flocks</div>
+                    <div class="species-stat">🛡️ Sentinel species behavior</div>
+                    <span class="badge badge-flock">Sentinel Species</span>
+                </div>
+
+                <div class="species-card">
+                    <div class="species-name">Carrion Crow</div>
+                    <div class="species-stat">📊 84 detections</div>
+                    <div class="species-stat">🦅 9 flock events detected</div>
+                    <div class="species-stat">📈 <span class="highlight">63%</span> in flocks</div>
+                    <div class="species-stat">🛡️ Sentinel species behavior</div>
+                    <span class="badge badge-flock">Sentinel Species</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interspecies Interactions -->
+        <section class="section">
+            <h2>2. Interspecies Interactions</h2>
+
+            <div class="finding">
+                <h4>Sentinel Mutualism - Geese and Crows</h4>
+                <p><span class="highlight">8,778 co-occurrence events</span> detected between geese (Graylag, Pink-footed) and crows (Hooded, Carrion) within 10-minute windows.</p>
+                <p><strong>Interpretation:</strong> Crows act as sentinel species providing early predator warning while geese forage. This is a documented mutualistic relationship in mixed-species flocks.</p>
+                <p><strong>Mechanism:</strong> Heterospecific eavesdropping - geese learn to recognize and respond to crow alarm calls through acoustic association.</p>
+
+                <div class="references">
+                    <h4>Scientific Validation</h4>
+                    <div class="reference">• Magrath, R. D., et al. (2015) - Eavesdropping on heterospecific alarm calls</div>
+                    <div class="reference">• King, D. I., & Rappole, J. H. (2023) - Classification of mixed-species bird flocks</div>
+                    <div class="reference">• Fallow, P. M., & Magrath, R. D. (2018) - Social learning of heterospecific alarm calls</div>
+                </div>
+            </div>
+
+            <div class="finding">
+                <h4>Mixed Goose Flocks</h4>
+                <p><span class="highlight">2,877 Graylag-Pinkfoot co-occurrences</span> suggest regular formation of mixed-species goose flocks.</p>
+                <p><strong>Benefits:</strong> Increased vigilance, collective predator detection, and shared knowledge of feeding sites.</p>
+            </div>
+        </section>
+
+        <!-- Migration Patterns -->
+        <section class="section">
+            <h2>3. Migration Patterns</h2>
+
+            <div class="finding">
+                <h4>Nocturnal Migration Flight Calls</h4>
+                <p><span class="highlight">47 nocturnal flight calls</span> detected between 01:00-06:00, peak at 03:00-04:00.</p>
+                <p><strong>Species involved:</strong> Pink-footed Goose (18 calls), Common Crane (11 calls), Greater White-fronted Goose (18 calls).</p>
+                <p><strong>Significance:</strong> Documents active nocturnal migration through Gaulossen, likely along established flyway routes.</p>
+            </div>
+
+            <h3>Migration Categories</h3>
+            <div class="species-grid">
+                <div class="species-card">
+                    <div class="species-name">Arctic Migrants (10 species)</div>
+                    <div class="species-stat">Pink-footed Goose, Snow Bunting, Whooper Swan, and others</div>
+                    <div class="species-stat">🌍 Breed in Arctic tundra, winter in temperate zones</div>
+                    <span class="badge badge-migrant">Arctic Migrant</span>
+                </div>
+
+                <div class="species-card">
+                    <div class="species-name">Long-Distance Migrants (15 species)</div>
+                    <div class="species-stat">Great Snipe (Africa ↔ Arctic), Red-breasted Flycatcher, and others</div>
+                    <div class="species-stat">🌍 Migration routes spanning continents</div>
+                    <span class="badge badge-migrant">Long-Distance</span>
+                </div>
+
+                <div class="species-card">
+                    <div class="species-name">Partial Migrants (12 species)</div>
+                    <div class="species-stat">Eurasian Woodcock, Mallard, and others</div>
+                    <div class="species-stat">🌍 Some populations migrate, others resident</div>
+                    <span class="badge badge-migrant">Partial Migrant</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Temporal Activity -->
+        <section class="section">
+            <h2>4. Temporal Activity Patterns</h2>
+
+            <h3>Crepuscular Specialists</h3>
+            <div class="species-grid">
+                <div class="species-card">
+                    <div class="species-name">Common Grasshopper-Warbler</div>
+                    <div class="species-stat">📊 59 detections</div>
+                    <div class="species-stat">🌅 <span class="highlight">98% dawn activity</span></div>
+                    <div class="species-stat">⏰ Peak: 08:00 (51 calls)</div>
+                    <div class="species-stat">🎵 Classic dawn chorus singer</div>
+                    <span class="badge badge-crepuscular">Dawn Specialist</span>
+                </div>
+
+                <div class="species-card">
+                    <div class="species-name">Great Snipe</div>
+                    <div class="species-stat">📊 189 detections</div>
+                    <div class="species-stat">🌆 <span class="highlight">61% crepuscular</span></div>
+                    <div class="species-stat">⏰ Peak: 20:00-21:00 (82 calls at 20:00)</div>
+                    <div class="species-stat">💃 Lek display behavior</div>
+                    <span class="badge badge-crepuscular">Dusk Specialist</span>
+                </div>
+
+                <div class="species-card">
+                    <div class="species-name">Eurasian Woodcock</div>
+                    <div class="species-stat">📊 57 detections</div>
+                    <div class="species-stat">🌅 <span class="highlight">75% crepuscular</span></div>
+                    <div class="species-stat">⏰ Peak: 07:00-08:00</div>
+                    <div class="species-stat">🦅 Roding flight displays</div>
+                    <span class="badge badge-crepuscular">Dawn/Dusk</span>
+                </div>
+            </div>
+
+            <h3>Nocturnal Species</h3>
+            <div class="species-grid">
+                <div class="species-card">
+                    <div class="species-name">Mallard</div>
+                    <div class="species-stat">📊 29 detections</div>
+                    <div class="species-stat">🌙 <span class="highlight">59% nocturnal</span></div>
+                    <div class="species-stat">Nocturnal feeding and social activity</div>
+                    <span class="badge badge-nocturnal">Nocturnal</span>
+                </div>
+
+                <div class="species-card">
+                    <div class="species-name">Tawny Owl</div>
+                    <div class="species-stat">📊 21 detections</div>
+                    <div class="species-stat">🌙 <span class="highlight">48% nocturnal</span></div>
+                    <div class="species-stat">Territorial hooting at night</div>
+                    <span class="badge badge-nocturnal">Nocturnal</span>
+                </div>
+
+                <div class="species-card">
+                    <div class="species-name">Great Snipe</div>
+                    <div class="species-stat">🌙 <span class="highlight">38% nocturnal</span></div>
+                    <div class="species-stat">Extended lek activity into night</div>
+                    <span class="badge badge-nocturnal">Nocturnal</span>
+                </div>
+            </div>
+
+            <h3>24-Hour Activity Timeline</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">02:00 - 05:00 - Pre-dawn Migration</div>
+                    <div class="timeline-content">
+                        <strong>47 nocturnal flight calls</strong><br>
+                        Pink-footed Goose (peak 03:00), Common Crane (peak 04:00), Greater White-fronted Goose<br>
+                        Active migration through Gaulossen along flyway routes
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">06:00 - 09:00 - Dawn Chorus</div>
+                    <div class="timeline-content">
+                        <strong>Peak territorial singing</strong><br>
+                        Common Grasshopper-Warbler (51 calls at 08:00), Eurasian Woodcock roding flights<br>
+                        Classic dawn territorial behavior
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">10:00 - 18:00 - Daytime Activity</div>
+                    <div class="timeline-content">
+                        <strong>Graylag Goose flock dominance</strong><br>
+                        Peak at 16:00-17:00 (422 calls at 16:00)<br>
+                        Continuous flock calling, feeding, social interactions
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">19:00 - 22:00 - Dusk Lek Activity</div>
+                    <div class="timeline-content">
+                        <strong>Great Snipe lek displays</strong><br>
+                        Peak 20:00-21:00 (82 calls at 20:00)<br>
+                        Competitive male displays, matches published Norwegian lek timing
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">23:00 - 01:00 - Night Activity</div>
+                    <div class="timeline-content">
+                        <strong>Nocturnal species calling</strong><br>
+                        Tawny Owl territorial hooting, Mallard social calls<br>
+                        Continued Great Snipe lek activity
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notable Species Behaviors -->
+        <section class="section">
+            <h2>5. Notable Species Behaviors</h2>
+
+            <div class="finding">
+                <h4>Great Snipe Lek Display</h4>
+                <p><strong>Detections:</strong> 189 total, 61% during crepuscular periods</p>
+                <p><strong>Peak timing:</strong> 20:00-21:00 (82 calls at 20:00)</p>
+                <p><strong>Behavior:</strong> Males perform competitive displays at traditional lek sites during dusk and into the night.</p>
+                <p><strong>Conservation significance:</strong> Declining species across Europe. Lek documentation important for population monitoring.</p>
+                <p><strong>Validation:</strong> Timing matches Norwegian Great Snipe lek studies (Kålås et al., 1995) showing peak activity 20:00-21:00.</p>
+
+                <div class="references">
+                    <h4>Scientific Validation</h4>
+                    <div class="reference">• Kålås, J. A., et al. (1995) - Effect of mating probability on risk taking in lekking great snipe (Norwegian populations)</div>
+                    <div class="reference">• Höglund, J., & Alatalo, R. V. (1995) - Leks (classic text on lek mating systems)</div>
+                </div>
+            </div>
+
+            <div class="finding">
+                <h4>Common Grasshopper-Warbler Dawn Chorus</h4>
+                <p><strong>Detections:</strong> 59 total, <span class="highlight">98% at dawn</span></p>
+                <p><strong>Peak timing:</strong> 08:00 (51 calls - 86% of all calls in single hour)</p>
+                <p><strong>Behavior:</strong> Intense territorial singing at dawn. Classic dawn chorus pattern.</p>
+                <p><strong>Acoustic signature:</strong> Continuous "reeling" trill, insect-like quality</p>
+            </div>
+
+            <div class="finding">
+                <h4>Eurasian Woodcock Roding Flights</h4>
+                <p><strong>Detections:</strong> 57 total, 75% crepuscular</p>
+                <p><strong>Peak timing:</strong> 07:00-08:00 (31 calls at 08:00)</p>
+                <p><strong>Behavior:</strong> Male territorial "roding" flights at dawn/dusk with distinctive croaking and whistling calls</p>
+            </div>
+        </section>
+
+        <!-- Habitat Associations -->
+        <section class="section">
+            <h2>6. Habitat Associations</h2>
+
+            <div class="finding">
+                <h4>Wetland Dominance</h4>
+                <p><span class="highlight">86.6% of all detections</span> from wetland-associated species</p>
+                <p><strong>Wetland species:</strong> 19 species, 3,559 detections</p>
+                <p><strong>Top wetland species:</strong> Graylag Goose (2,871), Pink-footed Goose (189), Great Snipe (189)</p>
+                <p><strong>Conclusion:</strong> Gaulossen functions primarily as wetland habitat with extensive waterfowl and wader activity.</p>
+            </div>
+
+            <h3>Habitat Guild Distribution</h3>
+            <div class="species-grid">
+                <div class="species-card">
+                    <div class="species-name">Wetland (19 species)</div>
+                    <div class="species-stat">📊 3,559 detections (86.6%)</div>
+                    <div class="species-stat">Geese, ducks, waders, cranes</div>
+                </div>
+
+                <div class="species-card">
+                    <div class="species-name">Forest (9 species)</div>
+                    <div class="species-stat">📊 113 detections (2.7%)</div>
+                    <div class="species-stat">Woodpeckers, tits, thrushes</div>
+                </div>
+
+                <div class="species-card">
+                    <div class="species-name">Grassland (8 species)</div>
+                    <div class="species-stat">📊 98 detections (2.4%)</div>
+                    <div class="species-stat">Larks, pipits, buntings</div>
+                </div>
+
+                <div class="species-card">
+                    <div class="species-name">Generalist (18 species)</div>
+                    <div class="species-stat">📊 338 detections (8.2%)</div>
+                    <div class="species-stat">Crows, gulls, raptors</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scientific Context -->
+        <section class="section">
+            <h2>7. Scientific Context & Validation</h2>
+
+            <div class="finding">
+                <h4>Research Foundation</h4>
+                <p>All behavioral interpretations are supported by <span class="highlight">26 peer-reviewed scientific sources</span> covering:</p>
+                <ul style="color: #d0d0d0; margin-left: 20px; margin-top: 10px;">
+                    <li>Heterospecific eavesdropping and alarm call recognition</li>
+                    <li>Mixed-species flock dynamics and sentinel behavior</li>
+                    <li>Migration patterns and nocturnal flight calls</li>
+                    <li>Lek behavior and crepuscular activity</li>
+                    <li>Acoustic monitoring methodology</li>
+                    <li>Wetland ecology and conservation</li>
+                </ul>
+
+                <div class="references">
+                    <h4>Key References</h4>
+                    <div class="reference">• Magrath, R. D., et al. (2015) - Eavesdropping on heterospecific alarm calls (Biological Reviews)</div>
+                    <div class="reference">• Fallow, P. M., & Magrath, R. D. (2018) - Social learning of alarm calls (Current Biology)</div>
+                    <div class="reference">• King, D. I., & Rappole, J. H. (2023) - Mixed-species flock classification (Phil Trans Roy Soc B)</div>
+                    <div class="reference">• Kålås, J. A., et al. (1995) - Great Snipe lek behavior (American Naturalist)</div>
+                    <div class="reference">• Radford, A. N., et al. (2024) - Noise constraints on eavesdropping (Biology Letters)</div>
+                    <div class="reference">• Complete bibliography: SCIENTIFIC_REFERENCES.md (26 sources)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Quality -->
+        <section class="section">
+            <h2>8. Data Quality & Limitations</h2>
+
+            <div class="quality-notice">
+                <h4>✅ What Has Been Verified</h4>
+                <p><strong>Species:</strong> All 82 species verified through manual review of spectrograms and audio</p>
+                <p><strong>Behavioral patterns:</strong> Flock clustering, temporal patterns, co-occurrences documented through systematic analysis</p>
+                <p><strong>False positive removal:</strong> 8 species rejected after second review (including 129 Great Bittern rain noise detections)</p>
+                <p><strong>Verification rate:</strong> 87.8% of analyzed species passed human verification</p>
+            </div>
+
+            <div class="quality-notice" style="margin-top: 20px;">
+                <h4>⚠️ What Still Needs Verification</h4>
+                <p><strong>Detection counts:</strong> Only best example per species verified, not all 4,108 detections individually reviewed</p>
+                <p><strong>Rare species:</strong> Species with <10 detections have limited validation</p>
+                <p><strong>Confusable pairs:</strong> Some closely related species may require additional acoustic analysis</p>
+            </div>
+
+            <div class="quality-notice" style="margin-top: 20px; background: rgba(255, 0, 0, 0.1); border-color: #ff4444;">
+                <h4>❌ Sampling Bias - Cannot Make Weather Claims</h4>
+                <p><strong>IMPORTANT:</strong> 80%+ of recording occurred during rain/fog conditions</p>
+                <p><strong>Impact:</strong> Cannot determine if species presence correlates with weather - we only recorded during poor weather</p>
+                <p><strong>Conclusion:</strong> This study documents species <em>detectable during rain</em>, not general weather preferences</p>
+                <p><strong>Great Bittern lesson:</strong> Rain noise caused 129 false positives at up to 91% confidence - highlights challenge of wet-weather acoustic monitoring</p>
+            </div>
+
+            <div class="finding" style="margin-top: 20px;">
+                <h4>Methodology</h4>
+                <p><strong>Detection:</strong> BirdNET v2.4 (Kahl et al., 2021) deep learning classifier</p>
+                <p><strong>Audio enhancement:</strong> Wiener filtering + HPSS (Harmonic-Percussive Source Separation)</p>
+                <p><strong>Spectrograms:</strong> Raven Pro-style (2048 FFT, 512 hop length, 0-12kHz)</p>
+                <p><strong>Verification:</strong> Human expert review of spectrograms and audio for all species</p>
+                <p><strong>Analysis:</strong> Temporal clustering (5-min windows), co-occurrence (10-min windows)</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>Gaulossen Nature Reserve Acoustic Monitoring Study</p>
+            <p>October 2025 - Stjørdal, Norway</p>
+            <p>BirdNET v2.4 | Human-Verified | 82 Species | 4,108 Detections</p>
+        </footer>
+    </div>
+</body>
+</html>
