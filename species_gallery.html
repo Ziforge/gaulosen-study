@@ -125,17 +125,18 @@
 </head>
 <body>
     <div class="container">
+        <!-- Global Navigation -->
+        <nav style="background: rgba(255, 255, 255, 0.05); padding: 15px 30px; border-radius: 10px; margin-bottom: 30px; border: 1px solid rgba(255, 255, 255, 0.1); display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;">
+            <a href="index.html" style="color: #e0e0e0; text-decoration: none; padding: 10px 20px; border-radius: 8px; transition: all 0.3s ease;">Home</a>
+            <a href="species_gallery.html" style="color: #00d4ff; text-decoration: none; padding: 10px 20px; border-radius: 8px; background: rgba(0, 212, 255, 0.2); border: 1px solid #00d4ff; transition: all 0.3s ease; font-weight: 500;">Species Gallery</a>
+            <a href="behavioral_findings.html" style="color: #e0e0e0; text-decoration: none; padding: 10px 20px; border-radius: 8px; transition: all 0.3s ease;">Behavioral Findings</a>
+        </nav>
+
         <header>
             <h1>Species Gallery</h1>
             <div class="subtitle">82 Verified Bird Species from Gaulossen Nature Reserve</div>
             <div class="subtitle" style="margin-top: 10px; font-size: 1em;">With Spectrograms & Audio Samples</div>
         </header>
-
-        <div class="nav-links">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="behavioral_findings.html" class="nav-link">Behavioral Findings</a>
-            <a href="species_gallery.html" class="nav-link">Species Gallery</a>
-        </div>
 
         <div class="loading" id="loading">Loading species data...</div>
         <div class="species-grid" id="speciesGrid"></div>
