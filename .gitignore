@@ -9,13 +9,18 @@ env/
 venv/
 ENV/
 
-# Audio files (too large for GitHub)
+# Audio files (too large for GitHub) - except compressed MP3s for website
 *.wav
-*.mp3
 *.flac
+# Allow MP3s in audio_clips_enhanced
+!results/audio_clips_enhanced/*.mp3
 
-# Results directory (too large)
+# Results directory (too large) - except spectrograms and compressed audio for website
 results/
+!results/spectrograms_best/
+!results/spectrograms_best/*.png
+!results/audio_clips_enhanced/
+!results/audio_clips_enhanced/*.mp3
 
 # Logs
 *.log

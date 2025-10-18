@@ -177,11 +177,13 @@
 
                 let audioHTML = '';
                 if (files.audio) {
+                    // Determine audio type from extension
+                    const audioType = files.audio.endsWith('.mp3') ? 'audio/mpeg' : 'audio/wav';
                     audioHTML = `
                         <div class="audio-section">
                             <div class="audio-label">🔊 AUDIO SAMPLE</div>
                             <audio controls>
-                                <source src="${files.audio}" type="audio/wav">
+                                <source src="${files.audio}" type="${audioType}">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
