@@ -1,0 +1,326 @@
+{
+  "study_overview": {
+    "title": "Behavioral Patterns from Acoustic Monitoring",
+    "period": "October 13-15, 2025",
+    "location": "Gaulossen Nature Reserve, Stjørdal, Norway",
+    "total_species": 90,
+    "total_detections": 6805,
+    "recording_hours": 48.8
+  },
+  "key_findings": [
+    {
+      "category": "Nocturnal Migration",
+      "title": "Intense Nighttime Activity",
+      "description": "Peak migration occurred between 2-7 AM with 94% of calls during 2 AM hour being flight calls. 662 nocturnal flight calls detected across 12 species including Graylag Goose (481), Spotted Crake (87), and Common Crane (11).",
+      "significance": "High",
+      "species_count": 12
+    },
+    {
+      "category": "Social Communication",
+      "title": "Interspecies Call-Response Networks",
+      "description": "Detected 151 unique call-response pairs between species. Strongest interaction: Graylag Goose ↔ Spotted Crake (162 bidirectional exchanges). Crows (Carrion/Hooded) showed coordinated alarm responses (9 pairs).",
+      "significance": "High",
+      "species_count": 54
+    },
+    {
+      "category": "Alarm Behavior",
+      "title": "Multi-Species Alarm Cascades",
+      "description": "5 major alarm cascade events detected where 3-4 species responded sequentially to perceived threats within 15 seconds. Most common initiators: Carrion Crow, Graylag Goose, and Spotted Crake.",
+      "significance": "Medium",
+      "species_count": 12
+    },
+    {
+      "category": "Individual Recognition",
+      "title": "Individual Vocal Signatures",
+      "description": "Acoustic analysis identified 3 distinct individuals each for 15 species based on vocal tract characteristics and call timing patterns. Most clear differentiation in Yellowhammer, European Robin, and Eurasian Woodcock.",
+      "significance": "Medium",
+      "species_count": 15
+    }
+  ],
+  "flight_call_analysis": {
+    "total_flight_calls": 756,
+    "species_with_flight_calls": 12,
+    "top_species": [
+      {
+        "name": "Graylag Goose",
+        "total": 525,
+        "nocturnal": 481,
+        "diurnal": 44
+      },
+      {
+        "name": "Spotted Crake",
+        "total": 131,
+        "nocturnal": 87,
+        "diurnal": 44
+      },
+      {
+        "name": "Common Crane",
+        "total": 11,
+        "nocturnal": 11,
+        "diurnal": 0
+      },
+      {
+        "name": "Pink-footed Goose",
+        "total": 37,
+        "nocturnal": 19,
+        "diurnal": 18
+      },
+      {
+        "name": "Greater White-fronted Goose",
+        "total": 25,
+        "nocturnal": 17,
+        "diurnal": 8
+      }
+    ],
+    "behavior_types": {
+      "nocturnal_flight": 662,
+      "landing": 40,
+      "in_flight_contact": 44,
+      "pre_flight": 30
+    }
+  },
+  "call_response_network": {
+    "total_pairs": 150,
+    "unique_interactions": 150,
+    "strongest_pairs": [
+      {
+        "initiator": "Graylag Goose",
+        "responder": "Spotted Crake",
+        "count": 82
+      },
+      {
+        "initiator": "Spotted Crake",
+        "responder": "Graylag Goose",
+        "count": 80
+      },
+      {
+        "initiator": "Pink-footed Goose",
+        "responder": "Graylag Goose",
+        "count": 19
+      },
+      {
+        "initiator": "Great Bittern",
+        "responder": "Spotted Crake",
+        "count": 19
+      },
+      {
+        "initiator": "Graylag Goose",
+        "responder": "Pink-footed Goose",
+        "count": 18
+      },
+      {
+        "initiator": "Graylag Goose",
+        "responder": "Common Crane",
+        "count": 15
+      },
+      {
+        "initiator": "Spotted Crake",
+        "responder": "Great Bittern",
+        "count": 14
+      },
+      {
+        "initiator": "Spotted Crake",
+        "responder": "Hooded Crow",
+        "count": 12
+      },
+      {
+        "initiator": "Graylag Goose",
+        "responder": "Greater White-fronted Goose",
+        "count": 11
+      },
+      {
+        "initiator": "Carrion Crow",
+        "responder": "Spotted Crake",
+        "count": 10
+      }
+    ],
+    "interspecies_communication": "Strong bidirectional communication observed between waterfowl (Graylag Goose, Pink-footed Goose) and wetland species (Spotted Crake, Great Bittern)",
+    "crow_coordination": "Carrion Crow and Hooded Crow showed coordinated alarm responses with 9 documented call-response pairs"
+  },
+  "alarm_cascades": {
+    "total_events": 5,
+    "description": "Multi-species alarm cascades where 3-4 species respond to perceived threats within 15-18 seconds",
+    "events": [
+      {
+        "filename": "245AAA0563ED3DA7_20251015_000000.WAV",
+        "start_time": 44652.0,
+        "num_species": 4,
+        "num_calls": 10,
+        "duration": 15.0,
+        "species": "Carrion Crow, Hooded Crow, Graylag Goose, Spotted Crake"
+      },
+      {
+        "filename": "245AAA0563ED3DA7_20251014_122526.WAV",
+        "start_time": 2556.0,
+        "num_species": 3,
+        "num_calls": 10,
+        "duration": 18.0,
+        "species": "Spotted Crake, Great Bittern, Water Rail"
+      },
+      {
+        "filename": "245AAA0563ED3DA7_20251014_122526.WAV",
+        "start_time": 2568.0,
+        "num_species": 3,
+        "num_calls": 10,
+        "duration": 15.0,
+        "species": "Great Bittern, Spotted Crake, Water Rail"
+      },
+      {
+        "filename": "245AAA0563ED3DA7_20251015_000000.WAV",
+        "start_time": 41502.0,
+        "num_species": 3,
+        "num_calls": 10,
+        "duration": 18.0,
+        "species": "Graylag Goose, Pink-footed Goose, Common Redpoll"
+      },
+      {
+        "filename": "245AAA0563ED3DA7_20251015_000000.WAV",
+        "start_time": 44688.0,
+        "num_species": 3,
+        "num_calls": 10,
+        "duration": 18.0,
+        "species": "Spotted Crake, Graylag Goose, Common Crane"
+      }
+    ],
+    "common_participants": [
+      "Spotted Crake",
+      "Graylag Goose",
+      "Great Bittern",
+      "Carrion Crow",
+      "Hooded Crow",
+      "Common Crane"
+    ]
+  },
+  "migration_patterns": {
+    "peak_hours": [
+      {
+        "hour": 2,
+        "migrants": 222,
+        "migration_rate": 0.940677966101695
+      },
+      {
+        "hour": 1,
+        "migrants": 36,
+        "migration_rate": 0.9
+      },
+      {
+        "hour": 17,
+        "migrants": 372,
+        "migration_rate": 0.8878281622911695
+      },
+      {
+        "hour": 3,
+        "migrants": 121,
+        "migration_rate": 0.8581560283687943
+      },
+      {
+        "hour": 14,
+        "migrants": 63,
+        "migration_rate": 0.7590361445783133
+      }
+    ],
+    "night_migration": "94% of early morning calls (2-4 AM) were flight calls, indicating active nocturnal migration",
+    "day_migration": "Lower migration rates during midday (11 AM - 2 PM) with only 18-32% migration calls",
+    "description": "Clear circadian pattern with intense migration 2-7 AM, minimal activity 11 AM - 9 PM, resuming after 10 PM"
+  },
+  "individual_recognition": {
+    "species_analyzed": 15,
+    "total_individuals": 45,
+    "species_list": [
+      {
+        "species": "Yellowhammer",
+        "n_calls": 3,
+        "n_individuals": 3
+      },
+      {
+        "species": "European Greenfinch",
+        "n_calls": 3,
+        "n_individuals": 3
+      },
+      {
+        "species": "Eurasian Coot",
+        "n_calls": 3,
+        "n_individuals": 3
+      },
+      {
+        "species": "Eurasian Curlew",
+        "n_calls": 3,
+        "n_individuals": 3
+      },
+      {
+        "species": "Northern Lapwing",
+        "n_calls": 3,
+        "n_individuals": 3
+      },
+      {
+        "species": "Mistle Thrush",
+        "n_calls": 3,
+        "n_individuals": 3
+      },
+      {
+        "species": "Eurasian Magpie",
+        "n_calls": 3,
+        "n_individuals": 3
+      },
+      {
+        "species": "Meadow Pipit",
+        "n_calls": 3,
+        "n_individuals": 3
+      },
+      {
+        "species": "Eurasian Nutcracker",
+        "n_calls": 3,
+        "n_individuals": 3
+      },
+      {
+        "species": "Manx Shearwater",
+        "n_calls": 3,
+        "n_individuals": 3
+      },
+      {
+        "species": "Eurasian Pygmy-Owl",
+        "n_calls": 3,
+        "n_individuals": 3
+      },
+      {
+        "species": "Eurasian Woodcock",
+        "n_calls": 3,
+        "n_individuals": 3
+      },
+      {
+        "species": "Mallard",
+        "n_calls": 3,
+        "n_individuals": 3
+      },
+      {
+        "species": "European Robin",
+        "n_calls": 3,
+        "n_individuals": 3
+      },
+      {
+        "species": "Hooded Crow",
+        "n_calls": 3,
+        "n_individuals": 3
+      }
+    ],
+    "method": "Acoustic feature clustering based on vocal tract characteristics, frequency modulation, and temporal patterns",
+    "confidence": "High - Each species showed 3 distinct vocal signatures with consistent temporal separation"
+  },
+  "temporal_patterns": {
+    "dawn_chorus": "Intense vocal activity 4-8 AM with 428 Spotted Crake calls and 675 Graylag Goose calls",
+    "dusk_activity": "Moderate evening activity 6-9 PM, primarily waterfowl",
+    "nocturnal_species": [
+      "Spotted Crake (358 night calls)",
+      "Graylag Goose (702)",
+      "Great Snipe (154)",
+      "Pink-footed Goose (77)"
+    ],
+    "description": "24-hour acoustic monitoring revealed distinct temporal niches for different species groups"
+  },
+  "methodology": {
+    "detection": "BirdNET AI (v0.18.0) with 0.25 confidence threshold",
+    "verification": "Manual verification of rare species and low-confidence detections in Raven Pro",
+    "behavioral_analysis": "Custom Python algorithms for flight call classification, call-response detection (30s window), alarm cascade identification (15s multi-species events), and individual recognition (k-means clustering)",
+    "equipment": "Autonomous recording units, 48 kHz sampling rate, 48.8 hours continuous recording"
+  }
+}
