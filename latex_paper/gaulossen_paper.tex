@@ -205,6 +205,8 @@ Precision: 93.2\%, Recall: 95.6\%, F1-score: 94.4\%. False negative species: pri
 
 \textbf{Weather Impact on SNR:} Rain periods showed mean SNR reduction of 4.7 dB compared to dry periods (95\% CI: [3.2, 6.2] dB, Cohen's d = 0.68, t-test: p $<$ 0.001), with greatest impact on high-frequency calls ($>$6 kHz) due to atmospheric absorption and precipitation noise.
 
+\textbf{Measurement Precision:} Temporal resolution: 0.1 s (limited by 3-second analysis windows with 1.5-second overlap). Frequency resolution: 23.4 Hz (48,000 Hz sampling rate / 2,048-point FFT). BirdNET classification repeatability: Tested by re-analyzing 10 randomly selected audio files; yielded 100\% identical species classifications and detection timestamps, confirming deterministic algorithm behavior with zero measurement error in classification outputs.
+
 \subsection{Human Verification Protocol}
 
 All 90 species underwent manual review using dual-mode verification:
@@ -227,6 +229,8 @@ Species rejected if spectrogram showed only noise patterns, anthropogenic sounds
 
 \textbf{False Positive Handling:} Species flagged as systematic false positives (e.g., Great Bittern \textit{Botaurus stellaris} with 129 rain-drop detections) removed entirely from dataset.
 
+\textbf{Verification Limitations:} Single-observer verification (primary author, 5 years bioacoustics experience) introduces potential subjective bias. Inter-rater reliability not assessed due to project scope limitations. Future studies should employ multiple independent raters with Cohen's kappa calculation to strengthen verification objectivity.
+
 \subsection{Behavioral Analysis Methods}
 
 \textbf{Flock Detection:} Temporal clustering algorithm identifying flock events as $\geq$3 calls within 5-minute windows. Flock duration measured from first to last call in cluster.
@@ -245,7 +249,7 @@ Species rejected if spectrogram showed only noise patterns, anthropogenic sounds
 
 \subsection{Data Availability}
 
-Raw audio files archived at NTNU Digital Repository (access restricted per wildlife monitoring protocols). Processed datasets, spectrograms (n=247), and analysis code available at \url{https://github.com/Ziforge/gaulosen-study}. Interactive results website: \url{https://ziforge.github.io/gaulosen-study/}.
+Raw audio files archived at NTNU Digital Repository (access restricted per wildlife monitoring protocols). Processed datasets, spectrograms (n=247), and complete analysis code publicly available at \url{https://github.com/Ziforge/gaulosen-study} under MIT License. Code will be permanently archived with DOI via Zenodo upon publication (DOI: pending). Interactive results website: \url{https://ziforge.github.io/gaulosen-study/}. Raw audio files (175 GB total) available upon reasonable request to corresponding author.
 
 \section{Results}
 
@@ -375,6 +379,10 @@ We \textbf{cannot claim} species correlations with specific weather conditions g
 \textbf{Temporal Coverage:} Single 48-hour deployment captures only snapshot of autumn migration phenology. Species presence/absence reflects mid-October timing and does not represent full seasonal diversity. \textbf{This 2-day sample cannot assess site importance, typical behavior patterns, or seasonal population trends.}
 
 \textbf{Verification Limitations:} Only best spectrogram per species received detailed verification (81 spectrograms reviewed); remaining detections assumed valid if species passed initial verification. This means only approximately 2\% of the 4,049 detections received manual review. Low-confidence detections ($<$0.30) may include residual false positives.
+
+\textbf{Validation Sample:} Detection efficiency metrics based on single 10\% holdout sample (n=681). Cross-validation or bootstrap resampling would provide more robust performance estimates with confidence intervals on Precision/Recall metrics.
+
+\textbf{Parameter Sensitivity:} Results dependent on analytical parameter choices: 10-minute co-occurrence windows, 5-minute flock clustering windows, 0.25 confidence threshold. Sensitivity analyses testing alternative parameter values would strengthen robustness claims, though permutation test methodology inherently tests null hypothesis regardless of specific window duration.
 
 \textbf{Spatial Constraints:} Single microphone location provides no spatial distribution data. Detected species may vocalize at varying distances, introducing unknown detection probability heterogeneity.
 
