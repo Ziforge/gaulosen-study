@@ -1,26 +1,26 @@
-# Gaulossen Nature Reserve - Acoustic Monitoring Study
+# Gaulosen Nature Reserve - Acoustic Monitoring Study
 
-**Location:** Gaulossen Nature Reserve, Stjørdal, Norway
+**Location:** Gaulosen Nature Reserve, Stjørdal, Norway
 **Study Period:** October 2025
 **Methodology:** Passive acoustic monitoring with BirdNET-Analyzer
 
 ## 🌐 Live Website
 
-**Visit:** [https://georgeredpath.github.io/gaulossen-study/website/](https://georgeredpath.github.io/gaulossen-study/website/)
+**Visit:** [https://ziforge.github.io/gaulosen-study/website/](https://ziforge.github.io/gaulosen-study/website/)
 
-Complete automated bioacoustics analysis pipeline for Gaulossen Nature Reserve field recordings (October 13-15, 2025).
+Complete automated bioacoustics analysis pipeline for Gaulosen Nature Reserve field recordings (October 13-15, 2025).
 
 ## Analysis Summary
 
 - **Total recordings:** 4 files (48.8 hours)
 - **Total detections:** 6,805 bird calls
 - **Unique species:** 90 species
-- **Location:** Gaulossen Nature Reserve, Norway (63.4305°N, 10.3951°E)
+- **Location:** Gaulosen Nature Reserve, Norway (63.4305°N, 10.3951°E)
 
 ## Directory Structure
 
 ```
-gaulossen/
+gaulosen/
 ├── results/
 │   ├── all_detections.csv              # Master CSV (all detections)
 │   ├── species_summary.csv             # Species counts
@@ -169,7 +169,7 @@ Manual Verification in Raven Pro
 
 Original audio files:
 ```
-/Users/georgeredpath/Dev/Gaulossen-recordings/audio_files/
+/Users/georgeredpath/Dev/Gaulosen-recordings/audio_files/
 ```
 
 ## Tools Used
