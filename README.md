@@ -6,7 +6,7 @@
 
 ## 🌐 Live Website
 
-**Visit:** [https://ziforge.github.io/gaulosen-study/website/](https://ziforge.github.io/gaulosen-study/website/)
+**Visit:** [https://ziforge.github.io/gaulosen-study/](https://ziforge.github.io/gaulosen-study/)
 
 Complete automated bioacoustics analysis pipeline for Gaulosen Nature Reserve field recordings (October 13-15, 2025).
 
