@@ -124,7 +124,7 @@
             <div class="abstract">
                 <p>Automated acoustic monitoring offers scalable biodiversity assessment but requires validation against traditional methods. We deployed passive acoustic monitoring at Gaulosen Nature Reserve (Trøndelag, Norway) during autumn migration (13-15 October 2025), recording 48.8 hours across challenging weather conditions (80% rain/fog coverage). Using BirdNET v2.4 deep learning classifier with human verification, we detected <span class="highlight">81 bird species from 4,049 verified vocalizations</span>, achieving <span class="highlight">91.1% species-level verification pass rate</span>.</p>
 
-                <p>Analysis revealed high social behavior prevalence (86% of detections from flock species), potential sentinel mutualism between corvids and waterfowl (8,778 co-occurrences), active nocturnal migration (47 flight calls, 01:00-06:00), and conservation-relevant Great Snipe migration stopover usage (189 detections, 61% crepuscular). Graylag Goose dominated the soundscape (69.9% of detections, 58.8 calls/hour), with largest flock event spanning 620 vocalizations over 91 minutes.</p>
+                <p>Analysis revealed high social behavior prevalence (86% of detections from flock species), corvid-waterfowl co-occurrence pattern consistent with sentinel mutualism hypothesis (8,778 co-occurrences), active nocturnal migration (47 flight calls, 01:00-06:00), and Great Snipe migration stopover presence (189 detections, 61% crepuscular). Graylag Goose dominated the soundscape (69.9% of detections, 58.8 calls/hour), with largest flock event spanning 620 vocalizations over 91 minutes.</p>
 
                 <p>Despite weather-induced sampling bias and acoustic contamination requiring Wiener filtering and harmonic-percussive source separation, the study demonstrates automated monitoring's effectiveness for rapid biodiversity assessment in wetland ecosystems along major flyways.</p>
 
@@ -284,17 +284,19 @@
 
             <p><strong>Flock Dynamics:</strong> Temporal clustering identified <span class="highlight">59 discrete Graylag Goose flock events</span> (mean duration: 18.4 min, SD: 24.7 min, range: 1-91 min). Largest event occurred 13 October 16:00-17:26 with <span class="highlight">620 vocalizations</span>, suggesting flock size >100 individuals based on vocal rate estimates.</p>
 
-            <h3>3.3 Corvid-Waterfowl Co-occurrence: Sentinel Mutualism</h3>
+            <h3>3.3 Corvid-Waterfowl Co-occurrence: Pattern Consistent with Sentinel Mutualism Hypothesis</h3>
             <p>Hooded Crow (325 detections) and Carrion Crow (89 detections) showed striking temporal overlap with geese: <span class="highlight">8,778 co-occurrences</span> within 10-minute windows (permutation test: p < 0.001).</p>
 
             <p><strong>Spatial Association:</strong> 73.4% of all crow detections (304/414) occurred within active goose flock periods, significantly exceeding random expectation (Monte Carlo simulation: expected 41.2%, p < 0.001).</p>
 
-            <p><strong>Sentinel Hypothesis:</strong> Pattern consistent with heterospecific eavesdropping whereby waterfowl exploit corvid alarm calls for enhanced predator detection, supported by:</p>
+            <p><strong>Interpretation as Hypothesis-Generating Pattern:</strong> This co-occurrence pattern is consistent with the sentinel mutualism hypothesis documented in mixed-species flock studies (Magrath et al. 2015; King & Rappole 2023), where waterfowl potentially exploit corvid alarm calls for enhanced predator detection. Acoustic data suggestive of this relationship includes:</p>
             <ol>
-                <li>Crows vocalized preferentially during goose flock events</li>
+                <li>Crows vocalized preferentially during goose flock events (asymmetric association)</li>
                 <li>No reciprocal pattern (geese not preferentially vocal during crow-only periods)</li>
                 <li>Timing matches documented sentinel relationships in mixed-species flocks</li>
             </ol>
+
+            <p><strong>Important Limitation:</strong> Acoustic co-occurrence alone cannot demonstrate functional benefit or prove sentinel behavior. Behavioral observations, predator experiments, and vigilance measurements are needed to test this hypothesis.</p>
 
             <h3>3.4 Temporal Patterns and Nocturnal Migration</h3>
             <p>Pronounced dawn chorus peak (08:00-09:00: 847 detections, 20.6% of total) driven by Common Grasshopper-Warbler (51/59 calls at 08:00, 86.4% temporal concentration) and songbird species.</p>
@@ -322,18 +324,20 @@
 
             <p><strong>Praven Pro Impact:</strong> The toolkit proved essential for achieving high verification rates within practical timeframes, reducing manual processing from estimated 48 hours to 4.2 hours through automated batch processing and structured verification interfaces.</p>
 
-            <h3>4.2 Sentinel Mutualism: Corvid-Waterfowl Interactions</h3>
-            <p>The 8,778 corvid-waterfowl co-occurrences substantially exceed random expectation and match the spatiotemporal signature of sentinel mutualism documented in terrestrial mixed-species flocks. Three lines of evidence support functional eavesdropping:</p>
+            <h3>4.2 Corvid-Waterfowl Co-occurrence: Hypothesis-Generating Pattern</h3>
+            <p>The 8,778 corvid-waterfowl co-occurrences substantially exceed random expectation and match the spatiotemporal signature of sentinel mutualism documented in terrestrial mixed-species flocks (Magrath et al. 2015; King & Rappole 2023; Fallow & Magrath 2018). Three lines of evidence are consistent with potential heterospecific eavesdropping:</p>
             <ol>
-                <li><strong>Asymmetric association:</strong> Crows preferentially vocalize during goose flocks, not vice versa, consistent with nuclear species (geese) benefiting from sentinel species (crows)</li>
-                <li><strong>Ecological rationale:</strong> Corvids possess superior visual acuity and elevated perch access, providing early predator detection; geese benefit from reduced individual vigilance costs</li>
-                <li><strong>Comparative evidence:</strong> Pattern mirrors documented heterospecific eavesdropping in African ungulate-bird systems</li>
+                <li><strong>Asymmetric association:</strong> Crows preferentially vocalize during goose flocks, not vice versa, consistent with the pattern observed when nuclear species (geese) potentially benefit from sentinel species (crows)</li>
+                <li><strong>Ecological plausibility:</strong> Corvids possess superior visual acuity and elevated perch access, traits associated with sentinel roles in documented mixed-species flocks; geese potentially benefit from reduced individual vigilance costs if functional eavesdropping occurs</li>
+                <li><strong>Comparative evidence:</strong> Pattern resembles documented heterospecific eavesdropping in African ungulate-bird systems and mixed-species bird flocks</li>
             </ol>
 
-            <h3>4.3 Great Snipe Migration Stopover Implications</h3>
-            <p>Detection of 189 Great Snipe calls with 61% crepuscular concentration provides <strong>documented evidence of Gaulosen Nature Reserve as an important Great Snipe migration stopover site</strong>. The sustained dusk calling pattern is consistent with migration stopover behavior, where individuals vocalize for social cohesion and site selection during autumn migration to Africa.</p>
+            <p><strong>Limitations:</strong> Acoustic co-occurrence data alone cannot prove causation or functional benefit. This pattern warrants future investigation using: (1) behavioral observations during predator encounters, (2) vigilance measurements of geese with vs. without corvids present, (3) playback experiments testing goose responses to crow alarm calls, and (4) experimental manipulation of corvid presence. The current data generate a testable hypothesis but do not conclusively demonstrate sentinel mutualism.</p>
 
-            <p><strong>Important Clarification:</strong> October is migration season, NOT breeding season for Great Snipes (which breed May-June in Scandinavia). These are migration calls, not lek displays. Claims of "breeding population" or "displaying males" would be scientifically incorrect for October detections.</p>
+            <h3>4.3 Great Snipe Migration Stopover Implications</h3>
+            <p>Detection of 189 Great Snipe calls with 61% crepuscular concentration provides <strong>documented evidence of Great Snipe presence at Gaulosen Nature Reserve during autumn migration</strong>. The sustained dusk calling pattern (peak at 20:00) is consistent with migration stopover behavior documented in other shorebirds.</p>
+
+            <p><strong>Important Clarification:</strong> October is migration season, NOT breeding season for Great Snipes (which breed May-June in Scandinavia). These are migration calls, not lek displays. Claims of "breeding population" or "displaying males" would be scientifically incorrect for October detections. While calling may serve social coordination functions during migration, acoustic data alone cannot prove specific behavioral functions.</p>
 
             <h3>4.4 Study Limitations and Sampling Bias</h3>
             <p><strong>Weather Bias:</strong> 80% rain/fog coverage during recording period introduces unknown species detection biases. We <strong>cannot claim</strong> species correlations with specific weather conditions given near-complete confounding. We <strong>can claim</strong> these species are acoustically detectable during poor weather.</p>
@@ -348,7 +352,7 @@
             <h2>5. Conclusions</h2>
             <p>This study demonstrates that automated acoustic monitoring, when coupled with rigorous audio enhancement and human verification protocols, enables rapid biodiversity assessment in challenging wetland environments. Detection of <span class="highlight">81 bird species from 48 hours</span> of rain-dominated recording validates PAM as weather-resilient alternative to traditional survey methods.</p>
 
-            <p>Beyond species inventorying, continuous acoustic data revealed previously undocumented behavioral ecology: intensive Graylag Goose flock dynamics (620 calls/91 minutes), potential corvid-waterfowl sentinel mutualism (8,778 co-occurrences), and conservation-relevant Great Snipe migration stopover usage (189 detections, 69% dusk concentration).</p>
+            <p>Beyond species inventorying, continuous acoustic data revealed behavioral patterns: intensive Graylag Goose flock dynamics (620 calls/91 minutes), corvid-waterfowl co-occurrence pattern suggestive of potential interspecies interactions (8,778 co-occurrences), and Great Snipe migration stopover presence (189 detections, 69% dusk concentration).</p>
 
             <p>The <strong>91.1% species-level verification pass rate</strong>, achieved despite systematic weather-induced noise contamination, establishes methodological benchmarks for future deployments. We recommend acoustic monitoring as primary biodiversity assessment tool for wetlands along major flyways, complemented by targeted visual surveys for rare species validation.</p>
 

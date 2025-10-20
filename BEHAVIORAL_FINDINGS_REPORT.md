@@ -17,7 +17,7 @@ This report documents behavioral patterns observed in 82 human-verified bird spe
 - **86% of detections** from social/flock species
 - **37 migratory species** detected, including nocturnal flight calls
 - **Extreme flock behavior** in Graylag Goose (620 calls in 91 minutes)
-- **8,778 geese-crow co-occurrences** suggesting sentinel mutualism
+- **8,778 geese-crow co-occurrences** suggesting pattern consistent with sentinel mutualism hypothesis
 - **Great Snipe migration stopover activity** with classic dusk timing (20:00-21:00 peak)
 - **Active nocturnal migration** documented through flight calls
 
@@ -121,7 +121,7 @@ This report documents behavioral patterns observed in 82 human-verified bird spe
 
 ## 2. Interspecies Interactions
 
-### 2.1 Geese-Crow Sentinel Mutualism
+### 2.1 Geese-Crow Co-occurrence Pattern Consistent with Sentinel Hypothesis
 
 **Quantitative Evidence:**
 - **Graylag + Hooded Crow:** 3,010 co-occurrences (within 10-min windows)
@@ -503,7 +503,7 @@ This finding aligns with extensive research on **heterospecific eavesdropping** 
    - No visual cues needed - purely acoustic
    - Social transmission spreads knowledge through communities
 
-2. **Sentinel Mutualism (King & Rappole, 2023):**
+2. **Co-occurrence Pattern Consistent with Sentinel Hypothesis (King & Rappole, 2023):**
    - Sentinel species (crows) detect predators from elevated positions
    - Nuclear species (geese) provide flock cohesion and safety in numbers
    - Both benefit: reduced individual vigilance, increased foraging time
