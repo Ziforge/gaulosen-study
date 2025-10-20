@@ -14,7 +14,7 @@
 This report documents behavioral patterns observed in 82 human-verified bird species at Gaulosen Nature Reserve during October 2025. All findings are based on verified detections only, with manual spectrogram and audio review. The reserve demonstrates active use as a migration stopover, particularly for arctic-breeding waterfowl, with significant nocturnal activity and complex multi-species interactions.
 
 **Key Findings:**
-- **86% of detections** from social/flock species
+- **87% of detections** from social/flock species
 - **37 migratory species** detected, including nocturnal flight calls
 - **Extreme flock behavior** in Graylag Goose (620 calls in 91 minutes)
 - **8,778 geese-crow co-occurrences** suggesting pattern consistent with sentinel mutualism hypothesis
@@ -42,7 +42,7 @@ This report documents behavioral patterns observed in 82 human-verified bird spe
 
 ### 1.1 Social Species Dominance
 
-**Finding:** 86% of all detections came from just 29 social/flock species
+**Finding:** 87% of all detections came from just 29 social/flock species
 
 **Breakdown by Guild:**
 - **Waterfowl:** 10 species, 3,196 detections (77.8%)
