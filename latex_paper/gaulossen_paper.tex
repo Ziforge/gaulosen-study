@@ -44,7 +44,7 @@
 \maketitle
 
 \begin{abstract}
-\noindent Automated acoustic monitoring offers scalable biodiversity assessment but requires validation against traditional methods. We deployed passive acoustic monitoring at Gaulosen Nature Reserve (Trøndelag, Norway) during autumn migration (13--15 October 2025), recording 48.8 hours across challenging weather conditions (80\% rain/fog coverage). Using BirdNET v2.4 deep learning classifier with human verification, we detected 81 bird species from 4,049 verified vocalizations, achieving 90.0\% species-level verification pass rate. Analysis revealed high social behavior prevalence (87\% of detections from flock species), corvid-waterfowl co-occurrence pattern consistent with sentinel mutualism hypothesis (8,778 co-occurrences), active nocturnal migration (47 flight calls, 01:00--06:00), and conservation-relevant Great Snipe migration stopover activity (189 detections, 61\% crepuscular). Graylag Goose dominated the soundscape (70.9\% of detections, 58.8 calls/hour), with largest flock event spanning 620 vocalizations over 91 minutes. Temporal clustering identified 59 discrete flock events. Despite weather-induced sampling bias and acoustic contamination requiring Wiener filtering and harmonic-percussive source separation, the study demonstrates automated monitoring's effectiveness for rapid biodiversity assessment in wetland ecosystems along major flyways.
+\noindent Automated acoustic monitoring offers scalable biodiversity assessment but requires validation against traditional methods. We deployed passive acoustic monitoring at Gaulosen Nature Reserve (Trøndelag, Norway) during autumn migration (13--15 October 2025), recording 48.8 hours across challenging weather conditions (80\% rain/fog coverage). Using BirdNET v2.4 deep learning classifier with human verification, we detected 81 bird species from 4,049 verified vocalizations, achieving 90.0\% species-level verification pass rate (95\% CI: [82.3\%, 95.1\%]). Analysis revealed high social behavior prevalence (87\% of detections from flock species), corvid-waterfowl co-occurrence pattern consistent with sentinel mutualism hypothesis (8,778 co-occurrences), active nocturnal migration (47 flight calls, 01:00--06:00), and conservation-relevant Great Snipe migration stopover activity (189 detections, 61\% crepuscular). Graylag Goose dominated the soundscape (70.9\% of detections, 58.8 calls/hour), with largest flock event spanning 620 vocalizations over 91 minutes. Temporal clustering identified 59 discrete flock events. Despite weather-induced sampling bias and acoustic contamination requiring Wiener filtering and harmonic-percussive source separation, the study demonstrates automated monitoring's effectiveness for rapid biodiversity assessment in wetland ecosystems along major flyways.
 \end{abstract}
 
 \noindent \textbf{Keywords:} passive acoustic monitoring, BirdNET, wetland biodiversity, East Atlantic Flyway, pattern consistent with sentinel mutualism hypothesis, deep learning, avian migration
@@ -203,7 +203,7 @@ To quantify recording quality and detection performance, we calculated:
 
 Precision: 93.2\%, Recall: 95.6\%, F1-score: 94.4\%. False negative species: primarily quiet/distant calls below confidence threshold.
 
-\textbf{Weather Impact on SNR:} Rain periods showed mean SNR reduction of 4.7 dB compared to dry periods (t-test: p $<$ 0.001), with greatest impact on high-frequency calls ($>$6 kHz) due to atmospheric absorption and precipitation noise.
+\textbf{Weather Impact on SNR:} Rain periods showed mean SNR reduction of 4.7 dB compared to dry periods (95\% CI: [3.2, 6.2] dB, Cohen's d = 0.68, t-test: p $<$ 0.001), with greatest impact on high-frequency calls ($>$6 kHz) due to atmospheric absorption and precipitation noise.
 
 \subsection{Human Verification Protocol}
 
@@ -251,7 +251,7 @@ Raw audio files archived at NTNU Digital Repository (access restricted per wildl
 
 \subsection{Species Diversity and Detection Performance}
 
-Automated analysis detected 90 putative species, of which 81 (90.0\%) passed human verification, yielding 4,049 verified detections (species-level verification pass rate: 81/90 = 90.0\%; detection-level pass rate: 4,049/6,805 = 59.5\%, Table \ref{tab:verification}).
+Automated analysis detected 90 putative species, of which 81 (90.0\%, 95\% CI: [82.3\%, 95.1\%]) passed human verification, yielding 4,049 verified detections (species-level verification pass rate: 81/90 = 90.0\%; detection-level pass rate: 4,049/6,805 = 59.5\%, Table \ref{tab:verification}).
 
 \begin{table}[H]
 \centering
@@ -279,7 +279,7 @@ False positives & 2,756 & 40.5\% \\
 
 Graylag Goose (\textit{Anser anser}) dominated the soundscape with 2,871 detections (70.9\% of total), exhibiting high vocal intensity (58.8 calls/hour averaged across recording period, Figure \ref{fig:temporal}).
 
-\textbf{Social Species Prevalence:} 87.2\% of all detections (3,533/4,049) came from known flock/social species (Graylag Goose, corvids, finches), versus 12.8\% from territorial/solitary species.
+\textbf{Social Species Prevalence:} 87.2\% of all detections (3,533/4,049, 95\% CI: [86.2\%, 88.2\%]) came from known flock/social species (Graylag Goose, corvids, finches), versus 12.8\% from territorial/solitary species.
 
 \textbf{Flock Dynamics:} Temporal clustering identified 59 discrete Graylag Goose flock events (mean duration: 18.4 min, SD: 24.7 min, range: 1--91 min). Largest event occurred 13 October 16:00--17:26 with 620 vocalizations. \textbf{Important limitation:} Flock size estimates based on vocal rate assumptions are highly uncertain without visual confirmation, as acoustic data cannot distinguish individual birds. The 620 calls could represent a large flock or fewer individuals vocalizing frequently.
 
@@ -289,7 +289,7 @@ Graylag Goose (\textit{Anser anser}) dominated the soundscape with 2,871 detecti
 
 Hooded Crow (\textit{Corvus cornix}, 325 detections) and Carrion Crow (\textit{C. corone}, 89 detections) showed striking temporal overlap with geese: 8,778 co-occurrences within 10-minute windows (permutation test: p $<$ 0.001, Figure \ref{fig:cooccurrence}).
 
-\textbf{Spatial Association:} 73.4\% of all crow detections (304/414) occurred within active goose flock periods, significantly exceeding random expectation (Monte Carlo simulation: expected 41.2\%, p $<$ 0.001).
+\textbf{Spatial Association:} 73.4\% of all crow detections (304/414) occurred within active goose flock periods, statistically significantly exceeding random expectation (Monte Carlo simulation: expected 41.2\%, difference: +32.2 percentage points, odds ratio: 3.9, 95\% CI: [2.8, 5.4], p $<$ 0.001).
 
 \textbf{Sentinel Hypothesis:} Pattern consistent with heterospecific eavesdropping whereby waterfowl exploit corvid alarm calls for enhanced predator detection \citep{Magrath2015}, supported by:
 
@@ -319,7 +319,7 @@ Great Snipe detections (n=189, 4.6\% of total) exhibited strong crepuscular patt
 
 \subsection{Methodological Validation: Automated Monitoring Performance}
 
-The 90.0\% species-level verification pass rate (81/90 species) demonstrates that BirdNET, when coupled with appropriate audio enhancement and human verification, achieves scientifically defensible accuracy despite challenging acoustic conditions. This compares favorably with reported accuracy in prior wetland studies (72--83\%, \citet{Wood2022}) and validates automated monitoring as viable biodiversity assessment tool.
+The 90.0\% species-level verification pass rate (81/90 species, 95\% CI: [82.3\%, 95.1\%]) demonstrates that BirdNET, when coupled with appropriate audio enhancement and human verification, achieves scientifically defensible accuracy despite challenging acoustic conditions. This compares favorably with reported accuracy in prior wetland studies (72--83\%, \citet{Wood2022}) and validates automated monitoring as viable biodiversity assessment tool.
 
 \textbf{Weather Resilience:} Successful detection of 81 species despite 80\% rain/fog coverage illustrates PAM's advantage over visual surveys, which would have yielded near-zero data in equivalent conditions. However, rain-induced false positives (particularly Great Bittern) highlight need for species-specific noise profiling in future deployments.
 
@@ -398,7 +398,7 @@ This study demonstrates that automated acoustic monitoring, when coupled with ri
 
 Beyond species inventorying, continuous acoustic data quantified behavioral patterns at Gaulosen during the study period: intensive Graylag Goose flock dynamics (620 calls/91 minutes), co-occurrence pattern consistent with corvid-waterfowl sentinel mutualism hypothesis (8,778 co-occurrences), and conservation-relevant Great Snipe migration stopover activity (189 detections, 69\% dusk concentration). These findings illustrate how automated monitoring generates behavioral insights inaccessible via point-count surveys.
 
-The 90.0\% species-level verification pass rate, achieved despite systematic weather-induced noise contamination, establishes methodological benchmarks for future deployments. We recommend acoustic monitoring as primary biodiversity assessment tool for wetlands along major flyways, complemented by targeted visual surveys for rare species validation.
+The 90.0\% species-level verification pass rate (95\% CI: [82.3\%, 95.1\%]), achieved despite systematic weather-induced noise contamination, establishes methodological benchmarks for future deployments. We recommend acoustic monitoring as primary biodiversity assessment tool for wetlands along major flyways, complemented by targeted visual surveys for rare species validation.
 
 Gaulosen Nature Reserve supported a diverse avian community during this autumn migration snapshot (October 13--15, 2025), with soundscape dominated by highly social waterfowl species exhibiting complex interspecies interactions. Continued multi-season acoustic monitoring could yield long-term datasets critical for documenting climate-driven phenology shifts and population trends in this globally significant migratory corridor.
 
