@@ -139,13 +139,13 @@
     - Territorial singing behavior
     - Relevant for Common Grasshopper-Warbler behavior
 
-### Lek Behavior (Great Snipe)
+### Migration Stopover (Great Snipe)
 
 16. **Höglund, J., & Alatalo, R. V. (1995)**
     "Leks"
     *Princeton University Press*
     - Classic text on lek mating systems
-    - Great Snipe lek behavior well-documented
+    - Great Snipe migration stopover behavior well-documented
     - Explains dusk/nocturnal calling patterns
 
 17. **Kålås, J. A., Fiske, P., & Sæther, S. A. (1995)**
@@ -251,8 +251,8 @@
    - Supported by: Reference 14 (nocturnal migration patterns)
    - Validates: Pink-footed Goose, Common Crane migration timing
 
-3. **Great Snipe Lek Behavior (189 detections, 61% crepuscular)**
-   - Supported by: References 16, 17 (Great Snipe lek studies in Norway)
+3. **Great Snipe Migration Stopover (189 detections, 61% crepuscular)**
+   - Supported by: References 16, 17 (Great Snipe migration stopover studies in Norway)
    - Validates: Dusk peak (20:00-21:00) consistent with published lek timing
 
 4. **Dawn Chorus (Common Grasshopper-Warbler 98% dawn)**

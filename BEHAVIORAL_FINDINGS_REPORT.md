@@ -18,7 +18,7 @@ This report documents behavioral patterns observed in 82 human-verified bird spe
 - **37 migratory species** detected, including nocturnal flight calls
 - **Extreme flock behavior** in Graylag Goose (620 calls in 91 minutes)
 - **8,778 geese-crow co-occurrences** suggesting sentinel mutualism
-- **Great Snipe lek activity** with classic dusk timing (20:00-21:00 peak)
+- **Great Snipe migration stopover activity** with classic dusk timing (20:00-21:00 peak)
 - **Active nocturnal migration** documented through flight calls
 
 ---
@@ -229,7 +229,7 @@ GEESE (ground/water)
 
 **Species with >50% Dawn/Dusk Activity:**
 
-#### Common Grasshopper-Warbler - Extreme Dawn Chorus
+#### Common Grasshopper-Warbler - Extreme Dawn Activity During Migration
 - **100% crepuscular** (98.3% dawn, 1.7% dusk)
 - **51 calls in single hour** (08:00)
 - **59 total detections**
@@ -239,7 +239,7 @@ GEESE (ground/water)
 - Shows classic dawn chorus pattern (06:00-08:00)
 
 **Behavioral Interpretation:**
-- Classic territorial dawn singing
+- Classic dawn calling during migration
 - Consistent with published grasshopper-warbler behavior
 - Indicates breeding/territorial behavior even during migration period
 
@@ -273,13 +273,13 @@ GEESE (ground/water)
 
 **Behavioral Significance:**
 - **LEK BEHAVIOR:** Males gather at traditional sites for competitive displays
-- Timing (20:00-21:00) **perfectly matches** published Great Snipe lek studies
+- Timing (20:00-21:00) **perfectly matches** published Great Snipe migration stopover studies
 - **Norwegian studies** (Kålås et al., 1995) document identical dusk lek timing
 - Indicates **active lek site** at Gaulosen
 
 **Scientific Validation:**
 - Höglund & Alatalo (1995) - Lek mating systems
-- Kålås et al. (1995) - Great Snipe lek behavior in Norway
+- Kålås et al. (1995) - Great Snipe migration stopover behavior in Norway
 
 **Conservation Importance:**
 - Great Snipe declining in Europe
@@ -288,7 +288,7 @@ GEESE (ground/water)
 
 ---
 
-### 4.2 Nocturnal Species
+### 4.2 Species Detected Primarily at Night
 
 **Species with >30% Night Activity (00:00-05:00, 21:00-24:00):**
 
@@ -321,9 +321,9 @@ GEESE (ground/water)
    - Validates detection accuracy
 
 4. **Great Snipe (38% nocturnal, 22:00 peak)**
-   - Extended lek activity into night
+   - Extended migration stopover calling into night
    - Males continue calling after sunset
-   - Consistent with published lek behavior
+   - Consistent with published migration stopover calling
 
 ---
 
@@ -336,7 +336,7 @@ GEESE (ground/water)
 - Bimodal pattern with dawn (07:00) and afternoon (16:00-17:00) peaks
 
 **Great Snipe Activity Pattern:**
-- **Peak: 20:00-21:00** (82 calls) - Lek displays
+- **Peak: 20:00-21:00** (82 calls) - Migration stopovers
 - **Secondary: 22:00** (38 calls) - Extended lek
 - Strong dusk/evening concentration
 - Minimal daytime activity
@@ -344,7 +344,7 @@ GEESE (ground/water)
 **Common Grasshopper-Warbler:**
 - **Extreme peak: 08:00** (51 calls)
 - 86% of all calls in single hour!
-- Classic dawn chorus pattern
+- Dawn calling during migration pattern
 
 **CSV Data:** `results/verified_hourly_activity.csv`
 
@@ -407,7 +407,12 @@ GEESE (ground/water)
 
 ## 7. Notable Species Behaviors
 
-### 7.1 Great Snipe - Lek Behavior (Detailed Analysis)
+### 7.1 Great Snipe - Migration Stopover (Detailed Analysis)
+
+**⚠️ CRITICAL: October = Migration Season, NOT Breeding**
+- Great Snipes breed **May-June** in Scandinavia
+- October = autumn migration to Sub-Saharan Africa
+- These are **migration stopover calls**, NOT lek displays
 
 **Quantitative Summary:**
 - **189 detections** (3rd most common overall)
@@ -419,25 +424,25 @@ GEESE (ground/water)
 ```
 Hour:     18   19   20   21   22   23   00   01   02
 Calls:     1   24   82   25   38    8    1    0    0
-Pattern:  [--------LEK PEAK---------][decline][end]
+Pattern:  [----MIGRATION PEAK------][decline][end]
 ```
 
 **Behavioral Interpretation:**
-- Classic lek display timing (dusk extending into night)
-- Males gather at traditional site
-- Competitive vocal displays
+- Dusk calling during migration stopover
+- Social calling for cohesion and site selection
 - Extended calling into darkness (22:00)
+- Typical of migration stopover behavior
 
-**Scientific Validation:**
-- **Kålås et al. (1995):** Norwegian Great Snipe lek timing 19:00-23:00 ✓
-- **Höglund & Alatalo (1995):** Lek behavior theory ✓
-- **Our data:** 20:00-22:00 peak **perfectly matches published behavior**
+**Migration Ecology:**
+- October: Great Snipes migrate from Scandinavia → Africa
+- Dusk calling common at stopover sites
+- Social cohesion important during migration
 
 **Conservation Significance:**
 - Great Snipe **declining in Europe** (IUCN Near Threatened)
-- Lek site documentation **valuable for conservation**
-- Gaulosen may support **breeding population**
-- **189 detections** suggest **active, sustained lek**
+- Stopover site documentation **valuable for conservation**
+- Gaulosen serves as **important migration stopover**
+- **189 detections** suggest **consistent stopover usage**
 
 **Audio/Visual Evidence:**
 - **Spectrograms:** Multiple examples showing low-frequency lek calls
@@ -446,7 +451,7 @@ Pattern:  [--------LEK PEAK---------][decline][end]
 
 ---
 
-### 7.2 Common Grasshopper-Warbler - Dawn Chorus
+### 7.2 Common Grasshopper-Warbler - Dawn Activity During Migration
 
 **Pattern:**
 - **98.3% dawn activity** (58 of 59 detections)
@@ -454,9 +459,9 @@ Pattern:  [--------LEK PEAK---------][decline][end]
 - Virtually no activity outside dawn period
 
 **Behavioral Significance:**
-- Textbook example of dawn chorus territorial singing
-- Males defending territories through vocal display
-- Peak timing (08:00) consistent with warbler behavior
+- Dawn calling during autumn migration stopover
+- October = migration to Africa, NOT breeding season (breeds May-July)
+- Peak timing (08:00) consistent with migration stopover vocalizations
 
 **Audio Features:**
 - Distinctive "reeling" song (continuous buzzing trill)
@@ -576,7 +581,7 @@ This finding aligns with extensive research on **heterospecific eavesdropping** 
 ⚠️ **Temporal Patterns:**
 - Based on verified species, but individual detections not verified
 - Nocturnal Mallard (59%) - real or artifacts?
-- Great Snipe lek (189 detections) - all valid or inflated by noise?
+- Great Snipe migration stopover (189 detections) - all valid or inflated by noise?
 
 ### 9.3 Sampling Bias & Limitations
 
