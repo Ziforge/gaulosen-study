@@ -9,7 +9,7 @@
 ## Summary
 
 ### Human-Verified Data
-- **79 species** verified by manual spectrogram/audio review (87.8% pass rate)
+- **81 species** verified by manual spectrogram/audio review (90.0% pass rate: 81/90)
 - **4,067 detections** from verified species only
 - **Removed:** 2,738 false positive detections (11 rejected species)
 

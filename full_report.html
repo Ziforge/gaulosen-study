@@ -122,7 +122,7 @@
         <section class="section">
             <h2>Abstract</h2>
             <div class="abstract">
-                <p>Automated acoustic monitoring offers scalable biodiversity assessment but requires validation against traditional methods. We deployed passive acoustic monitoring at Gaulosen Nature Reserve (Trøndelag, Norway) during autumn migration (13-15 October 2025), recording 48.8 hours across challenging weather conditions (80% rain/fog coverage). Using BirdNET v2.4 deep learning classifier with human verification, we detected <span class="highlight">81 bird species from 4,049 verified vocalizations</span>, achieving <span class="highlight">91.1% species-level verification pass rate</span>.</p>
+                <p>Automated acoustic monitoring offers scalable biodiversity assessment but requires validation against traditional methods. We deployed passive acoustic monitoring at Gaulosen Nature Reserve (Trøndelag, Norway) during autumn migration (13-15 October 2025), recording 48.8 hours across challenging weather conditions (80% rain/fog coverage). Using BirdNET v2.4 deep learning classifier with human verification, we detected <span class="highlight">81 bird species from 4,049 verified vocalizations</span>, achieving <span class="highlight">90.0% species-level verification pass rate</span>.</p>
 
                 <p>Analysis revealed high social behavior prevalence (86% of detections from flock species), corvid-waterfowl co-occurrence pattern consistent with sentinel mutualism hypothesis (8,778 co-occurrences), active nocturnal migration (47 flight calls, 01:00-06:00), and Great Snipe migration stopover presence (189 detections, 61% crepuscular). Graylag Goose dominated the soundscape (69.9% of detections, 58.8 calls/hour), with largest flock event spanning 620 vocalizations over 91 minutes.</p>
 
@@ -212,7 +212,7 @@
                 <h4>Technical Implementation</h4>
                 <p>Praven Pro utilizes scientific Python libraries (NumPy, SciPy for signal processing; librosa for audio analysis; Matplotlib for visualization; pandas for data management) and follows open-source development practices with comprehensive documentation and example workflows.</p>
 
-                <p>The toolkit proved essential for this study's <span class="highlight">91.1% species-level verification pass rate</span>, enabling systematic review of 90 species across 6,805 initial detections within practical timeframes for academic coursework.</p>
+                <p>The toolkit proved essential for this study's <span class="highlight">90.0% species-level verification pass rate</span>, enabling systematic review of 90 species across 6,805 initial detections within practical timeframes for academic coursework.</p>
 
                 <p><strong>Complete source code, installation instructions, and usage examples available at: <a href="https://github.com/Ziforge/praven-pro" target="_blank" style="color: #00d4ff; text-decoration: none;">github.com/Ziforge/praven-pro</a></strong></p>
             </div>
@@ -251,7 +251,7 @@
             <h2>3. Results</h2>
 
             <h3>3.1 Species Diversity and Detection Performance</h3>
-            <p>Automated analysis detected 90 putative species, of which <span class="highlight">82 (91.1%) passed human verification</span>, yielding <span class="highlight">4,108 verified detections</span> (species-level verification pass rate: 82/90 = 91.1%; detection-level pass rate: 4,108/6,805 = 60.4%).</p>
+            <p>Automated analysis detected 90 putative species, of which <span class="highlight">81 (90.0%) passed human verification</span>, yielding <span class="highlight">4,049 verified detections</span> (species-level verification pass rate: 81/90 = 90.0%; detection-level pass rate: 4,049/6,805 = 59.5%).</p>
 
             <div class="table-container">
                 <table>
@@ -265,9 +265,9 @@
                     <tbody>
                         <tr><td>Initial detections</td><td>6,805</td><td>100.0%</td></tr>
                         <tr><td>Species detected</td><td>90</td><td>100.0%</td></tr>
-                        <tr><td>Species verified</td><td>82</td><td>91.1%</td></tr>
-                        <tr><td>Species rejected</td><td>8</td><td>8.9%</td></tr>
-                        <tr><td>Verified detections</td><td>4,108</td><td>87.8%</td></tr>
+                        <tr><td>Species verified</td><td>81</td><td>90.0%</td></tr>
+                        <tr><td>Species rejected</td><td>9</td><td>10.0%</td></tr>
+                        <tr><td>Verified detections</td><td>4,049</td><td>59.5%</td></tr>
                         <tr><td>False positives</td><td>697</td><td>12.2%</td></tr>
                     </tbody>
                 </table>
@@ -280,9 +280,9 @@
             <h3>3.2 Acoustic Dominance and Social Structure</h3>
             <p>Graylag Goose dominated the soundscape with <span class="highlight">2,871 detections (69.9% of total)</span>, exhibiting high vocal intensity (58.8 calls/hour averaged across recording period).</p>
 
-            <p><strong>Social Species Prevalence:</strong> 86.0% of all detections (3,533/4,108) came from known flock/social species (Graylag Goose, corvids, finches), versus 14.0% from territorial/solitary species.</p>
+            <p><strong>Social Species Prevalence:</strong> 87.2% of all detections (3,533/4,049) came from known flock/social species (Graylag Goose, corvids, finches), versus 12.8% from territorial/solitary species.</p>
 
-            <p><strong>Flock Dynamics:</strong> Temporal clustering identified <span class="highlight">59 discrete Graylag Goose flock events</span> (mean duration: 18.4 min, SD: 24.7 min, range: 1-91 min). Largest event occurred 13 October 16:00-17:26 with <span class="highlight">620 vocalizations</span>, suggesting flock size >100 individuals based on vocal rate estimates.</p>
+            <p><strong>Flock Dynamics:</strong> Temporal clustering identified <span class="highlight">59 discrete Graylag Goose flock events</span> (mean duration: 18.4 min, SD: 24.7 min, range: 1-91 min). Largest event occurred 13 October 16:00-17:26 with <span class="highlight">620 vocalizations</span>. <em>Note: Flock size estimates based on vocal rate assumptions are highly uncertain without visual confirmation, as acoustic data cannot distinguish individual birds.</em></p>
 
             <h3>3.3 Corvid-Waterfowl Co-occurrence: Pattern Consistent with Sentinel Mutualism Hypothesis</h3>
             <p>Hooded Crow (325 detections) and Carrion Crow (89 detections) showed striking temporal overlap with geese: <span class="highlight">8,778 co-occurrences</span> within 10-minute windows (permutation test: p < 0.001).</p>
@@ -318,7 +318,7 @@
             <h2>4. Discussion</h2>
 
             <h3>4.1 Methodological Validation</h3>
-            <p>The <span class="highlight">91.1% species-level verification pass rate</span> (82/90 species) demonstrates that BirdNET, when coupled with appropriate audio enhancement and human verification, achieves scientifically defensible accuracy despite challenging acoustic conditions. This compares favorably with reported accuracy in prior wetland studies (72-83%) and validates automated monitoring as viable biodiversity assessment tool.</p>
+            <p>The <span class="highlight">90.0% species-level verification pass rate</span> (81/90 species) demonstrates that BirdNET, when coupled with appropriate audio enhancement and human verification, achieves scientifically defensible accuracy despite challenging acoustic conditions. This compares favorably with reported accuracy in prior wetland studies (72-83%) and validates automated monitoring as viable biodiversity assessment tool.</p>
 
             <p><strong>Weather Resilience:</strong> Successful detection of 81 species despite 80% rain/fog coverage illustrates PAM's advantage over visual surveys, which would have yielded near-zero data in equivalent conditions. However, rain-induced false positives (particularly Great Bittern) highlight need for species-specific noise profiling in future deployments.</p>
 
@@ -354,7 +354,7 @@
 
             <p>Beyond species inventorying, continuous acoustic data revealed behavioral patterns: intensive Graylag Goose flock dynamics (620 calls/91 minutes), corvid-waterfowl co-occurrence pattern suggestive of potential interspecies interactions (8,778 co-occurrences), and Great Snipe migration stopover presence (189 detections, 69% dusk concentration).</p>
 
-            <p>The <strong>91.1% species-level verification pass rate</strong>, achieved despite systematic weather-induced noise contamination, establishes methodological benchmarks for future deployments. We recommend acoustic monitoring as primary biodiversity assessment tool for wetlands along major flyways, complemented by targeted visual surveys for rare species validation.</p>
+            <p>The <strong>90.0% species-level verification pass rate</strong>, achieved despite systematic weather-induced noise contamination, establishes methodological benchmarks for future deployments. We recommend acoustic monitoring as primary biodiversity assessment tool for wetlands along major flyways, complemented by targeted visual surveys for rare species validation.</p>
 
             <p><strong>Praven Pro toolkit</strong> proved instrumental in achieving these results, bridging automated detection and professional verification through efficient batch processing and structured review interfaces. The open-source toolkit is now available for the broader bioacoustics research community.</p>
 
@@ -405,7 +405,7 @@
         <footer>
             <p><strong>Gaulosen Nature Reserve Acoustic Monitoring Study</strong></p>
             <p>October 2025 - Stjørdal, Norway</p>
-            <p>82 Verified Species | 4,108 Verified Detections | 91.1% Verification Rate</p>
+            <p>81 Verified Species | 4,049 Verified Detections | 90.0% Verification Rate</p>
             <p>BirdNET v2.4 | Human Expert Verification | Scientifically Validated</p>
             <p style="margin-top: 15px;">Analysis powered by <a href="https://github.com/Ziforge/praven-pro" target="_blank" style="color: #00d4ff; text-decoration: none;">Praven Pro</a> - BirdNET to Raven Pro conversion toolkit</p>
         </footer>

@@ -4,7 +4,7 @@
   "abstract": {
     "background": "Passive acoustic monitoring provides non-invasive, continuous assessment of avian communities. We deployed autonomous recording units at Gaulosen Nature Reserve to document species composition and behavioral patterns.",
     "methods": "48.8 hours of continuous audio recording (October 13-15, 2025) analyzed using BirdNET v2.4 deep learning classifier with manual verification of all species detections.",
-    "results": "Detected 90 species with 82 verified (91.1% verification rate). Dominant species: Graylag Goose (2,871 calls), Spotted Crake (2,556 calls). Documented 756 nocturnal flight calls, 150 interspecies call-response pairs, and 5 multi-species alarm cascades.",
+    "results": "Detected 90 species with 81 verified (90.0% verification rate). Dominant species: Graylag Goose (2,871 calls). Documented nocturnal migration (47 flight calls), corvid-waterfowl co-occurrence patterns (8,778 instances), and Great Snipe migration stopover activity (189 detections).",
     "conclusions": "Gaulosen supports remarkably diverse wetland avifauna including rare species (Great Snipe leks). High social coordination evident through call-response networks and alarm cascades. Active nocturnal migration corridor documented."
   },
   "introduction": {
@@ -110,7 +110,7 @@
     ],
     "methodological_insights": [
       "Rain noise major challenge (129 false Great Bittern detections)",
-      "91.1% verification rate validates BirdNET for wetland monitoring",
+      "90.0% verification rate validates BirdNET for wetland monitoring",
       "Manual review essential for rare/low-confidence species",
       "Behavioral analysis adds significant value beyond species lists"
     ]
