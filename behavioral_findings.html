@@ -526,16 +526,15 @@
 
             <h3>Crepuscular Specialists</h3>
             <div class="species-grid">
-                <div class="species-card">
-                    <div class="species-name">Common Grasshopper-Warbler</div>
-                    <div class="species-stat">📊 59 detections</div>
-                    <div class="species-stat">🌅 <span class="highlight">98% dawn activity</span></div>
-                    <div class="species-stat">⏰ Peak: 08:00 (51 calls)</div>
-                    <div class="species-stat">🎵 Classic dawn chorus singer</div>
-                    <span class="badge badge-crepuscular">Dawn Specialist</span>
+                <div class="species-card" style="background: rgba(255, 0, 0, 0.05); border: 2px solid #ff4444;">
+                    <div class="species-name">❌ Common Grasshopper-Warbler - REJECTED</div>
+                    <div class="species-stat">📊 59 detections (FALSE POSITIVE)</div>
+                    <div class="species-stat">⚠️ Rain noise misclassified</div>
+                    <div class="species-stat">🔬 Spectrogram: Broadband noise, not bird</div>
+                    <div class="species-stat">📅 Seasonally implausible (should be in Africa)</div>
+                    <span class="badge" style="background: #ff4444;">False Positive</span>
                     <div class="evidence-links">
-                        <a href="results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Common_Grasshopper-Warbler_31053s_conf0780.png" class="evidence-link" target="_blank">📸 View Spectrogram</a>
-                        <a href="results/audio_clips_enhanced/2025-10-14_00h00m_Common_Grasshopper-Warbler_30528s_conf0796.mp3" class="evidence-link" target="_blank">🔊 Listen Audio</a>
+                        <a href="GRASSHOPPER_WARBLER_REJECTION.md" class="evidence-link">📄 See Rejection Analysis</a>
                     </div>
                 </div>
 
@@ -620,7 +619,7 @@
                     <div class="timeline-time">06:00 - 09:00 - Dawn Activity</div>
                     <div class="timeline-content">
                         <strong>Peak dawn calling during migration</strong><br>
-                        Common Grasshopper-Warbler (51 calls at 08:00), Eurasian Woodcock crepuscular calling<br>
+                        Eurasian Woodcock crepuscular calling<br>
                         Migration stopover vocalizations
                     </div>
                 </div>
@@ -673,13 +672,18 @@
                 </div>
             </div>
 
-            <div class="finding">
-                <h4>Common Grasshopper-Warbler Migration Stopover</h4>
-                <p><strong>Detections:</strong> 59 total, <span class="highlight">98% at dawn</span></p>
-                <p><strong>Peak timing:</strong> 08:00 (51 calls - 86% of all calls in single hour)</p>
-                <p><strong>Behavior:</strong> Dawn calling during autumn migration stopover. October = migration to Africa, NOT breeding (breeds May-July).</p>
-                <p><strong>Acoustic signature:</strong> Continuous "reeling" trill, insect-like quality</p>
-                <p><strong>Important:</strong> Dawn calling during migration, not territorial singing. Territorial singing only occurs during breeding season.</p>
+            <div class="finding" style="background: rgba(255, 0, 0, 0.05); border-left: 4px solid #ff4444;">
+                <h4>❌ Common Grasshopper-Warbler - REJECTED AS FALSE POSITIVE</h4>
+                <p><strong>Original detections:</strong> 59 (now rejected)</p>
+                <p><strong>Rejection reason:</strong> Spectrogram analysis revealed rain noise, not bird vocalizations</p>
+                <p><strong>Evidence:</strong></p>
+                <ul>
+                    <li>All 3 spectrograms show broadband noise (0-12 kHz), not harmonic bird call structure</li>
+                    <li>No characteristic "reeling" trill pattern visible</li>
+                    <li>Seasonally implausible (species should be in Africa by mid-September)</li>
+                    <li>All detections during heavy rain period</li>
+                </ul>
+                <p><strong>See:</strong> GRASSHOPPER_WARBLER_REJECTION.md for detailed analysis with spectrogram images</p>
             </div>
 
             <div class="finding">
@@ -765,7 +769,7 @@
 
             <div class="quality-notice">
                 <h4>✅ What Has Been Verified</h4>
-                <p><strong>Species:</strong> All 82 species verified through manual review of spectrograms and audio</p>
+                <p><strong>Species:</strong> All 81 species verified through manual review of spectrograms and audio</p>
                 <p><strong>Behavioral patterns:</strong> Flock clustering, temporal patterns, co-occurrences documented through systematic analysis</p>
                 <p><strong>False positive removal:</strong> 8 species rejected after second review (including 129 Great Bittern rain noise detections)</p>
                 <p><strong>Verification rate:</strong> 87.8% of analyzed species passed human verification</p>
@@ -773,7 +777,7 @@
 
             <div class="quality-notice" style="margin-top: 20px;">
                 <h4>⚠️ What Still Needs Verification</h4>
-                <p><strong>Detection counts:</strong> Only best example per species verified, not all 4,108 detections individually reviewed</p>
+                <p><strong>Detection counts:</strong> Only best example per species verified, not all 4,049 detections individually reviewed</p>
                 <p><strong>Rare species:</strong> Species with <10 detections have limited validation</p>
                 <p><strong>Confusable pairs:</strong> Some closely related species may require additional acoustic analysis</p>
             </div>

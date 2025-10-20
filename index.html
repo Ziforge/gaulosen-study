@@ -459,7 +459,7 @@
             <div class="highlight-box">
                 <h3>✅ What Has Been Verified</h3>
                 <ul>
-                    <li><strong>All 82 species</strong>: Manual review of spectrograms and enhanced audio</li>
+                    <li><strong>All 81 species</strong>: Manual review of spectrograms and enhanced audio</li>
                     <li><strong>Behavioral patterns</strong>: Flock clustering, temporal patterns, co-occurrences</li>
                     <li><strong>False positive removal</strong>: 8 species rejected (including 129 Great Bittern rain noise detections)</li>
                     <li><strong>Scientific validation</strong>: All interpretations supported by peer-reviewed research</li>
@@ -470,7 +470,7 @@
 
             <div class="warning-box">
                 <h3>⚠️ Important Limitations</h3>
-                <p><strong>Detection counts</strong>: Only best example per species manually verified, not all 4,108 detections</p>
+                <p><strong>Detection counts</strong>: Only best example per species manually verified, not all 4,049 detections</p>
                 <p><strong>Weather bias</strong>: 80%+ recording during rain/fog - cannot make weather correlation claims</p>
                 <p><strong>Rare species</strong>: Species with &lt;10 detections have limited validation</p>
                 <p><strong>Sampling period</strong>: Single location, single season (autumn migration)</p>
@@ -514,13 +514,13 @@
                 <p><strong>Conservation</strong>: Declining across Europe - stopover site monitoring valuable for population assessment</p>
             </div>
 
-            <div class="highlight-box">
-                <h3>Common Grasshopper-Warbler (Locustella naevia)</h3>
-                <p><strong>Detections</strong>: 59</p>
-                <p><strong>Behavior</strong>: Strong dawn calling pattern - 98% of calls at dawn</p>
-                <p><strong>Peak activity</strong>: 08:00 (51 calls - 86% of all calls in single hour)</p>
-                <p><strong>Call type</strong>: Continuous mechanical reeling trill (insect-like)</p>
-                <p><strong>Significance</strong>: Dawn calling during autumn migration to Africa (October = migration season, not breeding)</p>
+            <div class="highlight-box" style="background: rgba(255, 140, 0, 0.1); border-color: #ff8c00;">
+                <h3>⚠️ False Positive Removed: Common Grasshopper-Warbler</h3>
+                <p><strong>Original detections</strong>: 59 (now rejected)</p>
+                <p><strong>Reason for rejection</strong>: Spectrogram analysis revealed rain noise misclassified by BirdNET</p>
+                <p><strong>Seasonal implausibility</strong>: Species should have migrated to Africa by mid-September (October presence extremely unlikely)</p>
+                <p><strong>Evidence</strong>: All 3 spectrograms showed broadband noise characteristic of rain, not bird vocalizations</p>
+                <p><strong>See:</strong> GRASSHOPPER_WARBLER_REJECTION.md for detailed analysis</p>
             </div>
         </section>
 
