@@ -19,7 +19,7 @@ print("=" * 80)
 print()
 
 # Configuration
-AUDIO_DIR = "/Users/georgeredpath/Dev/Gaulossen-recordings/audio_files"
+AUDIO_DIR = "/Users/georgeredpath/Dev/Gaulosen-recordings/audio_files"
 HP_CSV = "results/python_raven_automated/high_priority_enhanced.csv"
 OUTPUT_DIR = "results/spectrograms_high_priority"
 SAMPLE_RATE = 22050  # Downsample for faster processing

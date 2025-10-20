@@ -20,7 +20,7 @@ html = '''<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaulossen Detection Review</title>
+    <title>Gaulosen Detection Review</title>
     <style>
         * {
             margin: 0;
@@ -236,7 +236,7 @@ html = '''<!DOCTYPE html>
 </head>
 <body>
     <div class="header">
-        <h1>Detection Review: Gaulossen Nature Reserve</h1>
+        <h1>Detection Review: Gaulosen Nature Reserve</h1>
         <p>Review each detection and mark as PASS (valid bird call) or FAIL (noise/artifact)</p>
         <div class="progress">
             <div class="progress-bar">
@@ -337,7 +337,7 @@ html += f'''    </div>
 
         // Load saved reviews from localStorage
         function loadReviews() {{
-            const saved = localStorage.getItem('gaulossen_reviews');
+            const saved = localStorage.getItem('gaulosen_reviews');
             if (saved) {{
                 const savedReviews = JSON.parse(saved);
                 Object.assign(reviews, savedReviews);
@@ -370,7 +370,7 @@ html += f'''    </div>
             }}
 
             // Save to localStorage
-            localStorage.setItem('gaulossen_reviews', JSON.stringify(reviews));
+            localStorage.setItem('gaulosen_reviews', JSON.stringify(reviews));
 
             updateStats();
 
@@ -433,7 +433,7 @@ html += f'''    </div>
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'gaulossen_review_results.csv';
+            a.download = 'gaulosen_review_results.csv';
             a.click();
         }}
 
@@ -442,7 +442,7 @@ html += f'''    </div>
             const failed = Object.values(reviews).filter(r => r === 'fail').length;
             const total = Object.keys(reviews).length;
 
-            const text = `Gaulossen Detection Review Results:\\n` +
+            const text = `Gaulosen Detection Review Results:\\n` +
                         `Total reviewed: ${{total}} / ${{totalDetections}}\\n` +
                         `Passed: ${{passed}}\\n` +
                         `Failed: ${{failed}}\\n` +

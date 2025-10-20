@@ -16,7 +16,7 @@ print("=" * 80)
 print()
 
 # Configuration
-AUDIO_DIR = "/Users/georgeredpath/Dev/Gaulossen-recordings/audio_files"
+AUDIO_DIR = "/Users/georgeredpath/Dev/Gaulosen-recordings/audio_files"
 ALL_DETECTIONS = "results/all_detections_with_weather.csv"
 OUTPUT_DIR = "results/audio_clips"
 SAMPLE_RATE = 22050  # Standard web audio rate

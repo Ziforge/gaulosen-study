@@ -25,7 +25,7 @@ print("=" * 80)
 print()
 
 # Configuration
-AUDIO_DIR = "/Users/georgeredpath/Dev/Gaulossen-recordings/audio_files"
+AUDIO_DIR = "/Users/georgeredpath/Dev/Gaulosen-recordings/audio_files"
 CLEANEST_DETECTIONS = "results/cleanest_detections.csv"  # Focus on cleanest
 OUTPUT_DIR = "results/audio_clips_denoised"
 SAMPLE_RATE = 22050

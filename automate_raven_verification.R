@@ -15,7 +15,7 @@ cat("===========================================================================
 
 # Configuration
 RAVEN_TABLES_DIR <- "results/verification_reports"
-AUDIO_DIR <- "/Users/georgeredpath/Dev/Gaulossen-recordings/audio_files"
+AUDIO_DIR <- "/Users/georgeredpath/Dev/Gaulosen-recordings/audio_files"
 OUTPUT_DIR <- "results/rraven_automated"
 
 # Create output directory

@@ -17,7 +17,7 @@ print("=" * 80)
 print()
 
 # Configuration
-RESULTS_DIR = "/Users/georgeredpath/Dev/mcp-pipeline/shared/gaulossen/results"
+RESULTS_DIR = "/Users/georgeredpath/Dev/mcp-pipeline/shared/gaulosen/results"
 VERIFICATION_DIR = f"{RESULTS_DIR}/verification_reports"
 OUTPUT_DIR = f"{RESULTS_DIR}/detailed_analysis"
 os.makedirs(OUTPUT_DIR, exist_ok=True)

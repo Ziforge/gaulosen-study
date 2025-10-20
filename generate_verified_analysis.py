@@ -10,7 +10,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 
 print("=" * 80)
-print("GAULOSSEN VERIFIED SPECIES BEHAVIORAL ANALYSIS")
+print("GAULOSEN VERIFIED SPECIES BEHAVIORAL ANALYSIS")
 print("=" * 80)
 print()
 

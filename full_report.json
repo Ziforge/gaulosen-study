@@ -1,14 +1,14 @@
 {
-  "title": "Acoustic Monitoring of Avian Biodiversity at Gaulossen Nature Reserve",
+  "title": "Acoustic Monitoring of Avian Biodiversity at Gaulosen Nature Reserve",
   "subtitle": "A Comprehensive Analysis of 48.8 Hours of Continuous Recording",
   "abstract": {
-    "background": "Passive acoustic monitoring provides non-invasive, continuous assessment of avian communities. We deployed autonomous recording units at Gaulossen Nature Reserve to document species composition and behavioral patterns.",
+    "background": "Passive acoustic monitoring provides non-invasive, continuous assessment of avian communities. We deployed autonomous recording units at Gaulosen Nature Reserve to document species composition and behavioral patterns.",
     "methods": "48.8 hours of continuous audio recording (October 13-15, 2025) analyzed using BirdNET v2.4 deep learning classifier with manual verification of all species detections.",
     "results": "Detected 90 species with 82 verified (91.1% verification rate). Dominant species: Graylag Goose (2,871 calls), Spotted Crake (2,556 calls). Documented 756 nocturnal flight calls, 150 interspecies call-response pairs, and 5 multi-species alarm cascades.",
-    "conclusions": "Gaulossen supports remarkably diverse wetland avifauna including rare species (Great Snipe leks). High social coordination evident through call-response networks and alarm cascades. Active nocturnal migration corridor documented."
+    "conclusions": "Gaulosen supports remarkably diverse wetland avifauna including rare species (Great Snipe leks). High social coordination evident through call-response networks and alarm cascades. Active nocturnal migration corridor documented."
   },
   "introduction": {
-    "study_site": "Gaulossen Nature Reserve (63.4305\u00b0N, 10.3951\u00b0E), Stj\u00f8rdal, Norway. Freshwater wetland complex with emergent vegetation, open water, and surrounding agricultural land.",
+    "study_site": "Gaulosen Nature Reserve (63.4305\u00b0N, 10.3951\u00b0E), Stj\u00f8rdal, Norway. Freshwater wetland complex with emergent vegetation, open water, and surrounding agricultural land.",
     "objectives": [
       "Document avian species richness and abundance during autumn migration",
       "Quantify behavioral patterns including flight calls, social interactions, and temporal activity",
@@ -137,5 +137,5 @@
     "Advanced noise filtering for wet-weather conditions"
   ],
   "acknowledgments": "BirdNET (Cornell Lab), Raven Pro (Cornell Lab), Norwegian species databases",
-  "data_availability": "Raw data, spectrograms, and analysis code available at https://github.com/Ziforge/gaulossen-study"
+  "data_availability": "Raw data, spectrograms, and analysis code available at https://github.com/Ziforge/gaulosen-study"
 }

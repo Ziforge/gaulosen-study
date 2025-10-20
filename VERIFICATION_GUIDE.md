@@ -1,6 +1,6 @@
-# Automated Verification Guide for Gaulossen Bird Recordings
+# Automated Verification Guide for Gaulosen Bird Recordings
 
-This guide explains the automated quality assessment and verification workflow for the Gaulossen bird recording analysis.
+This guide explains the automated quality assessment and verification workflow for the Gaulosen bird recording analysis.
 
 ## Overview
 
@@ -9,7 +9,7 @@ The automated verification system analyzes all 6,805 detections and flags potent
 ## Quick Start
 
 ```bash
-cd /Users/georgeredpath/Dev/mcp-pipeline/shared/gaulossen
+cd /Users/georgeredpath/Dev/mcp-pipeline/shared/gaulosen
 
 # Run automated quality assessment (generates reports)
 python3 automated_verification.py
@@ -335,4 +335,4 @@ For questions about:
 
 **Last updated:** 2025-10-17
 **Analysis date:** October 13-15, 2025
-**Location:** Gaulossen Nature Reserve, Norway (63.4305°N, 10.3951°E)
+**Location:** Gaulosen Nature Reserve, Norway (63.4305°N, 10.3951°E)

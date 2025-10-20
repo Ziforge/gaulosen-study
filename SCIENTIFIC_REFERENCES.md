@@ -1,4 +1,4 @@
-# Scientific References - Gaulossen Bird Behavior Analysis
+# Scientific References - Gaulosen Bird Behavior Analysis
 
 ## Interspecies Communication & Heterospecific Eavesdropping
 
@@ -78,7 +78,7 @@
    "Noise constrains heterospecific eavesdropping more than conspecific reception of alarm calls"
    *Biology Letters*, 20(1), 20230410.
    DOI: 10.1098/rsbl.2023.0410
-   - **Directly relevant to Gaulossen rain noise conditions**
+   - **Directly relevant to Gaulosen rain noise conditions**
    - Environmental noise degrades interspecies communication more than intraspecies
    - Eavesdroppers lack specialized hearing for heterospecific calls
    - Explains challenges in noisy recording environments
@@ -153,7 +153,7 @@
     *The American Naturalist*, 146(1), 59-71.
     - Norwegian Great Snipe populations
     - Lek display timing (dusk/evening)
-    - Directly relevant to Gaulossen data
+    - Directly relevant to Gaulosen data
 
 ## Acoustic Monitoring Methodology
 
@@ -201,7 +201,7 @@
     *John Wiley & Sons*
     - Comprehensive wetland ecology
     - Bird community dynamics
-    - Context for Gaulossen habitat
+    - Context for Gaulosen habitat
 
 23. **Battley, P. F., et al. (2012)**
     "Contrasting extreme long-distance migration patterns in bar-tailed godwits"
@@ -235,11 +235,11 @@
     *Journal of Applied Ecology*, 55(6), 2575-2586.
     - Environmental effects on detection rates
     - Rain noise impacts
-    - Relevant for Gaulossen weather conditions
+    - Relevant for Gaulosen weather conditions
 
 ---
 
-## Application to Gaulossen Study
+## Application to Gaulosen Study
 
 ### How These References Support Our Findings:
 
@@ -293,5 +293,5 @@
 ---
 
 **Compiled:** 2025-10-17
-**For:** Gaulossen Nature Reserve Acoustic Monitoring Study
+**For:** Gaulosen Nature Reserve Acoustic Monitoring Study
 **Total References:** 26 peer-reviewed sources

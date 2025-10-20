@@ -10,8 +10,8 @@ import glob
 
 # Paths
 RAVEN_APP = "/Applications/Raven Pro 1.6/Raven Pro.app"
-AUDIO_DIR = "/Users/georgeredpath/Dev/Gaulossen-recordings/audio_files"
-RAVEN_TABLES = "/Users/georgeredpath/Dev/mcp-pipeline/shared/gaulossen/results/raven_mcp_converted"
+AUDIO_DIR = "/Users/georgeredpath/Dev/Gaulosen-recordings/audio_files"
+RAVEN_TABLES = "/Users/georgeredpath/Dev/mcp-pipeline/shared/gaulosen/results/raven_mcp_converted"
 
 print("🐦 Interactive Raven Pro Opener")
 print("=" * 70)
@@ -91,5 +91,5 @@ print()
 print("📖 In Raven Pro:")
 print("   - Selection table is loaded automatically")
 print("   - You may need to locate the audio file when prompted")
-print("   - Audio files are in: /Users/georgeredpath/Dev/Gaulossen-recordings/audio_files/")
+print("   - Audio files are in: /Users/georgeredpath/Dev/Gaulosen-recordings/audio_files/")
 print()

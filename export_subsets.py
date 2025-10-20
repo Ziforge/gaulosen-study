@@ -19,7 +19,7 @@ print("=" * 80)
 print()
 
 # Configuration
-RESULTS_DIR = "/Users/georgeredpath/Dev/mcp-pipeline/shared/gaulossen/results"
+RESULTS_DIR = "/Users/georgeredpath/Dev/mcp-pipeline/shared/gaulosen/results"
 EXPORT_DIR = f"{RESULTS_DIR}/focused_exports"
 os.makedirs(EXPORT_DIR, exist_ok=True)
 
@@ -54,7 +54,7 @@ for file in low_conf['file_stem'].unique():
     file_detections = low_conf[low_conf['file_stem'] == file].copy()
 
     audio_file = f"{file}.WAV"
-    audio_path = f"/workspace/shared/gaulossen/audio_files/{audio_file}"
+    audio_path = f"/workspace/shared/gaulosen/audio_files/{audio_file}"
 
     raven_df = create_raven_selection_table(
         file_detections,
@@ -94,7 +94,7 @@ for file in nighttime['file_stem'].unique():
     file_detections = nighttime[nighttime['file_stem'] == file].copy()
 
     audio_file = f"{file}.WAV"
-    audio_path = f"/workspace/shared/gaulossen/audio_files/{audio_file}"
+    audio_path = f"/workspace/shared/gaulosen/audio_files/{audio_file}"
 
     raven_df = create_raven_selection_table(
         file_detections,
@@ -139,7 +139,7 @@ for file in top3_sample['file_stem'].unique():
     file_detections = top3_sample[top3_sample['file_stem'] == file].copy()
 
     audio_file = f"{file}.WAV"
-    audio_path = f"/workspace/shared/gaulossen/audio_files/{audio_file}"
+    audio_path = f"/workspace/shared/gaulosen/audio_files/{audio_file}"
 
     raven_df = create_raven_selection_table(
         file_detections,
@@ -220,7 +220,7 @@ for file in soi['file_stem'].unique():
     file_detections = soi[soi['file_stem'] == file].copy()
 
     audio_file = f"{file}.WAV"
-    audio_path = f"/workspace/shared/gaulossen/audio_files/{audio_file}"
+    audio_path = f"/workspace/shared/gaulosen/audio_files/{audio_file}"
 
     raven_df = create_raven_selection_table(
         file_detections,

@@ -1,8 +1,8 @@
-# Gaulossen Acoustic Monitoring - LaTeX Manuscript
+# Gaulosen Acoustic Monitoring - LaTeX Manuscript
 
 ## Academic Paper for NTNU Bioacoustics Assignment
 
-**Title:** Automated Acoustic Monitoring of Avian Biodiversity at Gaulossen Nature Reserve: A BirdNET-Based Assessment of 82 Species During Autumn Migration
+**Title:** Automated Acoustic Monitoring of Avian Biodiversity at Gaulosen Nature Reserve: A BirdNET-Based Assessment of 82 Species During Autumn Migration
 
 **Format:** Acta Acustica journal style
 **Length:** 8 pages main content (double-column) + appendix
@@ -36,15 +36,15 @@
 ### Compile Commands
 ```bash
 cd latex_paper
-pdflatex gaulossen_paper.tex
-bibtex gaulossen_paper
-pdflatex gaulossen_paper.tex
-pdflatex gaulossen_paper.tex
+pdflatex gaulosen_paper.tex
+bibtex gaulosen_paper
+pdflatex gaulosen_paper.tex
+pdflatex gaulosen_paper.tex
 ```
 
 Or using latexmk:
 ```bash
-latexmk -pdf gaulossen_paper.tex
+latexmk -pdf gaulosen_paper.tex
 ```
 
 ## Key Findings Highlighted
@@ -57,8 +57,8 @@ latexmk -pdf gaulossen_paper.tex
 
 ## Data Sources
 
-- Interactive website: https://ziforge.github.io/gaulossen-study/
-- GitHub repository: https://github.com/Ziforge/gaulossen-study
+- Interactive website: https://ziforge.github.io/gaulosen-study/
+- GitHub repository: https://github.com/Ziforge/gaulosen-study
 - Analysis powered by Praven Pro: https://github.com/Ziforge/praven-pro
 
 ## Figures Needed
@@ -77,16 +77,16 @@ These can be generated from existing spectrograms in `results/spectrograms_best/
 ## Citation
 
 ```bibtex
-@article{redpath2025gaulossen,
-  title={Automated Acoustic Monitoring of Avian Biodiversity at Gaulossen Nature Reserve: A BirdNET-Based Assessment of 82 Species During Autumn Migration},
+@article{redpath2025gaulosen,
+  title={Automated Acoustic Monitoring of Avian Biodiversity at Gaulosen Nature Reserve: A BirdNET-Based Assessment of 82 Species During Autumn Migration},
   author={Redpath, George},
   journal={NTNU Bioacoustics Assignment},
   year={2025},
   month={October},
-  note={Available at: https://ziforge.github.io/gaulossen-study/}
+  note={Available at: https://ziforge.github.io/gaulosen-study/}
 }
 ```
 
 ## License
 
-This manuscript and associated data are provided for academic purposes under the same license as the Gaulossen study materials.
+This manuscript and associated data are provided for academic purposes under the same license as the Gaulosen study materials.

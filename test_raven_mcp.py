@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Test Raven MCP Integration with Gaulossen Results
+Test Raven MCP Integration with Gaulosen Results
 Demonstrates programmatic access to Raven format conversion
 """
 
@@ -10,7 +10,7 @@ import json
 # MCP Raven server endpoint
 RAVEN_MCP_URL = "http://localhost:7085"
 
-print("🐦 Testing Raven MCP Integration with Gaulossen Results")
+print("🐦 Testing Raven MCP Integration with Gaulosen Results")
 print("=" * 70)
 print()
 
@@ -19,10 +19,10 @@ print("📋 Test 1: Export single detection CSV to Raven format")
 print("-" * 70)
 
 response = requests.post(f"{RAVEN_MCP_URL}/tools/export_to_raven", json={
-    "detections_csv": "shared/gaulossen/results/csvs/245AAA0563ED3DA7_20251013_113753_detections.csv",
-    "output_path": "shared/gaulossen/results/raven_mcp_test/245AAA0563ED3DA7_20251013_113753_raven.txt",
+    "detections_csv": "shared/gaulosen/results/csvs/245AAA0563ED3DA7_20251013_113753_detections.csv",
+    "output_path": "shared/gaulosen/results/raven_mcp_test/245AAA0563ED3DA7_20251013_113753_raven.txt",
     "audio_file": "245AAA0563ED3DA7_20251013_113753.WAV",
-    "audio_path": "shared/gaulossen/audio_files/245AAA0563ED3DA7_20251013_113753.WAV",
+    "audio_path": "shared/gaulosen/audio_files/245AAA0563ED3DA7_20251013_113753.WAV",
     "default_low_freq": 500.0,
     "default_high_freq": 10000.0
 })
@@ -44,9 +44,9 @@ print("📦 Test 2: Batch export all detection CSVs to Raven format")
 print("-" * 70)
 
 response = requests.post(f"{RAVEN_MCP_URL}/tools/batch_export_to_raven", json={
-    "detections_dir": "shared/gaulossen/results/csvs",
-    "output_dir": "shared/gaulossen/results/raven_mcp_batch",
-    "audio_dir": "shared/gaulossen/audio_files",
+    "detections_dir": "shared/gaulosen/results/csvs",
+    "output_dir": "shared/gaulosen/results/raven_mcp_batch",
+    "audio_dir": "shared/gaulosen/audio_files",
     "file_pattern": "*_detections.csv",
     "default_low_freq": 500.0,
     "default_high_freq": 10000.0
@@ -68,8 +68,8 @@ print("=" * 70)
 print("✅ Raven MCP Integration Test Complete!")
 print()
 print("📁 Check results in:")
-print("   - shared/gaulossen/results/raven_mcp_test/")
-print("   - shared/gaulossen/results/raven_mcp_batch/")
+print("   - shared/gaulosen/results/raven_mcp_test/")
+print("   - shared/gaulosen/results/raven_mcp_batch/")
 print()
 print("🔧 These Raven selection tables can be opened in Raven Pro:")
 print("   File → Import Selections → [select .txt file]")

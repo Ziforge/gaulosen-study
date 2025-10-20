@@ -122,7 +122,7 @@ print()
 with open('results/RAVEN_REVIEW_GUIDE.txt', 'w') as f:
     f.write("=" * 80 + "\n")
     f.write("RAVEN PRO MANUAL REVIEW GUIDE\n")
-    f.write("Gaulossen Nature Reserve Acoustic Survey - October 13-15, 2025\n")
+    f.write("Gaulosen Nature Reserve Acoustic Survey - October 13-15, 2025\n")
     f.write("=" * 80 + "\n\n")
 
     f.write("OVERVIEW\n")

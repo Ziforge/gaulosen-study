@@ -1,4 +1,4 @@
-# Gaulossen Nature Reserve - Verification Report
+# Gaulosen Nature Reserve - Verification Report
 
 **Date:** October 13-15, 2025
 **Recording Duration:** 48.8 hours

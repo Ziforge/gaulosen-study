@@ -136,7 +136,7 @@ Manual Verification in Raven Pro
 ## Analysis Parameters
 
 - **BirdNET confidence threshold:** 0.25
-- **Location context:** Gaulossen, Norway (63.4305°N, 10.3951°E)
+- **Location context:** Gaulosen, Norway (63.4305°N, 10.3951°E)
 - **Date range:** October 13-15, 2025
 - **Species filter:** 270 Norwegian species (location-based)
 - **Frequency range (Raven):** 500-10,000 Hz (default bird vocalization range)

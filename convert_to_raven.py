@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Convert Gaulossen BirdNET Results to Raven Pro Format
+Convert Gaulosen BirdNET Results to Raven Pro Format
 Uses the Raven MCP functions directly
 """
 
@@ -15,12 +15,12 @@ sys.path.insert(0, '/Users/georgeredpath/Dev/mcp-pipeline/raven-mcp')
 from server import create_raven_selection_table, normalize_path
 
 print("=" * 80)
-print("🐦 CONVERTING GAULOSSEN RESULTS TO RAVEN PRO FORMAT")
+print("🐦 CONVERTING GAULOSEN RESULTS TO RAVEN PRO FORMAT")
 print("=" * 80)
 print()
 
 # Directories
-RESULTS_DIR = "/Users/georgeredpath/Dev/mcp-pipeline/shared/gaulossen/results"
+RESULTS_DIR = "/Users/georgeredpath/Dev/mcp-pipeline/shared/gaulosen/results"
 OUTPUT_DIR = f"{RESULTS_DIR}/raven_mcp_converted"
 
 # Create output directory
@@ -37,7 +37,7 @@ results = []
 for csv_file in csv_files:
     file_stem = Path(csv_file).stem.replace("_detections", "")
     audio_file = f"{file_stem}.WAV"
-    audio_path = f"/workspace/shared/gaulossen/audio_files/{audio_file}"
+    audio_path = f"/workspace/shared/gaulosen/audio_files/{audio_file}"
 
     print(f"📄 Processing: {file_stem}")
 

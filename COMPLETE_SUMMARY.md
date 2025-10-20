@@ -1,7 +1,7 @@
-# Complete Gaulossen Analysis & Verification Summary
+# Complete Gaulosen Analysis & Verification Summary
 
 **Analysis Date:** October 13-15, 2025
-**Location:** Gaulossen Nature Reserve, Norway (63.4305°N, 10.3951°E)
+**Location:** Gaulosen Nature Reserve, Norway (63.4305°N, 10.3951°E)
 **Generated:** 2025-10-17
 
 ---
@@ -232,7 +232,7 @@ All visualizations are 300 DPI, publication-ready.
 
 **Step 1: High Priority (15 minutes)**
 ```bash
-cd /Users/georgeredpath/Dev/mcp-pipeline/shared/gaulossen
+cd /Users/georgeredpath/Dev/mcp-pipeline/shared/gaulosen
 ./open_verification_files.sh
 # Choose option 1: High priority only
 ```

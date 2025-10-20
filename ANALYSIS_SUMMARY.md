@@ -1,11 +1,11 @@
-# Gaulossen Nature Reserve Bird Call Analysis
+# Gaulosen Nature Reserve Bird Call Analysis
 ## October 13-15, 2025
 
 ---
 
 ## Recording Details
 
-**Location:** Gaulossen Nature Reserve, Norway
+**Location:** Gaulosen Nature Reserve, Norway
 **Duration:** 48.8 hours across 4 recordings
 **Sample Rate:** 48 kHz (original), 22.05 kHz (analysis)
 **Total Size:** 15.5 GB
@@ -226,7 +226,7 @@ All advanced denoising uses **state-of-the-art** spectral processing:
 
 ## Conclusion
 
-This analysis processed **48.8 hours** of field recordings from Gaulossen Nature Reserve, detecting **90 bird species** across **6,805 events**.
+This analysis processed **48.8 hours** of field recordings from Gaulosen Nature Reserve, detecting **90 bird species** across **6,805 events**.
 
 **Key Findings:**
 1. Environmental noise severely limits usable recordings (only 0.6% excellent quality)

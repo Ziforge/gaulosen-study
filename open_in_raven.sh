@@ -4,14 +4,14 @@
 # Opens audio files with their corresponding selection tables in Raven Pro
 #
 
-echo "🐦 Opening Gaulossen Analysis in Raven Pro"
+echo "🐦 Opening Gaulosen Analysis in Raven Pro"
 echo "=========================================="
 echo ""
 
 # Paths
 RAVEN_APP="/Applications/Raven Pro 1.6/Raven Pro.app"
-AUDIO_DIR="/Users/georgeredpath/Dev/Gaulossen-recordings/audio_files"
-RAVEN_TABLES="/Users/georgeredpath/Dev/mcp-pipeline/shared/gaulossen/results/raven_mcp_converted"
+AUDIO_DIR="/Users/georgeredpath/Dev/Gaulosen-recordings/audio_files"
+RAVEN_TABLES="/Users/georgeredpath/Dev/mcp-pipeline/shared/gaulosen/results/raven_mcp_converted"
 
 # Check if Raven Pro is installed
 if [ ! -d "$RAVEN_APP" ]; then

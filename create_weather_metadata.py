@@ -14,7 +14,7 @@ print("🌦️  CREATING WEATHER-ANNOTATED METADATA")
 print("=" * 80)
 print()
 
-# Weather data for Gaulossen/Trondheim area
+# Weather data for Gaulosen/Trondheim area
 WEATHER_DATA = {
     '2025-10-13': {
         'morning': {

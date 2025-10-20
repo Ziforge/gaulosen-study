@@ -16,7 +16,7 @@ print("=" * 80)
 print()
 
 # Configuration
-RESULTS_DIR = "/Users/georgeredpath/Dev/mcp-pipeline/shared/gaulossen/results"
+RESULTS_DIR = "/Users/georgeredpath/Dev/mcp-pipeline/shared/gaulosen/results"
 OUTPUT_DIR = f"{RESULTS_DIR}/verification_reports"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -263,7 +263,7 @@ for priority_level, (df_subset, filename) in enumerate([
         # Prepare data (columns already named start_s, end_s)
 
         audio_file = f"{file}.WAV"
-        audio_path = f"/workspace/shared/gaulossen/audio_files/{audio_file}"
+        audio_path = f"/workspace/shared/gaulosen/audio_files/{audio_file}"
 
         raven_df = create_raven_selection_table(
             file_detections,

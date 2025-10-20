@@ -127,7 +127,7 @@ html_content = """
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Gaulossen Spectrograms - Top 3 Per Species</title>
+    <title>Gaulosen Spectrograms - Top 3 Per Species</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
         h1 { color: #2c3e50; }
@@ -138,7 +138,7 @@ html_content = """
     </style>
 </head>
 <body>
-    <h1>🐦 Gaulossen Nature Reserve - Spectrogram Gallery</h1>
+    <h1>🐦 Gaulosen Nature Reserve - Spectrogram Gallery</h1>
     <p><strong>Recording Period:</strong> October 13-15, 2025</p>
     <p><strong>Total Species:</strong> 90 | <strong>Spectrograms:</strong> {}</p>
     <hr>

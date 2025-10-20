@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generate figures for LaTeX paper from Gaulossen study data
+Generate figures for LaTeX paper from Gaulosen study data
 """
 
 import pandas as pd

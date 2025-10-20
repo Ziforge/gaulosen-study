@@ -10,7 +10,7 @@ echo ""
 
 # Paths
 RAVEN_APP="/Applications/Raven Pro 1.6/Raven Pro.app"
-VERIFICATION_DIR="/Users/georgeredpath/Dev/mcp-pipeline/shared/gaulossen/results/verification_reports"
+VERIFICATION_DIR="/Users/georgeredpath/Dev/mcp-pipeline/shared/gaulosen/results/verification_reports"
 
 # Check if Raven Pro is installed
 if [ ! -d "$RAVEN_APP" ]; then
@@ -75,7 +75,7 @@ case $choice in
     4)
         echo ""
         echo "📂 Opening ALL files (6,805 detections)..."
-        RAVEN_TABLES="/Users/georgeredpath/Dev/mcp-pipeline/shared/gaulossen/results/raven_mcp_converted"
+        RAVEN_TABLES="/Users/georgeredpath/Dev/mcp-pipeline/shared/gaulosen/results/raven_mcp_converted"
         for file in "$RAVEN_TABLES"/*_raven.txt; do
             basename=$(basename "$file")
             echo "   Opening: $basename"

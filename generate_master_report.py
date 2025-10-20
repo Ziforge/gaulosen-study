@@ -37,7 +37,7 @@ print()
 report = []
 
 report.append("=" * 100)
-report.append("GAULOSSEN NATURE RESERVE ACOUSTIC SURVEY")
+report.append("GAULOSEN NATURE RESERVE ACOUSTIC SURVEY")
 report.append("Comprehensive Bioacoustic Analysis Report")
 report.append("=" * 100)
 report.append("")
@@ -266,7 +266,7 @@ report.append("   → Include migration wave analysis")
 report.append("")
 
 report.append("4. FURTHER ANALYSIS")
-report.append("   → Compare with historical Gaulossen data")
+report.append("   → Compare with historical Gaulosen data")
 report.append("   → Correlate with weather patterns")
 report.append("   → Analyze seasonal trends if more data available")
 report.append("")

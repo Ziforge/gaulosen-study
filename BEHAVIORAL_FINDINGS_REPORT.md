@@ -1,6 +1,6 @@
-# Gaulossen Nature Reserve - Behavioral Findings Report
+# Gaulosen Nature Reserve - Behavioral Findings Report
 
-**Location:** Gaulossen Nature Reserve, Norway
+**Location:** Gaulosen Nature Reserve, Norway
 **Recording Period:** October 13-15, 2025
 **Recording Duration:** 48.5 hours
 **Human-Verified Species:** 82
@@ -11,7 +11,7 @@
 
 ## Executive Summary
 
-This report documents behavioral patterns observed in 82 human-verified bird species at Gaulossen Nature Reserve during October 2025. All findings are based on verified detections only, with manual spectrogram and audio review. The reserve demonstrates active use as a migration stopover, particularly for arctic-breeding waterfowl, with significant nocturnal activity and complex multi-species interactions.
+This report documents behavioral patterns observed in 82 human-verified bird species at Gaulosen Nature Reserve during October 2025. All findings are based on verified detections only, with manual spectrogram and audio review. The reserve demonstrates active use as a migration stopover, particularly for arctic-breeding waterfowl, with significant nocturnal activity and complex multi-species interactions.
 
 **Key Findings:**
 - **86% of detections** from social/flock species
@@ -52,7 +52,7 @@ This report documents behavioral patterns observed in 82 human-verified bird spe
 - **Shorebirds:** 3 species, 15 detections
 - **Large Waders:** 1 species (Common Crane), 70 detections
 
-**Interpretation:** Gaulossen functions primarily as a wetland stopover for large, social waterfowl species.
+**Interpretation:** Gaulosen functions primarily as a wetland stopover for large, social waterfowl species.
 
 ### 1.2 Extreme Flock Behavior - Graylag Goose
 
@@ -69,7 +69,7 @@ This report documents behavioral patterns observed in 82 human-verified bird spe
 **Behavioral Significance:**
 - Demonstrates sustained, large-scale flock vocalization
 - Consistent with migratory flock coordination behavior
-- Indicates Gaulossen as major staging area
+- Indicates Gaulosen as major staging area
 
 **Scientific References:**
 - King & Rappole (2023) - Nuclear species in mixed flocks
@@ -167,7 +167,7 @@ GEESE (ground/water)
 - Shared use of wetland feeding areas
 
 **Conservation Implication:**
-- Gaulossen supports multiple goose species simultaneously
+- Gaulosen supports multiple goose species simultaneously
 - Indicates high-quality stopover habitat
 
 ---
@@ -213,7 +213,7 @@ GEESE (ground/water)
 - **CSV Data:** `results/verified_nocturnal_flight_calls.csv`
 
 **Behavioral Significance:**
-- Confirms **active nocturnal migration** through Gaulossen
+- Confirms **active nocturnal migration** through Gaulosen
 - Timing (03:00-04:00) consistent with published migration patterns
 - Arctic-breeding species moving through Norwegian stopover sites
 
@@ -275,7 +275,7 @@ GEESE (ground/water)
 - **LEK BEHAVIOR:** Males gather at traditional sites for competitive displays
 - Timing (20:00-21:00) **perfectly matches** published Great Snipe lek studies
 - **Norwegian studies** (Kålås et al., 1995) document identical dusk lek timing
-- Indicates **active lek site** at Gaulossen
+- Indicates **active lek site** at Gaulosen
 
 **Scientific Validation:**
 - Höglund & Alatalo (1995) - Lek mating systems
@@ -284,7 +284,7 @@ GEESE (ground/water)
 **Conservation Importance:**
 - Great Snipe declining in Europe
 - Lek site documentation valuable for conservation
-- Gaulossen may be important breeding/display habitat
+- Gaulosen may be important breeding/display habitat
 
 ---
 
@@ -364,7 +364,7 @@ GEESE (ground/water)
 | Alpine | 2 | 6 | 0.1% |
 | Oceanic | 2 | 7 | 0.2% |
 
-**Key Finding:** Gaulossen is overwhelmingly a **wetland system**
+**Key Finding:** Gaulosen is overwhelmingly a **wetland system**
 
 **Wetland Species (86.6% of detections):**
 - Waterfowl: Geese, swans, ducks
@@ -436,7 +436,7 @@ Pattern:  [--------LEK PEAK---------][decline][end]
 **Conservation Significance:**
 - Great Snipe **declining in Europe** (IUCN Near Threatened)
 - Lek site documentation **valuable for conservation**
-- Gaulossen may support **breeding population**
+- Gaulosen may support **breeding population**
 - **189 detections** suggest **active, sustained lek**
 
 **Audio/Visual Evidence:**
@@ -469,7 +469,7 @@ Pattern:  [--------LEK PEAK---------][decline][end]
 
 **Status:** Long-distance migrant (breeds Eurasia, winters India/SE Asia)
 - **9 detections** during recording period
-- **Detection validates** Gaulossen as migration stopover
+- **Detection validates** Gaulosen as migration stopover
 - Rare in Norway - sightings noteworthy
 
 **Migration Route:**
@@ -510,14 +510,14 @@ This finding aligns with extensive research on **heterospecific eavesdropping** 
    - Designed to be hard for predators to locate
    - **21 species** across continents use nearly identical brood parasite alarms
 
-**Application to Gaulossen:**
+**Application to Gaulosen:**
 - **8,778 co-occurrences** far exceeds chance
 - Suggests **active association** (species seeking each other out)
 - **Temporal clustering** indicates coordinated behavior
 - **Functional multi-species alarm network** in operation
 
 **Environmental Constraint (Radford et al., 2024):**
-- **Heavy rain** at Gaulossen degrades interspecies communication
+- **Heavy rain** at Gaulosen degrades interspecies communication
 - Heterospecific calls harder to recognize in noise than conspecific
 - May explain some "failed" interactions or lower detection rates
 
@@ -528,7 +528,7 @@ This finding aligns with extensive research on **heterospecific eavesdropping** 
 - **Long-distance migrants** (Great Snipe, warblers) en route to Africa/Asia
 - **Nocturnal flight calls** (03:00-04:00) typical of migration timing
 
-**Gaulossen as Stopover:**
+**Gaulosen as Stopover:**
 - Wetland habitat provides essential feeding/resting
 - **47 nocturnal flight calls** indicate active use during migration
 - Mixed-species flocks suggest shared stopover resources
@@ -671,14 +671,14 @@ See `verification_report.md` for detailed verification methodology and what stil
 **Audio Processing:** Wiener filtering, HPSS
 **Verification Standard:** Manual spectrogram + audio review
 
-**Contact:** Gaulossen Acoustic Monitoring Project
+**Contact:** Gaulosen Acoustic Monitoring Project
 **Data Availability:** All data, audio, and spectrograms available in `results/` directory
 
 ---
 
 ## Summary
 
-Gaulossen Nature Reserve functions as an active **wetland migration stopover** with:
+Gaulosen Nature Reserve functions as an active **wetland migration stopover** with:
 - **Massive waterfowl presence** (Graylag Goose dominance)
 - **Functioning multi-species alarm network** (geese-crow mutualism)
 - **Active nocturnal migration** (47 flight calls documented)
