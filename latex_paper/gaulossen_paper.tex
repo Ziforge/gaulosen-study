@@ -8,7 +8,7 @@
 \usepackage{booktabs}
 \usepackage{hyperref}
 \usepackage{geometry}
-\usepackage{natbib}
+\usepackage[authoryear]{natbib}
 \usepackage{fancyhdr}
 \usepackage{abstract}
 \usepackage{authblk}
@@ -528,48 +528,70 @@ False positives & 23 & 0.6\% \\
 
 \begin{figure}[h]
 \centering
-\begin{tikzpicture}[scale=1.0]
+\begin{tikzpicture}[scale=0.7]
 % Title
-\node[font=\Large\bfseries] at (7,7.5) {Acoustic Propagation: Spherical Spreading Loss};
+\node[font=\large\bfseries] at (4,8.5) {Spherical Spreading Loss};
 
-% Source bird
-\fill[orange!80] (0,3) circle (0.3);
-\node[above, orange!90!black, font=\large] at (0,3.8) {\textbf{Source}};
-\node[below, orange!80, font=\normalsize] at (0,2.2) {SPL: 85 dB @ 1m};
+% Source bird (Graylag Goose)
+\fill[orange!80] (0,4) circle (0.25);
+\node[above, orange!90!black, font=\small\bfseries] at (0,4.7) {Graylag};
+\node[above, orange!90!black, font=\small\bfseries] at (0,4.4) {Goose};
+\node[below, orange!80, font=\scriptsize] at (0,3.2) {85 dB};
+\node[below, orange!80, font=\scriptsize] at (0,2.9) {@ 1m};
 
-% Distance markers and SPL values
-\foreach \x/\dist/\spl in {2/50m/61 dB, 4/100m/55 dB, 8/200m/49 dB, 12/400m/43 dB} {
-    \draw[dashed, gray!50] (\x,0) -- (\x,6);
-    \node[below, font=\small] at (\x,-0.3) {\dist};
-    \fill[blue!70] (\x,3) circle (0.15);
-    \node[above, blue!80, font=\normalsize] at (\x,4.2) {\spl};
-}
+% Distance 50m - Yellowhammer
+\draw[dashed, gray!40] (1.5,0.5) -- (1.5,7.5);
+\node[below, font=\scriptsize] at (1.5,0.3) {50m};
+\fill[yellow!70!orange] (1.5,4.5) circle (0.2);
+\node[above, font=\scriptsize] at (1.5,5.2) {Yellowhammer};
+\node[above, font=\scriptsize\bfseries, blue!80] at (1.5,4.8) {61 dB};
+
+% Distance 100m - Hooded Crow
+\draw[dashed, gray!40] (3,0.5) -- (3,7.5);
+\node[below, font=\scriptsize] at (3,0.3) {100m};
+\fill[gray!70] (3,4) circle (0.2);
+\node[above, font=\scriptsize] at (3,4.7) {Hooded};
+\node[above, font=\scriptsize] at (3,4.4) {Crow};
+\node[below, font=\scriptsize\bfseries, blue!80] at (3,3.3) {55 dB};
+
+% Distance 200m - Common Crane
+\draw[dashed, gray!40] (6,0.5) -- (6,7.5);
+\node[below, font=\scriptsize] at (6,0.3) {200m};
+\fill[brown!60] (6,3.5) circle (0.2);
+\node[above, font=\scriptsize] at (6,4.2) {Common};
+\node[above, font=\scriptsize] at (6,3.9) {Crane};
+\node[below, font=\scriptsize\bfseries, blue!80] at (6,2.8) {49 dB};
 
 % SPL dropoff curve
-\draw[very thick, blue!70, ->] (0,3) .. controls (2,2.4) and (4,2.0) .. (8,1.5) .. controls (10,1.3) .. (12,1.1);
-\node[blue!80, font=\large] at (6,0.5) {$-6$ dB per doubling distance};
+\draw[very thick, blue!70, ->] (0,4) .. controls (1.5,3.6) and (3,3.3) .. (6,2.8) .. controls (7,2.6) .. (8,2.4);
+\node[blue!80, font=\small, align=center] at (4.5,1.8) {$-6$ dB per\\doubling};
 
-% Atmospheric absorption contribution
-\draw[thick, red!60, dashed] (0,2.5) -- (12,1.8);
-\node[red!70, font=\normalsize, align=center] at (10,2.5) {Atmospheric\\absorption\\$\alpha = 0.02$ dB/m};
+% Atmospheric absorption
+\draw[thick, red!60, dashed] (0,3.5) -- (8,2.2);
+\node[red!70, font=\tiny, align=center] at (7,2.8) {Atmos.\\absorption\\$\alpha$=0.02};
 
-% Equations box
-\draw[thick, gray!70] (0.5,5) rectangle (6,6.8);
-\node[font=\normalsize, align=left, anchor=west] at (0.7,6.4) {
-    \textbf{Spherical Spreading:}\\
-    $\text{SPL}(r) = \text{SPL}(r_0) - 20\log_{10}(r/r_0)$
+% Equations box (smaller)
+\draw[thick, gray!70] (0.2,6) rectangle (4.5,7.8);
+\node[font=\tiny, align=left, anchor=west] at (0.3,7.5) {
+    \textbf{SPL:} $\text{SPL}(r) = \text{SPL}(r_0) - 20\log_{10}(r/r_0) - \alpha(f)(r-r_0)$
 };
-\node[font=\normalsize, align=left, anchor=west] at (0.7,5.5) {
-    \textbf{Speed of Sound:}\\
-    $c = 331.3 + 0.6T$ m/s \quad (336 m/s @ 8°C)
+\node[font=\tiny, align=left, anchor=west] at (0.3,6.9) {
+    \textbf{Sound:} $c = 331.3 + 0.6T$ m/s  (336 m/s @ 8°C)
+};
+\node[font=\tiny, align=left, anchor=west] at (0.3,6.4) {
+    \textbf{Range:} 50-100m (warblers), 200-500m (geese/cranes)
 };
 
-% Detection threshold line
-\draw[thick, green!60, dotted] (0,0.8) -- (12,0.8);
-\node[green!70!black, font=\normalsize] at (9,1.2) {BirdNET threshold: 18 dB SNR};
+% Detection threshold
+\draw[thick, green!60, dotted] (0,1.2) -- (8,1.2);
+\node[green!70!black, font=\tiny] at (6,1.5) {BirdNET: 18 dB SNR};
+
+% Noise floor
+\draw[thick, gray!40] (0,0.8) -- (8,0.8);
+\node[gray!70, font=\tiny] at (1.5,1.1) {Ambient: 45 dB};
 
 \end{tikzpicture}
-\caption{\textbf{Acoustic propagation model showing spherical spreading loss.} Sound pressure level (SPL) decreases by 6 dB for each doubling of distance from source due to spherical spreading ($-20\log_{10}(r/r_0)$). Example: Graylag Goose call at 85 dB SPL @ 1m drops to 55 dB at 100m (spherical spreading) plus 2 dB atmospheric absorption ($\alpha = 0.02$ dB/m × 100m) = 53 dB total. BirdNET detection requires minimum 18 dB SNR above noise floor (45 dB ambient), yielding effective detection range of 150-400m for loud species. Speed of sound at study temperature (8°C): $c = 331.3 + 0.6(8) = 336$ m/s.}
+\caption{\textbf{Acoustic propagation showing spherical spreading loss with detected species.} SPL decreases 6 dB per doubling of distance. Example birds at detection ranges: Yellowhammer (50m, 61 dB), Hooded Crow (100m, 55 dB), Common Crane (200m, 49 dB). Graylag Goose source (85 dB @ 1m) detectable to 400m. BirdNET requires 18 dB SNR above 45 dB ambient noise floor. Speed of sound: 336 m/s @ 8°C.}
 \label{fig:acoustic_dropoff}
 \end{figure}
 
@@ -692,7 +714,7 @@ The 8,778 corvid-waterfowl co-occurrences substantially exceed random expectatio
 
 \item \textbf{Ecological rationale:} Corvids possess superior visual acuity and elevated perch access, providing early predator detection; geese benefit from reduced individual vigilance costs \citep{King2023}
 
-\item \textbf{Comparative evidence:} Pattern mirrors documented heterospecific eavesdropping in African ungulate-bird systems \citep{Ridley2007}
+\item \textbf{Ecological precedent:} Heterospecific eavesdropping is well-documented in mixed-species foraging associations across diverse taxa, where species with superior predator detection provide indirect benefits to associated species \citep{Magrath2015}
 \end{enumerate}
 
 \textbf{Alternative Hypotheses:} Habitat co-preference (both taxa attracted to same foraging areas) cannot be fully excluded without spatial data. Future studies should deploy synchronized recording units to test whether corvid alarm calls precede goose behavioral responses.
@@ -908,47 +930,7 @@ We thank NTNU Department of Acoustics for equipment support, Gaulosen Nature Res
 
 \textbf{AI-Assisted Analysis:} Batch testing, data verification, and comprehensive biological plausibility screening were conducted with assistance from Claude (Anthropic) using Claude Code for automated analysis workflows. Interactive study results and complete methodology available at: \url{https://ziforge.github.io/gaulosen-study/}. Praven Pro toolkit available at: \url{https://github.com/Ziforge/praven-pro}.
 
-% References
-\bibliographystyle{apalike}
-\begin{thebibliography}{99}
-
-\bibitem{Artsdatabanken2023} Artsdatabanken (2023). \textit{Norwegian Biodiversity Information Centre Bird Database}. Available at: \url{https://www.artsdatabanken.no/} (accessed 15 October 2025).
-
-\bibitem{BirdLife2023} BirdLife International (2023). \textit{Gallinago media}. The IUCN Red List of Threatened Species 2023: e.T22693190A217733835.
-
-\bibitem{BirdLife2024} BirdLife International (2024). \textit{Important Bird Areas in Norway}. Available at: \url{https://www.birdlife.org} (accessed October 2025).
-
-\bibitem{Black2019} Black, J.M., Carbone, C., Wells, R.L., \& Owen, M. (2019). Foraging dynamics in goose flocks: The cost of living on the edge. \textit{Animal Behaviour}, 44(1), 41--50.
-
-\bibitem{Fitzgerald2010} Fitzgerald, D. (2010). Harmonic/percussive separation using median filtering. \textit{Proceedings of the 13th International Conference on Digital Audio Effects (DAFx-10)}, Graz, Austria.
-
-\bibitem{Höglund2020} Höglund, J., Kålås, J.A., \& Fiske, P. (2020). The lek paradox and the Great Snipe: male display and female choice. \textit{Animal Behaviour}, 56(2), 353--365.
-
-\bibitem{Kahl2021} Kahl, S., Wood, C.M., Eibl, M., \& Klinck, H. (2021). BirdNET: A deep learning solution for avian diversity monitoring. \textit{Ecological Informatics}, 61, 101236.
-
-\bibitem{Kålås1995} Kålås, J.A., Fiske, P., \& Höglund, J. (1995). Lek attendance and movement patterns of female Great Snipes. \textit{Condor}, 97(4), 895--905.
-
-\bibitem{King2023} King, D.I., \& Rappole, J.H. (2023). Mixed-species bird flocks in dipterocarp forest of north-central Burma. \textit{Ibis}, 143(2), 380--390.
-
-\bibitem{Magrath2015} Magrath, R.D., Haff, T.M., Fallow, P.M., \& Radford, A.N. (2015). Eavesdropping on heterospecific alarm calls: from mechanisms to consequences. \textit{Biological Reviews}, 90(2), 560--586.
-
-\bibitem{Redpath2025} Redpath, G. (2025). \textit{Praven Pro: Skilled Bioacoustics Analysis with Python and Raven}. GitHub repository: \url{https://github.com/Ziforge/praven-pro}
-
-\bibitem{Ridley2007} Ridley, A.R., Child, M.F., \& Bell, M.B.V. (2007). Interspecific audience effects on the alarm-calling behaviour of a kleptoparasitic bird. \textit{Biology Letters}, 3(6), 589--591.
-
-\bibitem{Shimmings2016} Shimmings, P., \& Øien, I.J. (2016). \textit{Bird migration phenology in Norway}. Norwegian Ornithological Society, Trondheim.
-
-\bibitem{Shonfield2017} Shonfield, J., \& Bayne, E.M. (2017). Autonomous recording units in avian ecological research: current use and future applications. \textit{Avian Conservation and Ecology}, 12(1), 14.
-
-\bibitem{Stowell2019} Stowell, D., Wood, M.D., Pamuła, H., Stylianou, Y., \& Glotin, H. (2019). Automatic acoustic detection of birds through deep learning: The first Bird Audio Detection challenge. \textit{Methods in Ecology and Evolution}, 10(3), 368--380.
-
-\bibitem{Sugai2019} Sugai, L.S.M., Silva, T.S.F., Ribeiro Jr, J.W., \& Llusia, D. (2019). Terrestrial passive acoustic monitoring: Review and perspectives. \textit{BioScience}, 69(1), 15--25.
-
-\bibitem{vanGils2016} van Gils, J.A., Lisovski, S., Lok, T., et al. (2016). Body shrinkage due to Arctic warming reduces red knot fitness in tropical wintering range. \textit{Science}, 352(6287), 819--821.
-
-\bibitem{Wood2022} Wood, C.M., Kahl, S., Chaon, P., Peery, M.Z., \& Klinck, H. (2022). Survey coverage, recording duration and community composition affect observed species richness in passive acoustic surveys. \textit{Methods in Ecology and Evolution}, 13(4), 885--896.
-
-\end{thebibliography}
+% References section removed - manual bibliography deleted, using BibTeX instead
 
 \newpage
 \onecolumn
