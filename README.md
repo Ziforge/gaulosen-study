@@ -4,7 +4,7 @@
 **Study Period:** October 2025
 **Methodology:** Passive acoustic monitoring with BirdNET-Analyzer
 
-## 🌐 Live Website
+## Live Website
 
 **Visit:** [https://ziforge.github.io/gaulosen-study/](https://ziforge.github.io/gaulosen-study/)
 
@@ -22,18 +22,18 @@ Complete automated bioacoustics analysis pipeline for Gaulosen Nature Reserve fi
 ```
 gaulosen/
 ├── results/
-│   ├── all_detections.csv              # Master CSV (all detections)
-│   ├── species_summary.csv             # Species counts
-│   ├── file_summary.csv                # Per-file statistics
-│   ├── csvs/                           # Individual file CSVs
-│   ├── labels/                         # Audacity label files
-│   ├── raven_tables/                   # Raven Pro selection tables (original)
-│   ├── raven_mcp_converted/            # MCP-converted Raven tables
-│   └── visualizations/                 # Publication-quality plots
-├── convert_to_raven.py                 # MCP conversion script
-├── open_in_raven.sh                    # Auto-open all in Raven Pro
-├── open_single_in_raven.py             # Interactive Raven opener
-└── README.md                           # This file
+│ ├── all_detections.csv # Master CSV (all detections)
+│ ├── species_summary.csv # Species counts
+│ ├── file_summary.csv # Per-file statistics
+│ ├── csvs/ # Individual file CSVs
+│ ├── labels/ # Audacity label files
+│ ├── raven_tables/ # Raven Pro selection tables (original)
+│ ├── raven_mcp_converted/ # MCP-converted Raven tables
+│ └── visualizations/ # Publication-quality plots
+├── convert_to_raven.py # MCP conversion script
+├── open_in_raven.sh # Auto-open all in Raven Pro
+├── open_single_in_raven.py # Interactive Raven opener
+└── README.md # This file
 ```
 
 ## Quick Start
@@ -121,15 +121,15 @@ python3 convert_to_raven.py
 
 ```
 Audio Files (WAV)
-    ↓
+ ↓
 BirdNET Analysis (automated_batch_analysis.py)
-    ↓
+ ↓
 Results (CSV + timestamps)
-    ↓
+ ↓
 MCP Raven Conversion (convert_to_raven.py)
-    ↓
+ ↓
 Raven Pro Selection Tables (.txt)
-    ↓
+ ↓
 Manual Verification in Raven Pro
 ```
 
