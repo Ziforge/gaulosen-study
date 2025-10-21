@@ -104,14 +104,6 @@
     "verification_date": "2025-10-14"
   },
   {
-    "common_name": "Bar-headed Goose",
-    "scientific_name": "Anser indicus",
-    "description": "Pale gray goose with distinctive black bars on white head.",
-    "call_description": "Nasal, musical honking \"aa-hoo\" or \"ang-ang\"",
-    "confidence": "82.6%",
-    "verification_date": "2025-10-13"
-  },
-  {
     "common_name": "Pine Grosbeak",
     "scientific_name": "Pinicola enucleator",
     "description": "Large finch, males rosy-red, females yellow-olive, thick bill.",
@@ -384,14 +376,6 @@
     "verification_date": "2025-10-14"
   },
   {
-    "common_name": "Manx Shearwater",
-    "scientific_name": "Puffinus puffinus",
-    "description": "Black-and-white seabird with stiff-winged gliding flight.",
-    "call_description": "Eerie wailing and crowing at breeding colonies at night",
-    "confidence": "48.6%",
-    "verification_date": "2025-10-15"
-  },
-  {
     "common_name": "Mistle Thrush",
     "scientific_name": "Turdus viscivorus",
     "description": "Large thrush with spotted breast, white tail corners, upright stance.",
@@ -469,14 +453,6 @@
     "description": "Crow-sized woodpecker, entirely black with red crown.",
     "call_description": "Loud, ringing \"kri-kri-kri\", drumming resonant and slow",
     "confidence": "39.4%",
-    "verification_date": "2025-10-15"
-  },
-  {
-    "common_name": "European Storm-Petrel",
-    "scientific_name": "Hydrobates pelagicus",
-    "description": "Tiny black seabird with white rump, fluttering bat-like flight.",
-    "call_description": "Purring and hiccupping at burrows at night",
-    "confidence": "39.1%",
     "verification_date": "2025-10-15"
   },
   {
@@ -600,14 +576,6 @@
     "verification_date": "2025-10-14"
   },
   {
-    "common_name": "Western Capercaillie",
-    "scientific_name": "Tetrao urogallus",
-    "description": "Huge grouse, males dark with red eyebrow, fan tail.",
-    "call_description": "Cork-popping and gurgling lek display, wing clapping",
-    "confidence": "27.2%",
-    "verification_date": "2025-10-14"
-  },
-  {
     "common_name": "Common Goldeneye",
     "scientific_name": "Bucephala clangula",
     "description": "Diving duck, males with round white face spot, golden eye.",
@@ -629,14 +597,6 @@
     "description": "Secretive warbler like Grasshopper-Warbler but less streaked.",
     "call_description": "Rhythmic churring \"zhrr-zhrr-zhrr\", slower than Grasshopper-Warbler",
     "confidence": "25.4%",
-    "verification_date": "2025-10-14"
-  },
-  {
-    "common_name": "Lesser Spotted Woodpecker",
-    "scientific_name": "Dryobates minor",
-    "description": "Tiny woodpecker, barred black-and-white, males with red crown.",
-    "call_description": "High \"pee-pee-pee-pee\", drumming fast and quiet",
-    "confidence": "36.6%",
     "verification_date": "2025-10-14"
   },
   {
