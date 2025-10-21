@@ -90,6 +90,23 @@ Gaulosen Nature Reserve (Øymælen 440, 7224 Melhus; 63.341°N, 10.215°E) compr
 
 \textbf{Microphone Placement:} Sensor positioned approximately 100 m from wetland edge, oriented toward primary bird congregation areas. Flat terrain and minimal vegetation obstruction provided favorable sound propagation conditions. Estimated detection radius: 200--500 m for loud calls (geese, cranes), 50--100 m for quieter calls (warblers, thrushes), based on spherical spreading loss and atmospheric absorption at 2--8 kHz.
 
+\textbf{Acoustic Propagation Model:} Sound propagation in open wetland follows spherical spreading with frequency-dependent atmospheric absorption:
+
+\begin{equation}
+\text{SPL}(r) = \text{SPL}(r_0) - 20\log_{10}\left(\frac{r}{r_0}\right) - \alpha(f) \cdot (r - r_0)
+\label{eq:spherical_spreading}
+\end{equation}
+
+where $\text{SPL}(r)$ is sound pressure level at distance $r$, $\text{SPL}(r_0)$ is source level at reference distance $r_0$ (typically 1 m), $20\log_{10}(r/r_0)$ represents spherical spreading loss (6 dB per doubling distance), and $\alpha(f) \cdot (r - r_0)$ is frequency-dependent atmospheric absorption (0.02 dB/m at 5 kHz, 75\% RH, 8°C).
+
+Speed of sound varies with temperature:
+\begin{equation}
+c = 331.3 + 0.6T
+\label{eq:speed_of_sound}
+\end{equation}
+
+where $c$ is speed (m/s) and $T$ is temperature (°C). At study conditions (8°C), $c \approx 336$ m/s.
+
 \textbf{Recording Period:} 13 October 2025 14:30 through 15 October 2025 15:12 (total: 48.8 hours, 175,680 seconds). Weather conditions: persistent rain and fog (estimated 80\% temporal coverage), temperature 7--11°C, light to moderate winds (3--7 m/s). Precipitation generated broadband noise contamination (1--10 kHz) requiring post-processing enhancement.
 
 \subsection{Field Deployment Observations}
@@ -507,6 +524,53 @@ False positives & 23 & 0.6\% \\
 \end{tikzpicture}
 \caption{\textbf{Site deployment geometry and detection zones.} AudioMoth positioned 100m from wetland edge on fence post (1.5m height) with unobstructed sight lines to primary waterfowl congregation areas. Concentric circles indicate species-dependent acoustic detection ranges based on call intensity and spherical spreading: 50-100m for quiet species (warblers, thrushes, 60-75 dB SPL calls), 200-500m for loud species (geese, cranes, 85-100 dB SPL calls). Flat terrain and open water provided favorable sound propagation conditions. Waterfowl symbols ($\approx$) indicate observed congregation zones. Detection range estimates account for atmospheric absorption ($\alpha \approx 0.02$ dB/m at 5 kHz) and 18 dB SNR threshold for BirdNET classification. This geometry enabled detection of 77 verified species across diverse vocal intensities and habitat preferences.}
 \label{fig:site_map}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=1.0]
+% Title
+\node[font=\Large\bfseries] at (7,7.5) {Acoustic Propagation: Spherical Spreading Loss};
+
+% Source bird
+\fill[orange!80] (0,3) circle (0.3);
+\node[above, orange!90!black, font=\large] at (0,3.8) {\textbf{Source}};
+\node[below, orange!80, font=\normalsize] at (0,2.2) {SPL: 85 dB @ 1m};
+
+% Distance markers and SPL values
+\foreach \x/\dist/\spl in {2/50m/61 dB, 4/100m/55 dB, 8/200m/49 dB, 12/400m/43 dB} {
+    \draw[dashed, gray!50] (\x,0) -- (\x,6);
+    \node[below, font=\small] at (\x,-0.3) {\dist};
+    \fill[blue!70] (\x,3) circle (0.15);
+    \node[above, blue!80, font=\normalsize] at (\x,4.2) {\spl};
+}
+
+% SPL dropoff curve
+\draw[very thick, blue!70, ->] (0,3) .. controls (2,2.4) and (4,2.0) .. (8,1.5) .. controls (10,1.3) .. (12,1.1);
+\node[blue!80, font=\large] at (6,0.5) {$-6$ dB per doubling distance};
+
+% Atmospheric absorption contribution
+\draw[thick, red!60, dashed] (0,2.5) -- (12,1.8);
+\node[red!70, font=\normalsize, align=center] at (10,2.5) {Atmospheric\\absorption\\$\alpha = 0.02$ dB/m};
+
+% Equations box
+\draw[thick, gray!70] (0.5,5) rectangle (6,6.8);
+\node[font=\normalsize, align=left, anchor=west] at (0.7,6.4) {
+    \textbf{Spherical Spreading:}\\
+    $\text{SPL}(r) = \text{SPL}(r_0) - 20\log_{10}(r/r_0)$
+};
+\node[font=\normalsize, align=left, anchor=west] at (0.7,5.5) {
+    \textbf{Speed of Sound:}\\
+    $c = 331.3 + 0.6T$ m/s \quad (336 m/s @ 8°C)
+};
+
+% Detection threshold line
+\draw[thick, green!60, dotted] (0,0.8) -- (12,0.8);
+\node[green!70!black, font=\normalsize] at (9,1.2) {BirdNET threshold: 18 dB SNR};
+
+\end{tikzpicture}
+\caption{\textbf{Acoustic propagation model showing spherical spreading loss.} Sound pressure level (SPL) decreases by 6 dB for each doubling of distance from source due to spherical spreading ($-20\log_{10}(r/r_0)$). Example: Graylag Goose call at 85 dB SPL @ 1m drops to 55 dB at 100m (spherical spreading) plus 2 dB atmospheric absorption ($\alpha = 0.02$ dB/m × 100m) = 53 dB total. BirdNET detection requires minimum 18 dB SNR above noise floor (45 dB ambient), yielding effective detection range of 150-400m for loud species. Speed of sound at study temperature (8°C): $c = 331.3 + 0.6(8) = 336$ m/s.}
+\label{fig:acoustic_dropoff}
 \end{figure}
 
 \begin{figure*}[t]
