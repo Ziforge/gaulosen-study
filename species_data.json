@@ -34,8 +34,8 @@
   {
     "common_name": "Great Snipe",
     "scientific_name": "Gallinago media",
-    "description": "Bulky wader with heavily barred flanks, bold wingbars in flight.",
-    "call_description": "Lek display: bubbling, ticking, and wheezing sounds at dusk",
+    "description": "Bulky wader with heavily barred flanks, bold wingbars in flight. Globally declining species migrating from Arctic breeding grounds to sub-Saharan Africa.",
+    "call_description": "Migration flight calls: weak croaking 'etch-etch-etch' when flushed during stopover. Usually silent during migration. (Note: Lek displays with bubbling/wheezing occur only in breeding season April-May, not during October migration period)",
     "confidence": "95.7%",
     "verification_date": "2025-10-13"
   },
