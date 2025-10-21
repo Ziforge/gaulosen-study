@@ -293,28 +293,32 @@ where $D$ is spectrogram, $D_h$ harmonic component (bird calls), $D_p$ percussiv
 
 \begin{figure*}[p]
 \centering
-\begin{subfigure}{\textwidth}
+\begin{subfigure}{0.95\textwidth}
+\centering
 \includegraphics[width=\textwidth]{figures/comparison_graylag_goose.png}
 \caption{Graylag Goose (n=2,871): Rain noise reduction via Wiener filtering reveals harmonic structure (500-1,500 Hz)}
 \end{subfigure}
 
 \vspace{0.4cm}
 
-\begin{subfigure}{\textwidth}
+\begin{subfigure}{0.95\textwidth}
+\centering
 \includegraphics[width=\textwidth]{figures/comparison_great_snipe.png}
 \caption{Great Snipe (n=189): HPSS separates pulsed migration calls from percussive rain impacts}
 \end{subfigure}
 
 \vspace{0.4cm}
 
-\begin{subfigure}{\textwidth}
+\begin{subfigure}{0.95\textwidth}
+\centering
 \includegraphics[width=\textwidth]{figures/comparison_hooded_crow.png}
 \caption{Hooded Crow (n=87): Broadband alarm call enhancement improves spectrotemporal clarity}
 \end{subfigure}
 
 \vspace{0.4cm}
 
-\begin{subfigure}{\textwidth}
+\begin{subfigure}{0.95\textwidth}
+\centering
 \includegraphics[width=\textwidth]{figures/comparison_common_crane.png}
 \caption{Common Crane (n=70): Wiener + HPSS pipeline preserves strong harmonics while suppressing rain noise (2-6 kHz)}
 \end{subfigure}
@@ -447,7 +451,8 @@ False positives & 23 & 0.6\% \\
 
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[scale=1.0, every node/.style={font=\normalsize}]
+\begin{center}
+\begin{tikzpicture}[scale=0.95, every node/.style={font=\normalsize}]
 
 % Wetland area (larger, clearer)
 \fill[cyan!15] (0,0) rectangle (10,2.5);
@@ -489,28 +494,35 @@ False positives & 23 & 0.6\% \\
 \node[above, font=\Large] at (9,8) {\textbf{N}};
 
 \end{tikzpicture}
+\end{center}
 \caption{\textbf{Site deployment geometry and detection zones.} AudioMoth positioned 100m from wetland edge on fence post (1.5m height) with unobstructed sight lines to primary waterfowl congregation areas. Concentric circles indicate species-dependent acoustic detection ranges based on call intensity and spherical spreading: 50-100m for quiet species (warblers, thrushes, 60-75 dB SPL calls), 200-500m for loud species (geese, cranes, 85-100 dB SPL calls). Flat terrain and open water provided favorable sound propagation conditions. Waterfowl symbols ($\approx$) indicate observed congregation zones. Detection range estimates account for atmospheric absorption ($\alpha \approx 0.02$ dB/m at 5 kHz) and 18 dB SNR threshold for BirdNET classification. This geometry enabled detection of 77 verified species across diverse vocal intensities and habitat preferences.}
 \label{fig:site_map}
 \end{figure}
 
 \begin{figure*}[t]
 \centering
-\begin{subfigure}{0.48\textwidth}
+\begin{subfigure}{0.47\textwidth}
+\centering
 \includegraphics[width=\textwidth]{figures/spectrogram_graylag_goose.png}
 \caption{Graylag Goose (n=2,871, 70.3\%)}
 \end{subfigure}
 \hfill
-\begin{subfigure}{0.48\textwidth}
+\begin{subfigure}{0.47\textwidth}
+\centering
 \includegraphics[width=\textwidth]{figures/spectrogram_pink-footed_goose.png}
 \caption{Pink-footed Goose (n=189, 4.6\%)}
 \end{subfigure}
 
-\begin{subfigure}{0.48\textwidth}
+\vspace{0.3cm}
+
+\begin{subfigure}{0.47\textwidth}
+\centering
 \includegraphics[width=\textwidth]{figures/spectrogram_great_snipe.png}
 \caption{Great Snipe (n=189, 4.6\%)}
 \end{subfigure}
 \hfill
-\begin{subfigure}{0.48\textwidth}
+\begin{subfigure}{0.47\textwidth}
+\centering
 \includegraphics[width=\textwidth]{figures/spectrogram_common_crane.png}
 \caption{Common Crane (n=70, 1.7\%)}
 \end{subfigure}
