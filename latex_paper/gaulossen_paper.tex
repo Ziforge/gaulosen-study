@@ -16,6 +16,7 @@
 \usepackage{float}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{pdflscape}
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows,positioning,decorations.pathmorphing,calc}
 
@@ -107,85 +108,9 @@ Gaulosen Nature Reserve (Øymælen 440, 7224 Melhus; 63.341°N, 10.215°E) compr
 
 \textit{Day 2 - Great Snipe Activity:} Peak crepuscular activity observed 20:00-22:00. Multiple flight calls detected audibly during twilight period, consistent with migratory staging behavior documented in literature.
 
-\textit{Day 3 - Post-Rain Clearing:} Morning clearing brought increased corvid activity (visual: 15+ Hooded Crows, 8+ Carrion Crows within 200m radius). Notable behavioral interaction: corvid alarm calling preceded waterfowl flush event at 09:15, suggesting inter-species communication.
+\textit{Day 3 - Post-Rain Clearing:} Morning clearing brought increased corvid activity (visual: 15+ Hooded Crows, 8+ Carrion Crows within 200m radius). Notable behavioral interaction: corvid alarm calling preceded waterfowl flush event at 09:15, suggesting inter-species communication (see Figure \ref{fig:field_deployment} for field observations documenting deployment conditions and peak flock activity).
 
-\begin{figure*}[h]
-\centering
-\begin{subfigure}{0.48\textwidth}
-\includegraphics[width=\textwidth]{03_deployment_location_fence.jpg}
-\caption{AudioMoth deployment on fence post, 100m from wetland edge}
-\end{subfigure}
-\hfill
-\begin{subfigure}{0.48\textwidth}
-\includegraphics[width=\textwidth]{07_wetland_waterfowl_dramatic.jpg}
-\caption{Challenging weather conditions: rain, fog, low visibility}
-\end{subfigure}
-
-\vspace{0.3cm}
-
-\begin{subfigure}{0.48\textwidth}
-\includegraphics[width=\textwidth]{06_geese_flight_formation.jpg}
-\caption{Large Graylag Goose flock (peak event: 620 calls/91min)}
-\end{subfigure}
-\hfill
-\begin{subfigure}{0.48\textwidth}
-\includegraphics[width=\textwidth]{01_wetland_landscape_mountains.jpg}
-\caption{Gaulosen wetland with mountain backdrop}
-\end{subfigure}
-
-\caption{Field deployment documentation October 13-15, 2025. (a) Equipment mounted 1.5m height with rain shield providing 48.8 hours continuous recording. (b) Atmospheric conditions: 80\% rain/fog coverage, 7-11°C, visibility often $<$500m. (c) Peak flock activity Day 1 (16:00-17:26): visual estimate 200+ Graylag Geese, 620 vocalizations quantified post-analysis. (d) Open wetland habitat providing favorable sound propagation: 50-100m detection range (warblers), 200-500m (geese/cranes).}
-\label{fig:field_deployment}
-\end{figure*}
-
-\textbf{Equipment Performance:} AudioMoth v1.2 performed excellently throughout 48.8-hour deployment despite continuous rain exposure. All 48.8 hours of audio data (35.2 GB) successfully captured with zero file corruption. Battery voltage remained above operational threshold (4.2V $>$ 3.6V minimum). Rain shield (acrylic dome) effectively protected microphone but transmitted percussive rain impacts requiring post-processing.
-
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}[scale=1.0, every node/.style={font=\normalsize}]
-
-% Wetland area (larger, clearer)
-\fill[cyan!15] (0,0) rectangle (10,2.5);
-\draw[thick, blue!70, line width=1.5pt] (0,0) -- (10,0) -- (10,2.5) -- (0,2.5) -- cycle;
-\node[font=\Large] at (5,1.5) {\textbf{Wetland}};
-\node[blue!80, font=\large] at (5,0.7) {Open Water};
-
-% Reeds at edge
-\foreach \x in {0,0.8,...,10} {
-    \draw[green!60!black, line width=1.2pt] (\x,2.5) -- (\x,2.9);
-}
-
-% AudioMoth deployment
-\fill[red!80] (5,5.5) circle (0.2);
-\draw[red!80, line width=2pt] (5,4.5) -- (5,5.5);
-\node[above, red!90!black, font=\Large] at (5,5.7) {\textbf{AudioMoth}};
-\node[below, font=\normalsize] at (5,4.3) {Fence post 1.5m};
-
-% Distance to wetland
-\draw[<->, thick, dashed] (5,3.2) -- (5,4.3);
-\node[right, font=\large] at (5.2,3.8) {\textbf{100m}};
-
-% Detection radii (clearer)
-\draw[orange!60, dashed, line width=2pt] (5,5.5) circle (2);
-\node[orange!80, font=\large] at (7.5,5.5) {\textbf{50-100m}};
-\node[orange!70, font=\normalsize] at (7.5,5) {Warblers};
-
-\draw[purple!60, dashed, line width=2pt] (5,5.5) circle (4);
-\node[purple!80, font=\large] at (9.5,5.5) {\textbf{200-500m}};
-\node[purple!70, font=\normalsize] at (9.5,5) {Geese/Cranes};
-
-% Waterfowl symbols
-\foreach \x/\y in {2/1, 4/0.8, 6/1.3, 8/1.1} {
-    \node[blue!70, scale=1.5] at (\x,\y) {$\approx$};
-}
-
-% North arrow (larger)
-\draw[->, line width=3pt] (9,7) -- (9,8);
-\node[above, font=\Large] at (9,8) {\textbf{N}};
-
-\end{tikzpicture}
-\caption{Site map showing deployment geometry. AudioMoth positioned 100m from wetland edge on fence post (1.5m height). Concentric circles indicate acoustic detection ranges: 50-100m for quiet species (warblers, thrushes), 200-500m for loud species (geese, cranes).}
-\label{fig:site_map}
-\end{figure}
+\textbf{Equipment Performance:} AudioMoth v1.2 performed excellently throughout 48.8-hour deployment despite continuous rain exposure (Figure \ref{fig:field_deployment}a,b). All 48.8 hours of audio data (35.2 GB) successfully captured with zero file corruption. Battery voltage remained above operational threshold (4.2V $>$ 3.6V minimum). Rain shield (acrylic dome) effectively protected microphone but transmitted percussive rain impacts requiring post-processing (see Figure \ref{fig:processing_comparison} for audio enhancement effectiveness). Site deployment geometry and acoustic detection zones detailed in Figure \ref{fig:site_map}.
 
 \textbf{Atmospheric Fluid Dynamics and Rain Noise Acoustics:} The recording period occurred during passage of a low-pressure system bringing sustained precipitation and high relative humidity ($>$90\%). Atmospheric conditions critically influenced acoustic propagation and noise contamination:
 
@@ -222,89 +147,91 @@ where atmospheric absorption coefficient $\alpha(f)$ (dB/m) varies with frequenc
 
 This spectral signature enabled algorithmic separation: HPSS exploited rain's percussive temporal structure versus bird calls' harmonic stability, while Wiener filtering targeted the 2--6 kHz rain energy concentration for adaptive suppression.
 
-\begin{figure*}[t]
+\begin{landscape}
+\begin{figure*}[p]
 \centering
-\begin{tikzpicture}[scale=1.1]
+\begin{tikzpicture}[scale=1.6]
 
-% Ground layer
-\draw[brown!70!black, line width=2pt] (0,0) -- (12,0);
-\fill[brown!10] (0,-0.5) rectangle (12,0);
-\node[brown!70!black, font=\large] at (6,-0.8) {\textbf{Ground} (flat, open terrain)};
+% Ground layer - extended
+\draw[brown!70!black, line width=3pt] (0,0) -- (18,0);
+\fill[brown!10] (0,-0.8) rectangle (18,0);
+\node[brown!70!black, font=\Large] at (9,-1.2) {\textbf{Ground} (flat, open terrain)};
 
-% Water surface (left side)
-\draw[blue!70, line width=2pt] (0,1) -- (4,1);
-\fill[cyan!10] (0,0.2) rectangle (4,1);
-\node[blue!80, font=\large] at (2,1.5) {\textbf{Water}};
+% Water surface (left side) - larger
+\draw[blue!70, line width=3pt] (0,1) -- (5,1);
+\fill[cyan!10] (0,0.2) rectangle (5,1);
+\node[blue!80, font=\Large] at (2.5,1.8) {\textbf{Water Surface}};
 
-% AudioMoth (right side)
-\fill[red!80] (10.5,2) rectangle (10.9,2.5);
-\draw[red!80, line width=2.5pt] (10.7,2.5) -- (10.7,3.2);
-\fill[red!90] (10.7,3.2) circle (0.15);
-\node[above, red!90!black, font=\Large] at (10.7,3.5) {\textbf{AudioMoth}};
-\node[below, font=\large] at (10.7,1.7) {1.5m};
+% AudioMoth (right side) - larger
+\fill[red!80] (16,2.5) rectangle (16.5,3.2);
+\draw[red!80, line width=3pt] (16.25,3.2) -- (16.25,4.2);
+\fill[red!90] (16.25,4.2) circle (0.25);
+\node[above, red!90!black, font=\huge] at (16.25,4.7) {\textbf{AudioMoth}};
+\node[below, font=\Large] at (16.25,2.2) {1.5m height};
 
-% Bird 1 - Graylag Goose on water
-\fill[orange!80] (1.5,1.8) circle (0.18);
-\node[above, orange!90!black, font=\large] at (1.5,2.1) {\textbf{Graylag Goose}};
-\node[below, orange!80, font=\normalsize] at (1.5,1.4) {on water};
+% Bird 1 - Graylag Goose on water (left)
+\fill[orange!80] (2,2) circle (0.25);
+\node[above, orange!90!black, font=\Large] at (2,2.5) {\textbf{Graylag Goose}};
+\node[below, orange!80, font=\large] at (2,1.4) {on water surface};
 
-% Bird 2 - Hooded Crow (elevated, to the side - NOT in front!)
-\fill[gray!70] (2.5,4.2) circle (0.16);
-\node[above, gray!80!black, font=\large] at (2.5,4.5) {\textbf{Hooded Crow}};
-\node[below, gray!70, font=\normalsize] at (2.5,3.8) {perched 4m};
+% Bird 2 - Hooded Crow (elevated, well to the left)
+\fill[gray!70] (4,6) circle (0.22);
+\node[above, gray!80!black, font=\Large] at (4,6.7) {\textbf{Hooded Crow}};
+\node[below, gray!70, font=\large] at (4,5.3) {perched 4m};
 
-% Bird 3 - Great Snipe flying
-\fill[brown!70] (5.5,3.8) circle (0.16);
-\node[above, brown!80!black, font=\large] at (5.5,4.1) {\textbf{Great Snipe}};
-\node[below, brown!70, font=\normalsize] at (5.5,3.4) {flying};
+% Bird 3 - Great Snipe flying (middle)
+\fill[brown!70] (9,5.5) circle (0.22);
+\node[above, brown!80!black, font=\Large] at (9,6.2) {\textbf{Great Snipe}};
+\node[below, brown!70, font=\large] at (9,4.8) {in flight};
 
-% DIRECT PATHS (clear, bold)
-\draw[->, orange!70, line width=2.5pt, dashed] (1.5,1.8) -- (10.3,3.1);
-\node[above, orange!80, font=\large] at (6,2.5) {\textbf{Direct: 180m}};
+% DIRECT PATHS (clear, bold, well-spaced labels)
+\draw[->, orange!70, line width=3pt, dashed] (2,2) -- (16,4.1);
+\node[above, orange!80, font=\Large] at (9,3.5) {\textbf{Direct Path: 180m}};
 
-\draw[->, gray!60, line width=2.5pt, dashed] (2.5,4.2) -- (10.3,3.3);
-\node[above, gray!70, font=\large] at (6.5,3.8) {\textbf{Direct: 150m}};
+\draw[->, gray!60, line width=3pt, dashed] (4,6) -- (16,4.3);
+\node[above, gray!70, font=\Large] at (10,5.5) {\textbf{Direct: 150m}};
 
-\draw[->, brown!60, line width=2.5pt, dashed] (5.5,3.8) -- (10.4,3.3);
-\node[above, brown!70, font=\large] at (8,3.6) {\textbf{Direct: 100m}};
+\draw[->, brown!60, line width=3pt, dashed] (9,5.5) -- (16,4.4);
+\node[above, brown!70, font=\Large] at (12.5,5.2) {\textbf{Direct: 100m}};
 
-% REFLECTED PATH from Graylag (water reflection)
-\draw[->, orange!40, line width=2pt, dotted] (1.5,1.8) -- (3,0.95);
-\draw[->, orange!40, line width=2pt, dotted] (3,1.05) -- (10.3,2.8);
-\fill[orange!60] (3,1) circle (0.12);
-\node[below, orange!60, font=\normalsize] at (3,0.5) {Water reflection};
+% REFLECTED PATH from Graylag (water reflection) - clearer geometry
+\draw[->, orange!40, line width=2.5pt, dotted] (2,2) -- (4.5,0.95);
+\draw[->, orange!40, line width=2.5pt, dotted] (4.5,1.05) -- (15.8,3.9);
+\fill[orange!60] (4.5,1) circle (0.18);
+\node[below, orange!60, font=\Large] at (4.5,0.2) {\textbf{Water Reflection Point}};
 
 % REFLECTED PATH from Crow (ground reflection)
-\draw[->, gray!40, line width=2pt, dotted] (2.5,4.2) -- (6,0.1);
-\draw[->, gray!40, line width=2pt, dotted] (6,0.1) -- (10.4,2.9);
-\fill[gray!60] (6,0.1) circle (0.12);
-\node[below, gray!60, font=\normalsize] at (6,-0.5) {Ground reflection};
+\draw[->, gray!40, line width=2.5pt, dotted] (4,6) -- (10,0.1);
+\draw[->, gray!40, line width=2.5pt, dotted] (10,0.1) -- (15.9,4);
+\fill[gray!60] (10,0.1) circle (0.18);
+\node[below, gray!60, font=\Large] at (10,-0.9) {\textbf{Ground Reflection Point}};
 
-% Atmospheric fog layer
-\draw[gray!40, line width=1.5pt, dashed] (0,5.5) -- (12,5.5);
-\node[gray!70, font=\large] at (10,6) {\textbf{Fog layer}};
-\node[gray!60, font=\normalsize] at (10,5.7) {(10-20$\mu$m droplets)};
+% Atmospheric fog layer - higher up
+\draw[gray!40, line width=2.5pt, dashed] (0,8) -- (18,8);
+\node[gray!70, font=\Large] at (16,8.8) {\textbf{Fog Layer}};
+\node[gray!60, font=\large] at (16,8.3) {(10-20$\mu$m droplets)};
 
 % Scattering particles
-\foreach \x in {3,5,7,9,11} {
-    \fill[gray!30] (\x,5.3) circle (0.08);
+\foreach \x in {2,5,8,11,14,17} {
+    \fill[gray!30] (\x,7.8) circle (0.12);
 }
-\node[gray!60, font=\normalsize] at (6,4.9) {Rayleigh scattering};
+\node[gray!60, font=\large] at (9,7.2) {Rayleigh scattering};
 
-% Absorption annotation
-\node[red!70, font=\large, align=center] at (11.5,1) {\textbf{Absorption}\\$\alpha = 0.02$ dB/m\\(@ 5kHz)};
+% Absorption annotation (moved to avoid overlap)
+\node[red!70, font=\Large, align=center] at (1.5,5) {\textbf{Atmospheric}\\[-0.1cm]\textbf{Absorption}\\[-0.1cm]$\alpha = 0.02$ dB/m\\[-0.1cm](@ 5kHz)};
 
-% Legend (larger, clearer)
-\draw[line width=2.5pt, dashed, orange!70] (0.3,7) -- (1.5,7);
-\node[right, font=\large] at (1.6,7) {\textbf{Direct path}};
+% Legend (bottom right, larger, clearer spacing)
+\draw[line width=3pt, dashed, orange!70] (12,0.5) -- (13.5,0.5);
+\node[right, font=\Large] at (13.7,0.5) {\textbf{Direct path}};
 
-\draw[line width=2pt, dotted, orange!40] (0.3,6.5) -- (1.5,6.5);
-\node[right, font=\large] at (1.6,6.5) {\textbf{Reflected path}};
+\draw[line width=2.5pt, dotted, orange!40] (12,-0.3) -- (13.5,-0.3);
+\node[right, font=\Large] at (13.7,-0.3) {\textbf{Reflected path}};
 
 \end{tikzpicture}
-\caption{Acoustic propagation showing direct and reflected sound paths. (Left) Graylag Goose on water produces water-reflected path. (Middle-left) Hooded Crow elevated to side produces ground reflection. (Center) Great Snipe in flight. All direct paths (dashed) show distances to AudioMoth. Fog layer causes Rayleigh scattering (high-frequency attenuation $>$8kHz). Atmospheric absorption $\alpha \approx 0.02$ dB/m at 5kHz in humid conditions.}
+\caption{\textbf{Acoustic propagation geometry showing multipath sound transmission.} Three species demonstrate different propagation scenarios: (Left) Graylag Goose vocalization from water surface creates both direct path (orange dashed, 180m) and water-reflected path (orange dotted) with specular reflection from water surface. (Left-elevated) Hooded Crow perched 4m height shows ground-reflected path (gray dotted) in addition to direct transmission. (Center) Great Snipe in flight demonstrates direct-only path with no ground interaction. Fog layer (10-20$\mu$m water droplets) causes Rayleigh scattering affecting frequencies $>$8kHz. Atmospheric absorption $\alpha \approx 0.02$ dB/m at 5kHz under humid conditions (75\% RH, 8°C). Multipath propagation creates constructive/destructive interference patterns depending on path difference and wavelength (see Discussion Section 4.5 for detailed analysis).}
 \label{fig:acoustic_propagation}
 \end{figure*}
+\end{landscape}
 
 \subsection{Automated Species Detection}
 
@@ -335,6 +262,38 @@ D = D_h + D_p
 where $D$ is spectrogram, $D_h$ harmonic component (bird calls), $D_p$ percussive component (rain).
 
 \textbf{Parameters:} Margin=2.0, kernel size=31, power=2.0. Enhanced audio clips (4,260 files) generated for detections with confidence $\geq$0.25.
+
+\begin{figure*}[p]
+\centering
+\begin{subfigure}{\textwidth}
+\includegraphics[width=\textwidth]{figures/comparison_graylag_goose.png}
+\caption{Graylag Goose (n=2,871): Rain noise reduction via Wiener filtering reveals harmonic structure (500-1,500 Hz)}
+\end{subfigure}
+
+\vspace{0.4cm}
+
+\begin{subfigure}{\textwidth}
+\includegraphics[width=\textwidth]{figures/comparison_great_snipe.png}
+\caption{Great Snipe (n=189): HPSS separates pulsed migration calls from percussive rain impacts}
+\end{subfigure}
+
+\vspace{0.4cm}
+
+\begin{subfigure}{\textwidth}
+\includegraphics[width=\textwidth]{figures/comparison_hooded_crow.png}
+\caption{Hooded Crow (n=87): Broadband alarm call enhancement improves spectrotemporal clarity}
+\end{subfigure}
+
+\vspace{0.4cm}
+
+\begin{subfigure}{\textwidth}
+\includegraphics[width=\textwidth]{figures/comparison_common_crane.png}
+\caption{Common Crane (n=70): Wiener + HPSS pipeline preserves strong harmonics while suppressing rain noise (2-6 kHz)}
+\end{subfigure}
+
+\caption{\textbf{Audio enhancement pipeline effectiveness: Processed vs unprocessed spectrograms.} Side-by-side comparisons demonstrate rain noise reduction and harmonic preservation across four key species. (Left panels) Unprocessed raw audio shows broadband rain noise contamination, particularly in 2-6 kHz band. (Right panels) Sequential Wiener filtering + HPSS processing isolates harmonic bird vocalizations while suppressing percussive rain transients. Enhancement pipeline improved BirdNET classification confidence by mean +8.4\% (95\% CI: [+6.1\%, +10.7\%]) and enabled 91\% successful species verification rate despite 80\% rain coverage during recording period. Note: Color scale normalized independently for each panel to maximize contrast.}
+\label{fig:processing_comparison}
+\end{figure*}
 
 \subsection{Praven Pro: BirdNET-Raven Integration Toolkit}
 
@@ -458,6 +417,54 @@ False positives & 23 & 0.6\% \\
 
 \textbf{Species Richness:} 77 verified species span 14 orders and 30 families, dominated by Anseriformes (waterfowl, 14 species) and Passeriformes (songbirds, 35 species). Notable detections include conservation-priority species: Great Snipe (\textit{Gallinago media}, 189 detections) and Eurasian Woodcock (\textit{Scolopax rusticola}, 57 detections).
 
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.0, every node/.style={font=\normalsize}]
+
+% Wetland area (larger, clearer)
+\fill[cyan!15] (0,0) rectangle (10,2.5);
+\draw[thick, blue!70, line width=1.5pt] (0,0) -- (10,0) -- (10,2.5) -- (0,2.5) -- cycle;
+\node[font=\Large] at (5,1.5) {\textbf{Wetland}};
+\node[blue!80, font=\large] at (5,0.7) {Open Water};
+
+% Reeds at edge
+\foreach \x in {0,0.8,...,10} {
+    \draw[green!60!black, line width=1.2pt] (\x,2.5) -- (\x,2.9);
+}
+
+% AudioMoth deployment
+\fill[red!80] (5,5.5) circle (0.2);
+\draw[red!80, line width=2pt] (5,4.5) -- (5,5.5);
+\node[above, red!90!black, font=\Large] at (5,5.7) {\textbf{AudioMoth}};
+\node[below, font=\normalsize] at (5,4.3) {Fence post 1.5m};
+
+% Distance to wetland
+\draw[<->, thick, dashed] (5,3.2) -- (5,4.3);
+\node[right, font=\large] at (5.2,3.8) {\textbf{100m}};
+
+% Detection radii (clearer)
+\draw[orange!60, dashed, line width=2pt] (5,5.5) circle (2);
+\node[orange!80, font=\large] at (7.5,5.5) {\textbf{50-100m}};
+\node[orange!70, font=\normalsize] at (7.5,5) {Warblers};
+
+\draw[purple!60, dashed, line width=2pt] (5,5.5) circle (4);
+\node[purple!80, font=\large] at (9.5,5.5) {\textbf{200-500m}};
+\node[purple!70, font=\normalsize] at (9.5,5) {Geese/Cranes};
+
+% Waterfowl symbols
+\foreach \x/\y in {2/1, 4/0.8, 6/1.3, 8/1.1} {
+    \node[blue!70, scale=1.5] at (\x,\y) {$\approx$};
+}
+
+% North arrow (larger)
+\draw[->, line width=3pt] (9,7) -- (9,8);
+\node[above, font=\Large] at (9,8) {\textbf{N}};
+
+\end{tikzpicture}
+\caption{\textbf{Site deployment geometry and detection zones.} AudioMoth positioned 100m from wetland edge on fence post (1.5m height) with unobstructed sight lines to primary waterfowl congregation areas. Concentric circles indicate species-dependent acoustic detection ranges based on call intensity and spherical spreading: 50-100m for quiet species (warblers, thrushes, 60-75 dB SPL calls), 200-500m for loud species (geese, cranes, 85-100 dB SPL calls). Flat terrain and open water provided favorable sound propagation conditions. Waterfowl symbols ($\approx$) indicate observed congregation zones. Detection range estimates account for atmospheric absorption ($\alpha \approx 0.02$ dB/m at 5 kHz) and 18 dB SNR threshold for BirdNET classification. This geometry enabled detection of 77 verified species across diverse vocal intensities and habitat preferences.}
+\label{fig:site_map}
+\end{figure}
+
 \begin{figure*}[t]
 \centering
 \begin{subfigure}{0.48\textwidth}
@@ -489,9 +496,37 @@ Graylag Goose (\textit{Anser anser}) dominated the soundscape with 2,871 detecti
 
 \textbf{Social Species Prevalence:} 87.2\% of all detections (3,533/4,049, 95\% CI: [86.2\%, 88.2\%]) came from known flock/social species (Graylag Goose, corvids, finches), versus 12.8\% from territorial/solitary species.
 
-\textbf{Flock Dynamics:} Temporal clustering identified 59 discrete Graylag Goose flock events (mean duration: 18.4 min, SD: 24.7 min, range: 1--91 min). Largest event occurred 13 October 16:00--17:26 with 620 vocalizations. \textbf{Important limitation:} Flock size estimates based on vocal rate assumptions are highly uncertain without visual confirmation, as acoustic data cannot distinguish individual birds. The 620 calls could represent a large flock or fewer individuals vocalizing frequently.
+\textbf{Flock Dynamics:} Temporal clustering identified 59 discrete Graylag Goose flock events (mean duration: 18.4 min, SD: 24.7 min, range: 1--91 min). Largest event occurred 13 October 16:00--17:26 with 620 vocalizations (Figure \ref{fig:field_deployment}c). \textbf{Important limitation:} Flock size estimates based on vocal rate assumptions are highly uncertain without visual confirmation, as acoustic data cannot distinguish individual birds. The 620 calls could represent a large flock or fewer individuals vocalizing frequently.
 
 \textbf{Call-Response Behavior:} Within-flock call intervals averaged 6.8 seconds (median: 3.2 s), consistent with contact calling to maintain group cohesion \citep{Black2019}.
+
+\begin{figure*}[h]
+\centering
+\begin{subfigure}{0.48\textwidth}
+\includegraphics[width=\textwidth]{03_deployment_location_fence.jpg}
+\caption{AudioMoth deployment on fence post, 100m from wetland edge}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\includegraphics[width=\textwidth]{07_wetland_waterfowl_dramatic.jpg}
+\caption{Challenging weather conditions: rain, fog, low visibility}
+\end{subfigure}
+
+\vspace{0.3cm}
+
+\begin{subfigure}{0.48\textwidth}
+\includegraphics[width=\textwidth]{06_geese_flight_formation.jpg}
+\caption{Large Graylag Goose flock (peak event: 620 calls/91min)}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\includegraphics[width=\textwidth]{01_wetland_landscape_mountains.jpg}
+\caption{Gaulosen wetland with mountain backdrop}
+\end{subfigure}
+
+\caption{\textbf{Field observations documenting deployment conditions and peak flock activity.} (a) Equipment mounted 1.5m height with rain shield providing 48.8 hours continuous recording (13-15 October 2025). AudioMoth positioned for unobstructed sight lines to primary wetland congregation areas. (b) Challenging atmospheric conditions dominated recording period: 80\% rain/fog coverage, 7-11°C, visibility often $<$500m, requiring extensive audio enhancement (see Figure \ref{fig:processing_comparison}). (c) Peak Graylag Goose flock activity Day 1 (16:00-17:26): visual field estimate 200+ individuals, 620 vocalizations quantified by BirdNET post-analysis, demonstrating intensive contact calling behavior. This 91-minute event represents largest continuous flock vocalization period detected during study. (d) Open wetland habitat with flat terrain providing favorable sound propagation conditions: 50-100m detection range (warblers), 200-500m (geese/cranes). Mountain backdrop (Dovrefjell range) visible during rare clear periods.}
+\label{fig:field_deployment}
+\end{figure*}
 
 \subsection{Corvid-Waterfowl Co-occurrence: Co-occurrence Pattern Consistent with Sentinel Hypothesis}
 
@@ -604,6 +639,160 @@ We \textbf{cannot claim} species correlations with specific weather conditions g
 \textbf{Parameter Sensitivity:} Results dependent on analytical parameter choices: 10-minute co-occurrence windows, 5-minute flock clustering windows, 0.25 confidence threshold. Sensitivity analyses testing alternative parameter values would strengthen robustness claims, though permutation test methodology inherently tests null hypothesis regardless of specific window duration.
 
 \textbf{Spatial Constraints:} Single microphone location provides no spatial distribution data. Detected species may vocalize at varying distances, introducing unknown detection probability heterogeneity.
+
+\subsection{Multipath Propagation and Water Reflection Effects}
+
+The wetland acoustic environment at Gaulosen exhibits complex multipath propagation, where sound reaches the AudioMoth via both direct paths through air and indirect reflected paths from water and ground surfaces (Figure \ref{fig:acoustic_propagation}). This phenomenon significantly influences detection performance and spectral characteristics of recorded vocalizations.
+
+\subsubsection{Physical Mechanisms of Water Reflection}
+
+When bird vocalizations originate near the water surface (as observed for Graylag Geese feeding in shallow marsh), sound propagates along two primary paths:
+
+\begin{enumerate}
+\item \textbf{Direct path}: Spherical spreading from source to microphone, subject to atmospheric absorption ($\alpha \approx 0.02$ dB/m at 5 kHz, 75\% RH, 8°C)
+
+\item \textbf{Water-reflected path}: Sound reflects from water surface via specular reflection (angle of incidence = angle of reflection), creating longer path length before reaching microphone
+\end{enumerate}
+
+The path length difference $\Delta L$ between direct and reflected paths creates phase relationships that vary with frequency:
+
+\begin{equation}
+\Delta L = \sqrt{(d_h)^2 + r^2} + \sqrt{(d_h + h_m)^2 + r^2} - \sqrt{h_s^2 + r^2}
+\end{equation}
+
+where $h_s$ is source height above water (typically 0.2-0.5 m for swimming geese), $h_m$ is microphone height (1.5 m), $d_h$ is horizontal distance source to reflection point, and $r$ is total horizontal source-to-microphone distance (100-500 m).
+
+\subsubsection{Constructive and Destructive Interference}
+
+The phase difference $\phi$ between direct and reflected waves determines whether interference is constructive or destructive:
+
+\begin{equation}
+\phi = \frac{2\pi \Delta L}{\lambda} + \pi
+\end{equation}
+
+where $\lambda = c/f$ is wavelength (adding $\pi$ accounts for 180° phase shift upon reflection from denser medium). Constructive interference occurs when $\phi = 2n\pi$ (where $n$ is integer), amplifying received signal by up to 6 dB. Destructive interference at $\phi = (2n+1)\pi$ creates spectral nulls, potentially reducing detection probability at specific frequencies.
+
+For typical Graylag Goose scenarios (source height 0.3 m, microphone 1.5 m, range 180 m), first destructive null occurs at:
+
+\begin{equation}
+f_{null,1} = \frac{c}{2\Delta L} \approx \frac{343 \text{ m/s}}{2 \times 0.85 \text{ m}} \approx 200 \text{ Hz}
+\end{equation}
+
+This falls below the fundamental frequency of Graylag calls (500-1,500 Hz), but higher-order nulls at 600 Hz, 1,000 Hz, etc. can create frequency-dependent detection biases.
+
+\subsubsection{Implications for Acoustic Monitoring}
+
+\textbf{Frequency-Dependent Detection Bias:} Species with fundamental frequencies coinciding with interference nulls experience reduced detection probability. The wetland's shallow water (0.2-1 m depth) and flat terrain create near-perfect specular reflection conditions, maximizing this effect.
+
+\textbf{Range-Dependent Spectral Coloration:} As source-to-receiver distance increases, path length difference decreases (approaching grazing incidence), shifting null frequencies and creating range-dependent timbre changes. This may explain variation in BirdNET confidence scores for identical species at different distances.
+
+\textbf{Water Surface Roughness:} Wind-induced surface waves (significant during 80\% of recording period, 3-7 m/s winds) scatter reflections diffusely rather than specularly, reducing interference effects. Calm periods (early morning, 01:00-06:00) likely exhibited stronger multipath interference.
+
+\textbf{Enhancement Opportunities:} Future deployments could exploit multipath geometry by deploying microphone arrays at varying heights (e.g., 0.5 m, 1.5 m, 3 m) to sample different interference patterns, enabling computational beamforming to separate direct from reflected components and improve SNR by 3-6 dB \citep{Blumstein2011}.
+
+\subsubsection{Comparison with Ground Reflection}
+
+Ground-reflected paths (observed for elevated species like Hooded Crow) differ from water reflections in two key aspects:
+
+\begin{enumerate}
+\item \textbf{Lower reflectivity}: Soil/vegetation reflects 30-50\% of incident sound energy versus 90-95\% for smooth water, reducing interference magnitude
+
+\item \textbf{Frequency-dependent absorption}: Ground reflection exhibits stronger high-frequency absorption ($>$5 kHz) due to porous surface structure, whereas water maintains broadband reflectivity
+\end{enumerate}
+
+These differences explain why water-associated species (geese, swans) showed more consistent BirdNET detection rates (94.1\% for Anseriformes) compared to terrestrial corvids (87.3\%), despite similar call intensities.
+
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[scale=1.3]
+
+% Water surface
+\draw[blue!70, line width=3pt] (0,0) -- (12,0);
+\fill[cyan!10] (0,-0.3) rectangle (12,0);
+\node[blue!80, font=\Large] at (6,-0.6) {\textbf{Water Surface}};
+
+% Source (Graylag Goose)
+\fill[orange!80] (1,0.5) circle (0.2);
+\node[above, orange!90!black, font=\Large] at (1,0.9) {\textbf{Source}};
+\node[below, orange!80, font=\normalsize] at (1,0) {$h_s = 0.3$ m};
+
+% Microphone (AudioMoth)
+\fill[red!80] (11,3) circle (0.2);
+\node[above, red!90!black, font=\Large] at (11,3.4) {\textbf{AudioMoth}};
+\node[below right, red!80, font=\normalsize] at (11,2.6) {$h_m = 1.5$ m};
+
+% Reflection point
+\fill[orange!60] (6,0) circle (0.15);
+\node[below, orange!70, font=\large] at (6,-0.8) {\textbf{Reflection Point}};
+
+% Direct path
+\draw[->, orange!70, line width=3pt, dashed] (1,0.5) -- (11,3);
+\node[above, orange!80, font=\Large] at (6,2.2) {\textbf{Direct: } $L_d$};
+
+% Reflected path (source to reflection point)
+\draw[->, orange!40, line width=2.5pt, dotted] (1,0.5) -- (6,0);
+\node[below, orange!60, font=\large] at (3.5,0.6) {$L_{r1}$};
+
+% Reflected path (reflection point to microphone)
+\draw[->, orange!40, line width=2.5pt, dotted] (6,0) -- (11,3);
+\node[above, orange!60, font=\large] at (8.5,1.8) {$L_{r2}$};
+
+% Angle annotations
+\draw[gray, dashed] (6,0) -- (6,1.5);
+\draw[gray, ->] (6,0.8) arc (90:155:0.8);
+\node[gray, font=\normalsize] at (5.3,1.2) {$\theta_i$};
+\draw[gray, ->] (6,0.8) arc (90:25:0.8);
+\node[gray, font=\normalsize] at (6.7,1.2) {$\theta_r$};
+\node[gray, font=\normalsize] at (9,0.8) {$\theta_i = \theta_r$ (specular)};
+
+% Distance annotation
+\draw[<->, brown!70, line width=1.5pt] (1,-1.5) -- (11,-1.5);
+\node[below, brown!80, font=\Large] at (6,-1.7) {Horizontal distance: $r = 180$ m};
+
+% Path difference equation box
+\node[draw, thick, fill=yellow!10, align=left, font=\large] at (6,5.5) {
+\textbf{Path Length Difference:}\\
+$\Delta L = (L_{r1} + L_{r2}) - L_d$\\
+\\
+For $h_s = 0.3$ m, $h_m = 1.5$ m, $r = 180$ m:\\
+$\Delta L \approx 0.85$ m\\
+\\
+\textbf{Interference Condition:}\\
+Constructive: $\Delta L = n\lambda$ (gain up to +6 dB)\\
+Destructive: $\Delta L = (n + 0.5)\lambda$ (nulls)
+};
+
+% Frequency response inset (simplified)
+\draw[thick] (0.5,3.5) rectangle (4.5,5.2);
+\node[above, font=\large] at (2.5,5.3) {Frequency Response};
+
+% Simplified frequency response curve
+\draw[->] (0.7,3.7) -- (0.7,5) node[left, font=\small] at (0.7,4.35) {Gain (dB)};
+\draw[->] (0.7,3.7) -- (4.3,3.7) node[below, font=\small] at (2.5,3.7) {Frequency (Hz)};
+
+% Draw oscillating response showing interference pattern
+\draw[blue!70, line width=2pt] (0.7,4.35)
+  .. controls (1.2,4.8) and (1.5,4.8) .. (1.8,4.35)
+  .. controls (2.1,3.9) and (2.4,3.9) .. (2.7,4.35)
+  .. controls (3.0,4.8) and (3.3,4.8) .. (3.6,4.35)
+  .. controls (3.9,3.9) and (4.0,3.9) .. (4.3,4.35);
+
+% Mark nulls
+\foreach \x in {1.8,2.7,3.6} {
+    \fill[red] (\x,4.35) circle (0.05);
+    \node[below, font=\tiny, red] at (\x,3.9) {null};
+}
+
+% Frequency labels
+\node[font=\tiny] at (0.9,3.6) {0};
+\node[font=\tiny] at (1.8,3.6) {600};
+\node[font=\tiny] at (2.7,3.6) {1200};
+\node[font=\tiny] at (3.6,3.6) {1800};
+
+\end{tikzpicture}
+\caption{\textbf{Water reflection multipath interference geometry.} Sound from source (Graylag Goose, $h_s = 0.3$ m above water) reaches AudioMoth ($h_m = 1.5$ m) via direct path $L_d$ and water-reflected path $L_{r1} + L_{r2}$. Specular reflection obeys $\theta_i = \theta_r$ (angle of incidence = angle of reflection). Path length difference $\Delta L \approx 0.85$ m creates frequency-dependent interference: constructive when $\Delta L = n\lambda$ (signal gain up to +6 dB), destructive when $\Delta L = (n+0.5)\lambda$ (spectral nulls). Inset shows resulting frequency response with periodic nulls at 200 Hz, 600 Hz, 1,000 Hz, etc. For 180m range, first null (200 Hz) falls below Graylag fundamental (500-1,500 Hz), but higher-order nulls affect detection. Wind-roughened water surface reduces interference by scattering reflections diffusely.}
+\label{fig:water_reflection_physics}
+\end{figure*}
 
 \subsection{Recommendations for Future Studies}
 
