@@ -52,6 +52,30 @@ Interactive website with:
 
 ## 📁 Directory Structure
 
+### Study Workflow
+
+```mermaid
+flowchart LR
+    A[Field Deployment<br/>Oct 13-15, 2025] --> B[Raw Audio<br/>48.8 hours @ 48kHz]
+    B --> C[BirdNET Analysis<br/>82 species detected]
+    C --> D[Enhancement Pipeline<br/>Wiener + HPSS]
+    D --> E[Human Verification<br/>Spectrogram review]
+    E --> F[Biological Screening<br/>Habitat/temporal checks]
+    F --> G[Final Dataset<br/>77 species, 4,085 calls]
+    G --> H[Deliverables]
+    H --> I[LaTeX Paper<br/>19 pages, 18 refs]
+    H --> J[Interactive Website<br/>6 pages + gallery]
+    H --> K[GitHub Repository<br/>Open data + code]
+
+    style A fill:#1a1f3a,stroke:#00d4ff,color:#e0e0e0
+    style G fill:#0a4d2e,stroke:#00ff88,color:#e0e0e0
+    style I fill:#2d1f5c,stroke:#7b2ff7,color:#e0e0e0
+    style J fill:#2d1f5c,stroke:#7b2ff7,color:#e0e0e0
+    style K fill:#2d1f5c,stroke:#7b2ff7,color:#e0e0e0
+```
+
+### Repository Structure
+
 ```
 gaulosen-study/
 ├── index.html                      # Homepage with study overview
@@ -82,11 +106,52 @@ gaulosen-study/
 - **Conditions:** 80% rain/fog coverage (challenging weather)
 
 ### Analysis Pipeline
+
+```mermaid
+flowchart TD
+    A[Raw Audio Recording<br/>48.8 hours @ 48kHz] --> B[BirdNET v2.4<br/>Automated Detection]
+    B --> C[Initial Dataset<br/>82 species, 4,108 detections]
+    C --> D[Audio Enhancement<br/>Wiener + HPSS]
+    D --> E[Human Verification<br/>Spectrogram Analysis]
+    E --> F[Biological Screening<br/>Habitat/Temporal Validation]
+    F --> G{Verification<br/>Decision}
+    G -->|Pass| H[Verified Dataset<br/>77 species, 4,085 detections]
+    G -->|Fail| I[Rejected<br/>5 species, 23 detections]
+    H --> J[93.9% Pass Rate]
+
+    style A fill:#1a1f3a,stroke:#00d4ff,color:#e0e0e0
+    style H fill:#0a4d2e,stroke:#00ff88,color:#e0e0e0
+    style I fill:#4d0a0a,stroke:#ff4444,color:#e0e0e0
+    style J fill:#0a4d2e,stroke:#00ff88,color:#e0e0e0
+```
+
+**Pipeline Steps:**
 1. **BirdNET v2.4** automated detection → 82 species, 4,108 detections
 2. **Audio enhancement** (Wiener filtering + HPSS) for rain noise reduction
 3. **Human verification** via spectrograms and enhanced audio playback
 4. **Biological verification** screening for ecological plausibility
 5. **Final dataset:** 77 species, 4,085 verified detections (93.9% pass rate)
+
+### Biological Verification Decision Tree
+
+```mermaid
+flowchart TD
+    A[BirdNET Detection] --> B{Habitat<br/>Match?}
+    B -->|No| C[REJECT: Habitat Mismatch<br/>E.g., oceanic species inland]
+    B -->|Yes| D{Temporal<br/>Plausibility?}
+    D -->|No| E[REJECT: Temporal Impossibility<br/>E.g., nocturnal woodpeckers]
+    D -->|Yes| F{Geographic<br/>Range?}
+    F -->|No| G[REJECT: Non-Native<br/>E.g., escaped exotics]
+    F -->|Yes| H{Spectrogram<br/>Confirms?}
+    H -->|No| I[REJECT: Cannot Confirm<br/>Low confidence + no visual match]
+    H -->|Yes| J[✅ VERIFIED<br/>Add to final dataset]
+
+    style C fill:#4d0a0a,stroke:#ff4444,color:#e0e0e0
+    style E fill:#4d0a0a,stroke:#ff4444,color:#e0e0e0
+    style G fill:#4d0a0a,stroke:#ff4444,color:#e0e0e0
+    style I fill:#4d0a0a,stroke:#ff4444,color:#e0e0e0
+    style J fill:#0a4d2e,stroke:#00ff88,color:#e0e0e0
+```
 
 ### Rejected Species (5 total, 23 detections)
 1. **Lesser Spotted Woodpecker** (14) - Nocturnal impossibility
@@ -109,6 +174,32 @@ gaulosen-study/
 10. **Mallard** - 27 detections (59% nocturnal feeding behavior)
 
 ## 🎯 Key Behavioral Findings
+
+### Temporal Activity Patterns (24-Hour Cycle)
+
+```mermaid
+gantt
+    title Species Activity Patterns Over 24 Hours
+    dateFormat HH:mm
+    axisFormat %H:%M
+
+    section Nocturnal Migration
+    Pink-footed Goose Flight Calls     :active, 01:00, 5h
+    Common Crane Flight Calls          :active, 01:00, 5h
+    Peak Migration (03:00-04:00)       :crit, 03:00, 1h
+
+    section Crepuscular Activity
+    Great Snipe Dusk Calling           :active, 19:00, 3h
+    Great Snipe Peak (20:00)           :crit, 20:00, 1h
+
+    section Diurnal Activity
+    Graylag Goose Flock Dynamics       :active, 08:00, 12h
+    Peak Flock Event (91 min)          :crit, 14:00, 1h30m
+    Corvid-Waterfowl Co-occurrence     :active, 06:00, 14h
+
+    section Nocturnal Feeding
+    Mallard Night Activity (59%)       :active, 22:00, 6h
+```
 
 ### 1. Social Species Dominance
 - **87% of detections** from flock/social species
