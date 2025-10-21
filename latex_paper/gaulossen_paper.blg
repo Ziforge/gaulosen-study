@@ -2,64 +2,50 @@ This is BibTeX, Version 0.99d (TeX Live 2025/Homebrew)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: gaulossen_paper.aux
 The style file: apalike.bst
-I found no \bibdata command---while reading file gaulossen_paper.aux
-Warning--I didn't find a database entry for "vanGils2016"
-Warning--I didn't find a database entry for "Shonfield2017"
-Warning--I didn't find a database entry for "Sugai2019"
-Warning--I didn't find a database entry for "Kahl2021"
-Warning--I didn't find a database entry for "Wood2022"
-Warning--I didn't find a database entry for "Stowell2019"
-Warning--I didn't find a database entry for "Kålås1995"
-Warning--I didn't find a database entry for "Artsdatabanken2023"
-Warning--I didn't find a database entry for "BirdLife2024"
-Warning--I didn't find a database entry for "Fitzgerald2010"
-Warning--I didn't find a database entry for "Redpath2025"
-Warning--I didn't find a database entry for "Shimmings2016"
-Warning--I didn't find a database entry for "Black2019"
-Warning--I didn't find a database entry for "Magrath2015"
-Warning--I didn't find a database entry for "King2023"
-Warning--I didn't find a database entry for "BirdLife2023"
-Warning--I didn't find a database entry for "Ridley2007"
-Warning--I didn't find a database entry for "Blumstein2011"
-You've used 0 entries,
+Database file #1: references.bib
+Warning--entry type for "Kålås1995" isn't style-file defined
+--line 84 of file references.bib
+Warning--entry type for "BirdLife2023" isn't style-file defined
+--line 152 of file references.bib
+You've used 15 entries,
             1935 wiz_defined-function locations,
-            506 strings with 4086 characters,
-and the built_in function-call counts, 17 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 0
-:= -- 7
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
-chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 1
+            580 strings with 6066 characters,
+and the built_in function-call counts, 5392 in all, are:
+= -- 528
+> -- 211
+< -- 11
++ -- 72
+- -- 68
+* -- 456
+:= -- 968
+add.period$ -- 45
+call.type$ -- 15
+change.case$ -- 106
+chr.to.int$ -- 15
+cite$ -- 15
+duplicate$ -- 198
+empty$ -- 374
+format.name$ -- 97
+if$ -- 1031
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 3
-num.names$ -- 0
-pop$ -- 0
+missing$ -- 15
+newline$ -- 78
+num.names$ -- 45
+pop$ -- 81
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 109
 quote$ -- 0
-skip$ -- 1
+skip$ -- 153
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
+substring$ -- 366
+swap$ -- 12
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
+type$ -- 84
 warning$ -- 0
-while$ -- 0
+while$ -- 44
 width$ -- 0
-write$ -- 2
-(There was 1 error message)
+write$ -- 193
+(There were 2 warnings)
