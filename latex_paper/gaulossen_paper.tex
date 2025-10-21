@@ -27,12 +27,12 @@
 % Header
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small NTNU Bioacoustics Assignment}
-\fancyhead[R]{\small Gaulosen Acoustic Monitoring}
+\fancyhead[L]{\small Conservation Bioacoustics Report}
+\fancyhead[R]{\small Gaulosen Nature Reserve}
 \fancyfoot[C]{\thepage}
 
 % Title and authors
-\title{\textbf{Automated Acoustic Monitoring of Avian Biodiversity at Gaulosen Nature Reserve: A BirdNET-Based Assessment of 82 Species During Autumn Migration}}
+\title{\textbf{Baseline Acoustic Biodiversity Assessment of Gaulosen Nature Reserve: Monitoring 77 Bird Species Along the East Atlantic Flyway}}
 
 \author[1]{George Redpath}
 \affil[1]{Norwegian University of Science and Technology (NTNU), Department of Acoustics, Trondheim, Norway}
@@ -47,10 +47,10 @@
 \maketitle
 
 \begin{abstract}
-\noindent Automated acoustic monitoring offers scalable biodiversity assessment but requires validation against traditional methods. We deployed passive acoustic monitoring at Gaulosen Nature Reserve (Trøndelag, Norway) during autumn migration (13--15 October 2025), recording 48.8 hours across challenging weather conditions (80\% rain/fog coverage). Using BirdNET v2.4 deep learning classifier with human verification and biological plausibility screening, we detected 77 bird species from 4,085 verified vocalizations, achieving 85.6\% species-level verification pass rate. Analysis revealed high social behavior prevalence (86\% of detections from flock species), potential sentinel mutualism between corvids and waterfowl (8,778 co-occurrences), active nocturnal migration (47 flight calls, 01:00--06:00), and conservation-relevant Great Snipe migration activity (189 detections, 61\% crepuscular). Graylag Goose dominated the soundscape (69.9\% of detections, 58.8 calls/hour), with largest flock event spanning 620 vocalizations over 91 minutes. Temporal clustering identified 59 discrete flock events. Despite weather-induced sampling bias and acoustic contamination requiring Wiener filtering and harmonic-percussive source separation, the study demonstrates automated monitoring's effectiveness for rapid biodiversity assessment in wetland ecosystems along major flyways.
+\noindent Establishing baseline biodiversity data is critical for conservation management of Important Bird Areas along migratory flyways. We conducted passive acoustic monitoring at Gaulosen Nature Reserve (Trøndelag, Norway), a designated IBA on the East Atlantic Flyway, during autumn migration (October 13--15, 2025). Using BirdNET v2.4 with human verification, we documented 77 bird species from 4,085 verified vocalizations across 48.8 hours of recording. Key conservation findings include: (1) declining Great Snipe detected at migration stopover (189 calls, 61\% crepuscular activity), (2) intensive waterfowl use with peak flock activity of 620 Graylag Goose calls over 91 minutes, (3) 47 nocturnal migration flight calls documenting active flyway usage, and (4) verification of visual identification (Yellowhammer, \textit{Emberiza citrinella}) via photo submission to Cornell Lab's Merlin Bird ID. Despite rain-dominated conditions (80\% temporal coverage), acoustic monitoring successfully quantified biodiversity where visual surveys would yield minimal data, demonstrating PAM's value for year-round conservation monitoring at this globally significant wetland.
 \end{abstract}
 
-\noindent \textbf{Keywords:} passive acoustic monitoring, BirdNET, wetland biodiversity, East Atlantic Flyway, pattern consistent with sentinel mutualism hypothesis, deep learning, avian migration
+\noindent \textbf{Keywords:} conservation monitoring, biodiversity baseline, Important Bird Area, East Atlantic Flyway, Great Snipe, BirdNET, passive acoustic monitoring
 
 \vspace{0.5cm}
 \end{@twocolumnfalse}
@@ -63,25 +63,21 @@
 % Main content begins
 \section{Introduction}
 
-Wetland ecosystems serve as critical stopover sites for millions of migratory birds along established flyways \citep{vanGils2016}, yet traditional visual survey methods face temporal and weather-related constraints that limit comprehensive biodiversity assessment \citep{Shonfield2017}. Passive acoustic monitoring (PAM) using autonomous recording units offers continuous, weather-independent data collection \citep{Sugai2019}, but requires robust automated classification and human verification protocols to ensure scientific validity.
+Gaulosen Nature Reserve, a designated Important Bird Area (IBA) on Norway's East Atlantic Flyway, requires baseline biodiversity data to inform conservation management and monitor population trends of declining species. Traditional visual surveys are constrained by weather, observer availability, and nocturnal activity \citep{Shonfield2017}. Passive acoustic monitoring (PAM) offers continuous, non-invasive data collection that can quantify species presence, migration timing, and habitat use patterns critical for conservation planning \citep{Sugai2019}.
 
-Recent advances in deep learning have enabled species-level bird identification from acoustic recordings \citep{Kahl2021}, with BirdNET emerging as a widely-adopted convolutional neural network trained on 3,000+ species \citep{Wood2022}. However, deployment in challenging acoustic environments (rain noise, wind contamination, overlapping vocalizations) demands careful signal processing and verification workflows \citep{Stowell2019}.
+Deep learning tools such as BirdNET \citep{Kahl2021, Wood2022} enable automated species identification from acoustic recordings, but require human verification to ensure data quality for conservation decision-making. Visual identification tools like Cornell Lab's Merlin Bird ID \citep{MerlinID2024} complement acoustic monitoring by enabling field observers to document species through photo submissions, creating multi-modal biodiversity datasets.
 
-Gaulosen Nature Reserve (63.3833°N, 10.0333°E), located in Trøndelag, Norway, provides an ideal test case: a wetland habitat along the East Atlantic Flyway with documented significance for waterfowl migration \citep{Kålås1995}, yet lacking comprehensive acoustic monitoring baselines. The reserve's shallow marshes and reedbeds support diverse breeding and migratory bird communities, including declining species such as Great Snipe (\textit{Gallinago media}) that require non-invasive monitoring approaches.
+\subsection{Conservation Objectives}
 
-\subsection{Research Objectives}
-
-This study addresses three primary questions:
+This baseline assessment establishes quantitative biodiversity metrics for Gaulosen Nature Reserve with three conservation-focused objectives:
 
 \begin{enumerate}
-\item \textbf{Species Diversity}: How many bird species can be reliably detected and verified using automated acoustic monitoring during a 48-hour autumn sampling period?
+\item \textbf{Species Inventory}: Document autumn migration bird diversity to establish reference data for future trend analysis and identify priority conservation species.
 
-\item \textbf{Behavioral Ecology}: What temporal and social patterns emerge from continuous acoustic data, particularly regarding flock dynamics and interspecies interactions?
+\item \textbf{Migration Monitoring}: Quantify nocturnal flight call activity and stopover habitat use patterns, particularly for declining species such as Great Snipe (\textit{Gallinago media}).
 
-\item \textbf{Methodological Validation}: What verification pass rate can be achieved when combining deep learning classification with human expert review in challenging weather conditions?
+\item \textbf{Methodological Development}: Validate acoustic monitoring protocols for weather-independent biodiversity assessment at this globally significant wetland site.
 \end{enumerate}
-
-We hypothesize that despite rain-induced acoustic contamination, automated monitoring combined with audio enhancement and human verification will detect $>$60 species (based on regional checklists \citep{Artsdatabanken2023}) and quantify behavioral patterns through temporal clustering analysis.
 
 \section{Methods}
 
@@ -1018,16 +1014,18 @@ Cloud cover & Overcast & 95\% \\
 \end{tabular}
 \end{table}
 
-\subsection{Data Access}
+\subsection{Data Access and Replication}
 
-All supplementary data available at:
+All data, code, and supplementary materials are publicly available:
 
 \begin{itemize}
-\item \textbf{Interactive website:} \url{https://ziforge.github.io/gaulosen-study/}
-\item \textbf{GitHub repository:} \url{https://github.com/Ziforge/gaulosen-study}
-\item \textbf{Species gallery:} 77 species with spectrograms and audio samples
-\item \textbf{Behavioral analysis datasets:} Flock events, co-occurrences, temporal patterns
-\item \textbf{Analysis code:} Python scripts for BirdNET processing, audio enhancement, and visualization
+\item \textbf{Interactive website:} \url{https://ziforge.github.io/gaulosen-study/} -- species gallery with audio samples and spectrograms
+\item \textbf{GitHub repository:} \url{https://github.com/Ziforge/gaulosen-study} -- full dataset and analysis scripts
 \end{itemize}
+
+\section*{References}
+
+\bibliographystyle{apalike}
+\bibliography{references}
 
 \end{document}
