@@ -112,29 +112,45 @@ Gaulosen Nature Reserve (Øymælen 440, 7224 Melhus; 63.341°N, 10.215°E) compr
 
 \begin{figure*}[h]
 \centering
-\begin{subfigure}{0.48\textwidth}
-\includegraphics[width=\textwidth]{03_deployment_location_fence.jpg}
-\caption{AudioMoth deployment on fence post, 100m from wetland edge}
+\begin{subfigure}{0.31\textwidth}
+\centering
+\includegraphics[width=\textwidth]{01_wetland_landscape_mountains.jpg}
+\caption{Gaulosen wetland with mountain backdrop}
 \end{subfigure}
 \hfill
-\begin{subfigure}{0.48\textwidth}
-\includegraphics[width=\textwidth]{07_wetland_waterfowl_dramatic.jpg}
-\caption{Challenging weather conditions: rain, fog, low visibility}
+\begin{subfigure}{0.31\textwidth}
+\centering
+\includegraphics[width=\textwidth]{02_species_information_board.jpg}
+\caption{Site information board documenting biodiversity}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.31\textwidth}
+\centering
+\includegraphics[width=\textwidth]{03_deployment_location_fence.jpg}
+\caption{AudioMoth deployment on fence post}
 \end{subfigure}
 
 \vspace{0.3cm}
 
-\begin{subfigure}{0.48\textwidth}
-\includegraphics[width=\textwidth]{06_geese_flight_formation.jpg}
-\caption{Large Graylag Goose flock (peak event: 620 calls/91min)}
+\begin{subfigure}{0.31\textwidth}
+\centering
+\includegraphics[width=\textwidth]{05_camouflaged_bird_vegetation.jpg}
+\caption{Waterfowl in natural camouflage vegetation}
 \end{subfigure}
 \hfill
-\begin{subfigure}{0.48\textwidth}
-\includegraphics[width=\textwidth]{01_wetland_landscape_mountains.jpg}
-\caption{Gaulosen wetland with mountain backdrop}
+\begin{subfigure}{0.31\textwidth}
+\centering
+\includegraphics[width=\textwidth]{06_geese_flight_formation.jpg}
+\caption{Large Graylag Goose flock (620 calls/91min)}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.31\textwidth}
+\centering
+\includegraphics[width=\textwidth]{07_wetland_waterfowl_dramatic.jpg}
+\caption{Challenging weather: rain, fog, low visibility}
 \end{subfigure}
 
-\caption{\textbf{Field observations documenting deployment conditions and peak flock activity.} (a) Equipment mounted 1.5m height with rain shield providing 48.8 hours continuous recording (13-15 October 2025). AudioMoth positioned for unobstructed sight lines to primary wetland congregation areas. (b) Challenging atmospheric conditions dominated recording period: 80\% rain/fog coverage, 7-11°C, visibility often $<$500m, requiring extensive audio enhancement (see Figure \ref{fig:processing_comparison}). (c) Peak Graylag Goose flock activity Day 1 (16:00-17:26): visual field estimate 200+ individuals, 620 vocalizations quantified by BirdNET post-analysis, demonstrating intensive contact calling behavior. This 91-minute event represents largest continuous flock vocalization period detected during study. (d) Open wetland habitat with flat terrain providing favorable sound propagation conditions: 50-100m detection range (warblers), 200-500m (geese/cranes). Mountain backdrop (Dovrefjell range) visible during rare clear periods.}
+\caption{\textbf{Field deployment documentation October 13-15, 2025.} (a) Open wetland habitat with mountain backdrop (Dovrefjell range) providing favorable sound propagation: 50-100m detection range (warblers), 200-500m (geese/cranes). (b) Site information board documenting reserve's ecological significance and 200+ documented bird species. (c) AudioMoth v1.2 mounted 1.5m height on fence post, 100m from wetland edge, with rain shield providing 48.8 hours continuous recording. (d) Camouflaged waterfowl in vegetation demonstrating cryptic behavior necessitating acoustic monitoring. (e) Peak Graylag Goose flock activity Day 1 (16:00-17:26): visual field estimate 200+ individuals, 620 vocalizations quantified by BirdNET post-analysis. (f) Challenging atmospheric conditions dominated recording period: 80\% rain/fog coverage, 7-11°C, visibility often $<$500m, requiring extensive audio enhancement (Figure \ref{fig:processing_comparison}). All field observations and analysis available at interactive website: \url{https://ziforge.github.io/gaulosen-study/}.}
 \label{fig:field_deployment}
 \end{figure*}
 
@@ -451,8 +467,7 @@ False positives & 23 & 0.6\% \\
 
 \begin{figure}[H]
 \centering
-\begin{center}
-\begin{tikzpicture}[scale=0.95, every node/.style={font=\normalsize}]
+\begin{tikzpicture}[scale=0.85, every node/.style={font=\normalsize}]
 
 % Wetland area (larger, clearer)
 \fill[cyan!15] (0,0) rectangle (10,2.5);
@@ -494,7 +509,6 @@ False positives & 23 & 0.6\% \\
 \node[above, font=\Large] at (9,8) {\textbf{N}};
 
 \end{tikzpicture}
-\end{center}
 \caption{\textbf{Site deployment geometry and detection zones.} AudioMoth positioned 100m from wetland edge on fence post (1.5m height) with unobstructed sight lines to primary waterfowl congregation areas. Concentric circles indicate species-dependent acoustic detection ranges based on call intensity and spherical spreading: 50-100m for quiet species (warblers, thrushes, 60-75 dB SPL calls), 200-500m for loud species (geese, cranes, 85-100 dB SPL calls). Flat terrain and open water provided favorable sound propagation conditions. Waterfowl symbols ($\approx$) indicate observed congregation zones. Detection range estimates account for atmospheric absorption ($\alpha \approx 0.02$ dB/m at 5 kHz) and 18 dB SNR threshold for BirdNET classification. This geometry enabled detection of 77 verified species across diverse vocal intensities and habitat preferences.}
 \label{fig:site_map}
 \end{figure}
@@ -716,90 +730,88 @@ These differences explain why water-associated species (geese, swans) showed mor
 
 \begin{figure*}[t]
 \centering
-\begin{tikzpicture}[scale=1.3]
+\begin{tikzpicture}[scale=1.1]
 
 % Water surface
-\draw[blue!70, line width=3pt] (0,0) -- (12,0);
+\draw[blue!70, line width=2.5pt] (0,0) -- (12,0);
 \fill[cyan!10] (0,-0.3) rectangle (12,0);
-\node[blue!80, font=\Large] at (6,-0.6) {\textbf{Water Surface}};
+\node[blue!80, font=\large] at (6,-0.6) {\textbf{Water Surface}};
 
 % Source (Graylag Goose)
-\fill[orange!80] (1,0.5) circle (0.2);
-\node[above, orange!90!black, font=\Large] at (1,0.9) {\textbf{Source}};
-\node[below, orange!80, font=\normalsize] at (1,0) {$h_s = 0.3$ m};
+\fill[orange!80] (1,0.5) circle (0.18);
+\node[above, orange!90!black, font=\large] at (1,0.9) {\textbf{Source}};
+\node[below, orange!80, font=\small] at (1,0) {$h_s = 0.3$ m};
 
 % Microphone (AudioMoth)
-\fill[red!80] (11,3) circle (0.2);
-\node[above, red!90!black, font=\Large] at (11,3.4) {\textbf{AudioMoth}};
-\node[below right, red!80, font=\normalsize] at (11,2.6) {$h_m = 1.5$ m};
+\fill[red!80] (11,3) circle (0.18);
+\node[above, red!90!black, font=\large] at (11,3.4) {\textbf{AudioMoth}};
+\node[below right, red!80, font=\small] at (11,2.6) {$h_m = 1.5$ m};
 
 % Reflection point
-\fill[orange!60] (6,0) circle (0.15);
-\node[below, orange!70, font=\large] at (6,-0.8) {\textbf{Reflection Point}};
+\fill[orange!60] (6,0) circle (0.13);
+\node[below, orange!70, font=\normalsize] at (6,-0.8) {\textbf{Reflection Point}};
 
 % Direct path
-\draw[->, orange!70, line width=3pt, dashed] (1,0.5) -- (11,3);
-\node[above, orange!80, font=\Large] at (6,2.2) {\textbf{Direct: } $L_d$};
+\draw[->, orange!70, line width=2.5pt, dashed] (1,0.5) -- (11,3);
+\node[above, orange!80, font=\large] at (6,2.2) {\textbf{Direct: } $L_d$};
 
 % Reflected path (source to reflection point)
-\draw[->, orange!40, line width=2.5pt, dotted] (1,0.5) -- (6,0);
-\node[below, orange!60, font=\large] at (3.5,0.6) {$L_{r1}$};
+\draw[->, orange!40, line width=2pt, dotted] (1,0.5) -- (6,0);
+\node[below, orange!60, font=\normalsize] at (3.5,0.6) {$L_{r1}$};
 
 % Reflected path (reflection point to microphone)
-\draw[->, orange!40, line width=2.5pt, dotted] (6,0) -- (11,3);
-\node[above, orange!60, font=\large] at (8.5,1.8) {$L_{r2}$};
+\draw[->, orange!40, line width=2pt, dotted] (6,0) -- (11,3);
+\node[above, orange!60, font=\normalsize] at (8.5,1.8) {$L_{r2}$};
 
 % Angle annotations
 \draw[gray, dashed] (6,0) -- (6,1.5);
 \draw[gray, ->] (6,0.8) arc (90:155:0.8);
-\node[gray, font=\normalsize] at (5.3,1.2) {$\theta_i$};
+\node[gray, font=\small] at (5.3,1.2) {$\theta_i$};
 \draw[gray, ->] (6,0.8) arc (90:25:0.8);
-\node[gray, font=\normalsize] at (6.7,1.2) {$\theta_r$};
-\node[gray, font=\normalsize] at (9,0.8) {$\theta_i = \theta_r$ (specular)};
+\node[gray, font=\small] at (6.7,1.2) {$\theta_r$};
+\node[gray, font=\small] at (9,0.8) {$\theta_i = \theta_r$ (specular)};
 
 % Distance annotation
 \draw[<->, brown!70, line width=1.5pt] (1,-1.5) -- (11,-1.5);
-\node[below, brown!80, font=\Large] at (6,-1.7) {Horizontal distance: $r = 180$ m};
+\node[below, brown!80, font=\large] at (6,-1.7) {Horizontal distance: $r = 180$ m};
 
-% Path difference equation box
-\node[draw, thick, fill=yellow!10, align=left, font=\large] at (6,5.5) {
-\textbf{Path Length Difference:}\\
-$\Delta L = (L_{r1} + L_{r2}) - L_d$\\
-\\
-For $h_s = 0.3$ m, $h_m = 1.5$ m, $r = 180$ m:\\
-$\Delta L \approx 0.85$ m\\
-\\
-\textbf{Interference Condition:}\\
-Constructive: $\Delta L = n\lambda$ (gain up to +6 dB)\\
-Destructive: $\Delta L = (n + 0.5)\lambda$ (nulls)
-};
-
-% Frequency response inset (simplified)
-\draw[thick] (0.5,3.5) rectangle (4.5,5.2);
-\node[above, font=\large] at (2.5,5.3) {Frequency Response};
+% Frequency response inset (moved to left, lower)
+\draw[thick] (0.5,3) rectangle (4,4.5);
+\node[above, font=\normalsize] at (2.25,4.6) {Frequency Response};
 
 % Simplified frequency response curve
-\draw[->] (0.7,3.7) -- (0.7,5) node[left, font=\small] at (0.7,4.35) {Gain (dB)};
-\draw[->] (0.7,3.7) -- (4.3,3.7) node[below, font=\small] at (2.5,3.7) {Frequency (Hz)};
+\draw[->] (0.7,3.2) -- (0.7,4.3) node[left, font=\tiny] at (0.7,3.75) {Gain};
+\draw[->] (0.7,3.2) -- (3.8,3.2) node[below, font=\tiny] at (2.25,3.2) {Freq (Hz)};
 
 % Draw oscillating response showing interference pattern
-\draw[blue!70, line width=2pt] (0.7,4.35)
-  .. controls (1.2,4.8) and (1.5,4.8) .. (1.8,4.35)
-  .. controls (2.1,3.9) and (2.4,3.9) .. (2.7,4.35)
-  .. controls (3.0,4.8) and (3.3,4.8) .. (3.6,4.35)
-  .. controls (3.9,3.9) and (4.0,3.9) .. (4.3,4.35);
+\draw[blue!70, line width=1.5pt] (0.7,3.75)
+  .. controls (1.1,4.1) and (1.3,4.1) .. (1.5,3.75)
+  .. controls (1.7,3.4) and (1.9,3.4) .. (2.1,3.75)
+  .. controls (2.3,4.1) and (2.5,4.1) .. (2.7,3.75)
+  .. controls (2.9,3.4) and (3.1,3.4) .. (3.3,3.75)
+  .. controls (3.5,4.1) and (3.6,4.1) .. (3.8,3.75);
 
 % Mark nulls
-\foreach \x in {1.8,2.7,3.6} {
-    \fill[red] (\x,4.35) circle (0.05);
-    \node[below, font=\tiny, red] at (\x,3.9) {null};
+\foreach \x in {1.5,2.1,2.7,3.3} {
+    \fill[red] (\x,3.75) circle (0.04);
 }
 
 % Frequency labels
-\node[font=\tiny] at (0.9,3.6) {0};
-\node[font=\tiny] at (1.8,3.6) {600};
-\node[font=\tiny] at (2.7,3.6) {1200};
-\node[font=\tiny] at (3.6,3.6) {1800};
+\node[font=\tiny] at (0.9,3.1) {0};
+\node[font=\tiny] at (1.5,3.1) {600};
+\node[font=\tiny] at (2.1,3.1) {1200};
+\node[font=\tiny] at (2.7,3.1) {1800};
+
+% Path difference equation box (moved to right side, no overlap)
+\node[draw, thick, fill=yellow!10, align=left, font=\normalsize] at (8.5,5) {
+\textbf{Path Length Difference:}\\
+$\Delta L = (L_{r1} + L_{r2}) - L_d$\\
+For $h_s = 0.3$ m, $h_m = 1.5$ m:\\
+$\Delta L \approx 0.85$ m\\
+\textbf{Interference:}\\
+Constructive: $\Delta L = n\lambda$\\
+Destructive: $\Delta L = (n + 0.5)\lambda$
+};
 
 \end{tikzpicture}
 \caption{\textbf{Water reflection multipath interference geometry.} Sound from source (Graylag Goose, $h_s = 0.3$ m above water) reaches AudioMoth ($h_m = 1.5$ m) via direct path $L_d$ and water-reflected path $L_{r1} + L_{r2}$. Specular reflection obeys $\theta_i = \theta_r$ (angle of incidence = angle of reflection). Path length difference $\Delta L \approx 0.85$ m creates frequency-dependent interference: constructive when $\Delta L = n\lambda$ (signal gain up to +6 dB), destructive when $\Delta L = (n+0.5)\lambda$ (spectral nulls). Inset shows resulting frequency response with periodic nulls at 200 Hz, 600 Hz, 1,000 Hz, etc. For 180m range, first null (200 Hz) falls below Graylag fundamental (500-1,500 Hz), but higher-order nulls affect detection. Wind-roughened water surface reduces interference by scattering reflections diffusely.}
