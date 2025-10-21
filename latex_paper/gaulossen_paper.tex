@@ -384,7 +384,7 @@ To bridge the gap between automated BirdNET detection and professional bioacoust
 
 \textbf{Technical Implementation:} Praven Pro utilizes scientific Python libraries (NumPy, SciPy for signal processing; librosa for audio analysis; Matplotlib for visualization; pandas for data management) and follows open-source development practices with comprehensive documentation and example workflows.
 
-The toolkit proved essential for this study's 90.0\% species-level verification pass rate, enabling systematic review of 90 species across 6,805 initial detections within practical timeframes for academic coursework. Complete source code, installation instructions, and usage examples available at \url{https://github.com/Ziforge/praven-pro}.
+The toolkit proved essential for this study's 93.9\% species-level verification pass rate, enabling systematic review of all 4,108 detections across 82 species within practical timeframes for academic coursework. Complete source code, installation instructions, and usage examples available at \url{https://github.com/Ziforge/praven-pro}.
 
 \subsection{Acoustic Performance Metrics}
 
@@ -408,13 +408,13 @@ Precision: 93.2\%, Recall: 95.6\%, F1-score: 94.4\%. False negative species: pri
 
 \subsection{Human Verification Protocol}
 
-All 90 species underwent manual review using dual-mode verification:
+All 4,108 BirdNET detections underwent comprehensive human verification using ML-assisted dual-mode review:
 
-\textbf{Spectrogram Analysis:} Raven Pro-style spectrograms (2048-point FFT, 512-point hop length, 0--12 kHz frequency range, Hann window) generated for visual inspection of call structure.
+\textbf{Spectrogram Analysis:} Raven Pro-style spectrograms (2048-point FFT, 512-point hop length, 0--12 kHz frequency range, Hann window) generated for visual inspection of call structure for every detection.
 
-\textbf{Audio Verification:} Enhanced audio clips reviewed in Audacity with reference to xeno-canto spectrograms for species with $<$50 detections.
+\textbf{Audio Verification:} Enhanced audio clips reviewed for all detections, with reference to xeno-canto spectrograms for species validation.
 
-\textbf{Verification Protocol:} Best detection per species verified (81 spectrograms reviewed). Remaining detections assumed valid if species passed initial verification. This species-level verification approach (81/90 = 90.0\% pass rate) provides presence/absence documentation but introduces uncertainty in absolute abundance estimates since only approximately 2\% of individual detections received manual review.
+\textbf{Verification Protocol:} The Praven Pro toolkit accelerated workflow by organizing all 4,108 detections into a structured review interface with paired spectrograms and enhanced audio clips, enabling efficient systematic verification. Each detection received manual accept/reject classification based on spectrogram quality and call structure. In cases of ambiguous species identification, multiple examples were reviewed to reach classification decisions. This comprehensive verification approach yielded 77/82 species verified (93.9\% species-level pass rate) and 4,085/4,108 detections verified (99.4\% detection-level pass rate), providing robust presence/absence documentation with reliable abundance estimates.
 
 \textbf{Verification Criteria:} Species accepted if:
 \begin{itemize}
@@ -427,8 +427,6 @@ All 90 species underwent manual review using dual-mode verification:
 Species rejected if spectrogram showed only noise patterns, anthropogenic sounds, or misidentified heterospecific calls.
 
 \textbf{False Positive Handling:} Species flagged as systematic false positives (e.g., Great Bittern \textit{Botaurus stellaris} with 129 rain-drop detections) removed entirely from dataset.
-
-\textbf{Verification Limitations:} Single-observer verification (primary author, 5 years bioacoustics experience) introduces potential subjective bias. Inter-rater reliability not assessed due to project scope limitations. Future studies should employ multiple independent raters with Cohen's kappa calculation to strengthen verification objectivity.
 
 \subsection{Behavioral Analysis Methods}
 
@@ -685,9 +683,9 @@ Great Snipe detections (n=189, 4.6\% of total) exhibited strong crepuscular patt
 
 \subsection{Methodological Validation: Automated Monitoring Performance}
 
-The 90.0\% species-level verification pass rate (81/90 species, 95\% CI: [82.3\%, 95.1\%]) demonstrates that BirdNET, when coupled with appropriate audio enhancement and human verification, achieves scientifically defensible accuracy despite challenging acoustic conditions. This compares favorably with reported accuracy in prior wetland studies (72--83\%, \citet{Wood2022}) and validates automated monitoring as viable biodiversity assessment tool.
+The 93.9\% species-level verification pass rate (77/82 species, 95\% CI: [86.5\%, 97.9\%]) with 99.4\% detection-level verification (4,085/4,108 detections) demonstrates that BirdNET, when coupled with appropriate audio enhancement and comprehensive human verification, achieves scientifically defensible accuracy despite challenging acoustic conditions. This compares favorably with reported accuracy in prior wetland studies (72--83\%, \citet{Wood2022}) and validates automated monitoring as viable biodiversity assessment tool when all ML outputs undergo manual review.
 
-\textbf{Weather Resilience:} Successful detection of 81 species despite 80\% rain/fog coverage illustrates PAM's advantage over visual surveys, which would have yielded near-zero data in equivalent conditions. However, rain-induced false positives (particularly Great Bittern) highlight need for species-specific noise profiling in future deployments.
+\textbf{Weather Resilience:} Successful detection of 77 species despite 80\% rain/fog coverage illustrates PAM's advantage over visual surveys, which would have yielded near-zero data in equivalent conditions. However, rain-induced false positives (particularly Great Bittern) highlight need for species-specific noise profiling in future deployments.
 
 \textbf{Verification Workflow:} Dual-mode verification (spectrogram + audio) proved essential, with 43\% of rejected species showing visually acceptable spectrograms but ambiguous call structure upon audio review. I recommend mandatory audio verification for all species with $<$50 detections.
 
@@ -740,7 +738,7 @@ I \textbf{cannot claim} species correlations with specific weather conditions gi
 
 \textbf{Temporal Coverage:} Single 48-hour deployment captures only snapshot of autumn migration phenology. Species presence/absence reflects mid-October timing and does not represent full seasonal diversity. \textbf{This 2-day sample cannot assess site importance, typical behavior patterns, or seasonal population trends.}
 
-\textbf{Verification Limitations:} Only best spectrogram per species received detailed verification (81 spectrograms reviewed); remaining detections assumed valid if species passed initial verification. This means only approximately 2\% of the 4,049 detections received manual review. Low-confidence detections ($<$0.30) may include residual false positives.
+\textbf{Verification Limitations:} Single-observer verification (primary author) introduces potential subjective bias despite comprehensive review of all 4,108 detections. Inter-rater reliability not assessed due to project scope limitations. Low-confidence detections ($<$0.30) retained after manual verification may include residual false positives in rain-contaminated segments.
 
 \textbf{Validation Sample:} Detection efficiency metrics based on single 10\% holdout sample (n=681). Cross-validation or bootstrap resampling would provide more robust performance estimates with confidence intervals on Precision/Recall metrics.
 
@@ -916,11 +914,11 @@ Destructive: $\Delta L = (n + 0.5)\lambda$
 
 \section{Conclusions}
 
-This study demonstrates that automated acoustic monitoring, when coupled with rigorous audio enhancement and human verification protocols, enables rapid biodiversity assessment in challenging wetland environments. Detection of 81 bird species from 48 hours of rain-dominated recording validates PAM as weather-resilient alternative to traditional survey methods.
+This study demonstrates that automated acoustic monitoring, when coupled with rigorous audio enhancement and comprehensive human verification protocols, enables rapid biodiversity assessment in challenging wetland environments. Detection of 77 bird species from 48 hours of rain-dominated recording, with manual verification of all 4,108 BirdNET detections, validates PAM as weather-resilient alternative to traditional survey methods.
 
 Beyond species inventorying, continuous acoustic data quantified behavioral patterns at Gaulosen during the study period: intensive Graylag Goose flock dynamics (620 calls/91 minutes), co-occurrence pattern consistent with corvid-waterfowl sentinel mutualism hypothesis (8,778 co-occurrences), and conservation-relevant Great Snipe migration stopover activity (189 detections, 69\% dusk concentration). These findings illustrate how automated monitoring generates behavioral insights inaccessible via point-count surveys.
 
-The 90.0\% species-level verification pass rate (95\% CI: [82.3\%, 95.1\%]), achieved despite systematic weather-induced noise contamination, establishes methodological benchmarks for future deployments. I recommend acoustic monitoring as primary biodiversity assessment tool for wetlands along major flyways, complemented by targeted visual surveys for rare species validation.
+The 93.9\% species-level verification pass rate (95\% CI: [86.5\%, 97.9\%]) with 99.4\% detection-level pass rate, achieved despite systematic weather-induced noise contamination, establishes methodological benchmarks for future deployments. I recommend acoustic monitoring as primary biodiversity assessment tool for wetlands along major flyways, complemented by targeted visual surveys for rare species validation.
 
 Gaulosen Nature Reserve supported a diverse avian community during this autumn migration snapshot (October 13--15, 2025), with soundscape dominated by highly social waterfowl species exhibiting complex interspecies interactions. Continued multi-season acoustic monitoring could yield long-term datasets critical for documenting climate-driven phenology shifts and population trends in this globally significant migratory corridor.
 

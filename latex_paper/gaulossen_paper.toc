@@ -31,7 +31,7 @@
 \contentsline {section}{\numberline {A}Supplementary Materials}{17}{appendix.A}%
 \contentsline {subsection}{\numberline {A.1}Complete Species List}{17}{subsection.A.1}%
 \contentsline {subsection}{\numberline {A.2}Temporal Distribution Figures}{17}{subsection.A.2}%
-\contentsline {subsection}{\numberline {A.3}Co-occurrence Network}{18}{subsection.A.3}%
-\contentsline {subsection}{\numberline {A.4}Representative Spectrograms}{19}{subsection.A.4}%
-\contentsline {subsection}{\numberline {A.5}Weather Data}{20}{subsection.A.5}%
-\contentsline {subsection}{\numberline {A.6}Data Access and Replication}{20}{subsection.A.6}%
+\contentsline {subsection}{\numberline {A.3}Co-occurrence Network}{17}{subsection.A.3}%
+\contentsline {subsection}{\numberline {A.4}Representative Spectrograms}{18}{subsection.A.4}%
+\contentsline {subsection}{\numberline {A.5}Weather Data}{19}{subsection.A.5}%
+\contentsline {subsection}{\numberline {A.6}Data Access and Replication}{19}{subsection.A.6}%
