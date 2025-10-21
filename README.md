@@ -278,7 +278,7 @@ https://ziforge.github.io/gaulosen-study/
 
 ## 📞 Support & Contact
 
-**Analysis:** George Redpath, NTNU Department of Acoustics
+**Analysis:** George Redpath, NTNU Student
 **Tools:** [Praven Pro](https://github.com/Ziforge/praven-pro) - BirdNET to Raven Pro toolkit
 **Website:** https://ziforge.github.io/gaulosen-study/
 

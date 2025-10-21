@@ -34,6 +34,14 @@ Thumbs.db
 *.tmp
 *~
 
+# LaTeX temporary files
+*.aux
+*.bbl
+*.blg
+*.out
+*.toc
+*.backup
+
 # R
 .Rhistory
 .RData
