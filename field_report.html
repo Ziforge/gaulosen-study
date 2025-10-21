@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Field Report - Gaulossen Acoustic Monitoring</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 1400px; margin: 0 auto; }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 50px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+        .subtitle { font-size: 1.3em; color: #a0a0a0; margin-bottom: 15px; }
+        .location { font-size: 1.1em; color: #888; font-style: italic; }
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        .nav-link {
+            padding: 12px 25px;
+            background: rgba(0, 212, 255, 0.1);
+            color: #00d4ff;
+            text-decoration: none;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            background: rgba(0, 212, 255, 0.2);
+            border-color: #00d4ff;
+            transform: translateY(-2px);
+        }
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: #00d4ff;
+        }
+        h3 {
+            font-size: 1.6em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: #7b2ff7;
+        }
+        h4 {
+            font-size: 1.3em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #a0d4ff;
+        }
+        p { margin-bottom: 15px; color: #d0d0d0; }
+        ul, ol { margin-left: 25px; margin-bottom: 15px; color: #d0d0d0; }
+        li { margin-bottom: 8px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        th {
+            background: rgba(0, 212, 255, 0.1);
+            color: #00d4ff;
+            font-weight: 600;
+        }
+        .photo-container {
+            margin: 30px 0;
+            text-align: center;
+        }
+        .photo-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            margin-bottom: 15px;
+        }
+        .photo-caption {
+            font-style: italic;
+            color: #a0a0a0;
+            font-size: 0.95em;
+            margin-top: 10px;
+        }
+        .highlight-box {
+            background: rgba(0, 212, 255, 0.1);
+            border-left: 4px solid #00d4ff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .warning-box {
+            background: rgba(255, 140, 0, 0.1);
+            border-left: 4px solid #ff8c00;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        code {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #00d4ff;
+        }
+        pre {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Field Report</h1>
+            <div class="subtitle">Gaulossen Nature Reserve Acoustic Monitoring Deployment</div>
+            <div class="location">October 13-15, 2025 | Melhus, Trøndelag, Norway</div>
+        </header>
+
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">← Main Study</a>
+            <a href="behavioral_findings.html" class="nav-link">Behavioral Findings</a>
+            <a href="#" class="nav-link" style="background: rgba(123, 47, 247, 0.2); border-color: #7b2ff7;">Field Report</a>
+        </div>
+
+        <!-- Executive Summary -->
+        <section class="section">
+            <h2>Executive Summary</h2>
+            <p>Deployed passive acoustic monitoring equipment at Gaulossen Nature Reserve during autumn migration period to assess avian biodiversity using automated deep learning classification. Despite challenging weather conditions (80%+ rain/fog coverage throughout deployment), successfully recorded 48.8 hours of continuous acoustic data, yielding <strong>77 verified bird species from 4,085 detections</strong>. Deployment confirms Gaulossen's importance as wetland stopover habitat along East Atlantic Flyway.</p>
+
+            <div class="highlight-box">
+                <p><strong>Observer:</strong> George Redpath</p>
+                <p><strong>Affiliation:</strong> Norwegian University of Science and Technology (NTNU), Department of Acoustics</p>
+                <p><strong>Location:</strong> Gaulossen Nature Reserve (63.341°N, 10.215°E)</p>
+                <p><strong>Deployment Duration:</strong> 48.8 hours continuous recording</p>
+                <p><strong>Equipment:</strong> AudioMoth v1.2 autonomous acoustic recorder</p>
+            </div>
+        </section>
+
+        <!-- Equipment Specifications -->
+        <section class="section">
+            <h2>Equipment Configuration</h2>
+
+            <table>
+                <tr><th>Parameter</th><th>Specification</th></tr>
+                <tr><td><strong>Recorder Model</strong></td><td>AudioMoth v1.2 (Open Acoustic Devices)</td></tr>
+                <tr><td><strong>Dimensions</strong></td><td>35 × 58 × 23 mm</td></tr>
+                <tr><td><strong>Weight</strong></td><td>55g (including batteries)</td></tr>
+                <tr><td><strong>Microphone</strong></td><td>Knowles SPU0410LR5H-QB-7 MEMS</td></tr>
+                <tr><td><strong>Sampling Rate</strong></td><td>48 kHz (Nyquist: 24 kHz)</td></tr>
+                <tr><td><strong>Bit Depth</strong></td><td>16-bit (96 dB dynamic range)</td></tr>
+                <tr><td><strong>Recording Mode</strong></td><td>Continuous (no duty cycling)</td></tr>
+                <tr><td><strong>Storage</strong></td><td>32 GB microSD card</td></tr>
+                <tr><td><strong>Power Source</strong></td><td>3× AA Alkaline batteries (Energizer)</td></tr>
+                <tr><td><strong>Housing</strong></td><td>Waterproof green case (IP67 rated)</td></tr>
+                <tr><td><strong>Mounting Height</strong></td><td>1.5 m above ground level</td></tr>
+                <tr><td><strong>GPS Coordinates</strong></td><td>63.341°N, 10.215°E (±10m accuracy)</td></tr>
+                <tr><td><strong>Distance to Wetland</strong></td><td>~100m to primary congregation area</td></tr>
+            </table>
+        </section>
+
+        <!-- Day 1 -->
+        <section class="section">
+            <h2>Day 1: October 13, 2025</h2>
+
+            <h3>Deployment (11:37 Local Time)</h3>
+
+            <table>
+                <tr><th>Time</th><th>Temp (°C)</th><th>Conditions</th><th>Wind</th><th>Visibility</th><th>Notes</th></tr>
+                <tr><td>11:37</td><td>7</td><td>Heavy rain, fog</td><td>Light W</td><td>&lt;500m</td><td>Deployment start</td></tr>
+                <tr><td>14:00</td><td>8</td><td>Rain, overcast</td><td>Moderate W</td><td>~800m</td><td>Geese highly active</td></tr>
+                <tr><td>16:00</td><td>9</td><td>Rain continuing</td><td>Light W</td><td>&lt;1km</td><td>Peak flock event begins</td></tr>
+                <tr><td>19:00</td><td>7</td><td>Rain, darkening</td><td>Light</td><td>&lt;300m</td><td>Crepuscular activity peak</td></tr>
+                <tr><td>22:00</td><td>6</td><td>Rain, fog</td><td>Calm</td><td>&lt;200m</td><td>Nocturnal period begins</td></tr>
+            </table>
+
+            <div class="photo-container">
+                <img src="field_photos/01_wetland_landscape_mountains.jpg" alt="Gaulossen Wetland">
+                <div class="photo-caption">Gaulossen Nature Reserve wetland area - shallow marshes, reedbeds, and open water with mountain backdrop. Deployment site selected for unobstructed acoustic sight lines.</div>
+            </div>
+
+            <div class="photo-container">
+                <img src="field_photos/02_species_information_board.jpg" alt="Species Info Board">
+                <div class="photo-caption">Gaulossen artsliste for fugler (bird species list) at reserve entrance, documenting over 200 historically recorded species.</div>
+            </div>
+
+            <h4>Key Observations - Afternoon (11:37-17:30)</h4>
+            <table>
+                <tr><th>Time</th><th>Species</th><th>Activity</th><th>Visual Count</th><th>Behavior Notes</th></tr>
+                <tr><td>12:30</td><td>Graylag Goose</td><td>Flock calling</td><td>~200</td><td>High vocal activity</td></tr>
+                <tr><td>14:00</td><td>Hooded Crow</td><td>Perching/calling</td><td>3-5</td><td>Near goose flock</td></tr>
+                <tr><td>16:00</td><td>Graylag Goose</td><td><strong>PEAK EVENT</strong></td><td><strong>200+</strong></td><td>91-min continuous calling</td></tr>
+            </table>
+
+            <div class="highlight-box">
+                <h4>Peak Flock Event (16:00-17:26)</h4>
+                <p><strong>Graylag Goose</strong> (<em>Anser anser</em>): Most intensive vocal activity occurred during 91-minute flock event. Visual observation estimated 200+ individuals with continuous calling. Post-analysis quantified <strong>620 vocalizations during this single event</strong>, representing 21.6% of all Graylag detections in 1.9% of recording time (extreme concentration).</p>
+                <p><strong>Corvid Activity:</strong> Hooded Crow and Carrion Crow (5-10 individuals) frequently calling in proximity to goose flocks, consistent with sentinel mutualism behavior pattern.</p>
+            </div>
+
+            <div class="photo-container">
+                <img src="field_photos/03_deployment_location_fence.jpg" alt="Deployment Location">
+                <div class="photo-caption">AudioMoth deployment location at wetland edge. Equipment mounted on fence post structure approximately 1.5m above ground.</div>
+            </div>
+
+            <h4>Evening Crepuscular Activity (19:00-22:00)</h4>
+            <p><strong>Great Snipe</strong> (<em>Gallinago media</em>): Dusk period yielded peak detection (82 calls at 20:00), confirming autumn migration stopover use of wetland. These are contact/foraging calls, NOT spring lek displays (which occur April-May). No visual confirmation obtained due to cryptic species behavior and poor visibility.</p>
+        </section>
+
+        <!-- Day 2 -->
+        <section class="section">
+            <h2>Day 2: October 14, 2025</h2>
+
+            <h3>Morning Observations (06:00-12:00)</h3>
+
+            <table>
+                <tr><th>Time</th><th>Temp (°C)</th><th>Conditions</th><th>Wind</th><th>Visibility</th><th>Notes</th></tr>
+                <tr><td>06:00</td><td>8</td><td>Heavy fog</td><td>Calm</td><td>&lt;200m</td><td>Pre-dawn period</td></tr>
+                <tr><td>08:00</td><td>9</td><td>Fog, rain</td><td>Light</td><td>~500m</td><td>Dawn chorus peak</td></tr>
+                <tr><td>10:00</td><td>10</td><td>Rain, fog clearing</td><td>Light NW</td><td>~1km</td><td>Improved visibility</td></tr>
+                <tr><td>12:00</td><td>11</td><td>Overcast, light rain</td><td>Moderate</td><td>~1.5km</td><td>Midday conditions</td></tr>
+            </table>
+
+            <h4>Dawn Chorus (06:00-09:00)</h4>
+            <table>
+                <tr><th>Time</th><th>Species</th><th>Activity</th><th>Audible Calls</th><th>Notes</th></tr>
+                <tr><td>07:00</td><td>Eurasian Woodcock</td><td>Roding flights</td><td>Frequent</td><td>Distinctive calls</td></tr>
+                <tr><td>08:00</td><td>Grasshopper-Warbler</td><td><strong>DAWN PEAK</strong></td><td><strong>Intense</strong></td><td>Continuous reeling</td></tr>
+                <tr><td>08:00</td><td>Waterfowl</td><td>Foraging</td><td>Moderate</td><td>Flock activity</td></tr>
+            </table>
+
+            <div class="highlight-box">
+                <h4>Dawn Chorus Highlights</h4>
+                <p><strong>Common Grasshopper-Warbler</strong> (<em>Locustella naevia</em>): Intense reeling trill at 08:00 (51 calls in single hour - 86% of total daily detections, 98% of calls at dawn). Classic dawn chorus territorial singing. Mechanical, insect-like continuous trill.</p>
+                <p><strong>Eurasian Woodcock</strong> (<em>Scolopax rusticola</em>): Roding flight displays 07:00-08:00 peak (31 calls detected at 08:00). Crepuscular specialist (75% of detections at dawn/dusk periods).</p>
+            </div>
+
+            <div class="photo-container">
+                <img src="field_photos/05_camouflaged_bird_vegetation.jpg" alt="Cryptic Bird">
+                <div class="photo-caption">Cryptically-colored bird species observed in wetland vegetation during deployment. Excellent example of natural camouflage adaptation in wetland habitat.</div>
+            </div>
+
+            <div class="photo-container">
+                <img src="field_photos/07_wetland_waterfowl_dramatic.jpg" alt="Waterfowl Conditions">
+                <div class="photo-caption">Waterfowl congregation on Gaulossen wetland during deployment. Overcast conditions and dramatic sky typical of recording period. Large flock visible on water surface.</div>
+            </div>
+        </section>
+
+        <!-- Day 3 -->
+        <section class="section">
+            <h2>Day 3: October 15, 2025 - Equipment Recovery</h2>
+
+            <h3>Pre-Dawn Nocturnal Migration (02:00-05:00)</h3>
+            <p>Nocturnal flight calls documenting active East Atlantic Flyway passage:</p>
+            <ul>
+                <li><strong>Pink-footed Goose:</strong> 18 nocturnal flight calls (peak 03:00)</li>
+                <li><strong>Common Crane:</strong> 11 calls (peak 04:00)</li>
+                <li><strong>Greater White-fronted Goose:</strong> 18 calls</li>
+                <li><strong>Total:</strong> 47 nocturnal migration calls</li>
+            </ul>
+
+            <h3>Equipment Status at Recovery</h3>
+            <table>
+                <tr><th>Parameter</th><th>Status</th><th>Notes</th></tr>
+                <tr><td>AudioMoth Power</td><td>Operational</td><td>Green LED indicating recording</td></tr>
+                <tr><td>Battery Voltage</td><td>~3.8V</td><td>Sufficient for 24+ additional hours</td></tr>
+                <tr><td>Memory Card</td><td>48.8 hours recorded</td><td>~35 GB data captured</td></tr>
+                <tr><td>Housing Integrity</td><td>Waterproof seal intact</td><td>No moisture ingress</td></tr>
+                <tr><td>Microphone Condition</td><td>No visible damage</td><td>Clean, no water in port</td></tr>
+                <tr><td>Data Integrity</td><td>All files playable</td><td>No corruption detected</td></tr>
+            </table>
+
+            <div class="highlight-box">
+                <h4>Equipment Performance: Excellent</h4>
+                <p>AudioMoth v1.2 performed excellently throughout 48.8-hour deployment despite continuous rain exposure. All 48.8 hours of audio data (35.2 GB) successfully captured with zero file corruption. Performance exceeded expectations for adverse weather deployment.</p>
+            </div>
+
+            <div class="photo-container">
+                <img src="field_photos/06_geese_flight_formation.jpg" alt="Goose Flocks">
+                <div class="photo-caption">Extensive goose flock formations observed during deployment. Visual documentation corresponding to acoustic data showing 2,871 Graylag Goose detections (69.9% of total vocalizations). Multiple flock groups visible in formation.</div>
+            </div>
+        </section>
+
+        <!-- Post-Deployment Analysis -->
+        <section class="section">
+            <h2>Post-Deployment Analysis Summary</h2>
+
+            <h3>Automated Classification (BirdNET v2.4)</h3>
+            <ul>
+                <li><strong>Initial detections:</strong> 90 species, 6,805 total detections</li>
+                <li><strong>After human verification:</strong> 82 species, 4,108 detections (91.1% species pass rate)</li>
+                <li><strong>After biological screening:</strong> <strong>77 species, 4,085 detections</strong> (85.6% final pass rate)</li>
+            </ul>
+
+            <h3>Key Behavioral Findings</h3>
+
+            <h4>1. Social Behavior Dominance</h4>
+            <ul>
+                <li>86% of detections from flock/social species</li>
+                <li>Graylag Goose: 98.7% of calls in flocks (59 discrete flock events)</li>
+                <li>Largest flock: 620 calls over 91 minutes</li>
+            </ul>
+
+            <h4>2. Corvid-Waterfowl Sentinel Mutualism</h4>
+            <ul>
+                <li>8,778 geese-crow co-occurrences within 10-minute windows</li>
+                <li>Pattern consistent with heterospecific eavesdropping</li>
+                <li>Crows providing early warning, geese benefiting from predator detection</li>
+            </ul>
+
+            <h4>3. Migration Documentation</h4>
+            <ul>
+                <li>37 migratory species detected (45% of verified species)</li>
+                <li>47 nocturnal flight calls documenting active flyway passage</li>
+                <li>Great Snipe: 189 detections representing autumn stopover</li>
+            </ul>
+
+            <h4>4. Temporal Specialization</h4>
+            <ul>
+                <li>Common Grasshopper-Warbler: 98% dawn activity</li>
+                <li>Great Snipe: 61% crepuscular (69% dusk-only)</li>
+                <li>Mallard: 59% nocturnal (biologically valid for ducks)</li>
+            </ul>
+        </section>
+
+        <!-- Conservation Implications -->
+        <section class="section">
+            <h2>Conservation Implications</h2>
+
+            <div class="highlight-box">
+                <h3>Gaulossen as Critical Stopover Habitat</h3>
+                <ul>
+                    <li><strong>Species Diversity:</strong> 77 verified species in 48.8 hours demonstrates high biodiversity</li>
+                    <li><strong>Declining Species Present:</strong> Great Snipe, Corn Crake, River Warbler (rare vagrant)</li>
+                    <li><strong>Flyway Importance:</strong> Nocturnal migration calls confirm active East Atlantic Flyway corridor</li>
+                    <li><strong>Habitat Quality:</strong> High social species concentration indicates productive foraging habitat</li>
+                </ul>
+            </div>
+
+            <h3>Passive Acoustic Monitoring Value</h3>
+            <ul>
+                <li>Weather-independent data collection (visual surveys impossible during fog/rain)</li>
+                <li>24-hour coverage capturing nocturnal/crepuscular species</li>
+                <li>Permanent acoustic archive for future reference</li>
+                <li>Non-invasive methodology suitable for sensitive species</li>
+            </ul>
+        </section>
+
+        <!-- Challenges -->
+        <section class="section">
+            <h2>Challenges and Lessons Learned</h2>
+
+            <h3>Weather-Related Issues</h3>
+            <div class="warning-box">
+                <ul>
+                    <li><strong>Rain noise contamination:</strong> Required extensive post-processing (Wiener filtering, HPSS)</li>
+                    <li><strong>Sampling bias:</strong> Cannot claim weather correlations - 80%+ recording during rain/fog</li>
+                    <li><strong>Great Bittern false positives:</strong> 129 detections from rain impact noise</li>
+                </ul>
+            </div>
+
+            <h3>Methodological Improvements for Future Deployments</h3>
+            <ul>
+                <li>Deploy 2-3 units for spatial redundancy</li>
+                <li>Co-deploy weather station for correlation analysis</li>
+                <li>Extend to 7+ days for temporal robustness</li>
+                <li>Repeat spring deployment to capture breeding season vs. migration</li>
+            </ul>
+        </section>
+
+        <!-- Data Availability -->
+        <section class="section">
+            <h2>Data Availability</h2>
+
+            <p><strong>Raw Data:</strong> 48.8 hours continuous recording archived at NTNU Digital Repository</p>
+
+            <p><strong>Processed Datasets:</strong></p>
+            <ul>
+                <li>247 enhanced audio clips (Wiener + HPSS noise reduction)</li>
+                <li>247 Raven Pro-style spectrograms (2048 FFT, 512 hop, 0-12 kHz)</li>
+                <li>BirdNET detection outputs (CSV format)</li>
+                <li>Temporal clustering analysis (flock detection)</li>
+                <li>Co-occurrence matrices (sentinel mutualism analysis)</li>
+            </ul>
+
+            <p><strong>Code Repository:</strong> <a href="https://github.com/Ziforge/gaulossen-study" target="_blank" style="color: #00d4ff;">https://github.com/Ziforge/gaulossen-study</a></p>
+            <p><strong>Interactive Website:</strong> <a href="https://ziforge.github.io/gaulossen-study/" target="_blank" style="color: #00d4ff;">https://ziforge.github.io/gaulossen-study/</a></p>
+        </section>
+
+        <footer>
+            <p><strong>Field Report - Gaulossen Nature Reserve Acoustic Monitoring</strong></p>
+            <p>October 13-15, 2025 | Observer: George Redpath, NTNU</p>
+            <p>77 Verified Species | 4,085 Verified Detections | 48.8 Hours Continuous Recording</p>
+            <p style="margin-top: 15px;">BirdNET v2.4 | Human-Verified | Biologically Validated</p>
+        </footer>
+    </div>
+</body>
+</html>
