@@ -3,33 +3,31 @@
 \contentsline {section}{\numberline {2}Methods}{3}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Study Site and Recording Protocol}{3}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Field Deployment Observations}{3}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Ground Effects in Wetland Environments}{6}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Automated Species Detection}{7}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Audio Enhancement Pipeline}{7}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}Praven Pro: BirdNET-Raven Integration Toolkit}{7}{subsection.2.6}%
-\contentsline {subsection}{\numberline {2.7}Acoustic Performance Metrics}{8}{subsection.2.7}%
-\contentsline {subsection}{\numberline {2.8}Human Verification Protocol}{8}{subsection.2.8}%
-\contentsline {subsection}{\numberline {2.9}Behavioral Analysis Methods}{8}{subsection.2.9}%
-\contentsline {subsection}{\numberline {2.10}Data Availability}{8}{subsection.2.10}%
-\contentsline {subsection}{\numberline {2.11}Biological Plausibility Verification}{9}{subsection.2.11}%
-\contentsline {section}{\numberline {3}Results}{9}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Species Diversity and Detection Performance}{9}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Acoustic Dominance and Social Structure}{9}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Corvid-Waterfowl Co-occurrence}{10}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Temporal Patterns and Nocturnal Migration}{10}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Great Snipe Migration Activity}{10}{subsection.3.5}%
-\contentsline {section}{\numberline {4}Discussion}{10}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Methodological Validation: Automated Monitoring Performance}{10}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Morton's Window and Frequency Selection in Wetland Birds}{11}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Corvid-Waterfowl Co-occurrence: Pattern Consistent with Sentinel Mutualism}{12}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Great Snipe Conservation Implications}{12}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Study Limitations and Sampling Bias}{12}{subsection.4.5}%
-\contentsline {subsection}{\numberline {4.6}Recommendations for Future Studies}{13}{subsection.4.6}%
-\contentsline {section}{\numberline {5}Conclusions}{13}{section.5}%
-\contentsline {section}{\numberline {A}Supplementary Materials}{15}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Complete Species List}{15}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Temporal Distribution Figures}{15}{subsection.A.2}%
-\contentsline {subsection}{\numberline {A.3}Co-occurrence Network}{15}{subsection.A.3}%
-\contentsline {subsection}{\numberline {A.4}Representative Spectrograms}{16}{subsection.A.4}%
-\contentsline {subsection}{\numberline {A.5}Weather Data}{17}{subsection.A.5}%
-\contentsline {subsection}{\numberline {A.6}Data Access}{17}{subsection.A.6}%
+\contentsline {subsection}{\numberline {2.3}Automated Species Detection}{4}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Audio Enhancement Pipeline}{5}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Praven Pro: BirdNET-Raven Integration Toolkit}{5}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Acoustic Performance Metrics}{6}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Human Verification Protocol}{6}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.8}Behavioral Analysis Methods}{7}{subsection.2.8}%
+\contentsline {subsection}{\numberline {2.9}Data Availability}{7}{subsection.2.9}%
+\contentsline {section}{\numberline {3}Results}{7}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Species Diversity and Detection Performance}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Acoustic Dominance and Social Structure}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Corvid-Waterfowl Co-occurrence: Co-occurrence Pattern Consistent with Sentinel Hypothesis}{8}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Temporal Patterns and Nocturnal Migration}{8}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Great Snipe Migration Stopover}{9}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Discussion}{9}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Methodological Validation: Automated Monitoring Performance}{9}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Co-occurrence Pattern Consistent with Sentinel Hypothesis: Corvid-Waterfowl Interactions}{9}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Great Snipe Conservation Implications}{10}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Study Limitations and Sampling Bias}{10}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Recommendations for Future Studies}{10}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Conclusions}{10}{section.5}%
+\contentsline {section}{\numberline {A}Supplementary Materials}{13}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Complete Species List}{13}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Temporal Distribution Figures}{13}{subsection.A.2}%
+\contentsline {subsection}{\numberline {A.3}Co-occurrence Network}{13}{subsection.A.3}%
+\contentsline {subsection}{\numberline {A.4}Representative Spectrograms}{14}{subsection.A.4}%
+\contentsline {subsection}{\numberline {A.5}Weather Data}{15}{subsection.A.5}%
+\contentsline {subsection}{\numberline {A.6}Field Deployment Documentation}{15}{subsection.A.6}%
+\contentsline {subsection}{\numberline {A.7}Data Access}{16}{subsection.A.7}%

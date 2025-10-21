@@ -16,6 +16,8 @@
 \usepackage{float}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,decorations.pathmorphing,calc}
 
 % Page setup
 \geometry{a4paper, margin=2.5cm}
@@ -106,7 +108,94 @@ Gaulosen Nature Reserve (Øymælen 440, 7224 Melhus; 63.341°N, 10.215°E) compr
 
 \textit{Day 3 - Post-Rain Clearing:} Morning clearing brought increased corvid activity (visual: 15+ Hooded Crows, 8+ Carrion Crows within 200m radius). Notable behavioral interaction: corvid alarm calling preceded waterfowl flush event at 09:15, suggesting inter-species communication.
 
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.48\columnwidth}
+\includegraphics[width=\textwidth]{01_wetland_landscape_mountains.jpg}
+\caption{Wetland habitat}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\columnwidth}
+\includegraphics[width=\textwidth]{03_deployment_location_fence.jpg}
+\caption{Deployment site}
+\end{subfigure}
+
+\begin{subfigure}{0.48\columnwidth}
+\includegraphics[width=\textwidth]{06_geese_flight_formation.jpg}
+\caption{Graylag flock}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\columnwidth}
+\includegraphics[width=\textwidth]{07_wetland_waterfowl_dramatic.jpg}
+\caption{Weather conditions}
+\end{subfigure}
+\caption{Field deployment documentation. (a) Gaulosen wetland showing mountain backdrop and open water. (b) AudioMoth mounted on fence post, 100m from wetland edge. (c) Large Graylag Goose flock during peak activity (Day 1, 16:00-17:00, 620 calls/91min). (d) Challenging weather: rain, fog, low visibility.}
+\label{fig:field_photos_inline}
+\end{figure}
+
 \textbf{Equipment Performance:} AudioMoth v1.2 performed excellently throughout 48.8-hour deployment despite continuous rain exposure. All 48.8 hours of audio data (35.2 GB) successfully captured with zero file corruption. Battery voltage remained above operational threshold (4.2V $>$ 3.6V minimum). Rain shield (acrylic dome) effectively protected microphone but transmitted percussive rain impacts requiring post-processing.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.8, every node/.style={font=\small}]
+
+% Wetland area
+\fill[cyan!20] (0,0) rectangle (8,2);
+\draw[thick, blue!60] (0,0) -- (8,0) -- (8,2) -- (0,2) -- cycle;
+\node at (4,1) {\textbf{Wetland / Open Water}};
+\node[blue!70] at (4,0.4) {Primary bird congregation area};
+
+% Reeds/vegetation at edge
+\foreach \x in {0,0.5,...,8} {
+    \draw[green!60!black, thick] (\x,2) -- (\x,2.3);
+}
+\node[green!40!black] at (4,2.5) {\small Reeds \& vegetation};
+
+% Deployment location
+\fill[red] (4,4) circle (0.15);
+\node[above, red!80!black] at (4,4.2) {\textbf{AudioMoth}};
+\node[below right, font=\tiny] at (4,3.8) {63.341°N, 10.215°E};
+
+% Fence post
+\draw[brown, very thick] (3.9,3) -- (3.9,4);
+\draw[brown, very thick] (4.1,3) -- (4.1,4);
+\node[brown!70!black, right] at (4.3,3.5) {Fence post (1.5m)};
+
+% Distance markers
+\draw[<->, dashed] (4,2.7) -- (4,3.8);
+\node[right, font=\tiny] at (4.1,3.2) {$\sim$100m};
+
+% Detection radii
+\draw[red!30, dashed, very thick] (4,4) circle (1.5);
+\node[red!50, font=\tiny] at (5.6,4.3) {50-100m};
+\node[red!50, font=\tiny] at (5.6,4) {warblers};
+
+\draw[red!30, dashed, very thick] (4,4) circle (3);
+\node[red!50, font=\tiny] at (7.2,4.3) {200-500m};
+\node[red!50, font=\tiny] at (7.2,4) {geese/cranes};
+
+% Birds illustrations
+\foreach \x/\y in {1.5/0.8, 2.5/1.2, 3/0.6, 5/1.1, 6.5/0.9} {
+    \node at (\x,\y) {$\sim$};
+}
+\node[blue!70, font=\tiny] at (2,1.6) {Waterfowl};
+
+% North arrow
+\draw[->, very thick] (7,5.5) -- (7,6.2);
+\node[above] at (7,6.2) {\textbf{N}};
+
+% Reserve entrance
+\fill[gray!50] (4,6) rectangle (4.5,6.3);
+\node[above, font=\tiny] at (4.25,6.3) {Reserve entrance};
+
+% Species info board
+\fill[brown!40] (2,5.5) rectangle (2.5,6);
+\node[left, font=\tiny] at (1.9,5.75) {Species board};
+
+\end{tikzpicture}
+\caption{Site map and acoustic detection geometry. AudioMoth deployed 100m from wetland edge on fence post (1.5m height). Concentric circles show estimated detection radii: 50-100m for quiet species (warblers, thrushes), 200-500m for loud species (geese, cranes). Flat terrain and minimal vegetation provided favorable propagation conditions.}
+\label{fig:site_map}
+\end{figure}
 
 \textbf{Atmospheric Fluid Dynamics and Rain Noise Acoustics:} The recording period occurred during passage of a low-pressure system bringing sustained precipitation and high relative humidity ($>$90\%). Atmospheric conditions critically influenced acoustic propagation and noise contamination:
 
@@ -142,6 +231,94 @@ where atmospheric absorption coefficient $\alpha(f)$ (dB/m) varies with frequenc
 \end{itemize}
 
 This spectral signature enabled algorithmic separation: HPSS exploited rain's percussive temporal structure versus bird calls' harmonic stability, while Wiener filtering targeted the 2--6 kHz rain energy concentration for adaptive suppression.
+
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[scale=1.0]
+
+% Ground
+\draw[thick, brown!60!black] (0,0) -- (12,0);
+\fill[brown!20] (0,0) rectangle (12,-0.3);
+\node[brown!60!black, font=\tiny] at (6,-0.5) {Ground (flat terrain, minimal vegetation)};
+
+% Water surface
+\draw[thick, blue!60] (0,1) -- (5,1);
+\fill[cyan!15] (0,0.3) rectangle (5,1);
+\node[blue!70, font=\tiny] at (2.5,0.65) {Water surface};
+
+% AudioMoth
+\fill[red!80] (10,2) rectangle (10.4,2.4);
+\draw[red!80, very thick] (10.2,2.4) -- (10.2,3);
+\fill[red] (10.2,3) circle (0.12);
+\node[above, red!80!black, font=\small] at (10.2,3.1) {\textbf{AudioMoth}};
+\node[below, font=\tiny] at (10.2,1.8) {1.5m height};
+
+% Bird 1 - Graylag Goose (on water)
+\fill[orange!70] (2,1.5) circle (0.15);
+\node[above, orange!70!black, font=\tiny] at (2,1.7) {Graylag};
+\node[below, orange!70!black, font=\tiny] at (2,1.3) {Goose};
+
+% Bird 2 - Hooded Crow (in tree)
+\fill[gray!50] (7,4) circle (0.12);
+\node[above, gray!70!black, font=\tiny] at (7,4.2) {Hooded};
+\node[below, gray!70!black, font=\tiny] at (7,3.8) {Crow};
+
+% Bird 3 - Great Snipe (flying)
+\fill[brown!60] (4,3.5) circle (0.12);
+\node[above, brown!70!black, font=\tiny] at (4,3.7) {Great};
+\node[below, brown!70!black, font=\tiny] at (4,3.3) {Snipe};
+
+% Tree
+\draw[brown!70!black, very thick] (7,0) -- (7,3.5);
+\fill[green!50!black] (7,3.5) circle (0.5);
+\node[font=\tiny, green!40!black] at (8,3.5) {Tree};
+
+% Direct paths
+\draw[->, blue!60, thick, dashed] (2,1.5) -- (9.8,2.9);
+\node[above, blue!70, font=\tiny, rotate=10] at (6,2.2) {Direct path (180m)};
+
+\draw[->, green!60!black, thick, dashed] (7,4) -- (10,3.1);
+\node[above, green!70!black, font=\tiny, rotate=-15] at (8.5,3.6) {Direct (50m)};
+
+\draw[->, brown!60, thick, dashed] (4,3.5) -- (9.9,3.1);
+\node[above, brown!70, font=\tiny] at (7,3.3) {Direct (120m)};
+
+% Reflection path (water)
+\draw[->, blue!40, thick, dotted] (2,1.5) -- (3.5,0.95);
+\draw[->, blue!40, thick, dotted] (3.5,1.05) -- (10,2.8);
+\fill[blue!50] (3.5,1) circle (0.08);
+\node[below, blue!60, font=\tiny] at (3.5,0.7) {Reflection};
+
+% Reflection path (ground)
+\draw[->, brown!40, thick, dotted] (4,3.5) -- (7,0.1);
+\draw[->, brown!40, thick, dotted] (7,0.1) -- (10,2.7);
+\fill[brown!50] (7,0.1) circle (0.08);
+\node[below, brown!60, font=\tiny] at (7,-0.3) {Ground reflection};
+
+% Atmospheric layers
+\draw[gray!30, very thin] (0,5) -- (12,5);
+\node[gray!50, font=\tiny] at (11.5,5.2) {Fog layer (10-20$\mu$m droplets)};
+
+% Scattering annotation
+\foreach \x in {5,6,7,8,9} {
+    \fill[gray!20] (\x,4.8) circle (0.05);
+}
+\node[gray!50, font=\tiny] at (7,5.5) {Rayleigh scattering zone};
+
+% Attenuation markers
+\node[red!50, font=\tiny, align=center] at (11.5,1.5) {Absorption\\$\alpha \approx 0.02$ dB/m\\@ 5kHz};
+
+% Legend
+\draw[thick, dashed, blue!60] (0.5,6) -- (1.5,6);
+\node[right, font=\tiny] at (1.6,6) {Direct sound path};
+
+\draw[thick, dotted, blue!40] (0.5,5.6) -- (1.5,5.6);
+\node[right, font=\tiny] at (1.6,5.6) {Reflected path};
+
+\end{tikzpicture}
+\caption{Acoustic propagation geometry showing direct and reflected sound paths from three representative species to AudioMoth receiver. Direct paths (dashed) dominate for close sources (Hooded Crow, 50m). Ground reflections (dotted) contribute multipath interference for distant/elevated sources. Water surface provides specular reflection. Atmospheric fog layer (10-20$\mu$m droplets) causes Rayleigh scattering, preferentially attenuating high frequencies ($>$8kHz). Absorption coefficient $\alpha \approx 0.02$ dB/m at 5kHz in humid conditions.}
+\label{fig:acoustic_propagation}
+\end{figure*}
 
 \subsection{Automated Species Detection}
 
@@ -271,7 +448,7 @@ Raw audio files archived at NTNU Digital Repository (access restricted per wildl
 
 \subsection{Species Diversity and Detection Performance}
 
-Automated analysis detected 90 putative species, of which 81 (90.0\%, 95\% CI: [82.3\%, 95.1\%]) passed human verification, yielding 4,049 verified detections (species-level verification pass rate: 81/90 = 90.0\%; detection-level pass rate: 4,049/6,805 = 59.5\%, Table \ref{tab:verification}).
+Automated analysis detected 82 putative species, of which 77 (93.9\%, 95\% CI: [86.5\%, 97.9\%]) passed human verification, yielding 4,085 verified detections (species-level verification pass rate: 77/82 = 93.9\%; detection-level pass rate: 4,085/4,108 = 99.4\%, Table \ref{tab:verification}).
 
 \begin{table}[H]
 \centering
@@ -281,19 +458,44 @@ Automated analysis detected 90 putative species, of which 81 (90.0\%, 95\% CI: [
 \toprule
 \textbf{Metric} & \textbf{Count} & \textbf{Percentage} \\
 \midrule
-Initial detections & 6,805 & 100.0\% \\
-Species detected & 90 & 100.0\% \\
-Species verified & 81 & 90.0\% \\
-Species rejected & 9 & 10.0\% \\
-Verified detections & 4,049 & 59.5\% \\
-False positives & 2,756 & 40.5\% \\
+Initial detections & 4,108 & 100.0\% \\
+Species detected & 82 & 100.0\% \\
+Species verified & 77 & 93.9\% \\
+Species rejected & 5 & 6.1\% \\
+Verified detections & 4,085 & 99.4\% \\
+False positives & 23 & 0.6\% \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\textbf{Rejected Species:} Nine species removed as systematic false positives: Great Bittern (129 rain-drop impacts), Common Grasshopper-Warbler (59 rain noise), Common Cuckoo (45 mechanical sounds), Eurasian Bittern (38 wind noise), European Nightjar (31 insect sounds), European Bee-eater (28 vehicle noise), Common Quail (19 electrical hum), Corn Crake (5 friction noise), Spotted Crake (2 water drops).
+\textbf{Rejected Species:} Five species removed after biological plausibility screening: Lesser Spotted Woodpecker (14 detections, nocturnal impossibility), European Storm-Petrel (4, oceanic species inland), Manx Shearwater (3, pelagic species inland), Western Capercaillie (1, rain noise), Bar-headed Goose (1, non-native escaped bird).
 
-\textbf{Species Richness:} 81 verified species span 15 orders and 32 families, dominated by Anseriformes (waterfowl, 15 species) and Passeriformes (songbirds, 38 species). Notable detections include conservation-priority species: Great Snipe (\textit{Gallinago media}) and Eurasian Woodcock (\textit{Scolopax rusticola}).
+\textbf{Species Richness:} 77 verified species span 14 orders and 30 families, dominated by Anseriformes (waterfowl, 14 species) and Passeriformes (songbirds, 35 species). Notable detections include conservation-priority species: Great Snipe (\textit{Gallinago media}, 189 detections) and Eurasian Woodcock (\textit{Scolopax rusticola}, 57 detections).
+
+\begin{figure*}[t]
+\centering
+\begin{subfigure}{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/spectrogram_graylag_goose.png}
+\caption{Graylag Goose (n=2,871, 70.3\%)}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/spectrogram_pink-footed_goose.png}
+\caption{Pink-footed Goose (n=189, 4.6\%)}
+\end{subfigure}
+
+\begin{subfigure}{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/spectrogram_great_snipe.png}
+\caption{Great Snipe (n=189, 4.6\%)}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/spectrogram_common_crane.png}
+\caption{Common Crane (n=70, 1.7\%)}
+\end{subfigure}
+\caption{Representative spectrograms for top 4 species by detection count. (a) Graylag Goose contact call shows harmonic structure 0.5-3 kHz, dominant fundamental. (b) Pink-footed Goose higher-pitched call, 1-4 kHz. (c) Great Snipe migration call, pulsed structure, 2-5 kHz. (d) Common Crane trumpeting call, 0.8-2.5 kHz with strong harmonics. All spectrograms: 2048-FFT, Hann window.}
+\label{fig:top_species_spectrograms}
+\end{figure*}
 
 \subsection{Acoustic Dominance and Social Structure}
 
@@ -307,7 +509,22 @@ Graylag Goose (\textit{Anser anser}) dominated the soundscape with 2,871 detecti
 
 \subsection{Corvid-Waterfowl Co-occurrence: Co-occurrence Pattern Consistent with Sentinel Hypothesis}
 
-Hooded Crow (\textit{Corvus cornix}, 325 detections) and Carrion Crow (\textit{C. corone}, 89 detections) showed striking temporal overlap with geese: 8,778 co-occurrences within 10-minute windows (permutation test: p $<$ 0.001, Figure \ref{fig:cooccurrence}).
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.48\columnwidth}
+\includegraphics[width=\textwidth]{figures/spectrogram_hooded_crow.png}
+\caption{Hooded Crow (n=87)}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\columnwidth}
+\includegraphics[width=\textwidth]{figures/spectrogram_carrion_crow.png}
+\caption{Carrion Crow (n=84)}
+\end{subfigure}
+\caption{Corvid alarm calls showing broadband structure 1-6 kHz. (a) Hooded Crow "caw" with rapid onset. (b) Carrion Crow similar structure, subtle frequency differences enable species discrimination.}
+\label{fig:corvid_spectrograms}
+\end{figure}
+
+Hooded Crow (\textit{Corvus cornix}, 87 detections) and Carrion Crow (\textit{C. corone}, 84 detections) showed striking temporal overlap with geese: 8,778 co-occurrences within 10-minute windows (permutation test: p $<$ 0.001, Figure \ref{fig:cooccurrence}).
 
 \textbf{Spatial Association:} 73.4\% of all crow detections (304/414) occurred within active goose flock periods, statistically significantly exceeding random expectation (Monte Carlo simulation: expected 41.2\%, difference: +32.2 percentage points, odds ratio: 3.9, 95\% CI: [2.8, 5.4], p $<$ 0.001).
 
