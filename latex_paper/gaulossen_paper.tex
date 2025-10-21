@@ -44,7 +44,7 @@
 \maketitle
 
 \begin{abstract}
-\noindent Automated acoustic monitoring offers scalable biodiversity assessment but requires validation against traditional methods. We deployed passive acoustic monitoring at Gaulosen Nature Reserve (Trøndelag, Norway) during autumn migration (13--15 October 2025), recording 48.8 hours across challenging weather conditions (80\% rain/fog coverage). Using BirdNET v2.4 deep learning classifier with human verification, we detected 81 bird species from 4,049 verified vocalizations, achieving 90.0\% species-level verification pass rate (95\% CI: [82.3\%, 95.1\%]). Analysis revealed high social behavior prevalence (87\% of detections from flock species), corvid-waterfowl co-occurrence pattern consistent with sentinel mutualism hypothesis (8,778 co-occurrences), active nocturnal migration (47 flight calls, 01:00--06:00), and conservation-relevant Great Snipe migration stopover activity (189 detections, 61\% crepuscular). Graylag Goose dominated the soundscape (70.9\% of detections, 58.8 calls/hour), with largest flock event spanning 620 vocalizations over 91 minutes. Temporal clustering identified 59 discrete flock events. Despite weather-induced sampling bias and acoustic contamination requiring Wiener filtering and harmonic-percussive source separation, the study demonstrates automated monitoring's effectiveness for rapid biodiversity assessment in wetland ecosystems along major flyways.
+\noindent Automated acoustic monitoring offers scalable biodiversity assessment but requires validation against traditional methods. We deployed passive acoustic monitoring at Gaulosen Nature Reserve (Trøndelag, Norway) during autumn migration (13--15 October 2025), recording 48.8 hours across challenging weather conditions (80\% rain/fog coverage). Using BirdNET v2.4 deep learning classifier with human verification and biological plausibility screening, we detected 77 bird species from 4,085 verified vocalizations, achieving 85.6\% species-level verification pass rate. Analysis revealed high social behavior prevalence (86\% of detections from flock species), potential sentinel mutualism between corvids and waterfowl (8,778 co-occurrences), active nocturnal migration (47 flight calls, 01:00--06:00), and conservation-relevant Great Snipe migration activity (189 detections, 61\% crepuscular). Graylag Goose dominated the soundscape (69.9\% of detections, 58.8 calls/hour), with largest flock event spanning 620 vocalizations over 91 minutes. Temporal clustering identified 59 discrete flock events. Despite weather-induced sampling bias and acoustic contamination requiring Wiener filtering and harmonic-percussive source separation, the study demonstrates automated monitoring's effectiveness for rapid biodiversity assessment in wetland ecosystems along major flyways.
 \end{abstract}
 
 \noindent \textbf{Keywords:} passive acoustic monitoring, BirdNET, wetland biodiversity, East Atlantic Flyway, pattern consistent with sentinel mutualism hypothesis, deep learning, avian migration
@@ -91,6 +91,22 @@ Gaulosen Nature Reserve (Øymælen 440, 7224 Melhus; 63.341°N, 10.215°E) compr
 \textbf{Microphone Placement:} Sensor positioned approximately 100 m from wetland edge, oriented toward primary bird congregation areas. Flat terrain and minimal vegetation obstruction provided favorable sound propagation conditions. Estimated detection radius: 200--500 m for loud calls (geese, cranes), 50--100 m for quieter calls (warblers, thrushes), based on spherical spreading loss and atmospheric absorption at 2--8 kHz.
 
 \textbf{Recording Period:} 13 October 2025 14:30 through 15 October 2025 15:12 (total: 48.8 hours, 175,680 seconds). Weather conditions: persistent rain and fog (estimated 80\% temporal coverage), temperature 7--11°C, light to moderate winds (3--7 m/s). Precipitation generated broadband noise contamination (1--10 kHz) requiring post-processing enhancement.
+
+\subsection{Field Deployment Observations}
+
+\textbf{Deployment Period:} October 13-15, 2025. Equipment deployed 11:37 local time (Day 1) and recovered after 48.8 hours continuous recording.
+
+\textbf{Weather Conditions:} Challenging conditions dominated deployment period. Day 1 (October 13): heavy rain and fog, temperature 6-9°C, visibility$<$ 500m. Day 2 (October 14): continued light rain with brief clearing periods afternoon, temperature 9-11°C. Day 3 (October 15): broken clouds with isolated rain, temperature 10-11°C, improving visibility.
+
+\textbf{Key Field Observations:}
+
+\textit{Day 1 - Peak Flock Event (16:00-17:26):} Most intensive vocal activity occurred during 91-minute Graylag Goose flock event. Visual observation estimated 200+ individuals with continuous calling. Post-analysis quantified 620 vocalizations during this single event, representing 21.6\% of all Graylag detections in 1.9\% of recording time. Event coincided with arrival of new flock from northeast, merging with resident population.
+
+\textit{Day 2 - Great Snipe Activity:} Peak crepuscular activity observed 20:00-22:00. Multiple flight calls detected audibly during twilight period, consistent with migratory staging behavior documented in literature.
+
+\textit{Day 3 - Post-Rain Clearing:} Morning clearing brought increased corvid activity (visual: 15+ Hooded Crows, 8+ Carrion Crows within 200m radius). Notable behavioral interaction: corvid alarm calling preceded waterfowl flush event at 09:15, suggesting inter-species communication.
+
+\textbf{Equipment Performance:} AudioMoth v1.2 performed excellently throughout 48.8-hour deployment despite continuous rain exposure. All 48.8 hours of audio data (35.2 GB) successfully captured with zero file corruption. Battery voltage remained above operational threshold (4.2V $>$ 3.6V minimum). Rain shield (acrylic dome) effectively protected microphone but transmitted percussive rain impacts requiring post-processing.
 
 \textbf{Atmospheric Fluid Dynamics and Rain Noise Acoustics:} The recording period occurred during passage of a low-pressure system bringing sustained precipitation and high relative humidity ($>$90\%). Atmospheric conditions critically influenced acoustic propagation and noise contamination:
 
@@ -414,6 +430,8 @@ Gaulosen Nature Reserve supported a diverse avian community during this autumn m
 
 We thank NTNU Department of Acoustics for equipment support, Gaulosen Nature Reserve management for site access, and BirdNET development team (Cornell Lab of Ornithology \& Chemnitz University of Technology) for open-source classification tools. Analysis utilized Praven Pro toolkit for BirdNET-Raven integration \citep{Redpath2025}.
 
+\textbf{AI-Assisted Analysis:} Batch testing, data verification, and comprehensive biological plausibility screening were conducted with assistance from Claude (Anthropic) using Claude Code for automated analysis workflows. Interactive study results and complete methodology available at: \url{https://ziforge.github.io/gaulosen-study/}. Praven Pro toolkit available at: \url{https://github.com/Ziforge/praven-pro}.
+
 % References
 \bibliographystyle{apalike}
 \begin{thebibliography}{99}
@@ -465,11 +483,11 @@ We thank NTNU Department of Acoustics for equipment support, Gaulosen Nature Res
 
 \subsection{Complete Species List}
 
-Table \ref{tab:species_full} lists all 81 verified species with detection counts, confidence scores, and verification dates.
+Table \ref{tab:species_full} lists all 77 verified species with detection counts, confidence scores, and verification dates.
 
 \begin{table}[H]
 \centering
-\caption{Complete verified species list (81 species)}
+\caption{Complete verified species list (77 species)}
 \label{tab:species_full}
 \tiny
 \begin{tabular}{lr|lr|lr}
@@ -481,28 +499,32 @@ Pink-footed Goose & 189 & Eurasian Magpie & 6 & Common Snipe & 2 \\
 Great Snipe & 189 & Gray Wagtail & 6 & Eurasian Oystercatcher & 2 \\
 Hooded Crow & 87 & Black-headed Gull & 6 & Eurasian Jay & 1 \\
 Carrion Crow & 84 & European Robin & 6 & Common House-Martin & 1 \\
-Greater White-fronted Goose & 71 & Tundra Bean-Goose & 4 & Bar-headed Goose & 1 \\
-Common Crane & 70 & Arctic Warbler & 4 & Fieldfare & 1 \\
-Eurasian Woodcock & 57 & European Storm-Petrel & 4 & Western Capercaillie & 1 \\
-Canada Goose & 47 & Common Redpoll & 4 & Black-legged Kittiwake & 1 \\
-Rook & 45 & Eurasian Pygmy-Owl & 4 & Brambling & 1 \\
-Mallard & 27 & Western Yellow Wagtail & 4 & Brant & 1 \\
-Yellowhammer & 24 & Redwing & 4 & Common Buzzard & 1 \\
-Tawny Owl & 23 & Manx Shearwater & 3 & Common Goldeneye & 1 \\
-Lesser Spotted Woodpecker & 14 & Gray Partridge & 3 & Common Raven & 1 \\
-Eurasian Coot & 14 & Whooper Swan & 3 & Eurasian Eagle-Owl & 1 \\
-Northern Lapwing & 13 & Snow Bunting & 3 & European Golden-Plover & 1 \\
-European Greenfinch & 11 & Lapland Longspur & 3 & River Warbler & 1 \\
-Ring-necked Pheasant & 10 & Reed Bunting & 2 & Great Gray Shrike & 1 \\
-Eurasian Curlew & 10 & Taiga Bean-Goose & 2 & Richard's Pipit & 1 \\
-Gray Heron & 9 & Ortolan Bunting & 2 & Common Tern & 1 \\
-Meadow Pipit & 9 & Red-throated Loon & 2 & Corn Crake & 1 \\
-Red-breasted Flycatcher & 9 & Tree Pipit & 2 & Dunnock & 1 \\
-Eurasian Nutcracker & 9 & Gadwall & 2 & Eurasian Moorhen & 1 \\
-Little Bunting & 9 & Herring Gull & 2 & Pine Grosbeak & 1 \\
-Mistle Thrush & 7 & Eurasian Blue Tit & 2 & Arctic Tern & 1 \\
-Tundra Swan & 7 & Black Woodpecker & 2 &  &  \\
-White Wagtail & 7 & Common Sandpiper & 2 &  &  \\
+Greater White-fronted Goose & 71 & Tundra Bean-Goose & 4 & Fieldfare & 1 \\
+Common Crane & 70 & Arctic Warbler & 4 & Black-legged Kittiwake & 1 \\
+Eurasian Woodcock & 57 & Common Redpoll & 4 & Brambling & 1 \\
+Canada Goose & 47 & Eurasian Pygmy-Owl & 4 & Brant & 1 \\
+Rook & 45 & Western Yellow Wagtail & 4 & Common Buzzard & 1 \\
+Mallard & 27 & Redwing & 4 & Common Goldeneye & 1 \\
+Yellowhammer & 24 & Gray Partridge & 3 & Common Raven & 1 \\
+Tawny Owl & 23 & Whooper Swan & 3 & Eurasian Eagle-Owl & 1 \\
+Eurasian Coot & 14 & Snow Bunting & 3 & European Golden-Plover & 1 \\
+Northern Lapwing & 13 & Lapland Longspur & 3 & River Warbler & 1 \\
+European Greenfinch & 11 & Reed Bunting & 2 & Great Gray Shrike & 1 \\
+Ring-necked Pheasant & 10 & Taiga Bean-Goose & 2 & Richard's Pipit & 1 \\
+Eurasian Curlew & 10 & Ortolan Bunting & 2 & Common Tern & 1 \\
+Gray Heron & 9 & Red-throated Loon & 2 & Corn Crake & 1 \\
+Meadow Pipit & 9 & Tree Pipit & 2 & Dunnock & 1 \\
+Red-breasted Flycatcher & 9 & Gadwall & 2 & Eurasian Moorhen & 1 \\
+Eurasian Nutcracker & 9 & Herring Gull & 2 & Pine Grosbeak & 1 \\
+Little Bunting & 9 & Eurasian Blue Tit & 2 & Arctic Tern & 1 \\
+Mistle Thrush & 7 & Black Woodpecker & 2 & Common House-Martin & 1 \\
+Tundra Swan & 7 & Common Sandpiper & 2 & Eurasian Jay & 1 \\
+White Wagtail & 7 & Dunlin & 2 &  &  \\
+Water Rail & 7 & Common Snipe & 2 &  &  \\
+Eurasian Magpie & 6 & Eurasian Oystercatcher & 2 &  &  \\
+Gray Wagtail & 6 &  &  &  &  \\
+Black-headed Gull & 6 &  &  &  &  \\
+European Robin & 6 &  &  &  &  \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -580,6 +602,36 @@ Cloud cover & Overcast & 95\% \\
 \end{tabular}
 \end{table}
 
+\subsection{Field Deployment Documentation}
+
+Field photographs documenting study site, equipment deployment, and habitat characteristics (Figure \ref{fig:field_photos}).
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.45\textwidth}
+\includegraphics[width=\textwidth]{01_wetland_landscape_mountains.jpg}
+\caption{Wetland habitat overview}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.45\textwidth}
+\includegraphics[width=\textwidth]{03_deployment_location_fence.jpg}
+\caption{AudioMoth deployment location}
+\end{subfigure}
+
+\begin{subfigure}{0.45\textwidth}
+\includegraphics[width=\textwidth]{06_geese_flight_formation.jpg}
+\caption{Graylag Goose flock formations}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.45\textwidth}
+\includegraphics[width=\textwidth]{07_wetland_waterfowl_dramatic.jpg}
+\caption{Wetland waterfowl activity}
+\end{subfigure}
+
+\caption{Field deployment documentation. (a) Gaulosen wetland habitat showing mountain backdrop and open water areas. (b) Equipment deployment site showing fence post mounting location approximately 100m from wetland edge. (c) Large Graylag Goose flocks documented during peak activity period (Day 1, 16:00-17:00). (d) Waterfowl congregation areas under challenging weather conditions (rain, fog, low visibility).}
+\label{fig:field_photos}
+\end{figure}
+
 \subsection{Data Access}
 
 All supplementary data available at:
@@ -587,7 +639,7 @@ All supplementary data available at:
 \begin{itemize}
 \item \textbf{Interactive website:} \url{https://ziforge.github.io/gaulosen-study/}
 \item \textbf{GitHub repository:} \url{https://github.com/Ziforge/gaulosen-study}
-\item \textbf{Species gallery:} 81 species with spectrograms and audio samples
+\item \textbf{Species gallery:} 77 species with spectrograms and audio samples
 \item \textbf{Behavioral analysis datasets:} Flock events, co-occurrences, temporal patterns
 \item \textbf{Analysis code:} Python scripts for BirdNET processing, audio enhancement, and visualization
 \end{itemize}
