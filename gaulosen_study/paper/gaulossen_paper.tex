@@ -184,6 +184,7 @@ where $c$ is speed (m/s) and $T$ is temperature (°C). At study conditions (8°C
 
 \begin{equation}
 \alpha(f) = \alpha_{\text{classical}} + \alpha_{\text{molecular}}
+\label{eq:atmospheric_absorption}
 \end{equation}
 
 where atmospheric absorption coefficient $\alpha(f)$ (dB/m) varies with frequency. At 5 kHz (typical bird call fundamental), $\alpha \approx$ 0.02 dB/m in humid conditions versus 0.08 dB/m in dry air, yielding 6 dB reduction in absorption losses over 100 m propagation distance.
@@ -314,6 +315,7 @@ Rain noise contamination necessitated multi-stage enhancement:
 
 \begin{equation}
 D = D_h + D_p
+\label{eq:hpss}
 \end{equation}
 
 where $D$ is spectrogram, $D_h$ harmonic component (bird calls), $D_p$ percussive component (rain).
@@ -767,6 +769,7 @@ The path length difference $\Delta L$ between direct and reflected paths creates
 
 \begin{equation}
 \Delta L = \sqrt{(d_h)^2 + r^2} + \sqrt{(d_h + h_m)^2 + r^2} - \sqrt{h_s^2 + r^2}
+\label{eq:path_length_difference}
 \end{equation}
 
 where $h_s$ is source height above water (typically 0.2-0.5 m for swimming geese), $h_m$ is microphone height (1.5 m), $d_h$ is horizontal distance source to reflection point, and $r$ is total horizontal source-to-microphone distance (100-500 m).
@@ -777,6 +780,7 @@ The phase difference $\phi$ between direct and reflected waves determines whethe
 
 \begin{equation}
 \phi = \frac{2\pi \Delta L}{\lambda} + \pi
+\label{eq:phase_difference}
 \end{equation}
 
 where $\lambda = c/f$ is wavelength (adding $\pi$ accounts for 180° phase shift upon reflection from denser medium). Constructive interference occurs when $\phi = 2n\pi$ (where $n$ is integer), amplifying received signal by up to 6 dB. Destructive interference at $\phi = (2n+1)\pi$ creates spectral nulls, potentially reducing detection probability at specific frequencies.
@@ -785,6 +789,7 @@ For typical Graylag Goose scenarios (source height 0.3 m, microphone 1.5 m, rang
 
 \begin{equation}
 f_{null,1} = \frac{c}{2\Delta L} \approx \frac{343 \text{ m/s}}{2 \times 0.85 \text{ m}} \approx 200 \text{ Hz}
+\label{eq:null_frequency}
 \end{equation}
 
 This falls below the fundamental frequency of Graylag calls (500-1,500 Hz), but higher-order nulls at 600 Hz, 1,000 Hz, etc. can create frequency-dependent detection biases.
@@ -925,7 +930,7 @@ The two-stage verification protocol (82.2\% overall pass rate, Stage 2: 90.2\% w
 
 Gaulosen Nature Reserve supported a diverse avian community during this autumn migration snapshot (October 13--15, 2025), with soundscape dominated by highly social waterfowl species exhibiting complex interspecies interactions. Continued multi-season acoustic monitoring could yield long-term datasets critical for documenting climate-driven phenology shifts and population trends in this globally significant migratory corridor.
 
-\textbf{Praven Pro 2.2 - Automated Biological Validation:} Following this study, Praven Pro has been extended to version 2.2 with automated biological validation capabilities \citep{Redpath2025}. The enhanced system now includes: (1) \textbf{Automatic habitat detection} from GPS coordinates using OpenStreetMap Overpass API to identify land cover types and hybrid habitats, (2) \textbf{Automatic weather fetching} from Open-Meteo historical weather API based on GPS coordinates and detection timestamps extracted from CSV files, (3) \textbf{Smart review selection} that prioritizes top 3 highest-confidence detections per species (6,202 → 192 detections for this study's dataset selected for manual review), (4) \textbf{Taxonomic rule validation} covering 40 bird families with species-specific temporal patterns (diurnal/nocturnal), habitat preferences, and geographic range checks, and (5) \textbf{Simplified web interface} requiring only CSV upload and GPS coordinates, with all contextual data (date, weather, habitat) extracted automatically. The system achieved 82.2\% species-level verification pass rate (74/90 species) on the Gaulosen dataset, demonstrating practical deployment readiness for wetland monitoring programs. Complete source code, documentation, and live demonstration available at \url{https://ziforge.github.io/praven-pro} and \url{https://github.com/Ziforge/praven-pro}.
+\textbf{Praven Pro 2.2 - Automated Biological Validation:} Following this study, Praven Pro has been extended to version 2.2 with automated biological validation capabilities \citep{Redpath2025}. The enhanced system now includes: (1) \textbf{Automatic habitat detection} from GPS coordinates using OpenStreetMap Overpass API to identify land cover types and hybrid habitats, (2) \textbf{Automatic weather fetching} from Open-Meteo historical weather API based on GPS coordinates and detection timestamps extracted from CSV files, (3) \textbf{Smart review selection} that prioritizes top 3 highest-confidence detections per species (6,202 → 192 detections for this study's dataset selected for manual review), (4) \textbf{Taxonomic rule validation} covering 40 bird families with species-specific temporal patterns (diurnal/nocturnal), habitat preferences, and geographic range checks, and (5) \textbf{Simplified web interface} requiring only CSV upload and GPS coordinates, with all contextual data (date, weather, habitat) extracted automatically. The system achieved 82.2\% species-level verification pass rate (74/90 species) on the Gaulosen dataset. \textbf{Important limitation:} This represents a proof-of-concept system validated on a single wetland study; extensive development is required for broader real-world deployment, including expanded species coverage, regional phenology databases, validation across diverse habitats and geographic regions, independent testing on multiple datasets, and peer review of methodology. Complete source code, documentation, and live demonstration available at \url{https://ziforge.github.io/praven-pro} and \url{https://github.com/Ziforge/praven-pro}.
 
 \section*{Acknowledgments}
 
