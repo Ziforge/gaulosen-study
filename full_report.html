@@ -253,7 +253,7 @@
             <h2>3. Results</h2>
 
             <h3>3.1 Species Diversity and Detection Performance</h3>
-            <p>Automated analysis detected 82 putative species, of which <span class="highlight">74 (90.2%) passed human verification and biological screening</span>, yielding <span class="highlight">4,023 verified detections</span> after removing 8 biologically impossible species (species-level verification pass rate: 74/82 = 90.2%).</p>
+            <p>Automated analysis detected 90 putative species, of which <span class="highlight">74 (82.2%) passed two-stage verification</span> (audio quality + biological screening), yielding <span class="highlight">4,023 verified detections</span>. Stage 1 (audio quality) rejected 8 species; Stage 2 (biological validation) rejected 8 species (overall pass rate: 74/90 = 82.2%).</p>
 
             <div class="table-container">
                 <table>
@@ -265,12 +265,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>Initial detections (BirdNET)</td><td>4,108</td><td>100.0%</td></tr>
-                        <tr><td>Species detected</td><td>82</td><td>100.0%</td></tr>
-                        <tr><td>Species verified</td><td>74</td><td>90.2%</td></tr>
-                        <tr><td>Species rejected</td><td>8</td><td>9.8%</td></tr>
-                        <tr><td>Verified detections</td><td>4,023</td><td>97.9%</td></tr>
-                        <tr><td>False positives removed</td><td>85</td><td>2.1%</td></tr>
+                        <tr><td>Initial BirdNET detections</td><td>6,805</td><td>100.0%</td></tr>
+                        <tr><td>Initial species detected</td><td>90</td><td>100.0%</td></tr>
+                        <tr><td>After Stage 1 (audio quality)</td><td>82 species</td><td>91.1%</td></tr>
+                        <tr><td>After Stage 2 (biological validation)</td><td>74 species</td><td>82.2% overall</td></tr>
+                        <tr><td>Final verified detections</td><td>4,023</td><td>59.1%</td></tr>
+                        <tr><td>Total species rejected</td><td>16</td><td>17.8%</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -320,9 +320,9 @@
             <h2>4. Discussion</h2>
 
             <h3>4.1 Methodological Validation</h3>
-            <p>The <span class="highlight">90.2% species-level verification pass rate</span> (74/82 species) demonstrates that BirdNET, when coupled with appropriate audio enhancement, human verification, and biological plausibility screening, achieves scientifically defensible accuracy despite challenging acoustic conditions. This compares favorably with reported accuracy in prior wetland studies (72-83%) and validates automated monitoring as viable biodiversity assessment tool.</p>
+            <p>The <span class="highlight">82.2% overall verification pass rate</span> (74/90 species) demonstrates that BirdNET, when coupled with two-stage verification (audio quality + biological screening), achieves scientifically defensible accuracy despite challenging acoustic conditions. Stage 1 audio quality review achieved 91.1% pass rate (82/90), while Stage 2 biological validation achieved 90.2% pass rate (74/82). This two-stage approach compares favorably with reported accuracy in prior wetland studies (72-83%) and validates automated monitoring as viable biodiversity assessment tool.</p>
 
-            <p><strong>Weather Resilience:</strong> Successful detection of 74 species despite 80% rain/fog coverage illustrates PAM's advantage over visual surveys, which would have yielded near-zero data in equivalent conditions. Biological verification removed 8 impossible species (including 3 seasonal impossibilities identified through automated validation), demonstrating importance of systematic post-processing validation.</p>
+            <p><strong>Weather Resilience:</strong> Successful detection of 74 species despite 80% rain/fog coverage illustrates PAM's advantage over visual surveys, which would have yielded near-zero data in equivalent conditions. The two-stage verification removed 16 impossible/unverifiable species total (8 audio quality failures + 8 biological impossibilities, including 3 seasonal impossibilities identified through automated validation), demonstrating importance of systematic post-processing validation.</p>
 
             <p><strong>Praven Pro Impact:</strong> The toolkit proved essential for achieving high verification rates within practical timeframes, reducing manual processing from estimated 48 hours to 4.2 hours through automated batch processing and structured verification interfaces.</p>
 
@@ -407,7 +407,7 @@
         <footer>
             <p><strong>Gaulosen Nature Reserve Acoustic Monitoring Study</strong></p>
             <p>October 13-15, 2025 - Gaulosen Nature Reserve, Melhus, Trøndelag, Norway</p>
-            <p>74 Verified Species | 4,023 Verified Detections | 90.2% Verification Rate</p>
+            <p>74 Verified Species | 4,023 Verified Detections | 82.2% Overall Pass Rate (74/90)</p>
             <p>BirdNET v2.4 | Human Expert Verification | Scientifically Validated</p>
             <p style="margin-top: 15px;">Analysis powered by <a href="https://github.com/Ziforge/praven-pro" target="_blank" style="color: #00d4ff; text-decoration: none;">Praven Pro</a> - BirdNET to Raven Pro conversion toolkit</p>
         </footer>

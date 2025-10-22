@@ -303,8 +303,8 @@
                     <div class="hero-stat-label">Hours Recorded</div>
                 </div>
                 <div class="hero-stat">
-                    <div class="hero-stat-number">90.2%</div>
-                    <div class="hero-stat-label">Species Verified (74/82)</div>
+                    <div class="hero-stat-number">82.2%</div>
+                    <div class="hero-stat-label">Species Verified (74/90)</div>
                 </div>
             </div>
         </header>
@@ -412,7 +412,7 @@
                     <div class="timeline-date">Automated Detection</div>
                     <div class="timeline-content">
                         <strong>BirdNET v2.4 Analysis</strong><br>
-                        Initial automated detection: 82 species, 4,108 detections<br>
+                        Initial automated detection: 90 species, 6,805 detections<br>
                         Deep learning classifier (Kahl et al. 2021)
                     </div>
                 </div>
@@ -420,18 +420,18 @@
                 <div class="timeline-item">
                     <div class="timeline-date">Audio Enhancement</div>
                     <div class="timeline-content">
-                        <strong>Noise Reduction</strong><br>
+                        <strong>Noise Reduction + Stage 1 Verification</strong><br>
                         Wiener filtering + HPSS (Harmonic-Percussive Source Separation)<br>
-                        4,260 enhanced audio clips generated
+                        Audio quality review: 82/90 species passed (91.1% pass rate)
                     </div>
                 </div>
 
                 <div class="timeline-item">
-                    <div class="timeline-date">Human Verification</div>
+                    <div class="timeline-date">Stage 2: Biological Verification</div>
                     <div class="timeline-content">
-                        <strong>Manual Review & Biological Verification</strong><br>
-                        All 82 species reviewed via spectrograms and audio<br>
-                        Result: 77 of 82 species verified (90.2% verification rate), 5 species rejected as biologically impossible
+                        <strong>Manual Review & Automated Biological Validation</strong><br>
+                        All 82 species reviewed via spectrograms and biological plausibility<br>
+                        Result: 74/82 species verified (90.2% Stage 2 pass rate, 82.2% overall)
                     </div>
                 </div>
 
@@ -530,7 +530,7 @@
         <footer>
             <p><strong>Gaulosen Nature Reserve Acoustic Monitoring Study</strong></p>
             <p>October 13-15, 2025 - Gaulosen Nature Reserve, Melhus, Trøndelag, Norway</p>
-            <p>74 Verified Species | 4,023 Verified Detections | 90.2% Species Verification Rate (74/82)</p>
+            <p>74 Verified Species | 4,023 Verified Detections | 82.2% Species Verification Rate (74/90)</p>
             <p>BirdNET v2.4 | Human-Verified | Scientifically Validated</p>
             <p style="margin-top: 20px; color: #888; font-size: 0.85em;">
                 Analysis powered by <a href="https://github.com/Ziforge/praven-pro" target="_blank" style="color: #00d4ff; text-decoration: none;">Praven Pro</a> - BirdNET to Raven Pro conversion toolkit

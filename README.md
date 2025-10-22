@@ -18,9 +18,10 @@ Interactive website with:
 ## 📊 Final Verified Results
 
 - **Total recordings:** 48.8 hours continuous (October 13-15, 2025)
-- **Verified species:** **74 bird species** (90.2% verification rate)
-- **Verified detections:** **4,023 vocalizations**
-- **Rejected species:** 8 (biologically impossible: nocturnal woodpeckers, oceanic seabirds inland, seasonal impossibilities)
+- **Verified species:** **74 bird species** (82.2% overall pass rate: 74/90)
+- **Verified detections:** **4,023 vocalizations** (from initial 6,805 BirdNET detections)
+- **Two-stage verification:** Stage 1 (audio quality): 91.1% pass rate (82/90), Stage 2 (biological): 90.2% pass rate (74/82)
+- **Rejected species:** 16 total (8 audio quality failures + 8 biological impossibilities)
 - **Location:** 63.341°N, 10.215°E (Designated Important Bird Area)
 
 ### Conservation Highlights
@@ -57,10 +58,10 @@ Interactive website with:
 ```mermaid
 flowchart LR
     A[Field Deployment<br/>Oct 13-15, 2025] --> B[Raw Audio<br/>48.8 hours @ 48kHz]
-    B --> C[BirdNET Analysis<br/>82 species detected]
+    B --> C[BirdNET Analysis<br/>90 species, 6,805 detections]
     C --> D[Enhancement Pipeline<br/>Wiener + HPSS]
     D --> E[Human Verification<br/>Spectrogram review]
-    E --> F[Biological Screening<br/>Habitat/temporal checks]
+    E --> F[Stage 2: Biological Validation<br/>82→74 species (90.2%)]
     F --> G[Final Dataset<br/>74 species, 4,023 calls]
     G --> H[Deliverables]
     H --> I[LaTeX Paper<br/>19 pages, 18 refs]
