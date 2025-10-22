@@ -394,14 +394,21 @@ python web_app.py
 
             <div style="background: rgba(255, 193, 7, 0.1); border-left: 4px solid #ffc107; padding: 25px; border-radius: 12px; margin-bottom: 30px;">
                 <h3 style="color: #f57c00; margin-bottom: 15px;">⚠️ Current Limitations</h3>
-                <p style="color: #d0d0d0; line-height: 1.8; margin-bottom: 10px;">
+                <p style="color: #d0d0d0; line-height: 1.8; margin-bottom: 15px;">
                     Praven Pro 2.2 is a <strong>proof-of-concept system</strong> validated on a single wetland study (Gaulossen Nature Reserve, October 2025).
-                    The system demonstrated practical utility for this specific dataset but requires extensive development for broader real-world deployment.
+                    The system demonstrated practical utility for this specific dataset but has significant limitations:
                 </p>
-                <p style="color: #d0d0d0; line-height: 1.8;">
-                    <strong>Required for production use:</strong> Expanded species coverage beyond 40 bird families, regional phenology databases for migration timing,
-                    validation across diverse habitat types and geographic regions, independent testing on multiple datasets from different ecosystems and seasons,
-                    and formal peer review of the validation methodology.
+                <ul style="color: #d0d0d0; line-height: 1.8; margin-left: 20px;">
+                    <li><strong>Limited species coverage:</strong> Only 40 bird families (primarily European species)</li>
+                    <li><strong>Incomplete weather data:</strong> Temperature, precipitation, visibility, wind, clouds only - missing humidity, barometric pressure, snow/ice conditions</li>
+                    <li><strong>Single habitat type:</strong> Tested only on wetlands, not validated for forests, grasslands, urban areas, or other ecosystems</li>
+                    <li><strong>Limited geographic scope:</strong> Validated only in Norway (63°N), untested across different latitudes, continents, and climate zones</li>
+                    <li><strong>No call type validation:</strong> Cannot distinguish between song, flight calls, and alarm calls</li>
+                    <li><strong>No seasonal migration models:</strong> Lacks comprehensive phenology databases for regional migration timing variations</li>
+                    <li><strong>Peer review required:</strong> Validation methodology and biological rules need formal scientific peer review</li>
+                </ul>
+                <p style="color: #d0d0d0; line-height: 1.8; margin-top: 15px;">
+                    <strong>Extensive development required</strong> for broader real-world deployment beyond proof-of-concept status.
                 </p>
             </div>
 
