@@ -111,7 +111,7 @@
         <!-- Verification Status -->
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-number">77</div>
+                <div class="stat-number">74</div>
                 <div class="stat-label">Species Verified</div>
             </div>
             <div class="stat-card">
@@ -119,7 +119,7 @@
                 <div class="stat-label">Verification Pass Rate</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">4,085</div>
+                <div class="stat-number">4,023</div>
                 <div class="stat-label">Verified Detections</div>
             </div>
             <div class="stat-card">
@@ -140,8 +140,8 @@
                 </div>
                 <div class="detection-card" style="border-left-color: #ff4444;">
                     <h4>❌ Failed Verification</h4>
-                    <div class="detection-info"><strong>5 species</strong> rejected as biologically impossible</div>
-                    <div class="detection-info">Reasons: Nocturnal woodpeckers, oceanic seabirds inland, non-native species</div>
+                    <div class="detection-info"><strong>8 species</strong> rejected as biologically impossible</div>
+                    <div class="detection-info">Reasons: Nocturnal woodpeckers, oceanic seabirds inland, non-native species, seasonal impossibilities</div>
                     <span class="badge badge-failed">Rejected</span>
                 </div>
             </div>
@@ -218,6 +218,30 @@
                 <div class="detection-info">❌ Reason: Marine species, extreme habitat mismatch</div>
                 <div class="detection-info">💡 Assessment: Rejected - wrong habitat</div>
                 <span class="badge badge-failed">Marine Species</span>
+            </div>
+
+            <div class="detection-card" style="border-left-color: #ff4444;">
+                <h4>Black Woodpecker (Dryocopus martius)</h4>
+                <div class="detection-info">📊 Detections: 2 (all nocturnal)</div>
+                <div class="detection-info">❌ Reason: Nocturnal detections - biologically impossible (diurnal species)</div>
+                <div class="detection-info">💡 Assessment: No evidence of nocturnal calling in literature</div>
+                <span class="badge badge-failed">Temporal Impossibility</span>
+            </div>
+
+            <div class="detection-card" style="border-left-color: #ff4444;">
+                <h4>Common Grasshopper-Warbler (Locustella naevia)</h4>
+                <div class="detection-info">📊 Detections: 59 (all rejected)</div>
+                <div class="detection-info">❌ Reason: Seasonal impossibility - summer visitor, departs by late September</div>
+                <div class="detection-info">💡 Assessment: October presence extremely unlikely, spectrograms showed rain noise</div>
+                <span class="badge badge-failed">Seasonal Impossibility</span>
+            </div>
+
+            <div class="detection-card" style="border-left-color: #ff4444;">
+                <h4>Corn Crake (Crex crex)</h4>
+                <div class="detection-info">📊 Detections: 1</div>
+                <div class="detection-info">❌ Reason: Seasonal impossibility - should be in Africa by mid-October</div>
+                <div class="detection-info">💡 Assessment: Long-distance migrant, October presence biologically implausible</div>
+                <span class="badge badge-failed">Seasonal Impossibility</span>
             </div>
         </section>
 

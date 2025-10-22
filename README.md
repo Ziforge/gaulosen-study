@@ -19,8 +19,8 @@ Interactive website with:
 
 - **Total recordings:** 48.8 hours continuous (October 13-15, 2025)
 - **Verified species:** **74 bird species** (90.2% verification rate)
-- **Verified detections:** **4,085 vocalizations**
-- **Rejected species:** 5 (biologically impossible: nocturnal woodpeckers, oceanic seabirds inland)
+- **Verified detections:** **4,023 vocalizations**
+- **Rejected species:** 8 (biologically impossible: nocturnal woodpeckers, oceanic seabirds inland, seasonal impossibilities)
 - **Location:** 63.341°N, 10.215°E (Designated Important Bird Area)
 
 ### Conservation Highlights
@@ -35,7 +35,7 @@ Interactive website with:
 **LaTeX Source:** `latex_paper/gaulossen_paper.tex`
 **Compiled PDF:** `latex_paper/gaulossen_paper.pdf` (19 pages)
 
-**Title:** *Baseline Acoustic Biodiversity Assessment of Gaulosen Nature Reserve: Monitoring 77 Bird Species Along the East Atlantic Flyway*
+**Title:** *Baseline Acoustic Biodiversity Assessment of Gaulosen Nature Reserve: Monitoring 74 Bird Species Along the East Atlantic Flyway*
 
 **Key Sections:**
 - Conservation-focused objectives for IBA management
@@ -61,7 +61,7 @@ flowchart LR
     C --> D[Enhancement Pipeline<br/>Wiener + HPSS]
     D --> E[Human Verification<br/>Spectrogram review]
     E --> F[Biological Screening<br/>Habitat/temporal checks]
-    F --> G[Final Dataset<br/>74 species, 4,085 calls]
+    F --> G[Final Dataset<br/>74 species, 4,023 calls]
     G --> H[Deliverables]
     H --> I[LaTeX Paper<br/>19 pages, 18 refs]
     H --> J[Interactive Website<br/>6 pages + gallery]
@@ -84,7 +84,7 @@ gaulosen-study/
 ├── field_report.html              # Field deployment documentation
 ├── verification_review.html       # Quality assessment
 ├── full_report.html               # Complete academic report (HTML)
-├── species_data.json              # Species metadata (77 verified)
+├── species_data.json              # Species metadata (74 verified)
 ├── species_files.json             # Audio/spectrogram file paths
 ├── field_photos/                  # 6 deployment photos
 ├── latex_paper/
@@ -256,7 +256,7 @@ This study serves as:
 **Citation format:**
 ```
 Redpath, G. (2025). Baseline Acoustic Biodiversity Assessment of Gaulosen
-Nature Reserve: Monitoring 77 Bird Species Along the East Atlantic Flyway.
+Nature Reserve: Monitoring 74 Bird Species Along the East Atlantic Flyway.
 Norwegian University of Science and Technology (NTNU), Department of Acoustics.
 https://ziforge.github.io/gaulosen-study/
 ```
