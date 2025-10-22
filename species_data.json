@@ -80,14 +80,6 @@
     "verification_date": "2025-10-14"
   },
   {
-    "common_name": "Common Grasshopper-Warbler",
-    "scientific_name": "Locustella naevia",
-    "description": "Small secretive warbler with streaked brown plumage.",
-    "call_description": "Continuous mechanical reeling trill, like fishing reel, for minutes",
-    "confidence": "88.7%",
-    "verification_date": "2025-10-14"
-  },
-  {
     "common_name": "Eurasian Magpie",
     "scientific_name": "Pica pica",
     "description": "Black and white corvid with long tail, iridescent blue-green wings.",
@@ -448,14 +440,6 @@
     "verification_date": "2025-10-14"
   },
   {
-    "common_name": "Black Woodpecker",
-    "scientific_name": "Dryocopus martius",
-    "description": "Crow-sized woodpecker, entirely black with red crown.",
-    "call_description": "Loud, ringing \"kri-kri-kri\", drumming resonant and slow",
-    "confidence": "39.4%",
-    "verification_date": "2025-10-15"
-  },
-  {
     "common_name": "Taiga Bean-Goose",
     "scientific_name": "Anser fabalis",
     "description": "Large dark goose with orange bill band, orange legs.",
@@ -565,14 +549,6 @@
     "description": "Small brown bird with gray head and breast, thin bill.",
     "call_description": "High piping \"tseeh\", fast warbling song",
     "confidence": "28.5%",
-    "verification_date": "2025-10-14"
-  },
-  {
-    "common_name": "Corn Crake",
-    "scientific_name": "Crex crex",
-    "description": "Secretive rail of meadows, buff plumage, chestnut wings.",
-    "call_description": "Loud rasping \"crex-crex\" repeated endlessly at night",
-    "confidence": "27.2%",
     "verification_date": "2025-10-14"
   },
   {

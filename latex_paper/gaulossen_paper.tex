@@ -32,7 +32,7 @@
 \fancyfoot[C]{\thepage}
 
 % Title and authors
-\title{\textbf{Baseline Acoustic Biodiversity Assessment of Gaulosen Nature Reserve: Monitoring 77 Bird Species Along the East Atlantic Flyway}}
+\title{\textbf{Baseline Acoustic Biodiversity Assessment of Gaulosen Nature Reserve: Monitoring 74 Bird Species Along the East Atlantic Flyway}}
 
 \author[1]{George Redpath}
 \affil[1]{Norwegian University of Science and Technology (NTNU), Trondheim, Norway}
@@ -47,7 +47,7 @@
 \maketitle
 
 \begin{abstract}
-\noindent Establishing baseline biodiversity data is critical for conservation management of Important Bird Areas along migratory flyways. I conducted passive acoustic monitoring at Gaulosen Nature Reserve (Trøndelag, Norway), a designated IBA on the East Atlantic Flyway, during autumn migration (October 13--15, 2025). Using BirdNET v2.4 automated detection followed by two-stage verification (audio quality screening, then biological plausibility screening), I documented 77 verified bird species from 90 initially detected species (85.6\% overall pass rate), yielding 4,085 verified vocalizations from 6,805 initial detections across 48.8 hours of recording. Key conservation findings include: (1) declining Great Snipe detected at migration stopover (189 calls, 69\% dusk concentration 19:00--21:59), (2) intensive waterfowl use with peak flock activity of 620 Graylag Goose calls over 91 minutes, (3) 47 nocturnal migration flight calls documenting active flyway usage, and (4) verification of visual identification (Yellowhammer, \textit{Emberiza citrinella}) via photo submission to Cornell Lab's Merlin Bird ID. Despite rain-dominated conditions (80\% temporal coverage), acoustic monitoring successfully quantified biodiversity where visual surveys would yield minimal data, demonstrating PAM's value for year-round conservation monitoring at this globally significant wetland.
+\noindent Establishing baseline biodiversity data is critical for conservation management of Important Bird Areas along migratory flyways. I conducted passive acoustic monitoring at Gaulosen Nature Reserve (Trøndelag, Norway), a designated IBA on the East Atlantic Flyway, during autumn migration (October 13--15, 2025). Using BirdNET v2.4 automated detection followed by two-stage verification (audio quality screening, then biological plausibility screening), I documented 74 verified bird species from 90 initially detected species (82.2\% overall pass rate), yielding 4,023 verified vocalizations from 6,805 initial detections across 48.8 hours of recording. Key conservation findings include: (1) declining Great Snipe detected at migration stopover (189 calls, 69\% dusk concentration 19:00--21:59), (2) intensive waterfowl use with peak flock activity of 620 Graylag Goose calls over 91 minutes, (3) 47 nocturnal migration flight calls documenting active flyway usage, and (4) verification of visual identification (Yellowhammer, \textit{Emberiza citrinella}) via photo submission to Cornell Lab's Merlin Bird ID. Despite rain-dominated conditions (80\% temporal coverage), acoustic monitoring successfully quantified biodiversity where visual surveys would yield minimal data, demonstrating PAM's value for year-round conservation monitoring at this globally significant wetland.
 \end{abstract}
 
 \noindent \textbf{Keywords:} conservation monitoring, biodiversity baseline, Important Bird Area, East Atlantic Flyway, Great Snipe, BirdNET, passive acoustic monitoring
@@ -163,7 +163,7 @@ where $c$ is speed (m/s) and $T$ is temperature (°C). At study conditions (8°C
 \caption{Challenging weather: rain, fog, low visibility}
 \end{subfigure}
 
-\caption{\textbf{Field deployment documentation October 13-15, 2025.} (a) Open wetland habitat with mountain backdrop (Dovrefjell range) providing favorable sound propagation: 50-100m detection range (warblers), 200-500m (geese/cranes). (b) Site information board documenting reserve's ecological significance and 200+ documented bird species. (c) AudioMoth v1.2 mounted 1.5m height on fence post, 100m from wetland edge, with rain shield providing 48.8 hours continuous recording. (d) Yellowhammer (Emberiza citrinella) perched in wetland vegetation, one of 77 verified species detected acoustically. (e) Peak Graylag Goose flock activity Day 1 (16:00-17:26): visual field estimate 200+ individuals, 620 vocalizations quantified by BirdNET post-analysis. (f) Challenging atmospheric conditions dominated recording period: 80\% rain/fog coverage, 7-11°C, visibility often $<$500m, requiring extensive audio enhancement (Figure \ref{fig:processing_comparison}). All field observations and analysis available at interactive website: \url{https://ziforge.github.io/gaulosen-study/}.}
+\caption{\textbf{Field deployment documentation October 13-15, 2025.} (a) Open wetland habitat with mountain backdrop (Dovrefjell range) providing favorable sound propagation: 50-100m detection range (warblers), 200-500m (geese/cranes). (b) Site information board documenting reserve's ecological significance and 200+ documented bird species. (c) AudioMoth v1.2 mounted 1.5m height on fence post, 100m from wetland edge, with rain shield providing 48.8 hours continuous recording. (d) Yellowhammer (Emberiza citrinella) perched in wetland vegetation, one of 74 verified species detected acoustically. (e) Peak Graylag Goose flock activity Day 1 (16:00-17:26): visual field estimate 200+ individuals, 620 vocalizations quantified by BirdNET post-analysis. (f) Challenging atmospheric conditions dominated recording period: 80\% rain/fog coverage, 7-11°C, visibility often $<$500m, requiring extensive audio enhancement (Figure \ref{fig:processing_comparison}). All field observations and analysis available at interactive website: \url{https://ziforge.github.io/gaulosen-study/}.}
 \label{fig:field_deployment}
 \end{figure*}
 
@@ -384,7 +384,7 @@ To bridge the gap between automated BirdNET detection and professional bioacoust
 
 \textbf{Technical Implementation:} Praven Pro utilizes scientific Python libraries (NumPy, SciPy for signal processing; librosa for audio analysis; Matplotlib for visualization; pandas for data management) and follows open-source development practices with comprehensive documentation and example workflows.
 
-The toolkit proved essential for this study's two-stage verification protocol, enabling systematic review of all 6,805 initial detections across 90 species within practical timeframes for academic coursework. The structured interface facilitated audio quality screening (90→82 species) followed by biological plausibility evaluation (82→77 species, 93.9\% pass rate). Complete source code, installation instructions, and usage examples available at \url{https://github.com/Ziforge/praven-pro}.
+The toolkit proved essential for this study's two-stage verification protocol, enabling systematic review of all 6,805 initial detections across 90 species within practical timeframes for academic coursework. The structured interface facilitated audio quality screening (90→82 species) followed by biological plausibility evaluation (82→74 species, 90.2\% pass rate). Complete source code, installation instructions, and usage examples available at \url{https://github.com/Ziforge/praven-pro}.
 
 \subsection{Acoustic Performance Metrics}
 
@@ -414,7 +414,7 @@ BirdNET's initial output (90 species, 6,805 detections) underwent two-stage spec
 
 \textbf{Stage 2 - Biological Plausibility Screening:} Each of the 82 remaining species was evaluated against ecological criteria: (1) temporal plausibility (diurnal/nocturnal activity patterns, migration phenology for October in Norway), (2) habitat requirements (wetland vs. forest, oceanic vs. inland), and (3) geographic range (native, migrant, or vagrant status in Trøndelag region). Spectrograms were compared to reference recordings from xeno-canto database to validate species identification based on frequency patterns, temporal structure, and call type. In cases of ambiguous identification, multiple examples per species were reviewed to reach classification decisions.
 
-Species passing both stages had all detections accepted; species failing either stage had all detections rejected. This two-stage protocol yielded 77/90 species verified (85.6\% overall pass rate) corresponding to 4,085/6,805 detections accepted (60.0\% detection-level acceptance rate). The 82→77 transition (Stage 2) showed 93.9\% pass rate (95\% CI: [86.5\%, 97.9\%]), rejecting 5 species on biological grounds (23 detections).
+Species passing both stages had all detections accepted; species failing either stage had all detections rejected. This two-stage protocol yielded 74/90 species verified (82.2\% overall pass rate) corresponding to 4,023/6,805 detections accepted (59.1\% detection-level acceptance rate). The 82→74 transition (Stage 2) showed 90.2\% pass rate (95\% CI: [83.8\%, 96.6\%]), rejecting 8 species on biological grounds (85 detections).
 
 \textbf{Verification Criteria:} Species accepted if:
 \begin{itemize}
@@ -452,7 +452,7 @@ Raw audio files archived at NTNU Digital Repository (access restricted per wildl
 
 \subsection{Species Diversity and Detection Performance}
 
-Automated analysis detected 90 putative species (6,805 detections). Two-stage verification yielded 77 verified species (4,085 detections, Table \ref{tab:verification}). Stage 1 (audio quality screening) reduced to 82 species (4,108 detections, rejecting 8 species with poor spectrogram quality). Stage 2 (biological plausibility) yielded final 77 species (4,085 detections), rejecting 5 ecologically impossible species: Lesser Spotted Woodpecker (14 nocturnal detections), European Storm-Petrel (4 detections, oceanic species), Manx Shearwater (3 detections, pelagic species), Bar-headed Goose (1 detection, non-native), and Western Capercaillie (1 detection, habitat mismatch). Overall verification pass rates: 85.6\% species-level (77/90), 60.0\% detection-level (4,085/6,805).
+Automated analysis detected 90 putative species (6,805 detections). Two-stage verification yielded 74 verified species (4,023 detections, Table \ref{tab:verification}). Stage 1 (audio quality screening) reduced to 82 species (4,108 detections, rejecting 8 species with poor spectrogram quality). Stage 2 (biological plausibility) yielded final 74 species (4,023 detections), rejecting 8 ecologically impossible species: Lesser Spotted Woodpecker (14 nocturnal detections), European Storm-Petrel (4 detections, oceanic species), Manx Shearwater (3 detections, pelagic species), Bar-headed Goose (1 detection, non-native), and Western Capercaillie (1 detection, habitat mismatch). Overall verification pass rates: 82.2\% species-level (74/90), 59.1\% detection-level (4,023/6,805).
 
 \begin{table}[H]
 \centering
@@ -464,20 +464,20 @@ Automated analysis detected 90 putative species (6,805 detections). Two-stage ve
 \midrule
 BirdNET initial output & 90 & 6,805 \\
 After Stage 1 (audio quality) & 82 & 4,108 \\
-After Stage 2 (biological screening) & 77 & 4,085 \\
+After Stage 2 (biological screening) & 74 & 4,023 \\
 \midrule
 \textbf{Rejected - Stage 1} & \textbf{8} & \textbf{2,697} \\
-\textbf{Rejected - Stage 2} & \textbf{5} & \textbf{23} \\
+\textbf{Rejected - Stage 2} & \textbf{8} & \textbf{85} \\
 \midrule
-\textbf{Overall pass rate} & \textbf{85.6\%} & \textbf{60.0\%} \\
-\textbf{Stage 2 pass rate} & \textbf{93.9\%} & \textbf{99.4\%} \\
+\textbf{Overall pass rate} & \textbf{82.2\%} & \textbf{59.1\%} \\
+\textbf{Stage 2 pass rate} & \textbf{90.2\%} & \textbf{99.4\%} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\textbf{Rejected Species:} Five species removed after biological plausibility screening: Lesser Spotted Woodpecker (14 detections, nocturnal impossibility), European Storm-Petrel (4, oceanic species inland), Manx Shearwater (3, pelagic species inland), Western Capercaillie (1, rain noise), Bar-headed Goose (1, non-native escaped bird).
+\textbf{Rejected Species:} Eight species removed after biological plausibility screening: Lesser Spotted Woodpecker (14 detections, nocturnal impossibility), European Storm-Petrel (4, oceanic species inland), Manx Shearwater (3, pelagic species inland), Bar-headed Goose (1, non-native escaped bird), Western Capercaillie (1, habitat mismatch), Black Woodpecker (2, nocturnal impossibility), Common Grasshopper-Warbler (59, seasonal impossibility—summer visitor in mid-October), and Corn Crake (1, seasonal impossibility—should be in Africa).
 
-\textbf{Species Richness:} 77 verified species span 14 orders and 30 families, dominated by Anseriformes (waterfowl, 14 species) and Passeriformes (songbirds, 35 species). Notable detections include conservation-priority species: Great Snipe (\textit{Gallinago media}, 189 detections) and Eurasian Woodcock (\textit{Scolopax rusticola}, 57 detections).
+\textbf{Species Richness:} 74 verified species span 14 orders and 30 families, dominated by Anseriformes (waterfowl, 14 species) and Passeriformes (songbirds, 35 species). Notable detections include conservation-priority species: Great Snipe (\textit{Gallinago media}, 189 detections) and Eurasian Woodcock (\textit{Scolopax rusticola}, 57 detections).
 
 \begin{figure}[H]
 \centering
@@ -523,7 +523,7 @@ After Stage 2 (biological screening) & 77 & 4,085 \\
 \node[above, font=\Large] at (9,8) {\textbf{N}};
 
 \end{tikzpicture}
-\caption{\textbf{Site deployment geometry and detection zones.} AudioMoth positioned 100m from wetland edge on fence post (1.5m height) with unobstructed sight lines to primary waterfowl congregation areas. Concentric circles indicate species-dependent acoustic detection ranges based on call intensity and spherical spreading: 50-100m for quiet species (warblers, thrushes, 60-75 dB SPL calls), 200-500m for loud species (geese, cranes, 85-100 dB SPL calls). Flat terrain and open water provided favorable sound propagation conditions. Waterfowl symbols ($\approx$) indicate observed congregation zones. Detection range estimates account for atmospheric absorption ($\alpha \approx 0.02$ dB/m at 5 kHz) and 18 dB SNR threshold for BirdNET classification. This geometry enabled detection of 77 verified species across diverse vocal intensities and habitat preferences.}
+\caption{\textbf{Site deployment geometry and detection zones.} AudioMoth positioned 100m from wetland edge on fence post (1.5m height) with unobstructed sight lines to primary waterfowl congregation areas. Concentric circles indicate species-dependent acoustic detection ranges based on call intensity and spherical spreading: 50-100m for quiet species (warblers, thrushes, 60-75 dB SPL calls), 200-500m for loud species (geese, cranes, 85-100 dB SPL calls). Flat terrain and open water provided favorable sound propagation conditions. Waterfowl symbols ($\approx$) indicate observed congregation zones. Detection range estimates account for atmospheric absorption ($\alpha \approx 0.02$ dB/m at 5 kHz) and 18 dB SNR threshold for BirdNET classification. This geometry enabled detection of 74 verified species across diverse vocal intensities and habitat preferences.}
 \label{fig:site_map}
 \end{figure}
 
@@ -686,9 +686,9 @@ Great Snipe detections (n=189, 4.6\% of total) exhibited strong crepuscular patt
 
 \subsection{Methodological Validation: Automated Monitoring Performance}
 
-The two-stage verification protocol achieved 85.6\% overall species-level pass rate (77/90 species). Stage 2 biological screening showed 93.9\% pass rate (77/82 species, 95\% CI: [86.5\%, 97.9\%]), demonstrating that BirdNET, when coupled with appropriate audio enhancement and ecological verification, achieves scientifically defensible accuracy despite challenging acoustic conditions. This compares favorably with reported accuracy in prior wetland studies (72--83\%, \citet{Wood2022}) and validates automated monitoring as viable biodiversity assessment tool when combined with two-stage verification (audio quality + biological plausibility).
+The two-stage verification protocol achieved 82.2\% overall species-level pass rate (74/90 species). Stage 2 biological screening showed 90.2\% pass rate (74/82 species, 95\% CI: [83.8\%, 96.6\%]), demonstrating that BirdNET, when coupled with appropriate audio enhancement and ecological verification, achieves scientifically defensible accuracy despite challenging acoustic conditions. This compares favorably with reported accuracy in prior wetland studies (72--83\%, \citet{Wood2022}) and validates automated monitoring as viable biodiversity assessment tool when combined with two-stage verification (audio quality + biological plausibility).
 
-\textbf{Weather Resilience:} Successful detection of 77 species despite 80\% rain/fog coverage illustrates PAM's advantage over visual surveys, which would have yielded near-zero data in equivalent conditions. However, rain-induced false positives (particularly Great Bittern) highlight need for species-specific noise profiling in future deployments.
+\textbf{Weather Resilience:} Successful detection of 74 species despite 80\% rain/fog coverage illustrates PAM's advantage over visual surveys, which would have yielded near-zero data in equivalent conditions. However, rain-induced false positives (particularly Great Bittern) highlight need for species-specific noise profiling in future deployments.
 
 \textbf{Verification Workflow:} Dual-mode verification (spectrogram + audio) proved essential, with 43\% of rejected species showing visually acceptable spectrograms but ambiguous call structure upon audio review. I recommend mandatory audio verification for all species with $<$50 detections.
 
@@ -917,11 +917,11 @@ Destructive: $\Delta L = (n + 0.5)\lambda$
 
 \section{Conclusions}
 
-This study demonstrates that automated acoustic monitoring, when coupled with rigorous audio enhancement and two-stage verification protocols, enables rapid biodiversity assessment in challenging wetland environments. BirdNET v2.4 initially detected 90 species (6,805 detections) from 48 hours of rain-dominated recording. Two-stage verification—audio quality screening (90→82 species) followed by biological plausibility screening (82→77 species)—yielded 77 verified species (4,085 detections, 85.6\% overall pass rate), validating PAM as weather-resilient alternative to traditional survey methods.
+This study demonstrates that automated acoustic monitoring, when coupled with rigorous audio enhancement and two-stage verification protocols, enables rapid biodiversity assessment in challenging wetland environments. BirdNET v2.4 initially detected 90 species (6,805 detections) from 48 hours of rain-dominated recording. Two-stage verification—audio quality screening (90→82 species) followed by biological plausibility screening (82→74 species)—yielded 74 verified species (4,023 detections, 82.2\% overall pass rate), validating PAM as weather-resilient alternative to traditional survey methods.
 
 Beyond species inventorying, continuous acoustic data quantified behavioral patterns at Gaulosen during the study period: intensive Graylag Goose flock dynamics (620 calls/91 minutes), co-occurrence pattern consistent with corvid-waterfowl sentinel mutualism hypothesis (8,778 co-occurrences), and conservation-relevant Great Snipe migration stopover activity (189 detections, 69\% dusk concentration). These findings illustrate how automated monitoring generates behavioral insights inaccessible via point-count surveys.
 
-The two-stage verification protocol (85.6\% overall pass rate, Stage 2: 93.9\% with 95\% CI: [86.5\%, 97.9\%]), achieved despite systematic weather-induced noise contamination, establishes methodological benchmarks for future deployments combining automated detection with audio quality and biological plausibility screening. I recommend acoustic monitoring as primary biodiversity assessment tool for wetlands along major flyways, complemented by targeted visual surveys for rare species validation.
+The two-stage verification protocol (82.2\% overall pass rate, Stage 2: 90.2\% with 95\% CI: [83.8\%, 96.6\%]), achieved despite systematic weather-induced noise contamination, establishes methodological benchmarks for future deployments combining automated detection with audio quality and biological plausibility screening. I recommend acoustic monitoring as primary biodiversity assessment tool for wetlands along major flyways, complemented by targeted visual surveys for rare species validation.
 
 Gaulosen Nature Reserve supported a diverse avian community during this autumn migration snapshot (October 13--15, 2025), with soundscape dominated by highly social waterfowl species exhibiting complex interspecies interactions. Continued multi-season acoustic monitoring could yield long-term datasets critical for documenting climate-driven phenology shifts and population trends in this globally significant migratory corridor.
 
@@ -942,11 +942,11 @@ I thank NTNU Department of Acoustics for equipment support, Gaulosen Nature Rese
 
 \subsection{Complete Species List}
 
-Table \ref{tab:species_full} lists all 77 verified species with detection counts, confidence scores, and verification dates.
+Table \ref{tab:species_full} lists all 74 verified species with detection counts, confidence scores, and verification dates.
 
 \begin{table}[H]
 \centering
-\caption{Complete verified species list (77 species)}
+\caption{Complete verified species list (74 species)}
 \label{tab:species_full}
 \tiny
 \begin{tabular}{lr|lr|lr}

@@ -10,7 +10,7 @@
 **Visit:** [https://ziforge.github.io/gaulosen-study/](https://ziforge.github.io/gaulosen-study/)
 
 Interactive website with:
-- **Species Gallery:** All 77 verified species with audio samples and spectrograms
+- **Species Gallery:** All 74 verified species with audio samples and spectrograms
 - **Behavioral Findings:** Great Snipe migration, Graylag Goose flock dynamics
 - **Field Report:** Complete deployment documentation with 6 field photos
 - **Full Academic Report:** 19-page conservation research paper
@@ -18,7 +18,7 @@ Interactive website with:
 ## 📊 Final Verified Results
 
 - **Total recordings:** 48.8 hours continuous (October 13-15, 2025)
-- **Verified species:** **77 bird species** (93.9% verification rate)
+- **Verified species:** **74 bird species** (90.2% verification rate)
 - **Verified detections:** **4,085 vocalizations**
 - **Rejected species:** 5 (biologically impossible: nocturnal woodpeckers, oceanic seabirds inland)
 - **Location:** 63.341°N, 10.215°E (Designated Important Bird Area)
@@ -28,7 +28,7 @@ Interactive website with:
 ✅ **Great Snipe** (189 detections) - Declining species, migration stopover documented
 ✅ **Nocturnal migration** (47 flight calls, 01:00-06:00) - Active flyway usage
 ✅ **Graylag Goose** (2,871 detections) - Peak flock: 620 calls over 91 minutes
-✅ **Weather-resilient monitoring** - 77 species detected despite 80% rain/fog coverage
+✅ **Weather-resilient monitoring** - 74 species detected despite 80% rain/fog coverage
 
 ## 📄 Academic Paper
 
@@ -61,7 +61,7 @@ flowchart LR
     C --> D[Enhancement Pipeline<br/>Wiener + HPSS]
     D --> E[Human Verification<br/>Spectrogram review]
     E --> F[Biological Screening<br/>Habitat/temporal checks]
-    F --> G[Final Dataset<br/>77 species, 4,085 calls]
+    F --> G[Final Dataset<br/>74 species, 4,085 calls]
     G --> H[Deliverables]
     H --> I[LaTeX Paper<br/>19 pages, 18 refs]
     H --> J[Interactive Website<br/>6 pages + gallery]
@@ -79,7 +79,7 @@ flowchart LR
 ```
 gaulosen-study/
 ├── index.html                      # Homepage with study overview
-├── species_gallery.html            # 77 species with audio + spectrograms
+├── species_gallery.html            # 74 species with audio + spectrograms
 ├── behavioral_findings.html        # Social behavior, migration patterns
 ├── field_report.html              # Field deployment documentation
 ├── verification_review.html       # Quality assessment
@@ -115,9 +115,9 @@ flowchart TD
     D --> E[Human Verification<br/>Spectrogram Analysis]
     E --> F[Biological Screening<br/>Habitat/Temporal Validation]
     F --> G{Verification<br/>Decision}
-    G -->|Pass| H[Verified Dataset<br/>77 species, 4,085 detections]
+    G -->|Pass| H[Verified Dataset<br/>74 species, 4,023 detections]
     G -->|Fail| I[Rejected<br/>5 species, 23 detections]
-    H --> J[93.9% Pass Rate]
+    H --> J[90.2% Pass Rate]
 
     style A fill:#1a1f3a,stroke:#00d4ff,color:#e0e0e0
     style H fill:#0a4d2e,stroke:#00ff88,color:#e0e0e0
@@ -130,7 +130,7 @@ flowchart TD
 2. **Audio enhancement** (Wiener filtering + HPSS) for rain noise reduction
 3. **Human verification** via spectrograms and enhanced audio playback
 4. **Biological verification** screening for ecological plausibility
-5. **Final dataset:** 77 species, 4,085 verified detections (93.9% pass rate)
+5. **Final dataset:** 74 species, 4,023 verified detections (90.2% pass rate)
 
 ### Biological Verification Decision Tree
 
@@ -242,8 +242,8 @@ All data, code, and supplementary materials are publicly available:
 ### Raw Data
 - Species metadata: `species_data.json`
 - File locations: `species_files.json`
-- Audio samples: `results/audio_enhanced/` (77 species)
-- Spectrograms: `results/spectrograms_best/` (77 species)
+- Audio samples: `results/audio_enhanced/` (74 species)
+- Spectrograms: `results/spectrograms_best/` (74 species)
 
 ## 🎓 Academic Use
 
@@ -286,4 +286,4 @@ https://ziforge.github.io/gaulosen-study/
 
 **Last updated:** October 22, 2025
 **Study dates:** October 13-15, 2025
-**Verification status:** ✅ Complete (77 species, 4,085 detections, 93.9% verification rate)
+**Verification status:** ✅ Complete (74 species, 4,023 detections, 90.2% verification rate)
