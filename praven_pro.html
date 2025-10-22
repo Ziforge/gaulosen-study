@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Praven Pro 2.0 - Biological Validation Module</title>
+    <title>Praven Pro 2.2 - Automated Biological Validation</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -121,10 +121,10 @@
         </nav>
 
         <header>
-            <h1>Praven Pro 2.0</h1>
-            <div class="subtitle">Biological Validation Module</div>
+            <h1>Praven Pro 2.2</h1>
+            <div class="subtitle">Automated Biological Validation</div>
             <div style="margin-top: 20px;">
-                <span class="badge badge-new">NEW: v2.0</span>
+                <span class="badge badge-new">NEW: v2.2</span>
                 <span class="badge badge-github">Open Source</span>
             </div>
         </header>
@@ -132,20 +132,20 @@
         <!-- Performance Stats -->
         <div class="stats-grid">
             <div class="stat-card">
+                <div class="stat-number">6,805</div>
+                <div class="stat-label">Detections Processed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">6,202 → 192</div>
+                <div class="stat-label">Smart Review Selection</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">82.2%</div>
+                <div class="stat-label">Species Pass Rate (74/90)</div>
+            </div>
+            <div class="stat-card">
                 <div class="stat-number">100%</div>
-                <div class="stat-label">Detection Rate on Known Errors</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">3</div>
-                <div class="stat-label">Additional Errors Found</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">0</div>
-                <div class="stat-label">False Positives</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">8/90</div>
-                <div class="stat-label">Stage 2 Species Rejected</div>
+                <div class="stat-label">Automated</div>
             </div>
         </div>
 
@@ -161,7 +161,10 @@
                 <li><strong>Generating spectrograms</strong> with publication-quality rendering</li>
                 <li><strong>Enhancing audio</strong> with Wiener filtering and HPSS noise reduction</li>
                 <li><strong>Batch processing</strong> thousands of detections automatically</li>
-                <li><strong>🆕 Biological validation</strong> to auto-reject impossible detections (v2.0)</li>
+                <li><strong>🆕 Automatic habitat detection</strong> from GPS using OpenStreetMap (v2.2)</li>
+                <li><strong>🆕 Automatic weather fetching</strong> from historical weather APIs (v2.2)</li>
+                <li><strong>🆕 Smart review selection</strong> - Top 3 per species for manual review (v2.2)</li>
+                <li><strong>🆕 Biological validation</strong> to auto-reject impossible detections (v2.0+)</li>
             </ul>
 
             <div class="highlight-box">
@@ -172,28 +175,47 @@
                     </a>
                 </p>
                 <p style="color: #a0a0a0; font-size: 0.9em;">
-                    MIT License • Python 3.9+ • Cross-platform (Windows/Mac/Linux)
+                    Non-Commercial License • Python 3.9+ • Cross-platform (Windows/Mac/Linux)
+                </p>
+                <p style="color: #d0d0d0; margin-top: 10px;">
+                    <strong>🌐 Live Demo:</strong> <a href="https://ziforge.github.io/praven-pro" target="_blank">https://ziforge.github.io/praven-pro</a>
                 </p>
             </div>
         </section>
 
-        <!-- New in 2.0 -->
+        <!-- New in 2.2 -->
         <section class="section">
-            <h2>🆕 New in Version 2.0: Biological Validation Module</h2>
+            <h2>🆕 New in Version 2.2: Full Automation</h2>
 
             <div class="success-box">
-                <h3>Automated Biological Plausibility Screening</h3>
+                <h3>Completely Automated Workflow</h3>
                 <p style="color: #d0d0d0; margin-bottom: 15px;">
-                    Version 2.0 introduces <strong>automated biological validation</strong> that catches errors human reviewers can miss.
-                    The system validates detections against ecological rules including:
+                    Version 2.2 introduces <strong>complete automation</strong> requiring only CSV upload and GPS coordinates.
+                    Everything else is detected automatically:
                 </p>
                 <ul>
-                    <li><strong>Activity patterns:</strong> Rejects nocturnal detections of strictly diurnal species</li>
-                    <li><strong>Geographic constraints:</strong> Flags oceanic species detected inland</li>
-                    <li><strong>Seasonal timing:</strong> Identifies impossible migration dates</li>
-                    <li><strong>Habitat requirements:</strong> Detects species outside their range</li>
-                    <li><strong>Vagrant flagging:</strong> Highlights rare/unlikely species for extra review</li>
+                    <li><strong>Automatic date extraction:</strong> Reads from CSV columns (recording_date, absolute_timestamp) or filenames (YYYYMMDD pattern)</li>
+                    <li><strong>Automatic habitat detection:</strong> OpenStreetMap Overpass API queries 1000m radius for land cover types and hybrid habitats</li>
+                    <li><strong>Automatic weather fetching:</strong> Open-Meteo Historical Weather API retrieves temperature, precipitation, visibility, wind, and clouds</li>
+                    <li><strong>Smart review selection:</strong> Top 3 highest-confidence detections per species (Gaulossen dataset: 6,202 → 192 detections for manual review)</li>
+                    <li><strong>Biological validation:</strong> Activity patterns, geographic constraints, seasonal timing, habitat requirements, vagrant flagging</li>
                 </ul>
+            </div>
+
+            <h3>Gaulossen Dataset Results</h3>
+            <div class="stats-grid">
+                <div class="detection-card" style="border-left-color: #00ff88;">
+                    <h4>✅ 580 Accepted</h4>
+                    <div class="detection-info">Expected species in correct time/place</div>
+                </div>
+                <div class="detection-card" style="border-left-color: #ff4444;">
+                    <h4>❌ 23 Rejected</h4>
+                    <div class="detection-info">Biological impossibilities auto-rejected</div>
+                </div>
+                <div class="detection-card" style="border-left-color: #ff8c00;">
+                    <h4>⚠️ 6,202 Review</h4>
+                    <div class="detection-info">Smart review selected 192 detections for manual verification</div>
+                </div>
             </div>
 
             <h3>Three-Way Classification System</h3>
@@ -252,12 +274,8 @@
             <div class="success-box">
                 <h3>Validation Summary</h3>
                 <p style="color: #d0d0d0; margin-bottom: 10px;">
-                    <strong>Result:</strong> Biological validator achieved <span style="color: #00ff88; font-weight: bold;">100% detection rate</span>
-                    on all 8 biologically impossible species (5 from manual review + 3 newly discovered).
-                </p>
-                <p style="color: #d0d0d0; margin-bottom: 10px;">
-                    <strong>False positives:</strong> <span style="color: #00ff88; font-weight: bold;">0</span>
-                    (no valid species incorrectly rejected)
+                    <strong>Result:</strong> Biological validator successfully identified all 8 biologically implausible species
+                    (5 from manual review + 3 newly discovered) based on temporal, habitat, and geographic constraints.
                 </p>
                 <p style="color: #d0d0d0;">
                     <strong>Impact:</strong> Species count corrected from 77 → 74 verified species, improving scientific accuracy of the study.
@@ -270,45 +288,47 @@
             <h2>Quick Start Example</h2>
 
             <p style="color: #d0d0d0; margin-bottom: 20px;">
-                Install and validate your BirdNET detections in under 5 minutes:
+                Install and validate your BirdNET detections in under 2 minutes - everything is automatic:
             </p>
 
+            <h3>CLI Usage (Recommended)</h3>
             <div class="code-box">
 <pre># Install Praven Pro
-pip install praven-pro
+pip install -r requirements.txt
 
-# Import biological validator
-from praven_pro.biological_validator import BiologicalValidator
-from datetime import datetime
+# Validate - just provide CSV and GPS coordinates
+# Everything else (date, weather, habitat) is detected automatically!
+python validate.py gaulossen_all_detections.csv --lat 63.341 --lon 10.215
 
-# Initialize with European species rules
-validator = BiologicalValidator(
-    rules_file="praven_pro/species_rules/european_birds.json",
-    location=(63.341, 10.215)  # Gaulosen coordinates
-)
-
-# Validate a detection
-result = validator.validate_detection(
-    species="Black Woodpecker",
-    timestamp=datetime(2025, 10, 14, 1, 35),  # 01:35 AM
-    location=(63.341, 10.215),
-    confidence=0.87
-)
-
-print(result.action)  # AUTO_REJECT
-print(result.reason)  # "Nocturnal detection of strictly diurnal species"</pre>
+# Output:
+# ✅ CSV date extraction: 2025-10-13 from recording_date column
+# ✅ Habitat auto-detection: grassland (39%), oceanic (23%), wetland (16%)
+# ✅ Weather auto-fetching: -18.9°C, rain 0.00, fog 0.00
+# ✅ Processed: 6,805 detections
+# ✅ Validated: 580 accepted, 23 rejected, 6,202 review
+# ✅ Smart review: 192 detections selected for manual verification</pre>
             </div>
 
-            <h3>Species Rules Database</h3>
+            <h3>Web Interface</h3>
+            <div class="code-box">
+<pre># Start web server
+python web_app.py
+
+# Open http://localhost:5001
+# Upload CSV, enter GPS coordinates
+# Download results with automatic habitat and weather data included!</pre>
+            </div>
+
+            <h3>Automatic Detection Features</h3>
             <p style="color: #d0d0d0; margin-bottom: 15px;">
-                The validator includes ecological rules for 41 European species, with plans to expand to:
+                Version 2.2 eliminates manual data entry through intelligent automation:
             </p>
             <ul>
-                <li>North American species (250+ species)</li>
-                <li>Call type validation (song vs. flight calls)</li>
-                <li>Regional phenology databases</li>
-                <li>Elevation constraints</li>
-                <li>Weather-based validation rules</li>
+                <li><strong>Date extraction:</strong> Reads recording_date, absolute_timestamp columns or parses YYYYMMDD from filenames</li>
+                <li><strong>Habitat detection:</strong> 1000m radius OpenStreetMap query identifies land cover (permanent caching)</li>
+                <li><strong>Weather fetching:</strong> Historical weather API retrieves conditions normalized to 0-1 scale (30-day TTL caching)</li>
+                <li><strong>Taxonomic validation:</strong> 40 bird families with species-specific rules for activity patterns and habitats</li>
+                <li><strong>Smart review:</strong> Selects top 3 highest-confidence detections per species for manual review</li>
             </ul>
         </section>
 
@@ -372,14 +392,14 @@ print(result.reason)  # "Nocturnal detection of strictly diurnal species"</pre>
         <section class="section">
             <h2>Future Development Roadmap</h2>
 
-            <h3>Planned Features for v2.1+</h3>
+            <h3>Planned Features for v2.3+</h3>
             <ul>
                 <li><strong>Expanded species coverage:</strong> North American, Asian, and African species rules</li>
                 <li><strong>Call type validation:</strong> Distinguish song vs. flight calls vs. alarm calls</li>
-                <li><strong>Machine learning integration:</strong> Predict rare/vagrant probability scores</li>
-                <li><strong>Regional phenology:</strong> Migration timing varies by latitude</li>
+                <li><strong>Enhanced ML integration:</strong> Improved rare/vagrant probability prediction</li>
+                <li><strong>Regional phenology:</strong> Migration timing varies by latitude (eBird data integration)</li>
                 <li><strong>Confidence thresholds:</strong> Species-specific confidence requirements</li>
-                <li><strong>Habitat modeling:</strong> Integration with eBird occurrence data</li>
+                <li><strong>Advanced habitat modeling:</strong> Integration with eBird occurrence data and elevation constraints</li>
                 <li><strong>Multi-species validation:</strong> Check for biologically impossible co-occurrences</li>
             </ul>
 
@@ -395,9 +415,10 @@ print(result.reason)  # "Nocturnal detection of strictly diurnal species"</pre>
             <h2>How to Cite</h2>
 
             <div class="code-box">
-<pre>Redpath, G. (2025). Praven Pro: BirdNET to Raven Pro Conversion
-Toolkit with Biological Validation (Version 2.0). GitHub repository.
-https://github.com/Ziforge/praven-pro</pre>
+<pre>Redpath, G. (2025). Praven Pro: Automated Biological Validation Toolkit
+for BirdNET Detections (Version 2.2). GitHub repository.
+https://github.com/Ziforge/praven-pro
+https://ziforge.github.io/praven-pro</pre>
             </div>
         </section>
 
@@ -405,7 +426,7 @@ https://github.com/Ziforge/praven-pro</pre>
             <p>Gaulosen Nature Reserve Acoustic Monitoring Study</p>
             <p>October 13-15, 2025 - Gaulosen Nature Reserve, Melhus, Trøndelag, Norway</p>
             <p>74 Verified Species | 4,023 Verified Detections | 82.2% Overall Pass Rate (74/90)</p>
-            <p style="margin-top: 15px;">Powered by <a href="https://github.com/Ziforge/praven-pro" target="_blank">Praven Pro v2.0</a> - Open Source Bioacoustic Analysis</p>
+            <p style="margin-top: 15px;">Powered by <a href="https://github.com/Ziforge/praven-pro" target="_blank">Praven Pro v2.2</a> - Open Source Bioacoustic Analysis</p>
         </footer>
     </div>
 </body>
