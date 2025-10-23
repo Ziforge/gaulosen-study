@@ -324,41 +324,12 @@ where $D$ is spectrogram, $D_h$ harmonic component (bird calls), $D_p$ percussiv
 
 \textbf{Parameters:} Margin=2.0, kernel size=31, power=2.0. Enhanced audio clips (4,260 files) generated for detections with confidence $\geq$0.25.
 
-\begin{figure*}[p]
+\begin{figure}[t]
 \centering
-\begin{subfigure}{0.78\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/comparison_graylag_goose.png}
-\caption{Graylag Goose (n=2,871): Rain noise reduction via Wiener filtering reveals harmonic structure (500-1,500 Hz)}
-\end{subfigure}
-
-\vspace{0.8cm}
-
-\begin{subfigure}{0.78\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/comparison_great_snipe.png}
-\caption{Great Snipe (n=189): HPSS separates pulsed migration calls from percussive rain impacts}
-\end{subfigure}
-
-\vspace{0.8cm}
-
-\begin{subfigure}{0.78\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/comparison_hooded_crow.png}
-\caption{Hooded Crow (n=87): Broadband alarm call enhancement improves spectrotemporal clarity}
-\end{subfigure}
-
-\vspace{0.8cm}
-
-\begin{subfigure}{0.78\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/comparison_common_crane.png}
-\caption{Common Crane (n=70): Wiener + HPSS pipeline preserves strong harmonics while suppressing rain noise (2-6 kHz)}
-\end{subfigure}
-
-\caption{\textbf{Audio enhancement pipeline effectiveness: Processed vs unprocessed spectrograms.} Side-by-side comparisons demonstrate rain noise reduction and harmonic preservation across four key species. (Left panels) Unprocessed raw audio shows broadband rain noise contamination, particularly in 2-6 kHz band. (Right panels) Sequential Wiener filtering + HPSS processing isolates harmonic bird vocalizations while suppressing percussive rain transients. Enhancement pipeline improved BirdNET classification confidence by mean +8.4\% (95\% CI: [+6.1\%, +10.7\%]) and enabled 91\% successful species verification rate despite 80\% rain coverage during recording period. Note: Color scale normalized independently for each panel to maximize contrast.}
+\includegraphics[width=\columnwidth]{figures/comparison_graylag_goose.png}
+\caption{\textbf{Audio enhancement pipeline effectiveness: Processed vs unprocessed spectrograms.} Side-by-side comparison of Graylag Goose (n=2,871) demonstrates rain noise reduction and harmonic preservation. (Left panel) Unprocessed raw audio shows broadband rain noise contamination, particularly in 2-6 kHz band. (Right panel) Sequential Wiener filtering + HPSS processing isolates harmonic bird vocalizations (500-1,500 Hz) while suppressing percussive rain transients. Enhancement pipeline improved BirdNET classification confidence by mean +8.4\% (95\% CI: [+6.1\%, +10.7\%]) and enabled 91\% successful species verification rate despite 80\% rain coverage during recording period. Note: Color scale normalized independently for each panel to maximize contrast.}
 \label{fig:processing_comparison}
-\end{figure*}
+\end{figure}
 
 \subsection{Praven Pro: BirdNET-Raven Integration Toolkit}
 
