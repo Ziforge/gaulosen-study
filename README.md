@@ -226,7 +226,7 @@ gantt
 ## 🛠️ Tools & Technologies
 
 - **BirdNET v2.4** - Deep learning bird species classifier (Cornell Lab)
-- **Praven Pro 2.2** - BirdNET to Raven Pro conversion toolkit ([GitHub](https://github.com/Ziforge/praven-pro))
+- **Praven Pro 2.2** - BirdNET to Raven Pro conversion toolkit ([Web App](https://ziforge.github.io/praven-pro) | [GitHub](https://github.com/Ziforge/praven-pro))
 - **Merlin Bird ID** - Visual species verification (Cornell Lab)
 - **librosa** - Audio signal processing (Wiener filtering, HPSS)
 - **LaTeX + TikZ** - Academic paper with vector diagrams
