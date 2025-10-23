@@ -1,0 +1,5 @@
+original_filename,readable_name,date,start_time,period,duration_hours,description,temperature_c,conditions,wind_ms,humidity,weather_summary
+245AAA0563ED3DA7_20251013_113753.WAV,2025-10-13_Morning_LightRain_7-11C,2025-10-13,11:37:53,morning,12.37,"October 13 afternoon/evening recording - Light rain, fog, 7-11°C",7-11,"Light rain, drizzle, fog",1.7-5.8,97-99%,"Damp, foggy, low visibility"
+245AAA0563ED3DA7_20251014_000000.WAV,2025-10-14_Night_LightRain_11C,2025-10-14,00:00:00,night,12.42,"October 14 night recording - Light rain, 11°C",11,"Light rain, passing clouds",5.0,94-98%,Light rain overnight
+245AAA0563ED3DA7_20251014_122526.WAV,2025-10-14_Afternoon_BrokenClouds_11C,2025-10-14,12:25:26,afternoon,11.58,"October 14 afternoon/evening - Clearing conditions, 11°C",11,"Broken clouds, improving",5.0,94-98%,"Clearing, drier"
+245AAA0563ED3DA7_20251015_000000.WAV,2025-10-15_Night_PartlyCloudy_10-11C,2025-10-15,00:00:00,night,12.42,"October 15 night recording - Partly cloudy, 10-11°C",10-11,"Passing clouds, broken clouds",3.1-7.2,91-98%,"Partly cloudy, unsettled"

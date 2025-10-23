@@ -932,7 +932,29 @@ The two-stage verification protocol (82.2\% overall pass rate, Stage 2: 90.2\% w
 
 Gaulosen Nature Reserve supported a diverse avian community during this autumn migration snapshot (October 13--15, 2025), with soundscape dominated by highly social waterfowl species exhibiting complex interspecies interactions. Continued multi-season acoustic monitoring could yield long-term datasets critical for documenting climate-driven phenology shifts and population trends in this globally significant migratory corridor.
 
-\textbf{Praven Pro 2.2 - Automated Biological Validation:} Following this study, Praven Pro has been extended to version 2.2 with automated biological validation capabilities \citep{Redpath2025}. The enhanced system now includes: (1) \textbf{Automatic habitat detection} from GPS coordinates using OpenStreetMap Overpass API to identify land cover types and hybrid habitats, (2) \textbf{Automatic weather fetching} from Open-Meteo historical weather API based on GPS coordinates and detection timestamps extracted from CSV files, (3) \textbf{Smart review selection} that prioritizes top 3 highest-confidence detections per species (6,202 → 192 detections for this study's dataset selected for manual review), (4) \textbf{Taxonomic rule validation} covering 40 bird families with species-specific temporal patterns (diurnal/nocturnal), habitat preferences, and geographic range checks, and (5) \textbf{Simplified web interface} requiring only CSV upload and GPS coordinates, with all contextual data (date, weather, habitat) extracted automatically. The system achieved 82.2\% species-level verification pass rate (74/90 species) on the Gaulosen dataset, demonstrating practical deployment readiness for wetland monitoring programs. Complete source code, documentation, and live demonstration available at \url{https://ziforge.github.io/praven-pro} and \url{https://github.com/Ziforge/praven-pro}.
+\subsection{Praven Pro 2.2: Capabilities and Limitations}
+
+\textbf{Automated Biological Validation:} Following this study, Praven Pro has been extended to version 2.2 with automated biological validation capabilities \citep{Redpath2025}. The enhanced system now includes: (1) \textbf{Automatic habitat detection} from GPS coordinates using OpenStreetMap Overpass API to identify land cover types and hybrid habitats, (2) \textbf{Automatic weather fetching} from Open-Meteo historical weather API based on GPS coordinates and detection timestamps extracted from CSV files, (3) \textbf{Smart review selection} that prioritizes top 3 highest-confidence detections per species (6,202 → 192 detections for this study's dataset selected for manual review), (4) \textbf{Taxonomic rule validation} covering 40 bird families with species-specific temporal patterns (diurnal/nocturnal), habitat preferences, and geographic range checks, and (5) \textbf{Simplified web interface} requiring only CSV upload and GPS coordinates, with all contextual data (date, weather, habitat) extracted automatically. The system achieved 82.2\% species-level verification pass rate (74/90 species) on the Gaulosen dataset, demonstrating practical deployment readiness for wetland monitoring programs.
+
+\textbf{Critical Limitations:} Praven Pro 2.2 has only been validated on the Gaulosen dataset (single location, single season, wetland habitat, rain-dominated weather). Key constraints requiring community development include:
+
+\begin{itemize}
+\item \textbf{Limited validation scope}: Tested exclusively on autumn migration wetland monitoring in Norway. Performance in other habitats (forest, desert, alpine, tropical), seasons, or weather conditions remains unvalidated.
+
+\item \textbf{Incomplete taxonomic coverage}: Behavioral rules cover only 40 bird families. The remaining families (particularly non-passerines and cryptic species pairs) require manual expert review. Taxonomic rule database needs expansion by ornithologists with regional expertise.
+
+\item \textbf{Terrain-specific limitations}: Habitat classification relies on OpenStreetMap data quality, which varies globally. Complex terrain (e.g., ecotones, urban-wildland interfaces, coastal zones) may produce ambiguous habitat assignments requiring manual verification.
+
+\item \textbf{Weather data dependency}: Historical weather API coverage is incomplete for remote locations. Missing or low-resolution meteorological data reduces validation accuracy for temporal patterns.
+
+\item \textbf{Geographic range limitations}: Range validation depends on eBird occurrence data, which has geographic and taxonomic biases. Poorly sampled regions (e.g., parts of Africa, Asia, oceanic islands) may produce false rejections of valid detections.
+
+\item \textbf{Manual review still required}: Praven Pro reduces manual review burden (6,805→192 detections in this study) but does not eliminate it. Final species-level accept/reject decisions require expert judgment, particularly for rare species, cryptic species pairs, and borderline cases.
+
+\item \textbf{Open-source community development needed}: Expanding behavioral rule databases, validating across diverse ecosystems, and improving habitat/weather integration requires collaborative development by the bioacoustics research community. Contributors with regional ornithological expertise are essential for improving global applicability.
+\end{itemize}
+
+Complete source code, documentation, and live demonstration available at \url{https://ziforge.github.io/praven-pro} and \url{https://github.com/Ziforge/praven-pro}. Community contributions welcome via GitHub.
 
 \section*{Acknowledgments}
 

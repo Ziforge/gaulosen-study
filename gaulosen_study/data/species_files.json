@@ -1,0 +1,310 @@
+{
+  "Graylag Goose": {
+    "audio": "results/audio_clips_enhanced/2025-10-13_11h37m_Graylag_Goose_16896s_conf0290.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251013_113753_Graylag_Goose_17643s_conf0991.png"
+  },
+  "Gray Heron": {
+    "audio": "results/audio_clips_enhanced/2025-10-15_00h00m_Gray_Heron_41019s_conf0434.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_122526_Gray_Heron_28485s_conf0989.png"
+  },
+  "Common Sandpiper": {
+    "audio": "results/audio_clips_enhanced/2025-10-13_11h37m_Common_Sandpiper_30327s_conf0328.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_122526_Common_Sandpiper_15243s_conf0978.png"
+  },
+  "Pink-footed Goose": {
+    "audio": "results/audio_clips_enhanced/2025-10-15_00h00m_Pink-footed_Goose_19428s_conf0367.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Pink-footed_Goose_43503s_conf0974.png"
+  },
+  "Great Snipe": {
+    "audio": "results/audio_clips_enhanced/2025-10-13_11h37m_Great_Snipe_31233s_conf0278.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251013_113753_Great_Snipe_31848s_conf0957.png"
+  },
+  "Richard's Pipit": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_00h00m_Richard's_Pipit_30885s_conf0940.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Richard's_Pipit_30885s_conf0940.png"
+  },
+  "Eurasian Woodcock": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_00h00m_Eurasian_Woodcock_28848s_conf0294.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Eurasian_Woodcock_31257s_conf0926.png"
+  },
+  "Red-breasted Flycatcher": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_00h00m_Red-breasted_Flycatcher_26472s_conf0264.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Red-breasted_Flycatcher_28923s_conf0901.png"
+  },
+  "Snow Bunting": {
+    "audio": "results/audio_clips_enhanced/2025-10-15_00h00m_Snow_Bunting_42906s_conf0686.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Snow_Bunting_42909s_conf0897.png"
+  },
+  "Eurasian Nutcracker": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_00h00m_Eurasian_Nutcracker_21564s_conf0473.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Eurasian_Nutcracker_22068s_conf0890.png"
+  },
+  "Common Grasshopper-Warbler": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_00h00m_Common_Grasshopper-Warbler_30528s_conf0796.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Common_Grasshopper-Warbler_28815s_conf0887.png"
+  },
+  "Eurasian Magpie": {
+    "audio": "results/audio_clips_enhanced/2025-10-15_00h00m_Eurasian_Magpie_33453s_conf0369.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251013_113753_Eurasian_Magpie_5073s_conf0883.png"
+  },
+  "Yellowhammer": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_00h00m_Yellowhammer_33684s_conf0281.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Yellowhammer_31626s_conf0832.png"
+  },
+  "Pine Grosbeak": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_00h00m_Pine_Grosbeak_43296s_conf0825.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Pine_Grosbeak_43296s_conf0825.png"
+  },
+  "Rook": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_00h00m_Rook_42426s_conf0374.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Rook_33294s_conf0820.png"
+  },
+  "Hooded Crow": {
+    "audio": "results/audio_clips_enhanced/2025-10-13_11h37m_Hooded_Crow_11964s_conf0316.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251013_113753_Hooded_Crow_8568s_conf0802.png"
+  },
+  "Redwing": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_00h00m_Redwing_25530s_conf0783.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Redwing_25530s_conf0783.png"
+  },
+  "Common Crane": {
+    "audio": "results/audio_clips_enhanced/2025-10-13_11h37m_Common_Crane_13686s_conf0296.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_122526_Common_Crane_20082s_conf0763.png"
+  },
+  "Carrion Crow": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_12h25m_Carrion_Crow_3663s_conf0270.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Carrion_Crow_27471s_conf0757.png"
+  },
+  "Mallard": {
+    "audio": "results/audio_clips_enhanced/2025-10-13_11h37m_Mallard_19263s_conf0268.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251013_113753_Mallard_6456s_conf0753.png"
+  },
+  "Greater White-fronted Goose": {
+    "audio": "results/audio_clips_enhanced/2025-10-15_00h00m_Greater_White-fronted_Goose_13026s_conf0281.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251013_113753_Greater_White-fronted_Goose_13698s_conf0736.png"
+  },
+  "European Greenfinch": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_00h00m_European_Greenfinch_31359s_conf0728.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_European_Greenfinch_31359s_conf0728.png"
+  },
+  "Meadow Pipit": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_00h00m_Meadow_Pipit_28998s_conf0267.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Meadow_Pipit_40425s_conf0717.png"
+  },
+  "Eurasian Blue Tit": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_00h00m_Eurasian_Blue_Tit_28992s_conf0710.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Eurasian_Blue_Tit_28992s_conf0710.png"
+  },
+  "Brambling": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_00h00m_Brambling_32277s_conf0683.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Brambling_32277s_conf0683.png"
+  },
+  "Tree Pipit": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_00h00m_Tree_Pipit_26316s_conf0675.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Tree_Pipit_26316s_conf0675.png"
+  },
+  "Eurasian Oystercatcher": {
+    "audio": "results/audio_clips_enhanced/2025-10-13_11h37m_Eurasian_Oystercatcher_12087s_conf0674.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251013_113753_Eurasian_Oystercatcher_12087s_conf0674.png"
+  },
+  "Eurasian Curlew": {
+    "audio": "results/audio_clips_enhanced/2025-10-15_00h00m_Eurasian_Curlew_9927s_conf0271.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_122526_Eurasian_Curlew_15798s_conf0666.png"
+  },
+  "Brant": {
+    "audio": "results/audio_clips_enhanced/2025-10-15_00h00m_Brant_18618s_conf0664.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Brant_18618s_conf0664.png"
+  },
+  "Northern Lapwing": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_00h00m_Northern_Lapwing_19443s_conf0484.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_122526_Northern_Lapwing_5760s_conf0662.png"
+  },
+  "Ring-necked Pheasant": {
+    "audio": "results/audio_clips_enhanced/2025-10-15_00h00m_Ring-necked_Pheasant_12333s_conf0283.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Ring-necked_Pheasant_43569s_conf0662.png"
+  },
+  "Gray Wagtail": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_00h00m_Gray_Wagtail_27846s_conf0641.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Gray_Wagtail_27846s_conf0641.png"
+  },
+  "Canada Goose": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_12h25m_Canada_Goose_17085s_conf0283.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Canada_Goose_44319s_conf0637.png"
+  },
+  "Eurasian Coot": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_12h25m_Eurasian_Coot_20445s_conf0292.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Eurasian_Coot_43830s_conf0628.png"
+  },
+  "Water Rail": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_12h25m_Water_Rail_2571s_conf0278.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Water_Rail_10614s_conf0619.png"
+  },
+  "Western Yellow Wagtail": {
+    "audio": "results/audio_clips_enhanced/2025-10-15_00h00m_Western_Yellow_Wagtail_35949s_conf0593.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Western_Yellow_Wagtail_35949s_conf0593.png"
+  },
+  "White Wagtail": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_00h00m_White_Wagtail_30717s_conf0339.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_White_Wagtail_30420s_conf0579.png"
+  },
+  "Tundra Swan": {
+    "audio": "results/audio_clips_enhanced/2025-10-13_11h37m_Tundra_Swan_11874s_conf0333.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251013_113753_Tundra_Swan_13476s_conf0566.png"
+  },
+  "European Robin": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_00h00m_European_Robin_31044s_conf0337.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_European_Robin_32253s_conf0553.png"
+  },
+  "Eurasian Moorhen": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_12h25m_Eurasian_Moorhen_2496s_conf0542.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_122526_Eurasian_Moorhen_2496s_conf0542.png"
+  },
+  "Black-headed Gull": {
+    "audio": "results/audio_clips_enhanced/2025-10-13_11h37m_Black-headed_Gull_5088s_conf0513.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251013_113753_Black-headed_Gull_5088s_conf0513.png"
+  },
+  "Whooper Swan": {
+    "audio": "results/audio_clips_enhanced/2025-10-15_00h00m_Whooper_Swan_16920s_conf0306.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Whooper_Swan_39717s_conf0512.png"
+  },
+  "Common Snipe": {
+    "audio": "results/audio_clips_enhanced/2025-10-13_11h37m_Common_Snipe_18816s_conf0508.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251013_113753_Common_Snipe_18816s_conf0508.png"
+  },
+  "Little Bunting": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_00h00m_Little_Bunting_28917s_conf0506.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Little_Bunting_28917s_conf0506.png"
+  },
+  "Herring Gull": {
+    "audio": "results/audio_clips_enhanced/2025-10-15_00h00m_Herring_Gull_40422s_conf0504.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Herring_Gull_40422s_conf0504.png"
+  },
+  "Common Redpoll": {
+    "audio": "results/audio_clips_enhanced/2025-10-15_00h00m_Common_Redpoll_41517s_conf0331.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Common_Redpoll_42162s_conf0499.png"
+  },
+  "Gray Partridge": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_12h25m_Gray_Partridge_174s_conf0285.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_122526_Gray_Partridge_2532s_conf0498.png"
+  },
+  "Mistle Thrush": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_00h00m_Mistle_Thrush_18933s_conf0326.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Mistle_Thrush_24924s_conf0482.png"
+  },
+  "Bank Swallow": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_12h25m_Bank_Swallow_7131s_conf0299.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251013_113753_Bank_Swallow_7077s_conf0472.png"
+  },
+  "Eurasian Jay": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_00h00m_Eurasian_Jay_44007s_conf0468.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Eurasian_Jay_44007s_conf0468.png"
+  },
+  "Arctic Warbler": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_00h00m_Arctic_Warbler_29391s_conf0415.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Arctic_Warbler_29232s_conf0462.png"
+  },
+  "Lapland Longspur": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_12h25m_Lapland_Longspur_3216s_conf0339.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Lapland_Longspur_42906s_conf0452.png"
+  },
+  "Fieldfare": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_00h00m_Fieldfare_24174s_conf0439.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Fieldfare_24174s_conf0439.png"
+  },
+  "Black-bellied Plover": {
+    "audio": "results/audio_clips_enhanced/2025-10-15_00h00m_Black-bellied_Plover_41268s_conf0435.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Black-bellied_Plover_41268s_conf0435.png"
+  },
+  "Great Gray Shrike": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_00h00m_Great_Gray_Shrike_23088s_conf0433.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Great_Gray_Shrike_23088s_conf0433.png"
+  },
+  "Dunlin": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_12h25m_Dunlin_25173s_conf0263.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_122526_Dunlin_17913s_conf0404.png"
+  },
+  "Black Woodpecker": {
+    "audio": "results/audio_clips_enhanced/2025-10-15_00h00m_Black_Woodpecker_9750s_conf0283.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Black_Woodpecker_8823s_conf0394.png"
+  },
+  "Taiga Bean-Goose": {
+    "audio": "results/audio_clips_enhanced/2025-10-15_00h00m_Taiga_Bean-Goose_44631s_conf0385.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Taiga_Bean-Goose_44631s_conf0385.png"
+  },
+  "Eurasian Eagle-Owl": {
+    "audio": "results/audio_clips_enhanced/2025-10-15_00h00m_Eurasian_Eagle-Owl_43653s_conf0381.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Eurasian_Eagle-Owl_43653s_conf0381.png"
+  },
+  "Tundra Bean-Goose": {
+    "audio": "results/audio_clips_enhanced/2025-10-15_00h00m_Tundra_Bean-Goose_43311s_conf0260.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Tundra_Bean-Goose_44631s_conf0358.png"
+  },
+  "Ortolan Bunting": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_00h00m_Ortolan_Bunting_33510s_conf0278.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_122526_Ortolan_Bunting_4389s_conf0336.png"
+  },
+  "Common House-Martin": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_12h25m_Common_House-Martin_5589s_conf0330.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_122526_Common_House-Martin_5589s_conf0330.png"
+  },
+  "Black-legged Kittiwake": {
+    "audio": "results/audio_clips_enhanced/2025-10-15_00h00m_Black-legged_Kittiwake_25818s_conf0320.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Black-legged_Kittiwake_25818s_conf0320.png"
+  },
+  "Common Buzzard": {
+    "audio": "results/audio_clips_enhanced/2025-10-15_00h00m_Common_Buzzard_40560s_conf0314.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Common_Buzzard_40560s_conf0314.png"
+  },
+  "Gadwall": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_12h25m_Gadwall_4725s_conf0307.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_122526_Gadwall_4725s_conf0307.png"
+  },
+  "Common Tern": {
+    "audio": "results/audio_clips_enhanced/2025-10-15_00h00m_Common_Tern_41292s_conf0306.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Common_Tern_41292s_conf0306.png"
+  },
+  "Red-throated Loon": {
+    "audio": "results/audio_clips_enhanced/2025-10-15_00h00m_Red-throated_Loon_27099s_conf0304.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Red-throated_Loon_27099s_conf0304.png"
+  },
+  "European Golden-Plover": {
+    "audio": "results/audio_clips_enhanced/2025-10-15_00h00m_European_Golden-Plover_40905s_conf0303.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_European_Golden-Plover_40905s_conf0303.png"
+  },
+  "Reed Bunting": {
+    "audio": "results/audio_clips_enhanced/2025-10-15_00h00m_Reed_Bunting_35949s_conf0293.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251015_000000_Reed_Bunting_35949s_conf0293.png"
+  },
+  "Arctic Tern": {
+    "audio": "results/audio_clips_enhanced/2025-10-13_11h37m_Arctic_Tern_27714s_conf0293.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251013_113753_Arctic_Tern_27714s_conf0293.png"
+  },
+  "Dunnock": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_00h00m_Dunnock_32583s_conf0285.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Dunnock_32583s_conf0285.png"
+  },
+  "Corn Crake": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_00h00m_Corn_Crake_26580s_conf0272.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Corn_Crake_26580s_conf0272.png"
+  },
+  "Common Goldeneye": {
+    "audio": "results/audio_clips_enhanced/2025-10-13_11h37m_Common_Goldeneye_20886s_conf0265.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251013_113753_Common_Goldeneye_20886s_conf0265.png"
+  },
+  "Common Raven": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_12h25m_Common_Raven_20694s_conf0262.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_122526_Common_Raven_20694s_conf0262.png"
+  },
+  "River Warbler": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_00h00m_River_Warbler_26664s_conf0254.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_River_Warbler_26664s_conf0254.png"
+  },
+  "Tawny Owl": {
+    "audio": "results/audio_clips_enhanced/2025-10-14_00h00m_Tawny_Owl_17463s_conf0339.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_122526_Tawny_Owl_31671s_conf0815.png"
+  },
+  "Eurasian Pygmy-Owl": {
+    "audio": "results/audio_clips_enhanced/2025-10-13_11h37m_Eurasian_Pygmy-Owl_37185s_conf0254.mp3",
+    "spectrogram": "results/spectrograms_best/245AAA0563ED3DA7_20251014_000000_Eurasian_Pygmy-Owl_10815s_conf0646.png"
+  }
+}
