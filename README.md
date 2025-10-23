@@ -226,11 +226,37 @@ gantt
 ## 🛠️ Tools & Technologies
 
 - **BirdNET v2.4** - Deep learning bird species classifier (Cornell Lab)
-- **Praven Pro** - BirdNET to Raven Pro conversion toolkit ([GitHub](https://github.com/Ziforge/praven-pro))
+- **Praven Pro 2.2** - BirdNET to Raven Pro conversion toolkit ([GitHub](https://github.com/Ziforge/praven-pro))
 - **Merlin Bird ID** - Visual species verification (Cornell Lab)
 - **librosa** - Audio signal processing (Wiener filtering, HPSS)
 - **LaTeX + TikZ** - Academic paper with vector diagrams
 - **GitHub Pages** - Interactive website deployment
+
+### BirdNET vs Praven Pro: Feature Comparison
+
+**What BirdNET v2.4 provides:**
+- ✅ Deep learning species classification (6,000+ species)
+- ✅ Geographic filtering (`--lat`, `--lon`) using eBird occurrence data
+- ✅ Temporal filtering (`--week`) for seasonal species lists
+- ✅ Confidence thresholds and sensitivity adjustment
+
+**What BirdNET DOES NOT provide:**
+- ❌ Nocturnal/diurnal activity validation (e.g., woodpeckers cannot vocalize at night)
+- ❌ Migration timing validation (e.g., Corn Crake should be in Africa by October)
+- ❌ Habitat plausibility checking (e.g., oceanic species cannot occur inland)
+- ❌ Behavioral impossibility detection
+- ❌ Taxonomic rule-based validation (40+ bird family patterns)
+
+**What Praven Pro 2.2 adds:**
+- ✅ **Automated biological validation** - 40 bird families with temporal/habitat rules
+- ✅ **Nocturnal impossibility detection** - Rejected Black Woodpecker at 2:27 AM
+- ✅ **Migration timing validation** - Rejected Corn Crake in October (should be in Africa)
+- ✅ **Habitat validation** - Rejected Storm-Petrel inland (oceanic species)
+- ✅ **Automatic weather fetching** - Cross-references detection times with conditions
+- ✅ **Smart review selection** - Prioritizes top 3 detections per species (6,805→192 for manual review)
+- ✅ **GPS-based habitat detection** - OpenStreetMap Overpass API for land cover types
+
+**Key Distinction:** BirdNET's `--lat/--lon/--week` filters reduce the *initial species list* based on eBird probability. Praven Pro validates *detected species* against behavioral ecology rules after BirdNET analysis. Both are complementary - geographic filtering reduces false positives, biological validation catches ecological impossibilities.
 
 ## 📚 Data Access
 
