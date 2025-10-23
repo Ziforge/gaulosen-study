@@ -493,6 +493,28 @@
                 <li><strong>Co-occurrence</strong>: Species within 10-minute windows</li>
                 <li><strong>Scientific Validation</strong>: 26 peer-reviewed sources</li>
             </ul>
+
+            <div class="highlight-box" style="background: rgba(0, 212, 255, 0.1); border-color: #00d4ff; margin-top: 20px;">
+                <h3>🔬 BirdNET vs Praven Pro: Validation Layers</h3>
+                <p><strong>BirdNET v2.4 Built-In Filtering:</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li>✅ Geographic filtering (--lat, --lon) using eBird occurrence data</li>
+                    <li>✅ Temporal filtering (--week) for seasonal species lists</li>
+                    <li>✅ Reduces initial species list before analysis</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Praven Pro 2.2 Biological Validation (This Study):</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li>✅ Nocturnal impossibility detection (e.g., Black Woodpecker at 2:27 AM rejected)</li>
+                    <li>✅ Migration timing validation (e.g., Corn Crake in October rejected)</li>
+                    <li>✅ Habitat plausibility (e.g., oceanic species inland rejected)</li>
+                    <li>✅ 40 bird family behavioral rules</li>
+                    <li>✅ Automatic weather cross-referencing</li>
+                    <li>✅ Smart review selection (6,805→192 detections)</li>
+                </ul>
+                <p style="margin-top: 15px; font-style: italic; color: #aaa;">
+                    <strong>Key Distinction:</strong> BirdNET filters reduce the species list based on geography/season. Praven Pro validates detected species against behavioral ecology after BirdNET analysis. Both are complementary and necessary.
+                </p>
+            </div>
         </section>
 
         <!-- Featured Species -->
