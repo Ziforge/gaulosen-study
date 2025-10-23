@@ -277,6 +277,19 @@ https://ziforge.github.io/gaulosen-study/
 - Validates PAM for year-round, weather-independent monitoring
 - Identifies conservation priority species presence (Great Snipe)
 
+## 🤖 AI Acknowledgment
+
+This study acknowledges AI assistance from **Claude (Anthropic)** via **Claude Code** for:
+- Batch testing and data verification
+- Comprehensive biological plausibility screening
+- Automated analysis workflows
+- Document preparation and LaTeX formatting
+- TikZ diagram design and technical illustrations
+
+All scientific decisions, field observations, species verifications, and interpretations were made by the human researcher. AI tools were used for workflow automation, data processing, and documentation assistance.
+
+Full disclosure included in academic paper (page 19, Acknowledgments section).
+
 ## 📞 Support & Contact
 
 **Analysis:** George Redpath, NTNU Student
