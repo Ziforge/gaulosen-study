@@ -61,7 +61,7 @@ flowchart LR
     B --> C[BirdNET Analysis<br/>90 species, 6,805 detections]
     C --> D[Enhancement Pipeline<br/>Wiener + HPSS]
     D --> E[Human Verification<br/>Spectrogram review]
-    E --> F[Stage 2: Biological Validation<br/>82→74 species (90.2%)]
+    E --> F[Stage 2: Biological Validation<br/>82 to 74 species - 90.2%]
     F --> G[Final Dataset<br/>74 species, 4,023 calls]
     G --> H[Deliverables]
     H --> I[LaTeX Paper<br/>19 pages, 18 refs]
